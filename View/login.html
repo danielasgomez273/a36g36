@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+ 
+<!-- Empieza Head -->  
+   <head>
+      <meta charset="utf-8">
+      
+<!-- Css -->      
+      <link rel="stylesheet" href="assets/css/login.css">
+
+<!-- Título -->
+      <title>Ingresar</title>
+
+<!-- Description -->
+<meta name="description" content="OneDrop aplicación de ..."> 
+<!-- completar con la descripción-->
+
+<!-- Keywords -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="md:locale" content="es_es"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+<meta name="keywords" content="salud, diabetes"> <!-- completar -->
+<meta name="origen" content="OneDrop" />
+<meta name="author" content="Grupo 30 - OneDrop" />
+<meta name="copyright" content="&copy; 2022 OneDrop" />
+<meta name="locality" content="CÓRDOBA, Argentina" />
+<meta name="language" content="es" />
+<meta name="revisit-after" content="1 days" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- Favicons -->
+
+   </head> <!-- Termina Head -->    
+
+<!-- Empieza Body -->
+   <body> 
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Miembros
+            </div>
+            <div class="title signup">
+               Unirse
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="slide-controls">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+               <label for="login" class="slide login">Ingresar</label>
+               <label for="signup" class="slide signup">Registrarse</label>
+               <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+               <form action="#" class="login">
+                  <div class="field">
+                     <input type="text" placeholder="Correo Electrónico" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Contraseña" required>
+                  </div>
+                  <div class="pass-link">
+                     <a href="#">Olvidó su contraseña?</a>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Ingresar">
+                  </div>
+                  <div class="signup-link">
+                     No es miembro? <a href=""> Registrarse</a>
+                  </div>
+               </form>
+               <form action="#" class="signup">
+                  <div class="field">
+                     <input type="text" placeholder="Correo electrónico" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Contraseña" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Confirmar contraseña" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Registrarse">
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <script>
+         const loginText = document.querySelector(".title-text .login");
+         const loginForm = document.querySelector("form.login");
+         const loginBtn = document.querySelector("label.login");
+         const signupBtn = document.querySelector("label.signup");
+         const signupLink = document.querySelector("form .signup-link a");
+         signupBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "-50%";
+           loginText.style.marginLeft = "-50%";
+         });
+         loginBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "0%";
+           loginText.style.marginLeft = "0%";
+         });
+         signupLink.onclick = (()=>{
+           signupBtn.click();
+           return false;
+         });
+      </script>
+   </body> <!-- Termina Body -->
+</html>
