@@ -1,4 +1,0 @@
-aca deberia estar la logica que recibe los datos desde la vista (por medio del controlador) y los trabaja para 
-guardarlos en la BD
-
-Tambien esta la logica que consulta la BD para enviar la info trabajada a la vista (por medio del controlador)
