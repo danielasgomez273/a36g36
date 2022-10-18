@@ -132,6 +132,16 @@ div.container2 {
     border-width: 2px;
 }
 
+#btnLoginABorrar{
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #1A609F;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+}
+
 .boton2 {
     background-color: #fa4299;
     border-color: white;
@@ -363,7 +373,7 @@ footer p {
     }
     
     .nav-link {
-        color: white !important;
+        color: rgb(0, 0, 0) !important;
     }
     
     .boton1 {
@@ -432,7 +442,7 @@ footer p {
     }
     
     .nav-link {
-        color: white !important;
+        color: rgb(0, 0, 0) !important;
     }
     
     .boton1 {
@@ -452,7 +462,7 @@ footer p {
         position: relative;
     }
     footer {
-        background-color: black;
+        background-color: #333333;
         color: white;
         padding: 2px;
     }
@@ -502,7 +512,7 @@ footer p {
     }
     
     .nav-link {
-        color: white !important;
+        color: rgb(0, 0, 0) !important;
     }
     
 }
