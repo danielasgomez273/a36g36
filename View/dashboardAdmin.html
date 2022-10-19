@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Empieza Head -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>OneDrop</title>
+  <!-- Acá tenemos que completar con la descripción de la página y las palabras claves -->
+  <meta content="" name="descripcion">
+  <meta content="" name="palabras claves">
+
+  <!-- Favicons -->
+  <!-- Acá deberíamos linkear a los favicons / acordarse de guardar el .png dentro de la carpeta "img" de la carpeta "assets" y con estos nombres -->
+  <link rel="shortcut icon" href="assets/img/favicon.png">
+  <!--link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"-->
+
+
+  <!-- CSS dashboard Administrador -->
+  <link rel="stylesheet" href="assets/css/dashboardAdmin.css">
+
+
+  <!-- Bootstrap  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head> <!-- Fin Head -->
+
+<body>
+  <!-- Empieza Body -->
+  <div id="content-wrapped" class="d-flex">
+    <!-- SIDEBAR FANTASMA -->
+    <div id="sidebar-container" class="bg-info border-right ">
+      <div class="menu list-group-flush  "></div>
+    </div>
+    <!-- SIDEBAR REAL -->
+    <div id="sidebar-container-NOF" class="bg-info border-right position-fixed">
+      <div class="logo">Menu Admin</div>
+      <div class="menu list-group-flush  ">
+        dashboardAdmin.html#pacientes
+        <a href="dashboardAdmin.html#pacientes"
+          class="list-group-item list-group-item-action bg-info p-4 border-0 text-light">Pacientes</a>
+        <a href="dashboardAdmin.html#servicios"
+          class="list-group-item list-group-item-action bg-info p-4 border-0 text-light">Servicios</a>
+        <a href="dashboardAdmin.html#ingresos"
+          class="list-group-item list-group-item-action bg-info p-4 border-0 text-light">Ingresos</a>
+        <a href="dashboardAdmin.html#buscar"
+          class="list-group-item list-group-item-action bg-info p-4 border-0 text-light">Buscar</a>
+
+      </div>
+    </div>
+
+    <!-- USAMOS NAVBAR DE BOOTSTRP -->
+    <div id="page-container " class="w-100">
+      <nav id="pacientes" class="navbar navbar-expand-lg navbar-light bg-info border-bottom">
+        <!-- BOTON RESPONSIVO -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Administrador
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Mi Pefil</a>
+                <a class="dropdown-item" href="#">Algo</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Cerrar Sesion</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- SECCION DE CONTENIDO  -->
+      <!-- PRIMERA FILA -->
+      <section class="container-fluid da-sect1">
+        <h5 class="da-sec-t1 logo"> Cantidad de pacientes con diabetes</h5>
+        <div id="content">
+          <div class="row ">
+            <div class="bg-light col-lg-4 col-md-6 p-4 ">
+              <h5>--</h5>
+              <small>Diabetes tipo 1</small>
+            </div>
+            <div class="col-lg-4 col-md-6 p-4">
+              <h5>--</h5>
+              <small>Diabetes tipo 2</small>
+            </div>
+            <div class="bg-light col-lg-4 col-md-6 p-4 ">
+              <h5>--</h5>
+              <small>LADA</small>
+            </div>
+          </div>
+        </div>
+
+        <div id="content">
+          <div class="row ">
+            <div class="col-lg-4 col-md-6 p-4 ">
+              <h5>--</h5>
+              <small>Gestacional</small>
+            </div>
+            <div class="bg-light col-lg-4 col-md-6 p-4 ">
+              <h5>--</h5>
+              <small>Otro</small>
+            </div>
+            <div class="col-lg-4 col-md-6 p-4">
+              <h5>--</h5>
+              <small>MOBY</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEGUNDA FILA -->
+      <section class="container-fluid da-sect1 ">
+        <h5 class="logo da-sec-t1"> Pacientes con Diabetes y comorbilidades</h5>
+        <div id="content" class="container-fluid ">
+          <div class="row">
+
+            <!-- tarjeta 1 -->
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="mb-0"> 50 (10%) </h5>
+                  <small class="d-inline-block text-muted mb-2">Promedio pacientes</small>
+                  <div class="md-4">
+                    <span class="bagde bagde-primary mr-1"> Cantidad de pacientes con </span>
+                    <span class="bagde bagde-primary text-info"> Diabetes e Hipertensión</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- tarjeta 2 -->
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="mb-0"> 100 (20%) </h5>
+                  <small class="d-inline-block text-muted mb-2">Promedio pacientes</small>
+                  <div class="md-4">
+                    <span class="bagde bagde-primary mr-1"> Cantidad de pacientes con </span>
+                    <span class="bagde bagde-primary text-info"> Diabetes y Dislipemia</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- tarjeta 3 -->
+            <div class="col-lg-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="mb-0"> 350 (70%) </h5>
+                  <small class="d-inline-block text-muted mb-2">Promedio pacientes</small>
+                  <div class="md-4">
+                    <span class="bagde bagde-primary mr-1"> Cantidad de pacientes con
+                    </span>
+                    <span class="bagde bagde-primary text-info"> Diabetes y Sobrepeso</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- tarjeta 4 -->
+            <div class="col-lg-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="mb-0"> 350 (70%) </h5>
+                  <small class="d-inline-block text-muted mb-2">Promedio pacientes</small>
+                  <div class="md-4">
+                    <span class="bagde bagde-primary mr-1"> Cantidad de Pacientes con
+                    </span>
+                    <span class="bagde bagde-primary text-info">Diabetes e Insuficiencia Cardíaca</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- SECCION (SERVICIOS) -->
+      <section class="container-fluid da-serv-cont-marg border-top ">
+        <h5 id="servicios" class="da-sec-t1 logo "> Servicios Disponibles</h5>
+        <div id="content" class="container-fluid">
+
+          <div class="row bg-light border d-flex align-items-center ">
+            <div class="col ">
+              <p> Análisis Clínicos</p>
+            </div>
+            <div class="col">
+              <small>Glucosa en ayuna, Prueba de glucosa capilar, Hemoglobina glucosilada HbA1c, Curva de tolerancia a
+                la
+                glucosa </small>
+            </div>
+            <div class="col">
+              <small>Precio: --</small>
+            </div>
+          </div>
+
+          <div class="row  border d-flex align-items-center">
+            <div class="col">
+              <p> Nutrición</p>
+            </div>
+            <div class="col">
+              <small>Consulta con nutricionista: </small>
+            </div>
+            <div class="col">
+              <small>Precio: --</small>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECCION (SERVICIOS) FORMULARIO -->
+      <section id="page-container" class="da-sec-t1 borde-top">
+        <h5 id="servicios" class="da-sec-t1 logo">Registro de Servicios</h5>
+        <form class="form-register p-4 " action="">
+          <input class="controls text-dark" type="text" name="nombres" id="nombres"
+            placeholder="Ingrese Nombre de la Prestación Médica">
+          <input class="controls text-dark" type="text" name="apellidos" id="apellidos"
+            placeholder="Ingrese el Monto de la Prestación">
+          <input class="controls text-dark" type="text" name="correo" id="correo"
+            placeholder="Ingrese breve descripción de la Prestación">
+          <!--<p>Estoy de acuerdo con Terminos y Condiciones</a></p>-->
+          <input class="botons bg-info" type="submit" value="Registrar Servicio">
+        </form>
+      </section>
+
+      <!-- SECCION (INGRESOS) -->
+      <section class="border-top da-sec-t1">
+
+        <h5 id="ingresos" class="da-sec-t1 logo"> Ingresos por periodo</h5>
+        <div id="content">
+
+          <div class="row ">
+            <div class="bg-light col-lg-3 col-md-6 p-4 cardsm">
+              <h5>numero</h5>
+              <small>Diabetes tipo 1</small>
+            </div>
+            <div class="col-lg-3 col-md-6 p-4 cardsm">
+              <h5>numero</h5>
+              <small>Diabetes tipo 2</small>
+            </div>
+            <div class="bg-light col-lg-3 col-md-6 p-4 cardsm">
+              <h5>numero</h5>
+              <small>LADA</small>
+            </div>
+            <div class="col-lg-3 col-md-6 p-4 cardsm">
+              <h4>numero</h4>
+              <small>MOBY</small>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Empieza Footer  -->
+      <footer>
+          <div class="copy">
+            &copy: TSDWAD 2022 - Grupo 30
+          </div>
+      </footer>
+      <!-- Termina Footer -->
+
+      <!-- Javascript -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body> <!-- Fin Body -->
+
+</html>
