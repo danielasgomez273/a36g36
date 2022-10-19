@@ -12,11 +12,13 @@ root{
 
 
 /*  ESPECIFICO DASHBOARD PACIENTE  */ 
+.dashboardUser{
+    background-color:#ffffff;
+}
+
 
 .dashboardUser .headerDashboard{
-    background-color: rgb(3, 79, 108);
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    background: -webkit-linear-gradient(left, #a345b292, #fa42989e);
 }
 /*
 .dashboardPaciente .headerDashboard img{
@@ -105,7 +107,7 @@ root{
 
 /* listado de registros   */
 .dashboardUser .registros .registro{
-    background-color: rgba(0, 204, 255, 0.225);
+    background: -webkit-linear-gradient(left, #001e4db2, #1a619f86);
     border-radius: 10px;
     padding: 5px;
     margin: auto;
@@ -121,15 +123,15 @@ root{
 }
 
 .dashboardUser .registros .registro .fecha{
-    color: grey;
+    color: white;
     font-weight: 300;
 }
 .dashboardUser .registros .registro .glucemia{
-    color: black;
+    color: white;
     font-weight: 500;
     font-size: 1.1rem;
 }
 
 .dashboardUser .registros .registro .notas{
-    color: rgba(7, 7, 7, 0.526);
+    color: white;
 }

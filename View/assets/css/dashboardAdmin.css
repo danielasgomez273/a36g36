@@ -22,8 +22,8 @@
   
   html{
     scroll-behavior: smooth;
-  
   }
+
   /* COLOR DE SIDEBAR Y NAV DEL DASHBOARD*/
   .bg-info {
     background-color: #1A609F !important;
