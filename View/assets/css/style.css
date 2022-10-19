@@ -102,6 +102,8 @@ div.container2 {
     color: #333333;
 }
 
+/* cambio colores de los botones */
+
 .button1, .button2 {
     padding: 10px;
     border-radius: 5px;
@@ -110,13 +112,14 @@ div.container2 {
 }
 
 .button1 {
-    background-color: #fa4299;
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
     border-color: white;
     color: white;
 }
 
 .button2 {
-    background-color: #1A609F;
+    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
+    /*background-color: #1A609F;*/
     border-color: white;
     color: white;
 }
@@ -126,24 +129,16 @@ div.container2 {
     padding: 10px;
     margin-left: 10px;
     width: 10%;
-    background-color: #1A609F;
-    color: white;
-    border-color: white;
-    border-width: 2px;
-}
-
-#btnLoginABorrar{
-    border-radius: 5px;
-    padding: 10px;
-    margin-left: 10px;
-    background-color: #1A609F;
+    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
+    /*background-color: #1A609F;*/
     color: white;
     border-color: white;
     border-width: 2px;
 }
 
 .boton2 {
-    background-color: #fa4299;
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+    /*background-color: #fa4299;*/
     border-color: white;
     color: white;
     border-radius: 5px;
@@ -152,7 +147,7 @@ div.container2 {
 	display:block;
 }
 
-.boton3 {
+/*.boton3 {
     border-radius: 5px;
     padding: 10px;
     margin:auto;
@@ -162,7 +157,7 @@ div.container2 {
     color: white;
     border-color: white;
     border-width: 2px;
-}
+}*/
 
 
 /*------Cards--------*/
@@ -214,18 +209,17 @@ div.container2 {
 
 .texto1 {
     text-align: center;
-    color: white;
+    color: #1A609F;
     margin: 1%;
     line-height: 2.5;
 }
 
 .texto2 {
     text-align: center;
-    color: white;
+    color: #333333;
     margin: 2% 10%;
     line-height: 2.5;
 }
-
 
 /*------Footer-------*/
 
@@ -284,15 +278,16 @@ footer p {
         color: white;
     }
     
-    .boton1 {
-        border-radius: 5px;
-        padding: 10px;
-        margin-left: 10px;
-        width: 30%;
-        background-color: transparent;
-        color: white;
-        border-color: white;
-        border-width: 2px;
+   .boton1 {
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    width: 10%;
+    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
+    /*background-color: #1A609F;*/
+    color: white;
+    border-color: white;
+    border-width: 2px;
     }
 
     .seccion , .seccion1{
@@ -373,19 +368,21 @@ footer p {
     }
     
     .nav-link {
-        color: rgb(0, 0, 0) !important;
+        color: #1A609F !important;
     }
     
     .boton1 {
-        border-radius: 5px;
-        padding: 10px;
-        margin-left: 10px;
-        width: 20%;
-        background-color: #1A609F;
-        color: white;
-        border-color: white;
-        border-width: 2px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    width: 10%;
+    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
+    /*background-color: #1A609F;*/
+    color: white;
+    border-color: white;
+    border-width: 2px;
     }
+  
     .footer {
         display: block;
         align-items: center;
@@ -442,19 +439,21 @@ footer p {
     }
     
     .nav-link {
-        color: rgb(0, 0, 0) !important;
+        color: #1A609F !important;
     }
     
     .boton1 {
-        border-radius: 5px;
-        padding: 10px;
-        margin-left: 10px;
-        width: 20%;
-        background-color: transparent;
-        color: white;
-        border-color: white;
-        border-width: 2px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    width: 10%;
+    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
+    /*background-color: #1A609F;*/
+    color: white;
+    border-color: white;
+    border-width: 2px;
     }
+  
     .footer {
         display: block;
         align-items: center;
@@ -502,7 +501,7 @@ footer p {
         color: white;
     }
     .navbar {
-        background-color: transparent !important;
+        background-color: white !important;
         width: 100%;
         position: absolute;
         right: 0;
@@ -512,7 +511,7 @@ footer p {
     }
     
     .nav-link {
-        color: rgb(0, 0, 0) !important;
+        color: #1A609F !important;
     }
     
 }
