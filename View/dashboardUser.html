@@ -15,8 +15,16 @@
   <!-- Acá deberíamos linkear a los favicons / acordarse de guardar el .png dentro de la carpeta "img" de la carpeta "assets" y con estos nombres -->
   <link rel="shortcut icon" href="assets/img/favicon.png">
   <!--link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"-->
+  
+  <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-  <!-- CSS principal -->
+
+  <!-- CSS principal y especifico -->
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/dashboardUser.css">
 
  
@@ -34,113 +42,185 @@
 
 <body>
   <!-- Empieza Body -->
-  <div class="dashboardUser">
-    <div class="headerDashboard">
-      <!--  <img src="../assets/images/sinFotoPerfil.jpg"> -->
-      <div>
-        <p class="nombreUsuario">Paciente</p>
+    <!-- Empieza Navbar -->     
+      <nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbar navbar-expand-lg navbar-light bg-white">
+            <a class="navbar-brand" href="#">OneDrop</a>
+            <!-- acá podríamos reemplazar por un logo -->
+                  <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" id="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto" id="navbar-nav">
+                      <li class="nav-item active" id="nav-item">
+                        <a class="nav-link" id="nav-link" href="index.html"> Inicio <span class="sr-only">Inicio</span></a>
+                      </li>
+                      
+                      <li class="nav-item" id="nav-item">
+                        <a class="nav-link" id="nav-link" href="nosotros.html"> Nosotros </a>
+                      </li>
+                      <li class="nav-item" id="nav-item">
+                      <!--
+                        <a class="nav-link" id="nav-link" href="#"> Soporte </a>
+                      </li>
+                      <li class="nav-item" id="nav-item">
+                         TK para el Sprint 2 / Recordar que es un link externo.
+                        <a class="nav-link" id="nav-link" href="#"> Blog </a>
+                      </li>
+                      <li class="nav-item" id="nav-item">
+                        <a class="nav-link" id="nav-link" href="#"> Contacto </a>
+                      </li>
+                    -->
+                      <li class="nav-item" id="nav-item">
+                        <a class="nav-link" id="nav-link" href="registro.html"> Registrarse</a>
+                      </li>
+                    </ul>
+                    <a href="./login.html" id="btnLoginABorrar"><button class="btn" id="btn btn-primary boton1" type="button">Ingresar</button></a><!--  onclick="loginRedirect()" -->   
+                  </div>
+      </nav> 
+    <!-- Termina Navbar -->  
+    
+    <!-- Empieza Dashboard Usuario --> 
+    <div class="dashboardUser">
+      <div class="headerDashboard">
+        <!--  <img src="../assets/images/sinFotoPerfil.jpg"> -->
+        <div>
+          <p class="nombreUsuario">Paciente</p>
+        </div>
       </div>
-    </div>
-    <div class="contenedorGrafico">
-      <p>Resumen</p>
-      <div class="botoneraPeriodo">
-        <button id="btnDia">Dia</button>
-        <button id="btnSemana">Semana</button>
-        <button id="btnMes">Mes</button>
-        <button id="btnAnio">Año</button>
+      <div class="contenedorGrafico">
+        <p>Resumen</p>
+        <div class="botoneraPeriodo">
+          <button id="btnDia">Dia</button>
+          <button id="btnSemana">Semana</button>
+          <button id="btnMes" >Mes</button>
+          <button id="btnAnio">Año</button>
+        </div>
+        <div class="grafico chart-container" style="position: relative; width:90vw ; max-width: 750px">
+          <canvas id="graficoPaciente">
+  
+          </canvas>
+        </div>
       </div>
-      <div class="grafico chart-container" style="position: relative; width:90vw ; max-width: 750px">
-        <canvas id="graficoPaciente">
 
-        </canvas>
-      </div>
-    </div>
+      <button class="btnAgregar" data-bs-toggle="modal" data-bs-target="#nuevoRegistroGlucemia"><img
+          src="../assets/img/icons/add.png"></button>
 
-    <button class="btnAgregar" data-bs-toggle="modal" data-bs-target="#nuevoRegistroGlucemia"><img
-        src="../assets/img/icons/add.png"></button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="nuevoRegistroGlucemia" tabindex="-1" aria-labelledby="nuevoRegistroGlucemia"
-      aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="nuevoRegistroGlucemia">Nuevo registro</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <label for="glucemia">Valor glucemia</label>
-            <input type="number" id="number" class="form-control" placeholder="Ej: 0,8" step="0.01" required>
-
-            <label for="date">Fecha</label>
-            <input type="date" id="date" class="form-control" required>
-
-            <label for="glucemia">Hora</label>
-            <input type="time" id="time" class="form-control" required>
-
-            <label class="fechaActual">
-              <input type="checkbox" id="fechaActual" value="fechaActual"> Fecha y hora actual.
-            </label>
-
-            <div>
-              <label for="notasExtras">Notas extras</label>
-              <textarea id="notasExtras" class="form-control" rows="4"
-                placeholder="¿Algo mas que desees agregar?"></textarea>
+      <!-- Modal -->
+      <div class="modal fade" id="nuevoRegistroGlucemia" tabindex="-1" aria-labelledby="nuevoRegistroGlucemia"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="nuevoRegistroGlucemia">Nuevo registro</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Guardar registro</button>
+            <div class="modal-body">
+              <label for="glucemia">Valor glucemia</label>
+              <input type="number" id="number" class="form-control" placeholder="Ej: 0,8" step="0.01" required>
+
+              <label for="date">Fecha</label>
+              <input type="date" id="date" class="form-control" required>
+
+              <label for="glucemia">Hora</label>
+              <input type="time" id="time" class="form-control" required>
+
+              <label class="fechaActual">
+                <input type="checkbox" id="fechaActual" value="fechaActual"> Fecha y hora actual.
+              </label>
+
+              <div>
+                <label for="notasExtras">Notas extras</label>
+                <textarea id="notasExtras" class="form-control" rows="4"
+                  placeholder="¿Algo mas que desees agregar?"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guardar registro</button>
+            </div>
           </div>
         </div>
       </div>
+      <!-- Modal -->
+
+      <div class="registros">
+        <p>Ultimos registros</p>
+        <div class="bg-light col-lg-4 col-md-6 p-4 registro">
+          <p class="fecha">07:32 am, 11 Oct 22</p>
+          <p class="glucemia">Glucemia: 0.7mg/dl</p>
+          <p class="notas">Notas: "no habia desatunado aun"</p>
+        </div>
+        <div class="col-lg-4 col-md-6 p-4 registro">
+          <p class="fecha">10:45 am, 11 Oct 22</p>
+          <p class="glucemia">Glucemia: 1.2mg/dl</p>
+          <p class="notas">Notas: "Cafe con leche"</p>
+        </div>
+        <div class="bg-light col-lg-4 col-md-6 p-4 registro">
+          <p class="fecha">14:20 pm, 11 Oct 22</p>
+          <p class="glucemia">Glucemia: 0.7mg/dl</p>
+          <p class="notas">Notas: "Almorce fideos con fileto"</p>
+        </div>
+        <div class="col-lg-4 col-md-6 p-4 registro">
+          <p class="fecha">10:45 am, 11 Oct 22</p>
+          <p class="glucemia">Glucemia: 1.2mg/dl</p>
+          <p class="notas">Notas: "Cafe con leche"</p>
+        </div>
+        <div class="bg-light col-lg-4 col-md-6 p-4 registro">
+          <p class="fecha">14:20 pm, 11 Oct 22</p>
+          <p class="glucemia">Glucemia: 0.7mg/dl</p>
+          <p class="notas">Notas: "Almorce fideos con fileto"</p>
+        </div>
+
+      </div>
     </div>
-    <!-- Modal -->
-
-    <div class="registros">
-      <p>Ultimos registros</p>
-      <div class="registro">
-        <p class="fecha">07:32 am, 11 Oct 22</p>
-        <p class="glucemia">Glucemia: 0.7mg/dl</p>
-        <p class="notas">Notas: "no habia desatunado aun"</p>
-      </div>
-      <div class="registro">
-        <p class="fecha">10:45 am, 11 Oct 22</p>
-        <p class="glucemia">Glucemia: 1.2mg/dl</p>
-        <p class="notas">Notas: "Cafe con leche"</p>
-      </div>
-      <div class="registro">
-        <p class="fecha">14:20 pm, 11 Oct 22</p>
-        <p class="glucemia">Glucemia: 0.7mg/dl</p>
-        <p class="notas">Notas: "Almorce fideos con fileto"</p>
-      </div>
-      <div class="registro">
-        <p class="fecha">10:45 am, 11 Oct 22</p>
-        <p class="glucemia">Glucemia: 1.2mg/dl</p>
-        <p class="notas">Notas: "Cafe con leche"</p>
-      </div>
-      <div class="registro">
-        <p class="fecha">14:20 pm, 11 Oct 22</p>
-        <p class="glucemia">Glucemia: 0.7mg/dl</p>
-        <p class="notas">Notas: "Almorce fideos con fileto"</p>
-      </div>
-
-    </div>
-  </div>
+    <!-- Termina Dashboard Usuario -->  
 
 
-  <!-- Empieza Footer  -->
-  <footer>
-    <div class="copy">
-      &copy: TSDWAD 2022 - Grupo 30
-    </div>
-  </footer>
-  <!-- Termina Footer -->
+    <!-- Empieza Footer --> 
+    <footer>
+        <div class="grid-container footer" id="grid-container footer">
+          <div class="grid-item" id="grid-item">
+            <h4>OneDrop </h4>
+              <p class="texto" id="texto"> La APP N° 1 en gestión de Diabetes</p>
+              <!-- acá van los links a redes sociales / buscar .svg y guardarlos en esa ruta assets/img/... --> 
+              <!--div class="grid-container redes-sociales" id="grid-container redes-sociales">
+                <p> Seguinos en: </p>
+                <a class="redes-sociales" id="redes-sociales" href="https://www.facebook.com" target="_blank"><img src="assets/img/facebook-logo-w.svg" class="card-img-top redes" alt="..."></a>
+                <a class="redes-sociales" id="redes-sociales" href="https://www.instagram.com/" target="_blank"><img src="assets/img/instagram-logo-w.svg" class="card-img-top redes" alt="..."></a>
+                <a class="redes-sociales" id="redes-sociales" href="https://www.youtube.com/" target="_blank"><img src="assets/img/youtube-logo-w.svg" class="card-img-top redes" alt="..."></a>
+          </div-->
+          </div>
+          <div class="grid-item" id="grid-item">
+            <h4> Links </h4>
+              <p class="texto" id="texto"> Inicio </p>
+              <p class="texto" id="texto"> Nosotros </p>
+              <p class="texto" id="texto"> Contacto </p>
+          </div>
+          <div class="grid-item" id="grid-item">
+            <h4> Recursos </h4>
+              <p class="texto" id="texto"> Blog </p>
+              <p class="texto" id="texto"> Videos </p>
+              <p class="texto" id="texto"> Soporte </p>
+          </div>
+          <div class="grid-item" id="grid-item">
+            <h4> Contacto </h4>
+              <p class="texto" id="texto">+351 11 48855 </p>
+              <p class="texto" id="texto">info@onedrop.com </p>
+          </div>
+        </div>  
+        <p class="pie" id="pie"> &copy; 2022 - TSDWAD - Grupo 30 </p>
+    </footer> 
+    <!-- Termina Footer --> 
 
   <!-- Javascript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
+  <!-- scrip chart js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+  integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./assets/js/graficos.js"></script>
 
 </body> <!-- Fin Body -->
 
