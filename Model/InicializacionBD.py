@@ -1,8 +1,6 @@
 import sqlite3
-
 conexionSqlite3 = sqlite3.connect("crandoBDdePrueba.db")
-
-cursor =conexionSqlite3.cursor()
+cursor = conexionSqlite3.cursor()
 
 # creamos tabla de PRESTADOR
 cursor.execute('''
@@ -36,8 +34,8 @@ cursor.execute('''
                 "idpaciente"	INTEGER NOT NULL,
                 "nombre_paciente"	TEXT NOT NULL,
                 "apellido_paciente"	TEXT NOT NULL,
-                "telefono_paciente"	NUMERIC NOT NULL UNIQUE,
-                "email_paciente"	NUMERIC NOT NULL UNIQUE,
+                "telefono_paciente"	TEXT NOT NULL UNIQUE,
+                "email_paciente"	TEXT NOT NULL UNIQUE,
                 "contraseña_paciente"	TEXT NOT NULL UNIQUE,
                 PRIMARY KEY("idpaciente" AUTOINCREMENT)
             );
@@ -114,8 +112,5 @@ cursor.execute('''
                 PRIMARY KEY("idNotaCredito" AUTOINCREMENT)
             );
    ''')
-
-
-
 
 conexionSqlite3.close()
