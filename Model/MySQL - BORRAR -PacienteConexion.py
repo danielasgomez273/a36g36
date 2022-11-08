@@ -8,7 +8,7 @@ class PacienteConexion:
                                          port=3306,
                                          database='zzz',
                                          user='root',
-                                         password='154647572Aa@')
+                                         password='154647572')
 
         except mysql.connector.Error as error:
             print("Error de conexion", error)
@@ -28,6 +28,7 @@ class PacienteConexion:
                                 ); '''
                                                 
                 cursor.execute(sentenciaSql)
+                #self.connection.commit()
                 #sentenciaSql = "INSERT INTO paciente (nombre_paciente, apellido_paciente, telefono_paciente, email_paciente, contraseña_paciente)"
                 #datosUsuario =(nombre_paciente, apellido_paciente, telefono_paciente, email_paciente, contraseña_paciente)
                 # cursor.execute(sentenciaSql, datosUsuario)
@@ -66,6 +67,6 @@ class PacienteConexion:
 
 #llamar a creacion de paciente
 nuevoUsuario= PacienteConexion()
-
+nuevoUsuario.CrearTablaPaciente()
 #print(PacienteConexion.__dict__)
 #nuevoUsuario.RegistroNuevoUsuario()
