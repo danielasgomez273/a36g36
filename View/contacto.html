@@ -21,23 +21,26 @@
   <link rel="stylesheet" href="normalize.css" />
   <link rel="stylesheet" type="text/css" media="all" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" media="all" href="assets/css/footer.css">
-
-
+  <link rel="stylesheet" type="text/css" media="all" href="assets/css/contacto.css">
   <!-- SCRIPT DE FONTAWESOME -->
   <script src="https://kit.fontawesome.com/a43c103ac9.js" crossorigin="anonymous"></script>
+
   <!-- Título -->
   <title>OneDrop</title>
 
   <!-- Description -->
-  <meta name="description" content="OneDrop aplicación de ...">
-  <!-- completar con la descripción-->
+  <meta name="description"
+    content="One Drop es la plataforma de control de la diabetes líder en el mundo. Con una aplicación móvil galardonada, que provee educación sobre diabetes personalizada, asesoramiento sobre salud,  la mejor tecnología de salud y bienestar de su clase, lo ayudamos a lograr sus objetivos.">
+  <!-- Esta es mi propuesta de descripcion , charlar en la proxima reunion-->
 
   <!-- Keywords -->
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="md:locale" content="es_es" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="keywords" content="salud, diabetes"> <!-- completar -->
+  <meta name="keywords"
+    content="salud, diabetes, educacion en diabetes, bienestar, asesoramiento sobre salud, control de glucemia">
+  <!-- propongo estas etiquetas , despues revisar -->
   <meta name="origen" content="OneDrop" />
   <meta name="author" content="Grupo 30 - OneDrop" />
   <meta name="copyright" content="&copy; 2022 OneDrop" />
@@ -97,136 +100,141 @@
   </nav> <!-- Termina Navbar -->
   <!-- Termina Navbar -->
   <!-- Empieza Hero -->
-  <section class="grid-container banner hero-index" id="grid-container banner ">
-
-    <!--video autoplay muted loop><source src="Img/video_index.mp4"></video>
+  <section class="grid-container banner hero-contacto" id="grid-container banner">
+    <!--video autoplay muted loop><source src="assets/img/video_index.mp4"></video>
                 <div class="overlay" id="overlay"></div-->
-
+    <!-- Restyling: definir si usamos el video o la imagen de fondo + overlay o queda solo con color de fondo -->
     <div class="cuerpo" id="cuerpo">
-      <h3> Lorem ipsum dolor sit amet</h3>
-      <h1> OneDrop</h1>
-      <div class="contenedor-button" id="contenedor-button">
-        <a href="registro1.html"><button class="button1" id="button1"> Registrarse </button></a>
-        <a href="login.html"><button class="button2" id="button2"> Ingresar </button></a>
-      </div>
+
+      <h1> Contactate con nosotros</h1>
+
     </div>
   </section> <!-- Termina Hero -->
+  <!-- EMPIEZA FORMULARIO -->
+  <div class="d-flex justify-content-center ">
+    <form action="" class="formularioC container contact-form m-4 p-4 degradado3" id="formularioC">
 
-  <!-- Empieza Seccion Características -->
+      <!-- NOMBRE -->
+      <div class="row p-4">
+        <div class="form-grupo col-lg-6" id="grupo-nombreFC">
+          <label for="nombreFC" class="form-label">Nombre</label>
+          <div class="form-grupo-input">
+            <!-- Input e icono -->
+            <input type="text" class="form-input" name="nombreFC" id="nombreFC" placeholder="  Ingresa tu nombre">
+            <i class="form-validacion-estado fa-solid fa-circle-xmark"></i>
+          </div>
+          <p class="form-input-error">El nombre debe tener de 1 a 20 dígitos y solo puede contener letras</p>
+        </div>
 
-  <div class="container p-4">
-    <div class="row p-4" id="row">
-      <div class="col d-flex justify-content-center" id="col">
-        <h2> Características </h2>
-      </div>
-    </div>
-  </div>
 
-  <!-- CARACTERISTICA 1 -->
-  <div class=" card cajas container-fluid p-4 degradado">
-    <div class="row p-4">
+        <!-- EMAIL -->
+        <div class="form-grupo col-lg-6" id="grupo-emailFC">
+          <label for="emailFC" class="form-label">Email</label>
+          <div class="form-grupo-input">
+            <!-- Input e icono -->
+            <input type="email" class="form-input" name="emailFC" id="emailFC" placeholder="  Ingresa tu email">
+            <i class="form-validacion-estado fa-solid fa-circle-xmark"></i>
+          </div>
+          <p class="form-input-error">Recuerde ingresar el correo con "@" y ".com"</p>
+        </div>
 
-      <div class="col-lg-4 p-4">
-        <h5 class="card-title" id="card-title">Imagen</h5>
+        <!-- MENSAJE -->
+        <div class="form-grupo col-lg-12" id="grupo-mensajeFC">
+          <label for="mensajeFC" class="form-label">Mensaje</label>
+          <div class="form-grupo-input">
+            <!-- Input e icono -->
+            <input type="text" class="form-input" name="mensajeFC" id="mensajeFC" placeholder="  Ingresa tu mensaje">
+            <i class="form-validacion-estado fa-solid fa-circle-xmark"></i>
+          </div>
+          <p class="form-input-error">Porfavor no deje este campo en blanco</p>
+        </div>
 
-      </div>
-      <div class="col-lg-8">
-        <div class="card-body" id="card-body">
-          <h5 class="card-title" id="card-title">Simplificando la gestión</h5>
-          <p class="card-text" id="card-text">La información que registra en la APP se actualiza en la plataforma en
-            tiempo real.</p>
+
+        <!-- Boton -->
+        <div class="form-grupo col-lg-6">
+          <button class="btn botonFC bg-primary" type="submit">Enviar</button>
+          <p class="form-mensaje-enviado py-3" id="form-mensaje-enviado">Mensaje enviado con exito</p>
+        </div>
+
+        <!-- Mensaje Error -->
+        <div class="form-mensaje">
+          <div class=" col-lg-6 d-flex justify-content-center align-items-center p-4" id=" form-mensaje">
+            <p><b>Error:</b> Porfavor, rellenar todos los campos</p>
+          </div>
         </div>
 
       </div>
-    </div>
-
+    </form>
   </div>
 
-  <!-- CARACTERISTICA 2 -->
-  <div class=" card cajas container-fluid p-4 degradado2">
+  <!--
+  <form action="" class="contact-form mt-5 p-5" id="formulario">
+    <div class="row mb-3">
+
+      <div class="col-sm-6 py-2" id="grupo_nombre">
+        <label for="nombreFC">Nombre</label>
+        <input type="text" id="nombreFC" name="nombreFC" class="form-control" placeholder="Ingresa tu nombre">
+      </div>
+
+      <div class="col-sm-6 py-2">
+        <label for="emailFC">Email</label>
+        <input type="text" id="emailFC" name="emailFC" class="form-control" placeholder="Ingresa tu email">
+      </div>
+
+      <div class="col-12 py-2">
+        <label for="mensajeFC">Decinos en que te podemos ayudar</label>
+
+        <input type="text" rows="8" id="mensajeFC" name="mensajeFC" class="form-control"
+          placeholder="Te responderemos a la brevedad">
+
+
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary wow zoomIn button2">Enviar</button>
+    </div>
+  </form>
+    -->
+  <!-- TERMINA FORMULARIO -->
+  </div>
+  </div>
+
+  <div class="maps-container wow fadeInUp">
+    <div id="google-maps"></div>
+  </div>
+  <div class="container color-mapa">
     <div class="row p-4">
-      <div class="col-lg-4 p-4">
-        <h5 class="card-title" id="card-title">Imagen</h5>
 
-      </div>
-      <div class="col-lg-8">
-        <div class="card-body" id="card-body">
-          <h5 class="card-title" id="card-title">Reserve su turno</h5>
-          <p class="card-text" id="card-text">Puede solicitar un turno para realizar su control de salud, con atención
-            preferencial.</p>
-        </div>
+      <div class="col d-flex justify-content-center">
 
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.2520647002143!2d-64.1928524854784!3d-31.407180581407143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432998fa4b4357b%3A0xcf43bc8d04170a61!2sISPC%20Instituto%20Superior%20Polit%C3%A9cnico%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1666925453359!5m2!1ses!2sar"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
 
-  <!-- CARACTERISTICA 3 -->
-  <div class=" card cajas container-fluid p-4 degradado">
-    <div class="row p-4">
-
-      <div class="col-lg-4 p-4">
-        <h5 class="card-title" id="card-title">Imagen</h5>
-      </div>
-
-      <div class="col-lg-8">
-        <div class="card-body" id="card-body">
-          <h5 class="card-title" id="card-title">Seguimiento personalizado</h5>
-          <p class="card-text" id="card-text">Mejore su tratamiento individual y reciba información personalizada sobre
-            la
-            evolución de su diabetes.</p>
+  <!-- SECCION DE PROMOCION DE LA APP MOBILE-->
+  <!--<div class="page-section banner-home bg-image" style="background-image: url();"> -->
+  <!-- ruta de la imagen de fondo ../assets/img/banner-pattern.svg -->
+  <!--
+    <div class="container py-5 py-lg-0">
+      <div class="row align-items-center">
+        <div class="col-lg-4 wow zoomIn">
+          <div class="img-banner d-none d-lg-block">
+            <img src="../assets/img/mobile_app.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-8 wow fadeInRight">
+          <h1 class="font-weight-normal mb-3">Descargue la aplicación para su móvil</h1>
+          <a href="#"><img src="../assets/img/google_play.svg" alt=""></a>
+          <a href="#" class="ml-2"><img src="../assets/img/app_store.svg" alt=""></a>
         </div>
       </div>
     </div>
-
-  </div>
-
-
-
-
-
-
-  <!-- Termina Seccion Características -->
-  <!-- Empieza Seccion Testimonios -->
-  <!-- Podríamos poner un carrousel -->
-  <div class="container2" id="container2">
-    <div class="row" id="row">
-      <div class="col" id="col">
-        <h2 class="py-4"> Testimonios </h2>
-      </div>
-    </div>
-  </div>
-  <div class="grid-container seccion" id="grid-container seccion">
-    <div class="card cajas" id="card cajas" style="width: 18rem;">
-      <!--img src="assets/img/paciente1" class="card-img-top img-act" id="card-img-top img-act" alt="..."-->
-      <div class="card-body degradadoTImpar" id="card-body">
-        <h5 class="card-title" id="card-title">Juan Pérez</h5>
-        <p class="card-text" id="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-          esse cillum dolore eu fugiat nulla pariatur.</p>
-      </div>
-    </div>
-    <div class="card cajas" id="card cajas" style="width: 18rem;">
-      <!--img src="assets/img/paciente2" class="card-img-top img-act" id="card-img-top img-act" alt="..."-->
-      <div class="card-body degradadoTPar" id="card-body">
-        <h5 class="card-title" id="card-title">María Fernández</h5>
-        <p class="card-text" id="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-          esse cillum dolore eu fugiat nulla pariatur.</p>
-      </div>
-    </div>
-    <div class="card cajas" id="card cajas" style="width: 18rem;">
-      <!--img src="assets/img/paciente1" class="card-img-top img-act" id="card-img-top img-act" alt="..."-->
-      <div class="card-body degradadoTImpar" id="card-body">
-        <h5 class="card-title" id="card-title">Pedro González</h5>
-        <p class="card-text" id="card-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-          esse cillum dolore eu fugiat nulla pariatur.</p>
-      </div>
-    </div>
-  </div> <!-- Termina Seccion Testimonios -->
+  </div>  .banner-home -->
+  <!-- FIN PROMOCION DE LA APP MODILE-->
   <!-- Empieza Footer -->
   <footer class="footer-bg">
     <!--  PROBAMOS DE HACER EL FOOTER CON BOOTSTRAP -->
@@ -315,12 +323,44 @@
         </div>
       </div>
 
+
+      <!-- Seccion con boton de inicio -->
+      <!--
+      <div class="col-lg-2 col-md-12 col d-flex align-items-center flex-column">
+        <div class=" align-items-center flex-row">
+          <li class="link-footer">
+            <a class="icono-rsociales" href="index.html#inicio">
+              <i class="fa-regular fa-hand-pointer"></i>
+            </a>
+          </li>
+        </div>
+      </div>
+      -->
+
     </div>
     </div>
     <p class="pie" id="pie"> &copy; 2022 - TSDWAD - Grupo 30 </p>
     </div>
   </footer> <!-- Termina Footer -->
+
   <script src="/assets/js/topbtn.js"></script>
+
+  <script src="../assets/js/jquery-3.5.1.min.js"></script>
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+  <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+
+  <script src="../assets/vendor/wow/wow.min.js"></script>
+
+  <script src="../assets/js/google-maps.js"></script>
+
+  <script src="../assets/js/theme.js"></script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
+  <!-- SCRIPT FORMULARIO VALIDACION -->
+  <script src="assets/js/val-contacto.js"></script>
 </body>
 
 </html>
