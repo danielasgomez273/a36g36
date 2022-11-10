@@ -203,7 +203,7 @@ div.container3 {
     color: white;
     border-color: white;
     border-width: 2px;*/
-}
+
 
 
 /*------Cards--------*/
@@ -621,6 +621,8 @@ footer p {
         display: grid;
         justify-content: center;
         position: relative;
+
+    }
     
     .boton1 {
     border-radius: 5px;
