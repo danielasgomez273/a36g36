@@ -1,191 +1,184 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
-/*------Form Login-------*/
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-.container{
-  height: 100vh;
+html,body{
+  display: grid;
+  height: 100%;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: -webkit-linear-gradient(left, #a445b2, #fa4299);
-  column-gap: 30px;
+  place-items: center;
+  background: #EDF5FC;
+  /*background: -webkit-linear-gradient(left, #a445b2, #fa4299);*/
 }
-.section2 {
-  height: 100vp; 
-  padding: 10%;
-  background:/*-webkit-linear-gradient(left, #EDF5FC, #1A609F)*/ -webkit-linear-gradient(left, #a445b2, #fa4299);;
+::selection{
+  background: #fa4299;
+  color: #fff;
 }
-.form{
-  position: absolute;
-  max-width: 430px;
-  width: 100%;
+.wrapper{
+  overflow: hidden;
+  max-width: 390px;
+  background: #fff;
   padding: 30px;
-  border-radius: 6px;
-  background: #FFF;
+  border-radius: 5px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
 }
-.form.signup{
-  opacity: 0;
-  pointer-events: none;
+.wrapper .title-text{
+  display: flex;
+  width: 200%;
 }
-.forms.show-signup .form.signup{
-  opacity: 1;
-  pointer-events: auto;
-}
-.forms.show-signup .form.login{
-  opacity: 0;
-  pointer-events: none;
-}
-header{
-  font-size: 28px;
+.wrapper .title{
+  width: 50%;
+  font-size: 35px;
   font-weight: 600;
-  color: #232836;
   text-align: center;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
 }
-form{
-  margin-top: 30px;
-}
-.form .field{
+.wrapper .slide-controls{
   position: relative;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  margin: 30px 0 10px 0;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+.slide-controls .slide{
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+.slide-controls label.signup{
+  color: #000;
+}
+.slide-controls .slider-tab{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  z-index: 0;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+input[type="radio"]{
+  display: none;
+}
+#signup:checked ~ .slider-tab{
+  left: 50%;
+}
+#signup:checked ~ label.signup{
+  color: #fff;
+  cursor: default;
+  user-select: none;
+}
+#signup:checked ~ label.login{
+  color: #000;
+}
+#login:checked ~ label.signup{
+  color: #000;
+}
+#login:checked ~ label.login{
+  cursor: default;
+  user-select: none;
+}
+.wrapper .form-container{
+  width: 100%;
+  overflow: hidden;
+}
+.form-container .form-inner{
+  display: flex;
+  width: 200%;
+}
+.form-container .form-inner form{
+  width: 50%;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.form-inner form .field{
   height: 50px;
   width: 100%;
   margin-top: 20px;
-  border-radius: 6px;
 }
-.field input,
-.field button{
+.form-inner form .field input{
   height: 100%;
   width: 100%;
-  border: none;
-  font-size: 16px;
-  font-weight: 400;
-  border-radius: 6px;
-}
-.field input{
   outline: none;
-  padding: 0 15px;
-  border: 1px solid#CACACA;
-}
-.field input:focus{
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
   border-bottom-width: 2px;
-}
-.eye-icon{
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  font-size: 18px;
-  color: #8b8b8b;
-  cursor: pointer;
-  padding: 5px;
-}
-.field button{
-  color: #fff;
-  background-color: #0171d3;
+  font-size: 17px;
   transition: all 0.3s ease;
-  cursor: pointer;
 }
-.field button:hover{
-  background-color: #016dcb;
+.form-inner form .field input:focus{
+  border-color: #fc83bb;
+  /* box-shadow: inset 0 0 3px #fb6aae; */
 }
-.form-link{
+.form-inner form .field input::placeholder{
+  color: #999;
+  transition: all 0.3s ease;
+}
+form .field input:focus::placeholder{
+  color: #b3b3b3;
+}
+.form-inner form .pass-link{
+  margin-top: 5px;
+}
+.form-inner form .signup-link{
   text-align: center;
-  margin-top: 10px;
+  margin-top: 30px;
 }
-.form-link span,
-.form-link a{
-  font-size: 14px;
-  font-weight: 400;
-  color: #232836;
-}
-.form a{
-  color: #0171d3;
+.form-inner form .pass-link a,
+.form-inner form .signup-link a{
+  color: #fa4299;
   text-decoration: none;
 }
-.form-content a:hover{
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover{
   text-decoration: underline;
 }
-.line{
-  position: relative;
-  height: 1px;
+form .btn{
+  height: 50px;
   width: 100%;
-  margin: 36px 0;
-  background-color: #d4d4d4;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
 }
-.line::before{
-  content: 'O';
+form .btn .btn-layer{
+  height: 100%;
+  width: 300%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #FFF;
-  color: #8b8b8b;
-  padding: 0 15px;
+  left: -100%;
+  background: -webkit-linear-gradient(right, #a445b2, #fa4299, #a445b2, #fa4299);
+  border-radius: 5px;
+  transition: all 0.4s ease;;
 }
-.media-options a{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+form .btn:hover .btn-layer{
+  left: 0;
 }
-a.facebook{
+form .btn input[type="submit"]{
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  background: none;
+  border: none;
   color: #fff;
-  background-color: #4267b2;
-}
-a.facebook .facebook-icon{
-  height: 28px;
-  width: 28px;
-  color: #0171d3;
+  padding-left: 0;
+  border-radius: 5px;
   font-size: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;  
-}
-
-a.google .google-icon{
-  height: 28px;
-  width: 28px;
-  color: #0171d3;
-  font-size: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;  
-}
-
-.facebook-icon,
-.google-icon{
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  transform: translateY(-50%);
-}
-
-img.google-img{
-  height: 20px;
-  width: 20px;
-  object-fit: cover;
-}
-a.google{
-  border: 1px solid #CACACA;
-}
-a.google span{
   font-weight: 500;
-  opacity: 0.6;
-  color: #232836;
-}
-
-@media screen and (max-width: 400px) {
-  .form{
-      padding: 20px 10px;
-  }
-  
+  cursor: pointer;
 }
 
