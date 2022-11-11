@@ -22,8 +22,7 @@
   <!-- Css -->
 
   <link rel="stylesheet" href="normalize.css" />
-  <link rel="stylesheet" type="text/css" media="all" href="assets/css/registro1.css">
-  <link rel="stylesheet" type="text/css" media="all" href="assets/css/footer.css">
+  <link rel="stylesheet" type="text/css" media="all" href="assets/css/registro.css">
   <link rel="stylesheet" type="text/css" media="all" href="assets/css/style.css">
 
   <!-- SCRIPT DE FONTAWESOME -->
@@ -50,51 +49,16 @@
   <meta name="revisit-after" content="1 days" />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow" />
-  <!-- Favicons -->
-  <!-- Acá deberíamos linkear a los favicons / acordarse de guardar el .png dentro de la carpeta "img" de la carpeta "assets" y con estos nombres -->
-  <!-- link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+<!-- Favicons -->
+
+           <link href="assets/img/favicon.png" rel="icon">
+           <!--link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"-->
 
 </head> <!-- Termina Head -->
 
 <!-- Empieza Body -->
-
 <body>
-  <!-- Empieza Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbar navbar-expand-lg navbar-light bg-white">
-    <a class="navbar-brand" href="index.html">OneDrop</a>
-    <!-- acá podríamos reemplazar por un logo -->
-    <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" id="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto" id="navbar-nav">
-        <li class="nav-item active" id="nav-item">
-          <a class="nav-link" id="nav-link" href="index.html"> Inicio <span class="sr-only">Inicio</span></a>
-        </li>
-        <li class="nav-item" id="nav-item">
-          <a class="nav-link" id="nav-link" href="nosotros.html"> Nosotros </a>
-        </li>
-        <li class="nav-item" id="nav-item">
-          <a class="nav-link" id="nav-link" href="soporte.html"> Soporte </a>
-        </li>
-        <li class="nav-item" id="nav-item">
-          <a class="nav-link" id="nav-link" href="https://fedesp.es/blog/"> Blog </a>
-        </li>
-        <li class="nav-item" id="nav-item">
-          <a class="nav-link" id="nav-link" href="contacto.html"> Contacto </a>
-        </li>
-        <li class="nav-item" id="nav-item">
-          <a class="nav-link" id="nav-link" href="registro1.html"> Registrarse</a>
-        </li>
-      </ul>
-      <button class="btn btn-primary boton1" id="btn btn-primary boton1" type="button"
-        onclick="btningresar()">Ingresar</button>
-    </div>
-  </nav> <!-- Termina Navbar -->
-  </div>
-
   <section class="grid-container1 banner1">
     <form action="" method="POST" id="form">
       <div class="form">
@@ -113,13 +77,16 @@
         </div>
         <div class="grupo">
           <input type="password" name="" id="password"><span class="barra"></span>
-          <label for="">Password</label>
+          <label for="">Contraseña</label>
         </div>
 
         <button
           style="background: -webkit-linear-gradient(left, #001d4d, #1A609F); border: none;display: block;width: 80%;margin: 10px auto;color: #fff;height: 40px;font-size: 20px;cursor: pointer;"
           type="submit">Registrarme</button>
         <p class="warnings" id="warnings"></p>
+      </div>
+      <div>
+        ¿Deseas volver? <a href="./index.html"> Ir a Inicio </a>
       </div>
     </form>
 
@@ -129,115 +96,6 @@
   </div>
   </div>
   </div>
-
-
-  <!-- Empieza Footer -->
-  <footer class="footer-bg">
-    <!--  PROBAMOS DE HACER EL FOOTER CON BOOTSTRAP -->
-    <div class="container-fluid">
-      <div class="row footer">
-        <!-- id="grid-container footer" -->
-
-
-        <div class="col-lg-4 col-md-12 d-flex align-items-center flex-column">
-
-          <h3>OneDrop </h3>
-          <h5 class="texto text-secondary text-center" id="texto"> La APP N° 1 en gestión de Diabetes</h5>
-
-        </div>
-
-
-        <!-- acá van los links a redes sociales / buscar .svg y guardarlos en esa ruta assets/img/... -->
-
-
-        <div class="col-lg-2 col-md-6 col d-flex align-items-center flex-column">
-          <!-- class="grid-item" id="grid-item" -->
-
-          <h4> Links </h4>
-
-          <li class="link-footer">
-            <a class="text-secondary" href="index.html">Inicio</a>
-          </li>
-
-          <li class="texto link-footer">
-            <a class="text-secondary" href="nosotros.html">Nosotros</a>
-          </li>
-
-          <li class="texto link-footer">
-            <a class="text-secondary" href="contacto.html">Contacto</a>
-          </li>
-        </div>
-        <div class="col-lg-2 col-md-6 d-flex align-items-center flex-column">
-          <h4> Recursos </h4>
-          <li class="texto link-footer">
-            <a class="text-secondary" target="_blank" href="https://fedesp.es/blog/">Blog</a>
-          </li>
-          <li class=" texto link-footer">
-            <a class="text-secondary" href="soporte.html">Soporte</a>
-          </li>
-
-        </div>
-        <div class="col-lg-2 col-md-6 d-flex align-items-center flex-column">
-          <h4> Contacto </h4>
-          <li class=" texto link-footer">
-            <a class="text-secondary"">+351 11 48855</a>
-          </li>
-          
-          <li class=" texto link-footer">
-              <a class="text-secondary"">info@onedrop.com</a>
-          </li>
-        </div>
-          <!--
-          <p class=" texto text-secondary" id="texto">+351 11 48855 </p>
-                <p class="texto text-secondary" id="texto">info@onedrop.com </p>
-
-                -->
-
-                <div class="col-lg-2 col-md-6 d-flex align-items-center flex-column">
-                  <h4> Redes </h4>
-                  <div class=" align-items-center flex-row">
-
-                    <!-- BOTON INSTAGRAM -->
-          <li class="link-footer">
-            <a target="_blank" class="text-secondary icono-rsociales" href="https://www.instagram.com">
-              <i class="fa-brands fa-instagram">
-              </i> </a>
-          </li>
-
-          <!-- BOTON FACEBOOK -->
-          <li class="link-footer">
-            <a target="_blank" class="icono-rsociales text-secondary" href="https://www.facebook.com">
-              <i class="fa-brands fa-facebook ">
-              </i> </a>
-
-            <!-- BOTON LINKEDIN -->
-          <li class="link-footer">
-            <a target="_blank" class="icono-rsociales text-secondary" href="https://www.linkedin.com">
-              <i class="fa-brands fa-linkedin"></i>
-              </i> </a>
-          </li>
-        </div>
-      </div>
-
-
-      <!-- Seccion con boton de inicio -->
-      <!--
-      <div class="col-lg-2 col-md-12 col d-flex align-items-center flex-column">
-        <div class=" align-items-center flex-row">
-          <li class="link-footer">
-            <a class="icono-rsociales" href="index.html#inicio">
-              <i class="fa-regular fa-hand-pointer"></i>
-            </a>
-          </li>
-        </div>
-      </div>
-      -->
-
-    </div>
-    </div>
-    <p class="pie" id="pie"> &copy; 2022 - TSDWAD - Grupo 30 </p>
-    </div>
-  </footer> <!-- Termina Footer -->
   <script src="/assets/js/topbtn.js"></script>
   <script src="/assets/js/val-registro.js"></script>
 </body>

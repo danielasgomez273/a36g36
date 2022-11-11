@@ -318,6 +318,11 @@ form .grupo{
     margin: 45px ;
 }
 
+.form a{
+    color: #0171d3;
+    text-decoration: none;
+}
+
 input{
     background: none;
     color: #c6c6c6;
