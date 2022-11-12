@@ -185,13 +185,22 @@ div.container2 {
 
 .card-body {
     background: transparent; 
-    margin: 5%;
+    margin: 5%; 
+  }
+
+  .card2 {
+    background: transparent;
+    margin: 1%; 
+    border: none;
+    height: 35rem;
 }
 
 .card {
-    background: transparent;
-    margin: 1%;  
-    border: none;
+  background: transparent;
+  margin: 1%; 
+  border: none;
+  height: 48rem;
+ 
 }
 
 .cajas {
