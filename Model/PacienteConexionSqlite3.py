@@ -13,16 +13,16 @@ def CreatePaciente(nombre_paciente, apellido_paciente, telefono_paciente, email_
     sentenciaSql= '''
             INSERT INTO paciente (nombre_paciente, apellido_paciente, telefono_paciente, email_paciente, contraseña_paciente)
             VALUES (''' + datosUsuario + ");"   
-    print("sentencia sql => ",sentenciaSql)
-    # try:
-    cursor.execute(sentenciaSql)
-    conexionSqlite3.commit()
-    print("Guarde en BD=> ", datosUsuario)    
-    # except:
-    # print("Ocurrio un error al guardar datos en BD")
-    # finally:
-    conexionSqlite3.close()
-    # return getIdPacienteByEmail(email_paciente)
+    try:
+        cursor.execute(sentenciaSql)
+        conexionSqlite3.commit()
+        IDDesdeBD = cursor.lastrowid
+        print("Guarde en BD=> ", datosUsuario)    
+    except:
+        print("Ocurrio un error al guardar datos en BD")
+    finally:
+        conexionSqlite3.close()
+    return IDDesdeBD
 
 def getIdPacienteByEmail(email_paciente):
     conexionSqlite3 = sqlite3.connect("nuevaPruebaDB.db")
@@ -33,7 +33,7 @@ def getIdPacienteByEmail(email_paciente):
         cursor.execute(sentenciaSql)
         lecturaBD = cursor.fetchall()
         resultados=lecturaBD
-        print("ID leido desde bd getIdPacienteByEmail=> ",lecturaBD)
+        print("ID leido desde bd getIdPacienteByEmail=> ",lecturaBD, "corresponde a email", email_paciente)
     except:
         print("Ocurrio un error al leer datos de BD")
     finally:

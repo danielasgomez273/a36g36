@@ -11,11 +11,9 @@ class Paciente():
         self.telefono = telefono
         self.email = email
         self.contraseña = contraseña
-        self.ID = None 
-        ConexionBDpaciente.CreatePaciente(nombre, apellido, telefono, email, contraseña)     
+        self.ID = ConexionBDpaciente.CreatePaciente(nombre, apellido, telefono, email, contraseña)     
        
     def get_ID(self):
-        self.ID = ConexionBDpaciente.getIdPacienteByEmail(self.email)
         return self.ID
     def get_nombre(self):
         return self.nombre
@@ -27,17 +25,40 @@ class Paciente():
         return self.email
     def get_contraseña(self):
         return self.contraseña
-        # Atributos a sumar??..
+   
+    def updatePaciente(self,campo, valor):
+      ConexionBDpaciente.UpdatePacienteByID(self.get_ID, campo, valor)
+      
     
+    def set_nombre(self, nombre,campo, valor):     
+        self.nombre = nombre
+       
+       
+       
+       
+     #   updatePaciente(self,"nombre_paciente", valor)
+
+
+
+
+    def set_apellido(self,apellido):
+        self.apellido = apellido
+    def set_telefono(self,telefono):
+        self.telefono = telefono
+    def set_contraseña(self, contraseña):
+        self.contraseña = contraseña
+
+
+
     # FUNCIONES A DESARROLLAR..
 
-    def DeletePaciente(self):
+    def deletePaciente(self):
         id = self.get_ID(self)
         ConexionBDpaciente.DeletePacienteByID(id)
 
-pacientePrueba =  Paciente('david','costa','2644641117572','da91@gmail.com','liuadbva1223')
-pacientePrueba2 =  Paciente('david','costa','2644641117572','da91@gmail.com','liuadbva1223')
-pacientePrueba3 =  Paciente('david','costa','2644641117572','da91@gmail.com','liuadbva1223')
+pacientePrueba =  Paciente('david','costa','2644641117572','daa91@gmail.com','liuadbva1223')
+pacientePrueba2 =  Paciente('david','costa','2644641117572','dsa91@gmail.com','liuadbva1223')
+pacientePrueba3 =  Paciente('david','costa','2644641117572','da9d1@gmail.com','liuadbva1223')
 print("imprimiendo get_ID", pacientePrueba.get_ID())
 print("imprimiendo get_ID", pacientePrueba2.get_ID())
 print("imprimiendo get_ID", pacientePrueba3.get_ID())
