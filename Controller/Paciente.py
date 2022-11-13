@@ -26,20 +26,13 @@ class Paciente():
     def get_contraseña(self):
         return self.contraseña
    
-    def updatePaciente(self,campo, valor):
-      ConexionBDpaciente.UpdatePacienteByID(self.get_ID, campo, valor)
+    #  def updatePaciente(self,campo, valor):
+     #   ConexionBDpaciente.UpdatePacienteByID(self.get_ID, campo, valor)
       
     
     def set_nombre(self, nombre,campo, valor):     
         self.nombre = nombre
-       
-       
-       
-       
      #   updatePaciente(self,"nombre_paciente", valor)
-
-
-
 
     def set_apellido(self,apellido):
         self.apellido = apellido
@@ -48,12 +41,9 @@ class Paciente():
     def set_contraseña(self, contraseña):
         self.contraseña = contraseña
 
-
-
     # FUNCIONES A DESARROLLAR..
 
     def deletePaciente(self):
-        id = self.get_ID(self)
         ConexionBDpaciente.DeletePacienteByID(id)
 
 pacientePrueba =  Paciente('david','costa','2644641117572','daa91@gmail.com','liuadbva1223')
