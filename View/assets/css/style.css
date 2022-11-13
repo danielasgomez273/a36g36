@@ -188,7 +188,7 @@ div.container2 {
     margin: 5%; 
   }
 
-  .card2 {
+.card2 {
     background: transparent;
     margin: 1%; 
     border: none;
@@ -202,6 +202,16 @@ div.container2 {
   height: 48rem;
  
 }
+.card3 {
+  background: transparent;
+  margin: 1%; 
+  border: none;
+  height: 20rem;
+  border: 1px solid #777777;
+  border-radius: .3rem;
+ 
+}
+
 
 .cajas {
     box-shadow: 0 0 16px rgba(0, 0, 0, 1);
