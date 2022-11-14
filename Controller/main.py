@@ -5,15 +5,15 @@ InicializacionBD = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(InicializacionBD)
 
 spec = importlib.util.spec_from_file_location(
-  "HistorialRegistros", "Model\HistorialRegistros.py")    
-HistorialRegistros = importlib.util.module_from_spec(spec)        
-spec.loader.exec_module(HistorialRegistros)
+  "RegistroConexionSqlite3", "Model\RegistroConexionSqlite3.py")    
+RegistroConexionSqlite3 = importlib.util.module_from_spec(spec)        
+spec.loader.exec_module(RegistroConexionSqlite3)
 
 from Registro import Registro
 from Paciente import Paciente
 from Prestador import Prestador
 
-try:
+def agregarPacientes():
     pacientePrueba =  Paciente('davvid','cosbFta',154647572,'david@gmail.com','0')
     pacientePrueba1 = Paciente('david','costa',1546475721,'david@gmail.com2','1')
     pacientePrueba2 = Paciente('david','costa',1546475722,'david@gmail.com3','2')
@@ -29,36 +29,45 @@ try:
     pacientePrueba12 = Paciente('davvid','cosbFta',15464757212,'david@gmail.com13','12')
     pacientePrueba13 = Paciente('david','costa',15464757213,'david@gmail.com14','13')
     pacientePrueba14 = Paciente('davvid','cosbFta',15464757214,'david@gmail.com15','14')
-except Exception as e:
-    print("Error creando PACIENTES => ",e)
 
-try:
+
+def agregarPrestadores():
     prestadorPrueba1 = Prestador('presta@gmail.com','1',1546475721,'hola soy un presador... estsa ')
     prestadorPrueba2 = Prestador('presta@gmail.com2','2',1546475722,'hola soy un presador... estsa ')
     prestadorPrueba3 = Prestador('presta@gmail.com3','3',1546475723,'hola soy un presador... estsa ')
     prestadorPrueba4 = Prestador('presta@gmail.com4','4',1546475724,'hola soy un presador... estsa ')
     prestadorPrueba5 = Prestador('presta@gmail.com5','5',1546475725,'hola soy un presador... estsa ')
-except Exception as e:
-    print("Error creando PRESTADORES => ",e)
 
-try:
-    r1 = Registro("14/11/22", 0.3, "primer registro", 1)
-    r2 = Registro("14/11/22", 0.3, "primer registro", 1)
-    r3 = Registro("14/11/22", 0.3, "primer registro", 1)
-    r4 = Registro("14/11/22", 0.3, "primer registro", 1)
-    r5 = Registro("14/11/22", 0.3, "primer registro", 1)
-    r6 = Registro("14/11/22", 0.3, "primer registro", 1)
-    r7 = Registro("14/11/22", 0.3, "primer registro", 2)
-    r8 = Registro("14/11/22", 0.3, "primer registro", 2)
-    r9 = Registro("14/11/22", 0.3, "primer registro", 2)
-    r10 = Registro("14/11/22", 0.3, "primer registro", 2)
-    r11 = Registro("14/11/22", 0.3, "primer registro", 3)
-    r12 = Registro("14/11/22", 0.3, "primer registro", 3)
-    r13 = Registro("14/11/22", 0.3, "primer registro", 3)
-    r14 = Registro("14/11/22", 0.3, "primer registro", 3)
-    r15 = Registro("14/11/22", 0.3, "primer registro", 1)
-except Exception as e:
-    print("Error creando REGISTROS DE GLUCEMIA => ",e)
+    
+def agregarRegistros():
+    r1 = Registro("10/11/22", 0.3, "1 registro", 1)
+    r2 = Registro("11/11/22", 0.3, "2 registro", 1)
+    r3 = Registro("12/11/22", 0.3, "3 registro", 1)
+    r4 = Registro("13/11/22", 0.3, "f registro", 1)
+    r5 = Registro("14/10/21", 0.3, "4 registro", 1)
+    r6 = Registro("15/10/22", 0.3, "2 registro", 1)
+    r7 = Registro("17/01/22", 0.3, "11 registro", 2)
+    r8 = Registro("19/03/22", 0.3, "22 registro", 2)
+    r9 = Registro("21/07/22", 0.3, "33 registro", 2)
+    r10 = Registro("23/09/22", 0.3, "44 registro", 2)
+    r11 = Registro("22/01/22", 0.3, "55 registro", 3)
+    r12 = Registro("05/08/22", 0.3, "5 registro", 3)
+    r13 = Registro("07/04/22", 0.3, "6 registro", 3)
+    r14 = Registro("14/09/22", 0.3, "8 registro", 3)
+    r15 = Registro("14/10/22", 0.3, "po  registro", 1)
 
 
-HistorialRegistros.DeleteRegistroByID(13)
+# Ingreso de datos
+
+# agregarPacientes()
+# agregarPrestadores()
+# agregarRegistros()
+
+# Consultas de prueba
+
+# RegistroConexionSqlite3.ReadRegistrosByIdUsuario(3)
+# RegistroConexionSqlite3.ReadAllRegistros()
+# RegistroConexionSqlite3.DeleteRegistroByID(40)
+# RegistroConexionSqlite3.UpdateRegistroByID(1,"valor_glucemia",9)
+
+# CONSULTAS DE PRUEBA

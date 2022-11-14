@@ -29,7 +29,6 @@ class Paciente():
     #  def updatePaciente(self,campo, valor):
      #   ConexionBDpaciente.UpdatePacienteByID(self.get_ID, campo, valor)
       
-    
     def set_nombre(self, nombre,campo, valor):     
         self.nombre = nombre
      #   updatePaciente(self,"nombre_paciente", valor)

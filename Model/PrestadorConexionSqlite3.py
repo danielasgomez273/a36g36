@@ -1,5 +1,4 @@
 import sqlite3
-import time
 
 def CreatePrestador(email_prestador, contraseña_prestador, telefono_prestador,informacionExtra_prestador):
     conexionSqlite3 = sqlite3.connect("OneDropBD.db")
@@ -18,7 +17,7 @@ def CreatePrestador(email_prestador, contraseña_prestador, telefono_prestador,i
     return IDDesdeBD
 
 def getIdPrestadorByEmail(email_prestador):
-    conexionSqlite3 = sqlite3.connect("nuevaPruebaDB.db")
+    conexionSqlite3 = sqlite3.connect("OneDropBD.db")
     cursor = conexionSqlite3.cursor()
     resultados=None
     sentenciaSql= "SELECT idPrestador FROM prestador WHERE prestador.email_prestador ='"+ email_prestador + "';"
@@ -35,7 +34,7 @@ def getIdPrestadorByEmail(email_prestador):
 
 
 def ReadPrestadorByID(ID):
-    conexionSqlite3 = sqlite3.connect("nuevaPruebaDB.db")
+    conexionSqlite3 = sqlite3.connect("OneDropBD.db")
     cursor = conexionSqlite3.cursor()
     sentenciaSql= "SELECT * FROM prestador WHERE prestador.idPrestador ="+ ID + ";"
     try:
@@ -48,7 +47,7 @@ def ReadPrestadorByID(ID):
         conexionSqlite3.close()
 
 def ReadAllPrestadores():
-    conexionSqlite3 = sqlite3.connect("nuevaPruebaDB.db")
+    conexionSqlite3 = sqlite3.connect("OneDropBD.db")
     cursor = conexionSqlite3.cursor()
     sentenciaSql= "SELECT * FROM prestador;"
     try:
@@ -61,7 +60,7 @@ def ReadAllPrestadores():
         conexionSqlite3.close()
 
 def UpdatePrestadorByID(ID,campo, valor):
-    conexionSqlite3 = sqlite3.connect("nuevaPruebaDB.db")
+    conexionSqlite3 = sqlite3.connect("OneDropBD.db")
     cursor = conexionSqlite3.cursor()
     sentenciaSql= "UPDATE prestador SET " + campo + " = '" + valor +"' WHERE prestador.idPrestador="+ID
     print(sentenciaSql)
@@ -75,7 +74,7 @@ def UpdatePrestadorByID(ID,campo, valor):
         conexionSqlite3.close()
 
 def DeletePrestadorByID(ID):
-    conexionSqlite3 = sqlite3.connect("nuevaPruebaDB.db")
+    conexionSqlite3 = sqlite3.connect("OneDropBD.db")
     cursor = conexionSqlite3.cursor()
     sentenciaSql= "DELETE FROM prestador WHERE prestador.idPrestador ="+ ID + ";"
     try:
