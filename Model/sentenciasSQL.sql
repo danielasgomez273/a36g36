@@ -1,10 +1,23 @@
+
+/*
+********************************************************************************
+NOTA: Dejamos este archivo, solo para mostrar algunas sentencias en lenguaje
+Sql de manera anectotica, sin embargo, LA CREACION DE BD Y EL INGRESO DE DATOS
+SE OBTIENE CORRIENDO EL ARCHIVO "main.py", DENTRO DE LA CARPETA "Controller".
+
+DICHO ARCHIVO, SE ENCARGA DE INICIALIZAR LA BASE DE DATOS.
+DE TODOS MODOS, SE DEJARA COMENTADO EL CODIGO PARA INICIAZAR
+********************************************************************************
+*/
+
+
 /*  INGRESO DATOS  */
 -- Primero creemos un nuevo prestador
-INSERT INTO prestador (email,nombrePrestador,apellidoPrestador,contraseña,telefono,informacionExtra)
+INSERT INTO prestador (email,contraseña,telefono,informacionExtra)
 VALUES
-("prestador01@gmail.com","enrique","baltazar","1234","12345678","datos enrique"),
-("carlos02@gmail.com","melisa","alba","5678","15427583","datos melisa"),
-("anaa03@gmail.com","gustavo","mitto","1276","174836298","datos gustavo");
+('presta@gmail.com','1',1546475721,'hola soy un presador... estsa '),
+('presta@gmail.com2','2',1546475722,'hola soy un presador... estsa '),
+('presta@gmail.com3','3',1546475723,'hola soy un presador... estsa ');
 SELECT * FROM prestador;
 
 INSERT INTO servicio (nombreServicio,descripcion,monto,sede,idPrestador)
@@ -22,18 +35,16 @@ WHERE prestador.idPrestador =3;
 
 
 /* INSERT DATOS PACIENTES*/
-
-/* INSERT DATOS */
 INSERT INTO paciente (nombre_paciente, apellido_paciente, telefono_paciente, email_paciente, contraseña_paciente) VALUES 
-("David1", "Costa", 26441, "1davidcst2991@gmail.com", "A123123"),
-("David2", "Costa", 26442, "2davidcst2991@gmail.com", "S12A3123"),
-("David3", "Costa", 26443, "3davidcst2991@gmail.com", "12S3123"),
-("David3", "Costa", 26444, "4davidcst2991@gmail.com", "12V3123"),
-("David5", "Costa", 26445, "5davidcst2991@gmail.com", "DD123123"),
-("David6", "Costa", 26446, "6davidcst2991@gmail.com", "AAAA123123"),
-("David7", "Costa", 26447, "7davidcst2991@gmail.com", "SSSS123123"),
-("David8", "Costa", 26448, "8davidcst2991@gmail.com", "DD12312A3");
-SELECT * FROM `zzz`.paciente;
+('davvid','cosbFta',154647572,'david@gmail.com','0'),
+('david','costa',1546475721,'david@gmail.com2','1'),
+('david','costa',1546475722,'david@gmail.com3','2'),
+('davvid','cosbFta',1546475723,'david@gmail.com4','3'),
+('david','costa',1546475724,'david@gmail.com5','4'),
+('david','costa',1546475725,'david@gmail.com6','5'),
+('davvid','cosbFta',1546475726,'7david@gmail.com','6'),
+('davvid','cosbFta',1546475726,'7david@gmail.com','6');
+SELECT * FROM paciente;
 
 INSERT INTO ficha_medica (tipo_diabetes, terapia_insulina, terapia_pastillas, tipo_glucometro, tipo_sensor, comorbilidad, objetivo_glucosa, fecha_nacimiento, sexo, idpacienteFK) VALUES 
 (1, "tarapia_insu", "terapia_past", "tipo_gluoc", "tipo_sensor", "comorb", "obj_gluco", "1992-12-02" , "masculino", 1),
@@ -72,6 +83,3 @@ INSERT INTO carrito (sede, fechaElegida, horaElegida, monto, idUsuarioFK, idServ
 ("SJ", "2020-07-02", "17:00:00", 150, 1,1,1);
 SELECT * FROM carrito;
 
-/* carrito borrar idUusarioFk (hecho), unificar fecha y hora a datetime(hecho), borrar campo usuario.. PASAR TODO A CAMEL CASE */
-
-/* AGREGAR CARRITOS, AGREGAR FACTURAS Y HACER CONSULTAS! !!  */
