@@ -5,9 +5,19 @@ InicializacionBD = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(InicializacionBD)
 
 spec = importlib.util.spec_from_file_location(
+  "PacienteConexionSqlite3", "Model\PacienteConexionSqlite3.py")    
+PacienteConexionSqlite3 = importlib.util.module_from_spec(spec)        
+spec.loader.exec_module(PacienteConexionSqlite3)
+
+spec = importlib.util.spec_from_file_location(
   "RegistroConexionSqlite3", "Model\RegistroConexionSqlite3.py")    
 RegistroConexionSqlite3 = importlib.util.module_from_spec(spec)        
 spec.loader.exec_module(RegistroConexionSqlite3)
+
+spec = importlib.util.spec_from_file_location(
+  "PrestadorConexionSqlite3", "Model\PrestadorConexionSqlite3.py")    
+PrestadorConexionSqlite3 = importlib.util.module_from_spec(spec)        
+spec.loader.exec_module(PrestadorConexionSqlite3)
 
 from Registro import Registro
 from Paciente import Paciente
@@ -56,18 +66,32 @@ def agregarRegistros():
     r14 = Registro("14/09/22", 0.3, "8 registro", 3)
     r15 = Registro("14/10/22", 0.3, "po  registro", 1)
 
+def agregarTodos():
+    agregarPacientes()
+    agregarPrestadores()
+    agregarRegistros()
 
 # Ingreso de datos
-
-# agregarPacientes()
-# agregarPrestadores()
-# agregarRegistros()
+# agregarTodos()
 
 # Consultas de prueba
 
-# RegistroConexionSqlite3.ReadRegistrosByIdUsuario(3)
+# Consultas de prueba PACIENTE
+# print("El id del prestador es => ",PacienteConexionSqlite3.getIdPacienteByEmail("david@gmail.com"))
+# PacienteConexionSqlite3.ReadPacienteByID(2)
+# PacienteConexionSqlite3.ReadAllPacientes()
+# PacienteConexionSqlite3.UpdatePacienteByID(4,"nombre_paciente", "Edgardo")
+# PacienteConexionSqlite3.DeletePacienteByID(2)
+
+# Consultas de prueba REGISTROS
 # RegistroConexionSqlite3.ReadAllRegistros()
 # RegistroConexionSqlite3.DeleteRegistroByID(40)
 # RegistroConexionSqlite3.UpdateRegistroByID(1,"valor_glucemia",9)
 
-# CONSULTAS DE PRUEBA
+# Consultas de prueba PRESTADOR
+# print("El id del prestador es => ",PrestadorConexionSqlite3.getIdPrestadorByEmail("presta@gmail.com4"))
+# PrestadorConexionSqlite3.ReadPrestadorByID(4)
+# PrestadorConexionSqlite3.ReadAllPrestadores()
+# PrestadorConexionSqlite3.UpdatePrestadorByID(3,"email_prestador", "davidcst2991@gmail.com")
+# PrestadorConexionSqlite3.DeletePrestadorByID(2)
+
