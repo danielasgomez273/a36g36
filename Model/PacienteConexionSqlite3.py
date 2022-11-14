@@ -1,27 +1,21 @@
 import sqlite3
+import time
 
 def CreatePaciente(nombre_paciente, apellido_paciente, telefono_paciente, email_paciente, contraseña_paciente):
-    conexionSqlite3 = sqlite3.connect("nuevaPruebaDB.db")
+    conexionSqlite3 = sqlite3.connect("OneDropBD.db")
     cursor = conexionSqlite3.cursor()
-    nombre_paciente = "'"+nombre_paciente+"',"
-    apellido_paciente = "'"+apellido_paciente+"',"
-    telefono_paciente = "'"+telefono_paciente+"',"
-    email_paciente = "'"+email_paciente+"',"
-    contraseña_paciente = "'"+contraseña_paciente+"'"
-    datosUsuario = nombre_paciente + apellido_paciente + telefono_paciente + email_paciente + contraseña_paciente
-
-    sentenciaSql= '''
-            INSERT INTO paciente (nombre_paciente, apellido_paciente, telefono_paciente, email_paciente, contraseña_paciente)
-            VALUES (''' + datosUsuario + ");"   
     try:
-        cursor.execute(sentenciaSql)
+        cursor.execute("INSERT INTO paciente (nombre_paciente, apellido_paciente, telefono_paciente, email_paciente, contraseña_paciente) VALUES (?, ?, ?, ?, ?)",
+        (nombre_paciente, apellido_paciente, telefono_paciente, email_paciente, contraseña_paciente))
+
         conexionSqlite3.commit()
         IDDesdeBD = cursor.lastrowid
-        print("Guarde en BD=> ", datosUsuario)    
+        print("Guarde PACIENTE en DB")    
     except:
         print("Ocurrio un error al guardar datos en BD")
     finally:
         conexionSqlite3.close()
+        #time.sleep(1)
     return IDDesdeBD
 
 def getIdPacienteByEmail(email_paciente):
@@ -96,8 +90,6 @@ def DeletePacienteByID(ID):
 
 
 # LLAMADO DE FUNCIONES DE CRUD 
-
-print("estoy retornando id dl pte",getIdPacienteByEmail('da91@gmail.com'))
 
 # CreatePaciente()
 # ReadPacienteByID("3")

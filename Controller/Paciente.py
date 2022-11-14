@@ -45,10 +45,3 @@ class Paciente():
 
     def deletePaciente(self):
         ConexionBDpaciente.DeletePacienteByID(id)
-
-pacientePrueba =  Paciente('david','costa','2644641117572','daa91@gmail.com','liuadbva1223')
-pacientePrueba2 =  Paciente('david','costa','2644641117572','dsa91@gmail.com','liuadbva1223')
-pacientePrueba3 =  Paciente('david','costa','2644641117572','da9d1@gmail.com','liuadbva1223')
-print("imprimiendo get_ID", pacientePrueba.get_ID())
-print("imprimiendo get_ID", pacientePrueba2.get_ID())
-print("imprimiendo get_ID", pacientePrueba3.get_ID())

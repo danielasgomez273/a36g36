@@ -45,14 +45,5 @@ class Prestador():
     def deletePrestador(self):
         ConexionBDprestador.DeletePrestadorByID(id)
 
-prestadorPrueba =  Prestador('dqaa91@gmail.com','liuadbava1223','26446411572','hola soy un presador... estsa ')
-prestadorPrueba2 =  Prestador('daaa91@gmail.com','liuaasdbva1223','264464111772','hola soy un presador... estsa ')
-prestadorPrueba3 =  Prestador('ddaa91@gmail.com','liuaddbva1223','26446117572','hola soy un presador... estsa ')
-prestadorPrueba4 =  Prestador('dafa91@gmail.com','liuhadbva1223','241117572','hola soy un presador... estsa ')
-
-print("imprimiendo get_ID", prestadorPrueba.get_ID())
-print("imprimiendo get_ID", prestadorPrueba2.get_ID())
-print("imprimiendo get_ID", prestadorPrueba3.get_ID())
-
 
 

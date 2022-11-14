@@ -1,15 +1,15 @@
 import sqlite3
-conexionSqlite3 = sqlite3.connect("nuevaPruebaDB.db")
+conexionSqlite3 = sqlite3.connect("OneDropBD.db")
 cursor = conexionSqlite3.cursor()
 
 # creamos tabla de PRESTADOR
 cursor.execute('''
             CREATE TABLE IF NOT EXISTS `prestador` (
             `idPrestador` INTEGER NOT NULL,
-            `email` TEXT NOT NULL UNIQUE,
-            `contraseña` TEXT NOT NULL UNIQUE,
-            `telefono` INTEGER NOT NULL UNIQUE,
-            `informacionExtra` TEXT NOT NULL,
+            `email_prestador` TEXT NOT NULL UNIQUE,
+            `contraseña_prestador` TEXT NOT NULL UNIQUE,
+            `telefono_prestador` INTEGER NOT NULL UNIQUE,
+            `informacionExtra_prestador` TEXT NOT NULL,
             PRIMARY KEY("idPrestador" AUTOINCREMENT)
             );
    ''')
@@ -34,9 +34,9 @@ cursor.execute('''
                 "idpaciente"	INTEGER NOT NULL,
                 "nombre_paciente"	TEXT NOT NULL,
                 "apellido_paciente"	TEXT NOT NULL,
-                "telefono_paciente"	TEXT NOT NULL ,
-                "email_paciente"	TEXT NOT NULL ,
-                "contraseña_paciente"	TEXT NOT NULL ,
+                "telefono_paciente"	INTEGER NOT NULL UNIQUE,
+                "email_paciente"	TEXT NOT NULL UNIQUE,
+                "contraseña_paciente"	TEXT NOT NULL UNIQUE,
                 PRIMARY KEY("idpaciente" AUTOINCREMENT)
             );
     ''')

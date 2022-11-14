@@ -1,10 +1,16 @@
+import importlib.util        
+spec = importlib.util.spec_from_file_location(
+  "RegistroConexionSqlite3", "Model\RegistroConexionSqlite3.py")    
+ConexionBDregistro = importlib.util.module_from_spec(spec)        
+spec.loader.exec_module(ConexionBDregistro)
+
 class Registro:
-    def __init__(self, IDRegistro, IDUsuario, fecha,  glucemia, notasExtras ):
-        self.IDRegistro=IDRegistro
-        self.IDUsuario=IDUsuario
+    def __init__(self, fecha,  glucemia, comentario_registro,IDUsuario):
         self.fecha = fecha
         self.glucemia=glucemia
-        self.notasExtras=notasExtras
+        self.comentario_registro=comentario_registro
+        self.IDUsuario=IDUsuario
+        self.IDRegistro=ConexionBDregistro.CreateRegistro(fecha, glucemia, comentario_registro, IDUsuario)
 
     def get_IDRegistro(self):
         return self.IDRegistro
@@ -14,12 +20,12 @@ class Registro:
         return self.fecha
     def get_glucemia(self):
         return self.glucemia
-    def get_notasExtras(self):
-        return self.notasExtras
+    def get_comentario_registro(self):
+        return self.comentario_registro
 
     # FUNCIONES A DESARROLLAR
-    def leerRegistro():
-        pass
+    def readAllRegistros():
+        ConexionBDregistro.ReadAllRegistros()
     def guardarRegistro():
         pass
     def eliminarRegistro():

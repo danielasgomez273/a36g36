@@ -1,26 +1,18 @@
 import sqlite3
+import time
 
 def CreatePrestador(email_prestador, contraseña_prestador, telefono_prestador,informacionExtra_prestador):
-    conexionSqlite3 = sqlite3.connect("nuevaPruebaDB.db")
+    conexionSqlite3 = sqlite3.connect("OneDropBD.db")
     cursor = conexionSqlite3.cursor()
-
-    email_prestador = "'"+email_prestador+"',"
-    contraseña_prestador = "'"+contraseña_prestador+"',"
-    telefono_prestador = "'"+telefono_prestador+"',"
-    informacionExtra_prestador = "'"+informacionExtra_prestador+"'"
-    datosUsuario = email_prestador + contraseña_prestador + telefono_prestador + informacionExtra_prestador
-
-    sentenciaSql= '''
-            INSERT INTO prestador (email, contraseña, telefono, informacionExtra)
-            VALUES (''' + datosUsuario + ");"   
-    print("Sentencia sql=> ",sentenciaSql)
     try:
-        cursor.execute(sentenciaSql)
+        cursor.execute("INSERT INTO prestador (email_prestador, contraseña_prestador, telefono_prestador, informacionExtra_prestador) VALUES (?, ?, ?, ?)",
+        (email_prestador, contraseña_prestador, telefono_prestador, informacionExtra_prestador))
+
         conexionSqlite3.commit()
         IDDesdeBD = cursor.lastrowid
-        print("Guarde en BD PRESTADOR=> ", datosUsuario)    
-    except:
-        print("Ocurrio un error al guardar datos en BD")
+        print("Guarde PRESTADOR en BD ")    
+    except Exception as e:
+        print("Ocurrio un error al guardar datos en BD", e)
     finally:
         conexionSqlite3.close()
     return IDDesdeBD
