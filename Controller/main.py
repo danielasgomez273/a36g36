@@ -40,14 +40,12 @@ def agregarPacientes():
     pacientePrueba13 = Paciente('david','costa',15464757213,'david@gmail.com14','13')
     pacientePrueba14 = Paciente('davvid','cosbFta',15464757214,'david@gmail.com15','14')
 
-
 def agregarPrestadores():
     prestadorPrueba1 = Prestador('presta@gmail.com','1',1546475721,'hola soy un presador... estsa ')
     prestadorPrueba2 = Prestador('presta@gmail.com2','2',1546475722,'hola soy un presador... estsa ')
     prestadorPrueba3 = Prestador('presta@gmail.com3','3',1546475723,'hola soy un presador... estsa ')
     prestadorPrueba4 = Prestador('presta@gmail.com4','4',1546475724,'hola soy un presador... estsa ')
     prestadorPrueba5 = Prestador('presta@gmail.com5','5',1546475725,'hola soy un presador... estsa ')
-
     
 def agregarRegistros():
     r1 = Registro("10/11/22", 0.3, "1 registro", 1)

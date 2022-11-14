@@ -25,7 +25,7 @@ class Registro:
 
     # FUNCIONES A DESARROLLAR
     def readAllRegistros():
-        ConexionBDregistro.ReadAllRegistros()
+        pass
     def guardarRegistro():
         pass
     def eliminarRegistro():
