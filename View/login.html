@@ -5,8 +5,8 @@
    <head>
       <meta charset="utf-8">
       
-<!-- Css -->      
-      <link rel="stylesheet" href="assets/css/login.css">
+<!-- Css -->
+<link rel="stylesheet" href="assets/css/login.css">
 
 <!-- Boxicons CSS -->
 <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -56,7 +56,7 @@
                          <i class='bx bx-hide eye-icon'></i>
                      </div>
 
-                     <div class="form-link">
+                     <div class="form-link" onclick="btnPendiente()">
                          <a href="#" class="forgot-pass">Olvidé mi contraseña</a>
                      </div>
 
@@ -78,26 +78,29 @@
              <div class="line"></div>
 
              <div class="media-options">
-                 <a href="#" class="field facebook">
+                 <a href="#" class="field facebook" onclick="btnPendiente()">
                      <i class='bx bxl-facebook facebook-icon'></i>
                      <span>Ingresar con Facebook</span>
                  </a>
              </div>
 
              <div class="media-options">
-               <a href="#" class="field google">
-                  <img src="#" alt="" class="google-img">
+               <a href="#" class="field google" onclick="btnPendiente()">
+                  <img src="../View/assets/img/google.png" alt="" class="google-img">
                   <span>Ingresar con Google</span>
               </a>
              </div>
             <div class="signup-link">
             ¿Deseas volver? <a href="./index.html"> Ir a Inicio</a>
-            </div>
-
+            </div>        
          </div>
+
+
         <!-- JavaScript -->
         <script src="js/val-login.js"></script>>
         <script src="assets/js/topbtn.js"></script>>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
    </body>
 </html>

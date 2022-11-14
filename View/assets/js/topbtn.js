@@ -1,3 +1,4 @@
+
 // Get the button:
 let mybutton = document.getElementById("myBtn");
 
@@ -18,17 +19,23 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-
 //Script para boton de nav "ingresar"
 function btningresar() {
-  location.href = "login.html"
+ location.href = "login.html"
 }
 //Script para redireccionar al "dashboard usuario"
 function dashboardPaciente() {
+  alert("Ingresaste correctamente, seras redirigido al Dashboard Paciente")
   location.href = "dashboardUser.html"
+
 }
+
+function btnPendiente() {
+  alert("Opps! Aun esta en construccion este boton..")
+ }
 
 //Script para redireccionar al "dashboard paciente"
 function dashboardAdmin() {
+  alert("Ingresaste correctamente, seras redirigido al Dashboard de Prestador")
   location.href = "dashboardAdmin.html"
 }
