@@ -30,7 +30,15 @@
 
 :point_right: Video de presentación: 
 
-Pueden acceder al video de presentación del proyecto en éste [link](https://onedropapp-grupo30.netlify.app/) 
+Pueden acceder al video de presentación del proyecto en éste [link](https://www.youtube.com/watch?v=otW-b15-OKY) 
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+:point_right: Sitio online: 
+
+Pueden ver el sitio funcional en éste [link](https://onedropapp-grupo30.netlify.app/) 
 
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
