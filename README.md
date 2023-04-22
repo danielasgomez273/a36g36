@@ -25,6 +25,8 @@
 
 :small_orange_diamond: Herrera, Daniel H.
 
+:small_orange_diamond: Paredes, Jimena A.
+
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
