@@ -1,3 +1,121 @@
 .div0{
     height: 6rem;
-}
+}.conteiner{
+    background-color: #f5f3f3;
+    }
+    .conteiner nav {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding: 15px;
+        background-color: #fff;
+        margin-bottom: 30px;
+        color: #333;
+    }
+    .nav-compras {
+        display: none;
+    }
+    .conteiner nav button {
+        display: none;
+    }
+    .nav-compras li{
+        list-style: none;
+        padding: 1rem;
+        font-weight: bold;
+    }
+    .conteiner nav i:hover > .compras {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        right: 0;
+        background-color: #ffff;
+    }
+    .conteiner nav i:hover .nav-compras {
+        font-size: 10px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 10px 0 10px;
+        border-bottom: solid thin #e1e1e1;
+    }
+    .conteiner nav i:hover .compras > button {
+        display: block;
+        width: 90%;
+        padding: 1rem;
+        font-size: 10px;
+        margin: 10px auto;
+        background-color: transparent;
+        border: solid thin #e1e1e1;
+        color: #494848;
+        cursor: pointer;
+    }
+    .conteiner nav i:hover .compras > button:hover {
+        border: solid thin #494848;
+        transition: all 4s;
+    }
+    .fa-solid {
+        font-size:3rem;
+        cursor: pointer;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 3rem;
+        color: #222;
+    }
+    .servicios {
+        max-width: 1110px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px,280px));
+        gap: 20px;
+        justify-content: center;
+        padding-bottom: 50px;
+    }
+    .items {
+        background-color: #fff;
+        border: solid thin #e1e1e1;
+    }
+    .items img {
+        width: 100%;
+        height: 50%;
+    }
+    .info {
+        padding: 15px;
+    }
+    .info h3 {
+        font-size: 1.6rem;
+    }
+    .info p {
+        font-size: 1.5rem;
+    }
+    .precio {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bolder;
+    }
+    .precio p {
+        font-size: 1.8rem;
+    }
+    .info h3,
+    .info p {
+        color: #222;
+        margin-bottom: 15px;
+    }
+    
+    .info button {
+        padding: 1rem;
+        width: 100%;
+        background-color: #33c3f0;
+        border: none;
+        outline: none;
+        color: #ffff;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 5px;
+    }
+    .info button:hover {
+        background-color: #2da0c3;
+        transition: all .3s;
+    }
