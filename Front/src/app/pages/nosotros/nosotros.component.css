@@ -1,3 +1,129 @@
 .div0{
    height:6rem;
 }
+
+.grid-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+}
+
+.banner {
+   
+   right: 0;
+   width: 100%;
+   min-height: 100vh;
+   padding: 150px;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   background: #EDF5FC;
+   transition: 0.5s;
+}
+
+/*------Cuerpo-------*/
+
+.cuerpo {
+   position: relative;
+}
+
+.cuerpo h1 {
+   font-size: 6em;
+   font-weight: 800;
+   color: #1A609F;
+   line-height: 1em;
+}
+
+.cuerpo p {
+   position: relative;
+   font-size: 1.1em;
+   margin: 20px 0;
+   font-weight: 400;
+   max-width: 700px;
+   color: #333333;
+}
+
+.seccion1 {
+   height: 100vp; 
+   padding: 10%;
+   /*background: ; */
+}
+
+/*------Cards--------*/
+
+.card-body {
+   background: transparent; 
+   margin: 5%; 
+ }
+
+.card2 {
+   background: transparent;
+   margin: 1%; 
+   border: none;
+   height: 35rem;
+}
+
+.card {
+ background: transparent;
+ margin: 1%; 
+ border: none;
+ height: 28rem;
+
+}
+.card3 {
+ background: transparent;
+ margin: 1%; 
+ border: none;
+ height: 20rem;
+ border: 1px solid #777777;
+ border-radius: .3rem;
+
+}
+
+
+.cajas {
+   box-shadow: 0 0 16px rgba(0, 0, 0, 1);
+   border-radius: 5px;
+}
+
+.card-title {
+   text-align: center;
+}
+
+.card-text {
+   text-align: center;
+}
+/*------Seccion--------*/
+
+.seccion {
+   height: 100vp;  
+   padding: 5%;
+}
+
+.seccion1 {
+   height: 100vp; 
+   padding: 10%;
+   /*background: ; */
+}
+
+.img-act {
+   width: 40%;
+   margin:auto;
+  display:block;
+   margin-top: 3%;
+}
+
+.texto1 {
+   text-align: center;
+   color: #1A609F;
+   margin: 1%;
+   line-height: 2.5;
+}
+
+.texto2 {
+   text-align: center;
+   color: #333333;
+   margin: 2% 10%;
+   line-height: 2.5;
+}
