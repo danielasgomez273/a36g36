@@ -1,0 +1,102 @@
+<div class="div0"></div>
+
+<!DOCTYPE html>
+<html lang="es">
+ 
+<!-- Empieza Head -->  
+   <head>
+      <meta charset="utf-8">
+
+<!-- Título -->
+      <title>Ingresar</title>
+
+<!-- Description -->
+<meta name="description" content="One Drop es la plataforma de control de la diabetes líder en el mundo. Ingrese a la aplicacion para disfrutar todos sus servicios."> 
+
+<!-- Keywords -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="md:locale" content="es_es"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+<meta name="keywords" content="salud, diabetes, educacion en diabetes, bienestar, asesoramiento sobre salud, control de glucemia">
+<meta name="origen" content="OneDrop" />
+<meta name="author" content="Grupo 30 - OneDrop" />
+<meta name="copyright" content="&copy; 2022 OneDrop" />
+<meta name="locality" content="CÓRDOBA, Argentina" />
+<meta name="language" content="es" />
+<meta name="revisit-after" content="1 days" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- Favicons -->
+
+<link href="assets/img/favicon.png" rel="icon">
+<!--link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"-->
+
+   </head> <!-- Termina Head -->    
+
+<!-- Empieza Body -->
+   <body> 
+<!-- Empieza Form -->   
+      <section class="container forms">
+         <div class="form login">
+             <div class="form-content">
+                 <header>Ingresar</header>
+                 <form action="#">
+                     <div class="field input-field">
+                         <input type="email" placeholder="Correo" class="input" required>
+                     </div>
+
+                     <div class="field input-field">
+                         <input type="password" placeholder="Contraseña" class="password" required>
+                         <i class='bx bx-hide eye-icon'></i>
+                     </div>
+
+                     <div class="form-link" onclick="btnPendiente()">
+                         <a href="#" class="forgot-pass">Olvidé mi contraseña</a>
+                     </div>
+
+                     <div class="field button-field">
+                         <button type="submit"
+                         onclick="dashboardPaciente()">Iniciar sesión</button>
+                     </div>
+                     <div class="field button-field">
+                        <button type="submit"
+                        onclick="dashboardAdmin()" >Iniciar sesión como administrador</button>
+                    </div>
+                 </form>
+
+                 <div class="form-link">
+                     <span>¿No tenés cuenta? <a href="registro.html" class="link signup-link">Registrate</a></span>
+                 </div>
+             </div>
+
+             <div class="line"></div>
+
+             <div class="media-options">
+                 <a href="#" class="field facebook" onclick="btnPendiente()">
+                     <i class='bx bxl-facebook facebook-icon'></i>
+                     <span>Ingresar con Facebook</span>
+                 </a>
+             </div>
+
+             <div class="media-options">
+               <a href="#" class="field google" onclick="btnPendiente()">
+                  <img src="../View/assets/img/google.png" alt="" class="google-img">
+                  <span>Ingresar con Google</span>
+              </a>
+             </div>
+            <div class="signup-link">
+            ¿Deseas volver? <a href="./index.html"> Ir a Inicio</a>
+            </div>        
+         </div>
+
+
+        <!-- JavaScript -->
+        <script src="js/val-login.js"></script>>
+        <script src="assets/js/topbtn.js"></script>>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+

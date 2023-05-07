@@ -1,0 +1,47 @@
+.div0{
+    height: 6rem;
+}
+
+.grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+/*------ position: relative;
+}
+
+/*------Banner-------*/
+
+/*------.banner {
+ position: absolute-------*/
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 150px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #EDF5FC;
+    transition: 0.5s;
+}
+
+/*------Cuerpo-------*/
+
+.cuerpo {
+    position: relative;
+}
+
+.cuerpo h1 {
+    font-size: 6em;
+    font-weight: 800;
+    color: #1A609F;
+    line-height: 1em;
+}
+
+.cuerpo p {
+    position: relative;
+    font-size: 1.1em;
+    margin: 20px 0;
+    font-weight: 400;
+    max-width: 700px;
+    color: #333333;
+}

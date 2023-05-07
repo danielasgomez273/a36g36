@@ -1,0 +1,214 @@
+.div0{
+    height: 6rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif; 
+    /*outline: solid 1px tomato !important;*/
+}
+
+
+
+a {
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+
+/*------Banner-------*/
+
+.banner {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 150px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #EDF5FC;
+    transition: 0.5s;
+}
+
+/*------Container-------*/
+div.container2 {
+    position: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 1px;
+}
+
+.grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 4%;
+}
+
+/*------Cuerpo-------*/
+
+.cuerpo {
+   position: relative;
+}
+
+.cuerpo h1 {
+   font-size: 6em;
+   font-weight: 800;
+   color: #1A609F;
+   line-height: 1em;
+}
+
+.cuerpo p {
+   position: relative;
+   font-size: 1.1em;
+   margin: 20px 0;
+   font-weight: 400;
+   max-width: 700px;
+   color: #333333;
+}
+
+.seccion1 {
+   height: 100vp; 
+   padding: 0 0 10% 0%;
+   /*background: ; */
+}
+
+/*------Cards--------*/
+
+.card-body {
+   background: transparent; 
+   margin: 5%; 
+ }
+
+.card2 {
+   background: transparent;
+   margin: 1%; 
+   border: none;
+   height: 35rem;
+}
+
+.card {
+ background: transparent;
+ margin: 1%; 
+ border: none;
+ height: 50rem;
+
+}
+.card3 {
+ background: transparent;
+ margin: 1%; 
+ border: none;
+ height: 20rem;
+ border: 1px solid #777777;
+ border-radius: .3rem;
+
+}
+
+
+.cajas {
+   box-shadow: 0 0 16px rgba(0, 0, 0, 1);
+   border-radius: 5px;
+}
+
+.card-title {
+   text-align: center;
+}
+
+.card-text {
+   text-align: center;
+   display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    line-height: 2;
+    font-family: Poppins, sans-serif;
+}
+
+/*------Seccion--------*/
+
+.seccion {
+   height: 100vp;  
+   padding: 5%;
+}
+
+.seccion1 {
+   height: 100vp; 
+   padding: 10%;
+   /*background: ; */
+}
+
+.img-act {
+   width: 40%;
+   margin:auto;
+  display:block;
+   margin-top: 3%;
+}
+
+.texto1 {
+   text-align: center;
+   color: #1A609F;
+   margin: 1%;
+   line-height: 2.5;
+}
+
+.texto2 {
+   text-align: center;
+   color: #333333;
+   margin: 2% 10%;
+   line-height: 2.5;
+}
+
+.button1, .button2 {
+    padding: 10px;
+    border-radius: 5px;
+    width: 50%;
+    margin: 10px;
+}
+
+.button1 {
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+    border-color: white;
+    color: white;
+}
+
+.button2 {
+    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
+    /*background-color: #1A609F;*/
+    border-color: white;
+    color: white;
+}
+
+.boton1 {
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    width: 10%;
+    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
+    /*background-color: #1A609F;*/
+    color: white;
+    border-color: white;
+    border-width: 2px;
+}
+
+.boton2 {
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+    /*background-color: #fa4299;*/
+    border-color: white;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    margin:auto;
+	display:block;
+}
