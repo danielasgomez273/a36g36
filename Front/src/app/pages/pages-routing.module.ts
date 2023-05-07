@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes:Routes=[
   {path:'',
     children:[
+        {path:'', component:InicioComponent},
         {path:'home', component:InicioComponent},
         {path:'blog', component:BlogComponent},
         {path:'contacto', component:ContactoComponent},

@@ -277,17 +277,22 @@ div.container3 {
 }
 /*------Form-------*/
 
-.banner1 {
+/*.banner1 {
+    margin:2rem;
     position: absolute;
     right: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     padding: 230px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     background: #EDF5FC;
     transition: 0.5s;   
+}*/
+.banner2{
+    padding: 5rem !important;
+    background-color: #eee;
 }
 
 .grid-container1 {
