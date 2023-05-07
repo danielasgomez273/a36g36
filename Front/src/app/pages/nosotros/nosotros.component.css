@@ -2,7 +2,6 @@
    height:6rem;
 }
 
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,500&display=swap');
 * {
     margin: 0;
@@ -83,160 +82,11 @@ div.container2 {
     align-items: center;
     justify-content: center;
     position: relative;
-=======
-.grid-container {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   position: relative;
-}
-
-.banner {
-   
-   right: 0;
-   width: 100%;
-   min-height: 100vh;
-   padding: 150px;
-   display: flex;
-   justify-content: flex-start;
-   align-items: center;
-   background: #EDF5FC;
-   transition: 0.5s;
->>>>>>> covaro-maximiliano
 }
 
 /*------Cuerpo-------*/
 
 .cuerpo {
-<<<<<<< HEAD
-    position: relative;
-}
-
-.cuerpo h1 {
-    font-size: 6em;
-    font-weight: 800;
-    color: #1A609F;
-    line-height: 1em;
-}
-
-.cuerpo p {
-    position: relative;
-    font-size: 1.1em;
-    margin: 20px 0;
-    font-weight: 400;
-    max-width: 700px;
-    color: #333333;
-}
-
-/*------Scroll To Top Button-------*/
-#myBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: #1A609F; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-    font-size: 18px; /* Increase font size */
-  }
-  
-  #myBtn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
-  }
-
-/* cambio colores de los botones */
-
-.button1, .button2 {
-    padding: 10px;
-    border-radius: 5px;
-    width: 50%;
-    margin: 10px;
-}
-
-.button1 {
-    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
-    border-color: white;
-    color: white;
-}
-
-.button2 {
-    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
-    /*background-color: #1A609F;*/
-    border-color: white;
-    color: white;
-}
-
-.boton1 {
-    border-radius: 5px;
-    padding: 10px;
-    margin-left: 10px;
-    width: 10%;
-    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
-    /*background-color: #1A609F;*/
-    color: white;
-    border-color: white;
-    border-width: 2px;
-}
-
-.boton2 {
-    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
-    /*background-color: #fa4299;*/
-    border-color: white;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    margin:auto;
-	display:block;
-}
-
-/*.boton3 {
-    border-radius: 5px;
-    padding: 10px;
-    margin:auto;
-	display:block;
-    width: 20%;
-    background-color: #ACD1F2;
-    color: white;
-    border-color: white;
-    border-width: 2px;
-}*/
-
-
-/*------Cards--------*/
-
-.card-body {
-    background: transparent; 
-    margin: 5%; 
-  }
-
-.card2 {
-    background: transparent;
-    margin: 1%; 
-    border: none;
-    height: 35rem;
-}
-
-.card {
-  background: transparent;
-  margin: 1%; 
-  border: none;
-  height: 48rem;
- 
-}
-.card3 {
-  background: transparent;
-  margin: 1%; 
-  border: none;
-  height: 20rem;
-  border: 1px solid #777777;
-  border-radius: .3rem;
- 
-=======
    position: relative;
 }
 
@@ -258,7 +108,7 @@ div.container2 {
 
 .seccion1 {
    height: 100vp; 
-   padding: 0 0 10% 0%;
+   padding: 0;
    /*background: ; */
 }
 
@@ -291,118 +141,10 @@ div.container2 {
  border: 1px solid #777777;
  border-radius: .3rem;
 
->>>>>>> covaro-maximiliano
 }
 
 
 .cajas {
-<<<<<<< HEAD
-    box-shadow: 0 0 16px rgba(0, 0, 0, 1);
-    border-radius: 5px;
-}
-
-.card-title {
-    text-align: center;
-}
-
-.card-text {
-    text-align: center;
-}
-
-/*------Seccion--------*/
-
-.seccion {
-    height: 100vp;  
-    padding: 5%;
-}
-
-.seccion1 {
-    height: 100vp; 
-    padding: 10%;
-    /*background: ; */
-}
-
-.img-act {
-    width: 40%;
-    margin:auto;
-	display:block;
-    margin-top: 3%;
-}
-
-.texto1 {
-    text-align: center;
-    color: #1A609F;
-    margin: 1%;
-    line-height: 2.5;
-}
-
-.texto2 {
-    text-align: center;
-    color: #333333;
-    margin: 2% 10%;
-    line-height: 2.5;
-}
-
-/*------Responsive-------*/
-
-@media (max-width:400px){
-    
-    .cuerpo {
-        position: relative;
-        margin-top: 260px;
-    }
-    
-    .cuerpo h1 {
-        font-size: 3em;
-        font-weight: 500;
-        color: white;
-        line-height: 1em;
-    }
-    
-    .cuerpo p {
-        position: relative;
-        font-size: 1.1em;
-        margin: 10px 0;
-        font-weight: 500;
-        max-width: 500px;
-        color: white;
-    }
-    
-   .boton1 {
-    border-radius: 5px;
-    padding: 10px;
-    margin-left: 10px;
-    width: 10%;
-    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
-    /*background-color: #1A609F;*/
-    color: white;
-    border-color: white;
-    border-width: 2px;
-    }
-
-    .seccion , .seccion1{
-        display: block;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
-    div.container2 {
-        position: center;
-        justify-content: center;
-        text-align: center;
-        padding-top: 5%;
-        padding-left: 15%;
-        padding-right: 10%;
-        padding-bottom: 1px;
-    }
-
-    .cajas {
-        margin-top: 15px;
-    }
-    
-}
-    
-=======
    box-shadow: 0 0 16px rgba(0, 0, 0, 1);
    border-radius: 5px;
 }
@@ -447,4 +189,3 @@ div.container2 {
    margin: 2% 10%;
    line-height: 2.5;
 }
->>>>>>> covaro-maximiliano
