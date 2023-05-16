@@ -126,7 +126,7 @@ cursor.execute('''
             );
    ''')
 
-##################################### creamos tabla INTERMEDIA CARRITO-PAQUETE MODIFICACION 2023 ##################################### 
+#################### ################# creamos tabla INTERMEDIA CARRITO-PAQUETE MODIFICACION 2023 ##################################### 
 cursor.execute('''
             CREATE TABLE IF NOT EXISTS "carrito_paquete" (            
                 "id_carrito_paquete" INTEGER NOT NULL,
