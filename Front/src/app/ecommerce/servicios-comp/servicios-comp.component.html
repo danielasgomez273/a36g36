@@ -15,18 +15,19 @@
     </nav>
         <h1>Nuestros Servicios</h1>
     <div class="servicios">
-       <div class="items">
+
+       <div class="items" *ngFor="let servicio of servicios_S, let i=index"> 
           <img src="../../../assets/Pilares-tratamiento-diabetes.png" alt="Pilares-tratamiento-diabetes">
           <div class="info">
-             <h3>titulo producto 1</h3>
-             <p>informacion adicional</p>
+             <h3>{{servicio.nombre}}</h3>
+             <p>{{servicio.descripcion}}</p>
              <div class="precio">
-                 <p>precio</p>
+                 <p>{{servicio.monto}}</p>
              </div>
              <button>Agregar al carrito</button>
           </div>
         </div>
-       <div class="items">
+       <!--  <div class="items">  
         <img src="../../../assets/Pilares-tratamiento-diabetes.png" alt="Pilares-tratamiento-diabetes">
           <div class="info">
              <h3>titulo producto 1</h3>
@@ -47,6 +48,6 @@
              </div>
              <button>Agregar al carrito</button>
           </div>
-       </div>
+       </div > -->
     </div>
 </div>
