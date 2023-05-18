@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EcommerceServiceService } from 'src/app/servicios/ecommerce-service.service';
 
 @Component({
   selector: 'app-servicios-comp',
@@ -6,25 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servicios-comp.component.css']
 })
 export class ServiciosCompComponent implements OnInit {
-  servicios_S=[
-    {nombre:"Consulta Diabetologo",
-    descripcion:"Consulta con profesional en Diabetologia",
-    monto:4000},
-  
-    {nombre:"Consulta Cardiologo",
-    descripcion:"Consulta con profesional en Cardiologia",
-    monto:4200},
-  
-    {nombre:"Paquete Completo",
-    descripcion:"Contratacion del servicio completo",
-    monto:12000},
-  
-    {nombre:"Analisis Clinico",
-    descripcion:"Cita para extraccion de sangre",
-    monto:4000}]
+  servicios:any
+  servicios_S: any
 
-    constructor(){}
-    ngOnInit(){}
+    constructor(private servicio:EcommerceServiceService){
+      this.servicio.muestraservicio().subscribe({
+        next:(servicios_S)=>{
+          this.servicios=servicios_S
+        },
+        error:(errorData)=>{
+          console.error(errorData);
+        }
+        
+      }
+         )
+    }
+    ngOnInit():void{}
 }
 
 

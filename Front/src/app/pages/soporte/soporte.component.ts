@@ -6,9 +6,9 @@ import { EcommerceServiceService } from 'src/app/servicios/ecommerce-service.ser
   styleUrls: ['./soporte.component.css']
 })
 export class SoporteComponent {
-servicios: { nombre: string; descripcion: string; monto: number; }[];
-constructor (servicio:EcommerceServiceService){
-  this.servicios=servicio.muestraservicio()
+
+constructor (){
+ 
 }
 ngOnInit(): void{}
 
