@@ -10,11 +10,11 @@
     .conteiner nav {
         width: 100%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-end;;
         padding: 15px;
         background-color: #fff;
         
-        color: #333;
+        color: #001d4d;
     }
     .nav-compras {
         display: none;
@@ -54,15 +54,16 @@
         margin: 10px auto;
         background-color: transparent;
         border: solid thin #e1e1e1;
-        color: #494848;
+        border: solid thin #1A609F;
+        color: #1A609F;
         cursor: pointer;
     }
     .conteiner nav i:hover .compras > button:hover {
-        border: solid thin #494848;
+        border: solid thin #1A609F;
         transition: all 4s;
     }
     .fa-solid {
-        font-size:3rem;
+        font-size:2rem;
         cursor: pointer;
     }
     
