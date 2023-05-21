@@ -115,7 +115,7 @@ div.container3 {
 }
 
 .cuerpo h1 {
-    font-size: 6em;
+    font-size: 3em;
     font-weight: 800;
     color: #1A609F;
     line-height: 1em;
@@ -288,11 +288,22 @@ div.container3 {
     background: #EDF5FC;
     transition: 0.5s;   
 }*/
+.banner2{
+    padding: 5rem !important;
+    background-color: #eee;
+}
 
+.grid-container1 {
+        display: flex;
+        flex: 1;
+        align-items: inherit;
+        justify-content: center;
+        position: relative;
+}
 
 h1{
     text-align: center;
-    font-weight: 800;
+    font-weight: 200;
     color: #1A609F;
     font-family: Poppins, sans-serif;
 }
@@ -302,12 +313,16 @@ form{
     padding: 30px;
     box-shadow: 2px 2px 5px 5px #999;
     border-radius: 10px;
+    margin-top: 6rem;
 }
 
 .form{
     width: 100%;
-    margin: auto;
+    margin:auto;
+
 }
+
+
 
 form .grupo{
     position: relative;
