@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+root{
+    scroll-behavior: smooth;
+}
+
+
+/*  ESPECIFICO DASHBOARD PACIENTE  */ 
+.dashboardUser{
+    background-color:#ffffff;
+}
+
+
+.dashboardUser .headerDashboard{
+    background: -webkit-linear-gradient(left, #a345b292, #fa42989e);
+}
+/*
+.dashboardPaciente .headerDashboard img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 10px;
+    object-fit: cover;
+    text-align: right;
+}*/
+.dashboardUser .headerDashboard div{
+    margin-left: 10px;
+    text-align: center;
+}
+.dashboardUser .headerDashboard p{
+    font-size:1.2rem;
+    color: white;
+}
+
+.dashboardUser .headerDashboard .nombreUsuario{
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.dashboardUser .contenedorGrafico{
+    color:rgb(3, 79, 108);
+}
+.dashboardUser .contenedorGrafico p{
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+.dashboardUser .contenedorGrafico .botoneraPeriodo{
+    display: flex;
+    justify-content: space-around;
+    width: 350px;
+}
+.dashboardUser .contenedorGrafico .botoneraPeriodo button{
+    border-radius: 10px;
+    width: 80px;
+    border: none;
+    margin-bottom: 10px;
+    background-color:white;
+    border: 1px solid gray;
+}
+.dashboardUser .contenedorGrafico .botoneraPeriodo button:hover{
+    color: white;
+    background-color:rgb(3, 79, 108);
+    transform: scale(1.05);
+}
+.dashboardUser .contenedorGrafico .grafico{
+   margin: auto;
+}
+
+/* boton nuevo registro   */
+.dashboardUser .btnAgregar{
+    position: sticky;
+    top: 90vh;
+    border: none;
+    border-radius: 50%;
+    padding: 3px;
+    margin: 10px;
+    margin-top: 30px;
+    margin-left:calc(100vw - 100px);
+    z-index: 100;
+    background-color: rgba(8, 197, 43, 0.755);
+}
+.dashboardUser .btnAgregar img{
+    width: 40px;
+    border-radius: 50%;
+}
+.dashboardUser .btnAgregar:hover{
+    background-color: rgb(4, 125, 6);
+}
+
+/* modal nuevo registro   */
+.dashboardUser #nuevoRegistroGlucemia label{
+    margin-bottom: 5px;
+}
+.dashboardUser #nuevoRegistroGlucemia  input{
+    margin-bottom: 15px;
+}
+.dashboardUser #nuevoRegistroGlucemia .fechaActual{
+    text-align: right;
+    width: 100%;
+}
+
+/* listado de registros   */
+.dashboardUser .registros .registro{
+  /*  background: -webkit-linear-gradient(left, #001e4db2, #1a619f86);*/
+    padding: 5px;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 95%;
+    max-width: 350px;
+}
+.dashboardUser .registros .registro:hover{
+    transform: scale(1.02);
+}
+.dashboardUser .registros p{
+    margin: 1rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.dashboardUser .registros .registro p{
+    margin: 0;
+}
+
+.dashboardUser .registros .registro .fecha{
+   
+    font-weight: 300;
+}
+.dashboardUser .registros .registro .glucemia{
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.div0{
+    margin-top: 6rem;
+}

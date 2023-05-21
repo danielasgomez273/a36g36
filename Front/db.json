@@ -14,5 +14,26 @@
     
       {"nombre":"Analisis Clinico",
       "descripcion":"Cita para extraccion de sangre",
-      "monto":4000}]
+      "monto":4000}],
+
+
+
+      "estadisticas_admins":[
+        {"tipo":"Diabetes Tipo 1",
+        "cantidad":200},
+      
+        {"tipo":"Diabetes Tipo 2",
+        "cantidad":230},
+      
+        {"tipo":"Diabetes LADA",
+        "cantidad":189},
+
+        {"tipo":"Diabetes Gestacional",
+        "cantidad":34},
+
+        {"tipo":"Diabetes MOBY",
+        "cantidad":19}
+      ]
+      
+
   }

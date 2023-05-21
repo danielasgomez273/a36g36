@@ -765,3 +765,28 @@ footer p {
 .ng-invalid:not(form).ng-touched{
     border-bottom:  .1rem solid red;
 }
+
+/*      estilo boton        */
+.btn_stl{
+    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
+     border: none;
+     display: block;
+     width: 80%;
+     margin: 10px auto;
+     color: #fff;
+     height: 40px;
+     font-size: 20px;
+     cursor: pointer;
+}
+
+.btn_stl_admin{
+    background: -webkit-linear-gradient(left, #001d4d, #1A609F); 
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    color: #fff;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}

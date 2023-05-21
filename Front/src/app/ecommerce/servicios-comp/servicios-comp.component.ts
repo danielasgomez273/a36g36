@@ -8,7 +8,7 @@ import { EcommerceServiceService } from 'src/app/servicios/ecommerce-service.ser
 })
 export class ServiciosCompComponent implements OnInit {
   servicios:any
-  servicios_S: any
+
 
     constructor(private servicio:EcommerceServiceService){
       this.servicio.muestraservicio().subscribe({

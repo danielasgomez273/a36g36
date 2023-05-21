@@ -5,6 +5,8 @@ import { RegistroComponent } from './registro/registro.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 
 
 
@@ -12,7 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    DashboardUsuarioComponent,
+    DashboardAdminComponent
   ],
   imports: [
     CommonModule,
