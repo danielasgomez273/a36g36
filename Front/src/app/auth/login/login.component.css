@@ -81,6 +81,11 @@ a {
     transition: 0.5s;
 }
 
+.banner2{
+    padding: 5rem !important;
+    background-color: #eee;
+}
+
 /*------Container-------*/
 div.container2 {
     position: center;
@@ -101,14 +106,7 @@ div.container3 {
     padding-bottom: 2%;
 }
 
-.grid-container {
-    display: flex;
-    flex: 1;
-    align-items: inherit;
-    justify-content: center;
-    position: relative;
-   
-}
+
 
 /*------Cuerpo-------*/
 
@@ -290,18 +288,7 @@ div.container3 {
     background: #EDF5FC;
     transition: 0.5s;   
 }*/
-.banner2{
-    padding: 5rem !important;
-    background-color: #eee;
-}
 
-.grid-container1 {
-        display: flex;
-        flex: 1;
-        align-items: inherit;
-        justify-content: center;
-        position: relative;
-}
 
 h1{
     text-align: center;
@@ -790,3 +777,21 @@ footer p {
     font-size: 16px;
     cursor: pointer;
 }
+
+.grid-container1 {
+    display: flex;
+    flex: 1;
+    align-items: inherit;
+    justify-content: center;
+    position: relative;
+}
+
+/* //////////////////////////// */
+.grupo{
+    height: 3rem;
+    width: 18rem;
+
+
+
+}
+

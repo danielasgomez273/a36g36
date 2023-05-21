@@ -23,55 +23,14 @@
           <div class="row">
 
             <!-- tarjeta 1 -->
-            <div class="col-lg-3 col-md-6">
-              <div class="card3">
+            <div class="col-lg-3 col-md-6"  *ngFor="let comorbilidad of comorbilidades_admins">
+              <div class="card3" >
                 <div class="card-body">
-                  <h5 class="mb-0"> 50 (10%) </h5>
+                  <h5 class="mb-0"> {{comorbilidad.porcentaje}}% </h5>
                   <small class="d-inline-block text-muted mb-2">Promedio pacientes</small>
                   <div class="md-4">
                     <span class="bagde bagde-primary mr-1"> Cantidad de pacientes con </span>
-                    <span class="bagde bagde-primary text-info"> Diabetes e Hipertensión</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- tarjeta 2 -->
-            <div class="col-lg-3 col-md-6">
-              <div class="card3">
-                <div class="card-body">
-                  <h5 class="mb-0"> 100 (20%) </h5>
-                  <small class="d-inline-block text-muted mb-2">Promedio pacientes</small>
-                  <div class="md-4">
-                    <span class="bagde bagde-primary mr-1"> Cantidad de pacientes con </span>
-                    <span class="bagde bagde-primary text-info"> Diabetes y Dislipemia</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- tarjeta 3 -->
-            <div class="col-lg-3">
-              <div class="card3">
-                <div class="card-body">
-                  <h5 class="mb-0"> 350 (70%) </h5>
-                  <small class="d-inline-block text-muted mb-2">Promedio pacientes</small>
-                  <div class="md-4">
-                    <span class="bagde bagde-primary mr-1"> Cantidad de pacientes con
-                    </span>
-                    <span class="bagde bagde-primary text-info"> Diabetes y Sobrepeso</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- tarjeta 4 -->
-            <div class="col-lg-3">
-              <div class="card3">
-                <div class="card-body">
-                  <h5 class="mb-0"> 350 (70%) </h5>
-                  <small class="d-inline-block text-muted mb-2">Promedio pacientes</small>
-                  <div class="md-4">
-                    <span class="bagde bagde-primary mr-1"> Cantidad de Pacientes con
-                    </span>
-                    <span class="bagde bagde-primary text-info">Diabetes e Insuficiencia Cardíaca</span>
+                    <span class="bagde bagde-primary text-info">{{comorbilidad.tipo}}</span>
                   </div>
                 </div>
               </div>
@@ -83,35 +42,22 @@
       </section>
 
       <!-- SECCION (SERVICIOS) -->
-      <section class="container-fluid da-serv-cont-marg border-top ">
+      <section class="container-fluid da-serv-cont-marg border-top segunda-seccion">
         <h5 id="servicios" class="da-sec-t1 logo "> Servicios Disponibles</h5>
-        <div id="content" class="container-fluid">
+        <div id="content" class="container-fluid" *ngFor="let servicio of servicios_admins">
 
-          <div class="row bg-light border d-flex align-items-center ">
+          <div class="row bg-light border d-flex align-items-center regist-servicios ">
             <div class="col ">
-              <p> Análisis Clínicos</p>
+              <p> {{servicio.tipo}}</p>
             </div>
             <div class="col">
-              <small>Glucosa en ayuna, Prueba de glucosa capilar, Hemoglobina glucosilada HbA1c, Curva de tolerancia a
-                la
-                glucosa </small>
+              <small>{{servicio.descripcion}}</small>
             </div>
             <div class="col">
-              <small>Precio: --</small>
+              <small>Precio: {{servicio.precio}}</small>
             </div>
           </div>
 
-          <div class="row  border d-flex align-items-center">
-            <div class="col">
-              <p> Nutrición</p>
-            </div>
-            <div class="col">
-              <small>Consulta con nutricionista: </small>
-            </div>
-            <div class="col">
-              <small>Precio: --</small>
-            </div>
-          </div>
         </div>
       </section>
       <!-- SECCION (SERVICIOS) FORMULARIO -->
@@ -133,24 +79,12 @@
       <section class="border-top da-sec-t1">
 
         <h5 id="ingresos" class="da-sec-t1 logo"> Ingresos por periodo</h5>
-        <div id="content">
+        <div id="content"  >
 
-          <div class="row ">
-            <div class="bg-light col-lg-3 col-md-6 p-4 cardsm">
-              <h5>--</h5>
-              <small>Ingresos Semanales</small>
-            </div>
-            <div class="col-lg-3 col-md-6 p-4 cardsm">
-              <h5>--</h5>
-              <small>Ingresos mensuales</small>
-            </div>
-            <div class="bg-light col-lg-3 col-md-6 p-4 cardsm">
-              <h5>--</h5>
-              <small>Ingresos semestrales</small>
-            </div>
-            <div class="col-lg-3 col-md-6 p-4 cardsm">
-              <h4>--</h4>
-              <small>Ingreso Anual</small>
+          <div class="row " >
+            <div class="bg-light col-lg-3 col-md-6 p-4 cardsm" *ngFor="let ingresos of ingresos_admins">
+              <h5>${{ingresos.monto}}</h5>
+              <small>{{ingresos.tipo}}</small>
             </div>
           </div>
         </div>

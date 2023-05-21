@@ -33,7 +33,93 @@
 
         {"tipo":"Diabetes MOBY",
         "cantidad":19}
-      ]
+      ],
       
+      "estadisticas_comorbilidades_admins":[
+        {"tipo":"Diabetes e Hipertension",
+        "porcentaje":50},
+      
+        {"tipo":"Diabetes y Dislipemia",
+        "porcentaje":20},
+      
+        {"tipo":"Diabetes y Sobrepeso",
+        "porcentaje":15},
+
+        {"tipo":"Diabetes e Insuficiencia Cardíaca",
+        "porcentaje":15}
+      ],
+
+
+
+      "serv_disponibles_admins":[
+        {"tipo":"Análisis Clínicos",
+        "descripcion":"Glucosa en ayuna, Prueba de glucosa capilar, Hemoglobina glucosilada HbA1c, Curva de tolerancia a la glucosa",
+       "precio":4000},
+        
+        {"tipo":"Consulta Nutrición",
+        "descripcion":"Consulta con nutricionista",
+       "precio":4000},
+
+       {"tipo":"Consulta Diabetologo",
+       "descripcion":"Consulta con Diabetologo",
+      "precio":4000}
+
+      ],
+
+      
+      "ingresos_admins":[
+        {"tipo":"Ingresos Diarios",
+        "monto":40000},
+
+        {"tipo":"Ingresos Semanales",
+        "monto":300000},
+
+        {"tipo":"Ingresos Quincenales",
+        "monto":750000},
+
+        {"tipo":"Ingresos Mensuales",
+        "monto":1500000}
+
+      ],
+
+      "notas_usuarios":[
+        {"fechas":"07:32 am, 11 Oct 22",
+        "glucemia":"1.2mg/dl",
+        "comentario":"Almorce fideos con fileto"
+        },
+
+        {"fechas":"08:00 am, 13 Oct 22",
+        "glucemia":"1.3mg/dl",
+        "comentario":"No desayune todavia"
+        },
+
+        {"fechas":"07:12 am, 15 Oct 22",
+        "glucemia":"1.1mg/dl",
+        "comentario":"Desayune cafe con leche"
+        },
+
+        {"fechas":"09:32 am, 17 Oct 22",
+        "glucemia":"1.0mg/dl",
+        "comentario":"Almorce guiso de arroz con pollo"
+        },
+
+        {"fechas":"07:09 am, 19 Oct 22",
+        "glucemia":"0.9mg/dl",
+        "comentario":"Desayune te con medialunas"
+        },
+
+        {"fechas":"07:52 am, 21 Oct 22",
+        "glucemia":"1.2mg/dl",
+        "comentario":"No cene"
+        },
+
+        {"fechas":"07:32 am, 23 Oct 22",
+        "glucemia":"1.8mg/dl",
+        "comentario":"Hice ayuno intermitente"
+        }
+        
+
+      ]
+
 
   }

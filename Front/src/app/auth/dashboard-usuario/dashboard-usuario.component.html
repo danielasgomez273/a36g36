@@ -1,13 +1,15 @@
-<div class="div0"></div>
+
     
     <!-- Empieza Dashboard Usuario --> 
-    <div class="dashboardUser">
+    <div class="dashboardUser div0">
       <div class="headerDashboard">
         <!--  <img src="../assets/images/sinFotoPerfil.jpg"> -->
         <div>
           <p class="nombreUsuario">Paciente</p>
         </div>
       </div>
+
+      <!--
       <div class="contenedorGrafico">
         <p>Resumen</p>
         <div class="botoneraPeriodo">
@@ -25,7 +27,7 @@
 
       <button class="btnAgregar" data-bs-toggle="modal" data-bs-target="#nuevoRegistroGlucemia"><img
           src="../assets/img/icons/add.png"></button>
-
+-->
       <!-- Modal -->
       <div class="modal fade" id="nuevoRegistroGlucemia" tabindex="-1" aria-labelledby="nuevoRegistroGlucemia"
         aria-hidden="true">
@@ -66,31 +68,12 @@
 
       <div class="registros">
         <p>Ultimos registros</p>
-        <div class="bg-light col-lg-4 col-md-6 p-4 registro">
-          <p class="fecha">07:32 am, 11 Oct 22</p>
-          <p class="glucemia">Glucemia: 0.7mg/dl</p>
-          <p class="notas">Notas: "no habia desatunado aun"</p>
+        <div class="bg-light col-lg-4 col-md-6 p-4 registro" *ngFor="let nota of notas_usuarios">
+          <p class="fecha">Fecha: {{nota.fechas}}</p>
+          <p class="glucemia">Glucemia:{{nota.glucemia}}</p>
+          <p class="notas">Notas:{{nota.comentario}}</p>
         </div>
-        <div class="col-lg-4 col-md-6 p-4 registro">
-          <p class="fecha">10:45 am, 11 Oct 22</p>
-          <p class="glucemia">Glucemia: 1.2mg/dl</p>
-          <p class="notas">Notas: "Cafe con leche"</p>
-        </div>
-        <div class="bg-light col-lg-4 col-md-6 p-4 registro">
-          <p class="fecha">14:20 pm, 11 Oct 22</p>
-          <p class="glucemia">Glucemia: 0.7mg/dl</p>
-          <p class="notas">Notas: "Almorce fideos con fileto"</p>
-        </div>
-        <div class="col-lg-4 col-md-6 p-4 registro">
-          <p class="fecha">10:45 am, 11 Oct 22</p>
-          <p class="glucemia">Glucemia: 1.2mg/dl</p>
-          <p class="notas">Notas: "Cafe con leche"</p>
-        </div>
-        <div class="bg-light col-lg-4 col-md-6 p-4 registro">
-          <p class="fecha">14:20 pm, 11 Oct 22</p>
-          <p class="glucemia">Glucemia: 0.7mg/dl</p>
-          <p class="notas">Notas: "Almorce fideos con fileto"</p>
-        </div>
+       
 
       </div>
     </div>

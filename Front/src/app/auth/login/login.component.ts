@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit{
           },
 
           complete:() => {
-            alert("Validacion realizada correctamente");
+           // alert("Validacion realizada correctamente");
 
           }
 
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit{
 
       // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
       this.profileForm.markAllAsTouched();
-      alert("No se ingresaron correctamente los datos")
+     //alert("No se ingresaron correctamente los datos")
     }
   }
 

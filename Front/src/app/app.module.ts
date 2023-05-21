@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { EcommerceModule } from './ecommerce/ecommerce.module';
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';

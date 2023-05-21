@@ -15,4 +15,20 @@ export class EstadisAdminsService {
     return this.http.get(this.url+"estadisticas_admins")
   }
 
+  muestraComorbilidades( ){
+
+    return this.http.get(this.url+"estadisticas_comorbilidades_admins")
+  }
+
+  muestraServicios( ){
+
+    return this.http.get(this.url+"serv_disponibles_admins")
+  }
+
+
+  muestraIngresos( ){
+
+    return this.http.get(this.url+"ingresos_admins")
+  }
+
 }

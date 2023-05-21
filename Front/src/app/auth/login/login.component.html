@@ -2,19 +2,32 @@
 
 
   
-<!-- [formGroup]="profileForm" -->
+  
+  <!-- Favicons -->
 
-  <section class="grid-container1 banner2">
-    <form  action="" method="POST" id="form">
-      <div class="form form2">
+  <link href="assets/img/favicon.png" rel="icon">
+  <!--link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"-->
+
+ <!-- Termina Head -->
+
+<!-- Empieza Body -->
+
+<body>
+  
+<!--  [formGroup]="profileForm" -->
+
+  <section class=" grid-container1 banner2 ">
+
+    <form  [formGroup]="profileForm" action="" method="POST" id="form">
+      <div class="form ">
         <h1 >LOGIN</h1>
         
         <div class="grupo">
-          <input formControlName="email" type="email" name="" id="email"><span class="barra"></span>
+          <input formControlName="email" class="msj-verificacion" type="email" name="" id="email"><span class="barra"></span>
           <label for="">Email</label>
           <!--  MENSAJES DE VALIDACION PARA INPUT NOMBRE -->
           <div *ngIf="email_GET.invalid && (email_GET.dirty || email_GET.touched)"
-          class="text-danger">
+          class="text-danger msj-verificacion">
       
               <div *ngIf="email_GET.errors?.['required']">
                 Ingrese un email.
@@ -43,12 +56,12 @@
         </div>
             <!--  (click)="verificacionLogin()" -->
         <button  class="btn_stl" type="submit">
-          <a href="auth/dash_user">Ingresar</a>
+          <a class="text-white" href="auth/dash_user">Ingresar</a>
         </button>
   
 
-        <button class="btn_stl_admin" type="submit">
-          <a href="auth/dash_admin">Ingresar como administrador</a>
+        <button class="btn_stl_admin " type="submit">
+          <a  class="text-white" href="auth/dash_admin">Ingresar como administrador</a>
 
           </button>
 
