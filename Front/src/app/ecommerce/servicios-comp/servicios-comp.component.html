@@ -13,13 +13,16 @@
             </div>
         </i>
     </nav>
+    <div class="cuerpo seccion1 grid-container banner ">
         <h1>Nuestros Servicios</h1>
-    <div class="servicios">
+        
+    </div>
+    <div class="servicios grid-container seccion2">
 
-       <div class="items" *ngFor="let servicio of servicios, let i=index"> 
-          <img src="../../../assets/Pilares-tratamiento-diabetes.png" alt="Pilares-tratamiento-diabetes">
-          <div class="info">
-             <h3>{{servicio.nombre}}</h3>
+       <div class="items card cajas card2 col-lg-3" style="width: 20rem;" *ngFor="let servicio of servicios, let i=index"> 
+          <img src="../../../assets/cardio.jpg" class="card-img-top" alt="Pilares-tratamiento-diabetes">
+          <div class="info card-body">
+             <h3 class="card-title">{{servicio.nombre}}</h3>
              <p>{{servicio.descripcion}}</p>
              <div class="precio">
                  <p>{{servicio.monto}}</p>

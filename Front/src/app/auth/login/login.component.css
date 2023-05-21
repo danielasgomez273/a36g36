@@ -290,18 +290,7 @@ div.container3 {
     background: #EDF5FC;
     transition: 0.5s;   
 }*/
-.banner2{
-    padding: 5rem !important;
-    background-color: #eee;
-}
 
-.grid-container1 {
-        display: flex;
-        flex: 1;
-        align-items: inherit;
-        justify-content: center;
-        position: relative;
-}
 
 h1{
     text-align: center;
