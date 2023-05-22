@@ -1,0 +1,151 @@
+{
+  "servicios":[
+      {"nombre":"Consulta Diabetologia",
+      "descripcion":"Consulta con profesional en Diabetologia",
+      "monto":4000},
+    
+      {"nombre":"Consulta Cardiologia",
+      "descripcion":"Consulta con profesional en Cardiologia",
+      "monto":4000},
+
+      {"nombre":"Consulta Nefrologia",
+      "descripcion":"Consulta con profesional en Nefrologia",
+      "monto":4000},
+
+      {"nombre":"Consulta Oftalmologia",
+      "descripcion":"Consulta con profesional en Oftalmologia",
+      "monto":4000},
+
+      {"nombre":"Consulta Nutricion",
+      "descripcion":"Consulta con profesional en Nutricion",
+      "monto":4000},
+
+      {"nombre":"Consulta Salud Mental",
+      "descripcion":"Consulta con profesional en Salud Mental",
+      "monto":4000},
+    
+      {"nombre":"Circuito Vital Basico",
+      "descripcion":"Incluye consulta con profesional en Diabetologia, Cardiologia y Nutricion",
+      "monto":12000},
+
+      {"nombre":"Circuito Vital Full",
+      "descripcion":"Incluye consulta con profesional en Diabetologia, Cardiologia, Nutricion y Analisis Clinicos",
+      "monto":22000},
+    
+      {"nombre":"Analisis Clinicos",
+      "descripcion":"Cita para extraccion de sangre",
+      "monto":2000}],
+
+
+
+      "estadisticas_admins":[
+        {"tipo":"Diabetes Tipo 1",
+        "cantidad":200},
+      
+        {"tipo":"Diabetes Tipo 2",
+        "cantidad":230},
+      
+        {"tipo":"Diabetes LADA",
+        "cantidad":189},
+
+        {"tipo":"Diabetes Gestacional",
+        "cantidad":34},
+
+        {"tipo":"Diabetes MOBY",
+        "cantidad":19}
+      ],
+      
+      "estadisticas_comorbilidades_admins":[
+        {"tipo":"Hipertension",
+        "porcentaje":52},
+      
+        {"tipo":"Dislipemia",
+        "porcentaje":18},
+      
+        {"tipo":"Sobrepeso y Obesidad",
+        "porcentaje":16},
+
+        {"tipo":"Insuficiencia Cardíaca",
+        "porcentaje":3}
+
+        {"tipo":"Retinopatia Diabetica",
+        "porcentaje":3}
+
+        {"tipo":"Nefropatia Diabetica",
+        "porcentaje":8}
+      ],
+
+
+
+      "serv_disponibles_admins":[
+        {"tipo":"Análisis Clínicos",
+        "descripcion":"Glucosa en ayunas, PTOG, HbA1c, Perfil lipidico, Funcion renal",
+       "precio":4000},
+        
+        {"tipo":"Consulta Nutrición",
+        "descripcion":"Consulta con profesional en Nutricion",
+       "precio":4000},
+
+       {"tipo":"Consulta Diabetologia",
+       "descripcion":"Consulta con profesional en Diabetologia",
+      "precio":4000}
+
+      ],
+
+      
+      "ingresos_admins":[
+        {"tipo":"Ingresos Diarios",
+        "monto":40000},
+
+        {"tipo":"Ingresos Semanales",
+        "monto":300000},
+
+        {"tipo":"Ingresos Quincenales",
+        "monto":750000},
+
+        {"tipo":"Ingresos Mensuales",
+        "monto":1500000}
+
+      ],
+
+      "notas_usuarios":[
+        {"fechas":"07:32 am, 11 Oct 22",
+        "glucemia":"1.2mg/dl",
+        "comentario":"Almorce fideos con fileto"
+        },
+
+        {"fechas":"08:00 am, 13 Oct 22",
+        "glucemia":"1.3mg/dl",
+        "comentario":"No desayune todavia"
+        },
+
+        {"fechas":"07:12 am, 15 Oct 22",
+        "glucemia":"1.1mg/dl",
+        "comentario":"Desayune cafe con leche"
+        },
+
+        {"fechas":"09:32 am, 17 Oct 22",
+        "glucemia":"1.0mg/dl",
+        "comentario":"Almorce guiso de arroz con pollo"
+        },
+
+        {"fechas":"07:09 am, 19 Oct 22",
+        "glucemia":"0.9mg/dl",
+        "comentario":"Desayune te con medialunas"
+        },
+
+        {"fechas":"07:52 am, 21 Oct 22",
+        "glucemia":"1.2mg/dl",
+        "comentario":"No cene"
+        },
+
+        {"fechas":"07:32 am, 23 Oct 22",
+        "glucemia":"1.8mg/dl",
+        "comentario":"Hice ayuno intermitente"
+        }
+        
+
+      ]
+
+
+  }

@@ -1,0 +1,93 @@
+
+      <!-- SECCION DE CONTENIDO  -->
+      <!-- PRIMERA FILA -->
+      <section class="container-fluid da-sect1">
+        <div class="div0"></div>
+        <h4 class="da-sec-t1 logo"> Cantidad de pacientes con diabetes</h4>
+        <div id="content">
+          <div class="row ">
+            <div *ngFor="let estadistica of estadisticas_admins" class="bg-light col-lg-4 col-md-6 p-4 ">
+              <h5>{{estadistica.cantidad}}</h5>
+              <small>{{estadistica.tipo}}</small>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- SEGUNDA FILA -->
+      <section class="container-fluid da-sect1 ">
+        <h5 class="logo da-sec-t1"> Pacientes con Diabetes y comorbilidades</h5>
+        <div id="content" class="container-fluid ">
+          <div class="row">
+
+            <!-- tarjeta 1 -->
+            <div class="col-lg-3 col-md-6"  *ngFor="let comorbilidad of comorbilidades_admins">
+              <div class="card3" >
+                <div class="card-body">
+                  <h5 class="mb-0"> {{comorbilidad.porcentaje}}% </h5>
+                  <small class="d-inline-block text-muted mb-2">Promedio pacientes</small>
+                  <div class="md-4">
+                    <span class="bagde bagde-primary mr-1"> Cantidad de pacientes con </span>
+                    <span class="bagde bagde-primary text-info">{{comorbilidad.tipo}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- SECCION (SERVICIOS) -->
+      <section class="container-fluid da-serv-cont-marg border-top segunda-seccion">
+        <h5 id="servicios" class="da-sec-t1 logo "> Servicios Disponibles</h5>
+        <div id="content" class="container-fluid" *ngFor="let servicio of servicios_admins">
+
+          <div class="row bg-light border d-flex align-items-center regist-servicios ">
+            <div class="col ">
+              <p> {{servicio.tipo}}</p>
+            </div>
+            <div class="col">
+              <small>{{servicio.descripcion}}</small>
+            </div>
+            <div class="col">
+              <small>Precio: {{servicio.precio}}</small>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- SECCION (SERVICIOS) FORMULARIO -->
+      <section id="page-container" class="da-sec-t1 borde-top">
+        <h5 id="servicios" class="da-sec-t1 logo">Registro de Servicios</h5>
+        <form class="form-register p-4 " action="">
+          <input class="controls text-dark" type="text" name="nombres" id="nombres"
+            placeholder="Ingrese Nombre de la Prestación Médica">
+          <input class="controls text-dark" type="text" name="apellidos" id="apellidos"
+            placeholder="Ingrese el Monto de la Prestación">
+          <input class="controls text-dark" type="text" name="correo" id="correo"
+            placeholder="Ingrese breve descripción de la Prestación">
+          <!--<p>Estoy de acuerdo con Terminos y Condiciones</a></p>-->
+          <input class="botons bg-info" type="submit" value="Registrar Servicio">
+        </form>
+      </section>
+
+      <!-- SECCION (INGRESOS) -->
+      <section class="border-top da-sec-t1">
+
+        <h5 id="ingresos" class="da-sec-t1 logo"> Ingresos por periodo</h5>
+        <div id="content"  >
+
+          <div class="row " >
+            <div class="bg-light col-lg-3 col-md-6 p-4 cardsm" *ngFor="let ingresos of ingresos_admins">
+              <h5>${{ingresos.monto}}</h5>
+              <small>{{ingresos.tipo}}</small>
+            </div>
+          </div>
+        </div>
+
+      </section>
+

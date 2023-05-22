@@ -165,7 +165,8 @@ div.container2 {
 
 .seccion1 {
    height: 100vp; 
-   padding: 10%;
+   padding-top: 0%;
+   padding-bottom: 10%;
    /*background: ; */
 }
 
