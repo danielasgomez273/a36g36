@@ -1,27 +1,35 @@
 .div0{
     height: 6rem;
-}.conteiner{
+}
+/* Estilos generales del nav */
+
+
+.conteiner{
     background-color: #f5f3f3;
     }
     .conteiner nav {
         width: 100%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-end;;
         padding: 15px;
         background-color: #fff;
-        margin-bottom: 30px;
-        color: #333;
+        
+        color: #001d4d;
     }
     .nav-compras {
         display: none;
+        
     }
     .conteiner nav button {
         display: none;
+        z-index: 1;
+        
     }
     .nav-compras li{
         list-style: none;
         padding: 1rem;
         font-weight: bold;
+        z-index: 1;
     }
     .conteiner nav i:hover > .compras {
         width: 400px;
@@ -29,6 +37,7 @@
         position: absolute;
         right: 0;
         background-color: #ffff;
+        z-index: 1;
     }
     .conteiner nav i:hover .nav-compras {
         font-size: 10px;
@@ -45,25 +54,22 @@
         margin: 10px auto;
         background-color: transparent;
         border: solid thin #e1e1e1;
-        color: #494848;
+        border: solid thin #1A609F;
+        color: #1A609F;
         cursor: pointer;
     }
     .conteiner nav i:hover .compras > button:hover {
-        border: solid thin #494848;
+        border: solid thin #1A609F;
         transition: all 4s;
     }
     .fa-solid {
-        font-size:3rem;
+        font-size:2rem;
         cursor: pointer;
     }
-    h1 {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 3rem;
-        color: #222;
-    }
+    
+    
     .servicios {
-        max-width: 1110px;
+        max-width: 1100px;
         margin: auto;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px,280px));
@@ -79,28 +85,16 @@
         width: 100%;
         height: 50%;
     }
-    .info {
-        padding: 15px;
-    }
-    .info h3 {
-        font-size: 1.6rem;
-    }
-    .info p {
-        font-size: 1.5rem;
-    }
+    
     .precio {
-        display: flex;
-        justify-content: space-between;
+        display:flex;
+        justify-content:center;
         font-weight: bolder;
     }
     .precio p {
         font-size: 1.8rem;
     }
-    .info h3,
-    .info p {
-        color: #222;
-        margin-bottom: 15px;
-    }
+    
     
     .info button {
         padding: 1rem;
@@ -119,3 +113,158 @@
         background-color: #2da0c3;
         transition: all .3s;
     }
+    /*------Banner-------*/
+
+.banner {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 150px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #EDF5FC;
+    transition: 0.5s;
+}
+
+/*------Container-------*/
+div.container2 {
+    position: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 1px;
+}
+
+.grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 4%;
+}
+    /*------Cuerpo-------*/
+
+.cuerpo {
+    position: relative;
+ }
+ 
+ .cuerpo h1 {
+    font-size: 6em;
+    font-weight: 800;
+    color: #1A609F;
+    line-height: 1em;
+ }
+ 
+ .cuerpo p {
+    position: relative;
+    font-size: 1.1em;
+    margin: 20px 0;
+    font-weight: 400;
+    max-width: 700px;
+    color: #333333;
+ }
+ 
+ .seccion1 {
+    height: 100vp; 
+    padding: 0 0 10% 0%;
+    /*background: ; */
+ }
+
+ /*------Cards--------*/
+
+.card-body {
+    background: transparent; 
+    margin: 5%; 
+  }
+  .card-body p {
+    background: transparent; 
+     
+    text-align: center;
+  }
+ 
+ .card2 {
+    background: transparent;
+    margin: 1%; 
+    border: none;
+    height: 35rem;
+ }
+ 
+ .card {
+  background: transparent;
+  margin: 1%; 
+  border: none;
+  height: 40rem;
+ 
+ }
+ .card3 {
+  background: transparent;
+  margin: 1%; 
+  border: none;
+  height: 20rem;
+  border: 1px solid #777777;
+  border-radius: .3rem;
+ 
+ }
+ 
+ 
+ .cajas {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 1);
+    border-radius: 5px;
+ }
+ 
+ .card-title {
+    text-align: center;
+    color: #1A609F;
+   
+ }
+ 
+ .card-text {
+    text-align: center;
+    display: block;
+     margin-block-start: 1em;
+     margin-block-end: 1em;
+     margin-inline-start: 2px;
+     margin-inline-end: 2px;
+     margin-top: 3rem;
+     line-height: 2;
+     font-family: Poppins, sans-serif;
+ }
+ /*------Seccion--------*/
+
+.seccion {
+    height: 100vp;  
+    padding: 5%;
+ }
+ 
+ .seccion1 {
+    height: 100vp; 
+    padding: 10%;
+    /*background: ; */
+ }
+ 
+ .img-act {
+    width: 40%;
+    margin:auto;
+   display:block;
+    margin-top: 3%;
+ }
+ 
+ .texto1 {
+    text-align: center;
+    color: #1A609F;
+    margin: 1%;
+    line-height: 2.5;
+ }
+ 
+ .texto2 {
+    text-align: center;
+    color: #333333;
+    margin: 2% 10%;
+    line-height: 2.5;
+ }
+ 
+ 
