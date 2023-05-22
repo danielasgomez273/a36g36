@@ -1,20 +1,40 @@
 {
   "servicios":[
-      {"nombre":"Consulta Diabetologo",
+      {"nombre":"Consulta Diabetologia",
       "descripcion":"Consulta con profesional en Diabetologia",
       "monto":4000},
     
-      {"nombre":"Consulta Cardiologo",
+      {"nombre":"Consulta Cardiologia",
       "descripcion":"Consulta con profesional en Cardiologia",
-      "monto":4200},
+      "monto":4000},
+
+      {"nombre":"Consulta Nefrologia",
+      "descripcion":"Consulta con profesional en Nefrologia",
+      "monto":4000},
+
+      {"nombre":"Consulta Oftalmologia",
+      "descripcion":"Consulta con profesional en Oftalmologia",
+      "monto":4000},
+
+      {"nombre":"Consulta Nutricion",
+      "descripcion":"Consulta con profesional en Nutricion",
+      "monto":4000},
+
+      {"nombre":"Consulta Salud Mental",
+      "descripcion":"Consulta con profesional en Salud Mental",
+      "monto":4000},
     
-      {"nombre":"Paquete Completo",
-      "descripcion":"Contratacion del servicio completo",
+      {"nombre":"Circuito Vital Basico",
+      "descripcion":"Incluye consulta con profesional en Diabetologia, Cardiologia y Nutricion",
       "monto":12000},
+
+      {"nombre":"Circuito Vital Full",
+      "descripcion":"Incluye consulta con profesional en Diabetologia, Cardiologia, Nutricion y Analisis Clinicos",
+      "monto":22000},
     
-      {"nombre":"Analisis Clinico",
+      {"nombre":"Analisis Clinicos",
       "descripcion":"Cita para extraccion de sangre",
-      "monto":4000}],
+      "monto":2000}],
 
 
 
@@ -36,32 +56,38 @@
       ],
       
       "estadisticas_comorbilidades_admins":[
-        {"tipo":"Diabetes e Hipertension",
-        "porcentaje":50},
+        {"tipo":"Hipertension",
+        "porcentaje":52},
       
-        {"tipo":"Diabetes y Dislipemia",
-        "porcentaje":20},
+        {"tipo":"Dislipemia",
+        "porcentaje":18},
       
-        {"tipo":"Diabetes y Sobrepeso",
-        "porcentaje":15},
+        {"tipo":"Sobrepeso y Obesidad",
+        "porcentaje":16},
 
-        {"tipo":"Diabetes e Insuficiencia Cardíaca",
-        "porcentaje":15}
+        {"tipo":"Insuficiencia Cardíaca",
+        "porcentaje":3}
+
+        {"tipo":"Retinopatia Diabetica",
+        "porcentaje":3}
+
+        {"tipo":"Nefropatia Diabetica",
+        "porcentaje":8}
       ],
 
 
 
       "serv_disponibles_admins":[
         {"tipo":"Análisis Clínicos",
-        "descripcion":"Glucosa en ayuna, Prueba de glucosa capilar, Hemoglobina glucosilada HbA1c, Curva de tolerancia a la glucosa",
+        "descripcion":"Glucosa en ayunas, PTOG, HbA1c, Perfil lipidico, Funcion renal",
        "precio":4000},
         
         {"tipo":"Consulta Nutrición",
-        "descripcion":"Consulta con nutricionista",
+        "descripcion":"Consulta con profesional en Nutricion",
        "precio":4000},
 
-       {"tipo":"Consulta Diabetologo",
-       "descripcion":"Consulta con Diabetologo",
+       {"tipo":"Consulta Diabetologia",
+       "descripcion":"Consulta con profesional en Diabetologia",
       "precio":4000}
 
       ],
