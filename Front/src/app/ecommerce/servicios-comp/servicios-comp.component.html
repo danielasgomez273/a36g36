@@ -1,5 +1,5 @@
 <div class="div0"></div>
-<div class="conteiner">
+<div class="containerr">
     <nav>
         <i class="fa-solid fa-cart-shopping">
             <div class="compras">
@@ -9,7 +9,7 @@
                     <li>precio</li>
                     <li>cantidad</li>
                 </ul>
-                <button>VACIAR CARRITO</button>
+                <!--    <button>VACIAR CARRITO</button> -->
             </div>
         </i>
     </nav>
@@ -17,19 +17,21 @@
         <h1>Nuestros Servicios</h1>
         
     </div>
-    <div class="servicios grid-container seccion2">
+    <div class="servicios grid-container  ">
+        <div class="row cont-serv ">
 
-       <div class="items card cajas card2 col-lg-3" style="width: 20rem;" *ngFor="let servicio of servicios, let i=index"> 
+       <div class="items card cajas card2 col-lg-3 col-md-4 col-sm-6"  *ngFor="let servicio of servicios, let i=index"> 
           <img src="../../../assets/cardio.jpg" class="card-img-top" alt="Pilares-tratamiento-diabetes">
           <div class="info card-body">
              <h3 class="card-title">{{servicio.nombre}}</h3>
              <p>{{servicio.descripcion}}</p>
              <div class="precio">
-                 <p>{{servicio.monto}}</p>
+                 <p>${{servicio.monto}}</p>
              </div>
              <button>Agregar al carrito</button>
           </div>
         </div>
+    </div>
        <!--  <div class="items">  
         <img src="../../../assets/Pilares-tratamiento-diabetes.png" alt="Pilares-tratamiento-diabetes">
           <div class="info">

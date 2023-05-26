@@ -14,8 +14,6 @@ import { userInterface } from './interfaces/userInterface';
 })
 export class LoginService {
 
-
-
   constructor( private http:HttpClient) { 
   }
 
@@ -28,7 +26,6 @@ export class LoginService {
   login(credenciales:loginInterface):Observable<userInterface>{
 
     console.log("el email: "+ credenciales.email);
-
 
     // OBTENEMOS EL ATRIBUTO email DEL OBSERVABLE Y SE LO CONVIERTE EN STRING
     this.email_string = this.http.get<userInterface>('././assets/data_usuarios.json').pipe(
