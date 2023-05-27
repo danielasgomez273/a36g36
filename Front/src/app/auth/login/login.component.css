@@ -123,7 +123,9 @@ form{
 
 form .grupo{
     position: relative;
-    margin: 45px ;
+    margin: 30px;
+    width: 80%;
+    max-width: 600px;
 }
 
 .form a{
@@ -228,7 +230,10 @@ footer p {
 /*------Responsive-------*/
 
 @media (max-width:400px){
-    
+    a {
+        font-size: 10px;
+        
+    }
     .cuerpo {
         position: relative;
         margin-top: 260px;
@@ -316,7 +321,10 @@ footer p {
 }
 
 @media only screen and (min-width:400px) and (max-width:500px){
-
+    a {
+        font-size: 10px;
+        
+    }
     .cuerpo {
         position: relative;
         margin-top: 260px;
