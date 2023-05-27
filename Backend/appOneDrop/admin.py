@@ -9,15 +9,6 @@ from .models import Carrito
 from .models import Factura
 
 # Register your models here.
-#     admin.site.register(Paciente)
-#     admin.site.register(Ficha_medica)
-#     admin.site.register(Registro_glucemia)
-#     admin.site.register(Prestador)
-#     admin.site.register(Servicio)
-#     admin.site.register(Paquete)
-#     admin.site.register(Carrito)
-
-
 #esta clase perimite mostrar la tabla de pacientes con esta estructura y estos campos, es opcional
 class PacienteAdmin(admin.ModelAdmin):
     list_display = ( "nombre_paciente" , "apellido_paciente" , "email_paciente" , "telefono_paciente" , "fecha_nacimiento" ,"sexo_paciente")

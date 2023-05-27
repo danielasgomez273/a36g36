@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'appOneDrop'
+    'appOneDrop',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': '154647572',
-        'NAME': 'onedrop_django',
+        'NAME': 'onedrop_2023',
     #   'OPTIONS':{
     #       'sql_mode':'traditional'
     #   }
