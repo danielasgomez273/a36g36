@@ -93,21 +93,22 @@ div.container2 {
    background: transparent;
    margin: 1%; 
    border: none;
-   height: 35rem;
+   width: 20rem;
 }
 
 .card {
  background: transparent;
  margin: 1%; 
  border: none;
- height: 50rem;
+ width: 20rem;
+ 
 
 }
 .card3 {
  background: transparent;
  margin: 1%; 
  border: none;
- height: 20rem;
+ width: 20rem;
  border: 1px solid #777777;
  border-radius: .3rem;
 
@@ -117,7 +118,9 @@ div.container2 {
 .cajas {
    box-shadow: 0 0 16px rgba(0, 0, 0, 1);
    border-radius: 5px;
-}
+   overflow: hidden; /* Agregar esta línea */
+    }
+
 
 .card-title {
    text-align: center;
@@ -146,6 +149,7 @@ div.container2 {
    padding: 10%;
    /*background: ; */
 }
+
 
 .img-act {
    width: 40%;
@@ -211,3 +215,87 @@ div.container2 {
 	display:block;
 }
 
+/* RESPONSIVE */
+@media (min-width: 768px) and (max-width: 991px) {
+   .banner {
+     padding: 100px;
+   }
+ 
+   div.container2 {
+     padding-top: 3%;
+     padding-left: 8%;
+     padding-right: 8%;
+     padding-bottom: 1px;
+   }
+ 
+   .grid-container {
+     padding-top: 3%;
+   }
+ 
+   .cuerpo h1 {
+     font-size: 4.5em;
+   }
+ 
+   .cuerpo p {
+     font-size: 1em;
+   }
+ 
+   .seccion {
+     padding: 3%;
+   }
+ }
+ 
+
+ @media (max-width: 767px) {
+   .banner {
+     padding: 50px;
+   }
+ 
+   div.container2 {
+     padding-top: 2%;
+     padding-left: 5%;
+     padding-right: 5%;
+     padding-bottom: 1px;
+   }
+ 
+   .grid-container {
+     padding-top: 2%;
+   }
+ 
+   .cuerpo h1 {
+     font-size: 3em;
+   }
+ 
+   .cuerpo p {
+     font-size: 0.9em;
+   }
+ 
+   .seccion {
+     padding: 2%;
+   }
+   .card {
+      height: auto;
+      max-width: 100%;
+    }
+    .card1 {
+      height: auto;
+      max-width: 100%;
+    }
+    .card2 {
+      height: auto;
+      max-width: 100%;
+    }
+    .card3 {
+      height: auto;
+      max-width: 100%;
+    }
+    .card-body {
+      margin: 2%;
+      height: auto;
+    }
+  
+    .card-text {
+      font-size: 14px;
+    }
+  }
+ 
