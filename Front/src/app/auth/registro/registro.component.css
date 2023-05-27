@@ -65,7 +65,7 @@ a {
 
 /*------Banner-------*/
 
-.banner {
+.banner2 {
     position: absolute;
     right: 0;
     width: 100%;
@@ -272,6 +272,7 @@ div.container3 {
         align-items: inherit;
         justify-content: center;
         position: relative;
+        margin: auto;
 }
 
 h1{
@@ -287,6 +288,7 @@ form{
     padding: 30px;
     box-shadow: 2px 2px 5px 5px #999;
     border-radius: 10px;
+    
 }
 
 .form{
@@ -296,7 +298,9 @@ form{
 
 form .grupo{
     position: relative;
-    margin: 45px ;
+    margin: 30px;
+    width: 80%;
+    max-width: 600px;
 }
 
 .form a{
@@ -489,10 +493,10 @@ footer p {
 }
 
 @media only screen and (min-width:400px) and (max-width:500px){
-
     .cuerpo {
         position: relative;
         margin-top: 260px;
+        padding: 3rem;
     }
     
     .cuerpo h1 {
@@ -524,13 +528,14 @@ footer p {
         color: #1A609F !important;
     }
 
-     .grid-container {
+     .grid-container1 {
         display: grid;
         justify-content: center;
         position: relative;
         padding-top: 0%;
       
     }
+    
     
     .boton1 {
     border-radius: 5px;
@@ -603,7 +608,7 @@ footer p {
         color: #1A609F !important;
     }
 
-    .grid-container {
+    .grid-container1 {
         display: grid;
         justify-content: center;
         position: relative;
