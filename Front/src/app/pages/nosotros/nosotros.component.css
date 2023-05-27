@@ -1,27 +1,13 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Poppins, sans-serif; 
-    /*outline: solid 1px tomato !important;*/
 }
 
-
-/*------Navbar-------*/
-
-/*.container {
-    position: relative;
-    z-index: -10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    float:left;
-    box-sizing: border-box;
-}*/
-
+/* Navbar */
 a {
     color: white;
     font-weight: bold;
@@ -41,38 +27,31 @@ a {
 }
 
 .nav-link {
-    color:#333333 !important;
+    color: #333333 !important;
 }
 
 .nav-item {
     margin-left: 10px;
 }
 
-
-/*------Banner-------*/
-
+/* Banner */
 .banner {
     position: absolute;
     right: 0;
     width: 100%;
     min-height: 100vh;
-    padding: 150px;
+    padding: 10%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     background: #EDF5FC;
     transition: 0.5s;
 }
 
-/*------Container-------*/
+/* Container */
 div.container2 {
-    position: center;
-    justify-content: center;
     text-align: center;
-    padding-top: 5%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 1px;
+    padding: 5% 10%;
 }
 
 .grid-container {
@@ -82,109 +61,115 @@ div.container2 {
     position: relative;
 }
 
-/*------Cuerpo-------*/
-
+/* Cuerpo */
 .cuerpo {
-   position: relative;
+    position: relative;
+    text-align: center;
 }
 
 .cuerpo h1 {
-   font-size: 6em;
-   font-weight: 800;
-   color: #1A609F;
-   line-height: 1em;
+    font-size: 6em;
+    font-weight: 800;
+    color: #1A609F;
+    line-height: 1em;
+    text-align: left;
 }
 
 .cuerpo p {
-   position: relative;
-   font-size: 1.1em;
-   margin: 20px 0;
-   font-weight: 400;
-   max-width: 700px;
-   color: #333333;
+    font-size: 1.1em;
+    margin: 20px 0;
+    font-weight: 400;
+    max-width: 700px;
+    color: #333333;
+    text-align: left;
 }
 
 .seccion1 {
-   height: 100vp; 
-   padding: 0;
-   /*background: ; */
+    padding: 5% 0;
 }
 
-/*------Cards--------*/
-
+/* Cards */
 .card-body {
-   background: transparent; 
-   margin: 5%; 
- }
-
-.card2 {
-   background: transparent;
-   margin: 1%; 
-   border: none;
-   height: 35rem;
+    background: transparent; 
+    margin: 5%; 
 }
 
 .card {
- background: transparent;
- margin: 1%; 
- border: none;
- height: 28rem;
-
+    background: transparent;
+    margin: 1%; 
+    border: none;
+    height: auto;
 }
-.card3 {
- background: transparent;
- margin: 1%; 
- border: none;
- height: 20rem;
- border: 1px solid #777777;
- border-radius: .3rem;
-
-}
-
 
 .cajas {
-   box-shadow: 0 0 16px rgba(0, 0, 0, 1);
-   border-radius: 5px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 1);
+    border-radius: 5px;
 }
 
 .card-title {
-   text-align: center;
+    text-align: center;
 }
 
 .card-text {
-   text-align: center;
+    text-align: center;
 }
-/*------Seccion--------*/
 
+/* Seccion */
 .seccion {
-   height: 100vp;  
-   padding: 5%;
+    padding: 5%;
 }
 
 .seccion1 {
-   height: 100vp; 
-   padding-top: 0%;
-   padding-bottom: 10%;
-   /*background: ; */
+    padding: 5% 0;
 }
 
 .img-act {
-   width: 40%;
-   margin:auto;
-  display:block;
-   margin-top: 3%;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    display: block;
+    margin-top: 3%;
 }
 
 .texto1 {
-   text-align: center;
-   color: #1A609F;
-   margin: 1%;
-   line-height: 2.5;
+    text-align: center;
+    color: #1A609F;
+    margin: 1%;
+    line-height: 2.5;
 }
 
 .texto2 {
-   text-align: center;
-   color: #333333;
-   margin: 2% 10%;
-   line-height: 2.5;
+    text-align: center;
+    color: #333333;
+    margin: 2% 10%;
+    line-height: 2.5;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .banner {
+        padding: 10%;
+    }
+
+    .cuerpo h1 {
+        font-size: 4em;
+    }
+
+    .cuerpo p {
+        font-size: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .banner {
+        padding: 5%;
+    }
+
+    .cuerpo h1 {
+        font-size: 4em;
+      }
+
+    .cuerpo p {
+        font-size: 100%;
+    }
 }
