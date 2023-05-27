@@ -218,6 +218,10 @@ div.container2 {
 /* Estilos generales del carrusel */
 .carousel-item {
   text-align: center;
+  transition: transform 0.5s;
+}
+.carousel-item.active {
+  transform: scale(1); 
 }
 
 .carousel-item img {
@@ -315,7 +319,8 @@ div.container2 {
      padding: 3%;
    }
    .carousel-item {
-    transform: scale(0.95); 
+    transform: scale(0.95);
+    transition: transform 0.5s; 
   }
 
   .carousel-item.active {
@@ -387,7 +392,8 @@ div.container2 {
       font-size: 14px;
     }
     .carousel-item {
-      transform: scale(0.9); 
+      transform: scale(0.9);
+      transition: transform 0.3s; 
     }
   
     .carousel-item.active {
