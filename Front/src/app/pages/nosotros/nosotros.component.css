@@ -104,6 +104,8 @@ div.container2 {
 .cajas {
     box-shadow: 0 0 16px rgba(0, 0, 0, 1);
     border-radius: 5px;
+    flex: 0 0 20rem;
+    margin: 10px;
 }
 
 .card-title {
@@ -121,6 +123,12 @@ div.container2 {
 
 .seccion1 {
     padding: 5% 0;
+}
+.seccion2 {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: flex-start;
 }
 
 .img-act {
@@ -158,6 +166,9 @@ div.container2 {
     .cuerpo p {
         font-size: 100%;
     }
+    .cajas {
+      flex: 0 0 calc(50% - 20px);
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -172,4 +183,7 @@ div.container2 {
     .cuerpo p {
         font-size: 100%;
     }
+    .cajas {
+      flex: 0 0 80%;
+  }
 }
