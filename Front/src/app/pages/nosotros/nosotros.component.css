@@ -60,7 +60,15 @@ div.container2 {
     justify-content: center;
     position: relative;
 }
-
+.grid-container.seccion2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
 /* Cuerpo */
 .cuerpo {
     position: relative;
@@ -99,13 +107,15 @@ div.container2 {
     margin: 1%; 
     border: none;
     height: auto;
+    width: auto;
 }
 
 .cajas {
     box-shadow: 0 0 16px rgba(0, 0, 0, 1);
     border-radius: 5px;
-    flex: 0 0 20rem;
-    margin: 10px;
+    flex: 0 0 calc(33.33% - 40px);
+    margin: 20px;
+    width: auto;
 }
 
 .card-title {
@@ -154,6 +164,33 @@ div.container2 {
 }
 
 /* Media Queries */
+@media screen and (max-width: 1200px) {
+    .cajas {
+      flex: 0 0 calc(40% - 10px);
+    }
+    .grid-container.seccion2 {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0 2px;
+        margin-right: 20px;
+      }
+  }
+
+@media screen and (max-width: 992px) {
+    .cajas {
+      flex: 0 0 calc(50% - 40px);
+    }
+    
+    .grid-container.seccion2 {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 0 60px;
+      }
+  }
+
+
 @media screen and (max-width: 768px) {
     .banner {
         padding: 10%;
@@ -166,10 +203,20 @@ div.container2 {
     .cuerpo p {
         font-size: 100%;
     }
-    .cajas {
-      flex: 0 0 calc(50% - 20px);
+    .card .cajas {
+        flex: 0 0 calc(40% - 10px);
+        max-width: 1rem;
+        align-items: center;
+      }
+    .grid-container.seccion2 {
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          padding: 0 2px;
+          margin-right: 0;
+        }
   }
-}
+
 
 @media screen and (max-width: 480px) {
     .banner {
@@ -183,6 +230,10 @@ div.container2 {
     .cuerpo p {
         font-size: 100%;
     }
+    .grid-container.seccion2 {
+        justify-content: center;
+        padding: 0 20px;
+      }
     .cajas {
       flex: 0 0 80%;
   }
