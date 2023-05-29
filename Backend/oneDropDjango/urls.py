@@ -16,8 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include # importo include
+from appOneDrop import views
+from appOneDrop.views import LoginView , LogoutView
 
 urlpatterns = [
+    ########################
+    path('api/auth/login/', LoginView.as_view() , name ='auth_login'),
+    
+    path('api/auth/logout/', LogoutView.as_view() , name ='auth_logout'),
+    ########################
+    path('api/',include('appOneDrop.urls')), #estas vienen del router api
+
+    path('',views.home, name ='home'),
+    path('signup/',views.signup, name ='signup'),
+   # path('signin/',views.signin, name ='signin'),
+    path('signout/',views.signout, name ='signout'),
+    path('protegido/',views.protegido, name ='protegido'),
+
     path('admin/', admin.site.urls),
-    path('',include('appOneDrop.urls'))
+    path('accounts/', include('django.contrib.auth.urls')), # EN TEORIA, SERIA PARA EVITAR QUE ENTREN A OTRAS RUTAS
+    
 ]

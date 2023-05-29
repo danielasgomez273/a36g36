@@ -8,7 +8,7 @@ class PacienteViewSet(viewsets.ModelViewSet):
     #este metodo consulta todos los datos de una tabla
     queryset = Paciente.objects.all()
     #permission necesarios para ver, solo permitido para.. en este caso permitido a cualquiera (aca iria authentication)
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
     #indica el serializer que usara para convertir los datos
     serializer_class = PacienteSerializer 
 
