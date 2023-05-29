@@ -376,9 +376,21 @@
 }
 
 .car-desc{
-  border:1px solid green ;
-  border-radius: .5rem;
+  border-bottom:1px solid #7a978b ;
+  margin: .5rem;
+
 }
+
+.carr-cont-serv{
+  background-color:#d6e4de;
+  margin: .5rem;
+  border-radius: .5rem;
+
+}
+.boton-carr{
+  margin: .1rem;
+}
+
 
 
 

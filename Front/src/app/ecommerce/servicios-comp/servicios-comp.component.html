@@ -46,30 +46,33 @@
             
             <!--    Descripcion lista de servicios  -->
                 <div class=" row align-items-center compras grid-container">
-                    <div class="row  justify-content-evenly">
-                        <div class="col-lg-3 text-center car-desc">
-                            <h6>Servicio</h6>
+                    <div class="row justify-content-evenly  car-desc">
+                        <div class="col-lg-3  col-md-3 col-sm-3 text-center">
+                            <h5>Servicio</h5>
                         </div>
-                        <div class="col-lg-3 text-center car-desc">
-                            <h6>Monto</h6>
+                        <div class="col-lg-3 col-md-3 col-sm-3 text-center ">
+                            <h5>Monto</h5>
                         </div>
-                        <div class="col-lg-3 text-center car-desc">
-                            <h6>Eilminar</h6>
+                        <div class="col-lg-3 col-md-3 col-sm-3 text-center">
+                           
                         </div>
                     </div>  
                 </div>
 
             <!--    Servicios traidos con binding  -->
             <div class=" row align-items-center compras grid-container">
-                <div class="row justify-content-evenly" *ngFor="let servicio of nuevoPedido, let i=index " >
-                    <div class="col-lg-3 text-center">
+                <div class="row align-items-center justify-content-evenly grid-container p-2 carr-cont-serv" *ngFor="let servicio of nuevoPedido, let i=index " >
+
+                    <div class="col-lg-3 col-md-3 col-sm-3 text-center">
                         <h6>{{servicio[i*2]}}</h6>
                     </div>
-                    <div class="col-lg-3 text-center">
-                        <h6>{{servicio[i*2+1]}}</h6>
+                    <div class="col-lg-3 col-md-3 col-sm-3 text-center">
+                        <h6>${{servicio[i*2+1]}}</h6>
                     </div>
-                    <div class="col-lg-3 text-center">
-                        <h6>Eilminar</h6>
+                    <div class="col-lg-3 col-md-3 col-sm-3 text-center row">
+                        <button class="btn btn-success boton-carr  col-lg-12" ><i class="fa-solid fa-info"></i></button>
+                        
+                        <button class="btn btn-danger boton-carr  col-lg-12 "><i class="fa-regular fa-trash-can"></i></button>
                     </div>
 
                 </div>  
