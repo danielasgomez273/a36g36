@@ -125,15 +125,8 @@
 
 /*------Container-------*/
 
-div.container2 {
-  position: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 1px;
-}
+
+
 
 /*------Cuerpo-------*/
 
@@ -256,13 +249,7 @@ div.container2 {
   line-height: 2.5;
 }
 
-.cont-serv {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0rem;
-  background-color: #edf5fc;
-}
+
 
 .bordex {
   border: 1px solid black;
@@ -283,11 +270,7 @@ div.container2 {
     padding: 80px;
   }
   
-  div.container2 {
-    padding-top: 10%;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
+
   
   .cuerpo h1 {
     font-size: 4em;
@@ -321,11 +304,7 @@ div.container2 {
     padding: 40px;
   }
   
-  div.container2 {
-    padding-top: 15%;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
+
   
   .cuerpo h1 {
     font-size: 3em;
@@ -346,11 +325,7 @@ div.container2 {
     padding: 20px;
   }
   
-  div.container2 {
-    padding-top: 20%;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
+
   
   .cuerpo h1 {
     font-size: 3em;
@@ -366,3 +341,68 @@ div.container2 {
     padding: 5%;
   }
 }
+/*  /////////  NUEVOS ESTILO  /////////   */
+/*  /////////  NUEVOS ESTILO  /////////   */
+/*  /////////  NUEVOS ESTILO  /////////   */
+
+/*  ESTILO DEL HERO */
+.hero{
+  height: 95vh;
+  background-color: #edf5fc;
+
+}
+
+.hero-sub{
+  margin-top: -5rem;
+  height: inherit;
+}
+
+.encabezado{
+  font-size: 6rem;
+  font-weight: 800;
+  color: #1a609f;
+  line-height: 1em;
+  text-align: center;
+}
+
+
+/*  ESTILOS DEL CARRITO */
+
+.carrito{
+  margin: 0rem;
+  background-color:#c0d5cc;
+  border: 1px solid #7a978b;
+
+}
+
+.car-desc{
+  border:1px solid green ;
+  border-radius: .5rem;
+}
+
+
+
+
+/*  ESTILOS DE LOS SERVICIOS */
+.servicios{
+  margin: 0rem;
+}
+
+.cont-serv {
+  background-color: #edf5fc;
+}
+
+
+
+
+/* ESTILOS DE USO */
+
+.text-center{
+  text-align: center;
+
+}
+.borde{
+  border: 1px solid blue;
+}
+
+

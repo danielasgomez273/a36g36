@@ -4,7 +4,7 @@
     --colorTextos: #49454567;
 }
 
-
+/*
 *,
 ::before,
 ::after {
@@ -13,14 +13,15 @@
     box-sizing: border-box;
 }
 
-/* STYLE */
 
+
+/*
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Poppins, sans-serif; 
-    /*outline: solid 1px tomato !important;*/
+    /*outline: solid 1px tomato !important;
 }
 
 
@@ -34,7 +35,7 @@
     align-items: center; 
     float:left;
     box-sizing: border-box;
-}*/
+}
 
 a {
     color: white;
@@ -61,9 +62,10 @@ a {
 .nav-item {
     margin-left: 10px;
 }
-
+*/
 
 /*------Banner-------*/
+/*
 .color-fondo{
 
     background-color: #edf5fc !important;
@@ -165,7 +167,7 @@ input:valid~label{
     font-size: 14px;
     color: #2196f3;
 }
-
+*/
 .barra{
     position: relative;
     display: block;
@@ -186,7 +188,7 @@ input:valid~label{
 input:focus~.barra::before{
     width: 100%;
 }
-
+/*
 .warnings{
     width: 200px;
     text-align: center;
@@ -197,6 +199,7 @@ input:focus~.barra::before{
 */
 /*------Footer-------*/
 
+/*
 footer {
     background-color: #333333;
     color: white;
@@ -228,7 +231,7 @@ footer p {
 }
 
 /*------Responsive-------*/
-
+/*
 @media (max-width:400px){
     a {
         font-size: 10px;
@@ -261,7 +264,7 @@ footer p {
     margin-left: 10px;
     width: 10%;
     background: -webkit-linear-gradient(left, #001d4d, #1A609F);
-    /*background-color: #1A609F;*/
+    /*background-color: #1A609F;
     color: white;
     border-color: white;
     border-width: 2px;
@@ -373,7 +376,7 @@ footer p {
     margin-left: 10px;
     width: 10%;
     background: -webkit-linear-gradient(left, #001d4d, #1A609F);
-    /*background-color: #1A609F;*/
+    /*background-color: #1A609F;
     color: white;
     border-color: white;
     border-width: 2px;
@@ -451,7 +454,7 @@ footer p {
     margin-left: 10px;
     width: 10%;
     background: -webkit-linear-gradient(left, #001d4d, #1A609F);
-    /*background-color: #1A609F;*/
+    /*background-color: #1A609F;
     color: white;
     border-color: white;
     border-width: 2px;
@@ -516,103 +519,99 @@ footer p {
     .nav-link {
         color: #1A609F !important;
     }
+
+
+
+    #198754 success
+    #dc3545 danger
     
 }
 
 
-/*      FOOOTEEEER       */
-.footer-bg{
-    padding: 3rem 0rem;
-    background-color: #001d4d;
-}
-
-.footer-bg *{
-    text-decoration: none;
-    color: white;
-}
-
-.texto{
-    color: white !important;
-}
-.link-footer{
-    list-style-type: none !important;
-    padding: .2rem;
 
 
+/* ///////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////// */
+
+/*      COLORES DE VALIDACION QUE USA ANGULAR O BOOTSTRAP NO ME ACUERDO BIEN CUAL ERA
+#198754 success
+#dc3545 danger
+*/
+.section-princ{
+    background-color: #edf5fc;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
 }
 
-.text-primary{
-    color: #ccc !important;
-}
-.text-primary:hover{
-    color: #ccc !important;
-}
 
-.text-secondary{
-    color: #ddd !important;
-    text-decoration: none;
+.titulo{
+    height: 4rem;
+    border-bottom: 1px solid#c2c8ce;
+
+}
+.borde{
+    border: 1px solid#c2c8ce;
+    border-radius: .5rem;
 
 }
 
-.text-secondary:hover{
-    color: #ccc !important;
-    
-    background-color:#00183b ;
+.margin{
+    margin: 1rem;
 }
 
-.tit-footer{
-    margin-bottom: 1rem;
-}
-/*      CLASES DE VALIDACION    */
 
+.cont-form{
+    padding: 1rem;
+    width: 50vw;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    height: auto;
+
+}
+
+.campo-input{
+    height: 10rem;
+}
+
+.sub-campo-input{
+    height: 2.5rem;
+
+
+}
+
+.campo-email{
+    margin-top: 2rem;
+}
+
+
+/* estilos de validacion*/
+.borde-validacion_ok{
+    border:   #198754;
+
+}
+
+.borde-validacion_nope{
+    border:   #dc3545;
+
+}
+
+.text-danger2{
+    border:  1px solid #dc3545;
+    color:   #dc3545;
+
+}
+ 
+/*  COLORES DE VALIDACION   */
 .ng-valid:not(form).ng-touched{
-    border-bottom:  .1rem solid green;
+    border-bottom: 2px solid  #198754  /*success*/;
+   
 }
 
 .ng-invalid:not(form).ng-touched{
-    border-bottom:  .1rem solid red;
-}
-
-/*      estilo boton        */
-.btn_stl{
-    background: -webkit-linear-gradient(left, #001d4d, #1A609F);
-     border: none;
-     display: block;
-     width: 80%;
-     margin: 10px auto;
-     color: #fff;
-     height: 40px;
-     font-size: 20px;
-     cursor: pointer;
-}
-
-.btn_stl_admin{
-    background: -webkit-linear-gradient(left, #001d4d, #1A609F); 
-    border: none;
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-    color: #fff;
-    height: 40px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-
-.grid-container1 {
-    display: flex;
-    flex: 1;
-    align-items: inherit;
-    justify-content: center;
-    position: relative;
-}
-
-/* //////////////////////////// */
-.grupo{
-    height: 3rem;
-    width: 18rem;
-
+    border-bottom:  2px solid  #dc3545 /*danger*/;
 
 
 }
-

@@ -1,84 +1,91 @@
 
-
-
-  
-  
   <!-- Favicons -->
 
   <link href="assets/img/favicon.png" rel="icon">
-  <!--link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"-->
 
- <!-- Termina Head -->
 
-<!-- Empieza Body -->
+<!--//////////////////////////////    FOMRULARIO    /////////////////////////////////////-->
+<!--//////////////////////////////    FOMRULARIO    /////////////////////////////////////-->
+<!--//////////////////////////////    FOMRULARIO    /////////////////////////////////////-->
 
-<body>
+<section class="section-princ" >
+<section class="container cont-form text-bg-light text-center my-4 borde shadow-lg form">
+  <h1 class=" margin titulo">LOGIN</h1>
   
-<!--  [formGroup]="profileForm" -->
+  <form  [formGroup]="profileForm" action="" method="POST" id="form">
 
-  <section class=" grid-container1 banner2 color-fondo">
-
-    <form  [formGroup]="profileForm" action="" method="POST" id="form">
-      <div class="form ">
-        <h1 >LOGIN</h1>
-        
-        <div class="grupo">
-          <input formControlName="email" class="msj-verificacion" type="email" name="" id="email"><span class="barra"></span>
-          <label for="">Email</label>
-          <!--  MENSAJES DE VALIDACION PARA INPUT NOMBRE -->
-          <div *ngIf="email_GET.invalid && (email_GET.dirty || email_GET.touched)"
-          class="text-danger msj-verificacion">
-      
-              <div *ngIf="email_GET.errors?.['required']">
-                Ingrese un email.
-              </div>
-              <div *ngIf="email_GET.errors?.['email']">
-                Ingrese un email con formato correcto.
-              </div>
-
-          </div>
-          <!--  ////////////////////// -->
+    <!-- ////////////////////////////  EMAIL  //////////////////////////////  -->
+    <div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
+       <!--  label  -->
+        <div class="col-lg-3 col-md-12 align-self-start ">
+            <label for="exampleFormControlInput1" class="col-form-label sub-campo-input {{borde_validacion}} ">Email</label>
         </div>
-        <div class="grupo">
-          <input formControlName="pass" type="password" name="" id="password"><span class="barra"></span>
-          <label for="">Password</label>
-          <!--  MENSAJES DE VALIDACION PARA INPUT NOMBRE -->
-          <div *ngIf="pass_GET.invalid && (pass_GET.dirty || pass_GET.touched)"
+        <!--  input  -->
+        <div class="col-lg-8 col-md-12 align-self-start  ">
+          <input formControlName="email" id="email" type="email" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="usuario@ejemplo.com">
+        </div>
+        <!-- verificacion -->
+        <div *ngIf="email_GET.invalid && (email_GET.dirty || email_GET.touched)"
+            class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+        
+                <div *ngIf="email_GET.errors?.['required']">
+                  Complete este campo.
+                </div>
+                <div *ngIf="email_GET.errors?.['email']">
+                  Ingrese un email con formato correcto.
+                </div>
+        </div>
+    </div>
+
+    <!--  /////////////////////////// CONTRASEÑA ////////////////////////////////   -->
+    <div class="row g-3 align-items-center margin  campo-input borde">
+       <!--  label  -->
+      <div class="col-lg-3 align-self-start ">
+        <label for="inputPassword6" class="col-form-label sub-campo-input">Contraseña</label>
+      </div>
+        <!--  input  -->
+      <div class="col-lg-8 align-self-start ">
+        <input formControlName="pass" name="" id="password"
+        type="password" id="inputPassword6" class="form-control sub-campo-input" aria-labelledby="passwordHelpInline" placeholder="ejemplocontraseña1234">
+      </div>
+
+        <!--  validacion  -->
+        <div *ngIf="pass_GET.invalid && (pass_GET.dirty || pass_GET.touched)"
           class="text-danger">
       
               <div *ngIf="pass_GET.errors?.['required']">
-                Ingrese una contraseña valida.
+                Complete este campo.
               </div>
-            
-
-          </div>
-          <!--  ////////////////////// -->
+              <div *ngIf="pass_GET.errors?.['minlength']">
+                Ingrese una contraseña de mas de 6 caracteres.
+              </div>
         </div>
-            <!--  (click)="verificacionLogin()" -->
-        <button  class="btn_stl" type="submit">
-          <a class="text-white" href="auth/dash_user">Ingresar</a>
+    </div>
+
+    <!--  ////////////////////////////////// BOTONES //////////////////////////////   -->
+     <!--  (click)="verificacionLogin()" 
+    href="auth/dash_user"
+    href="auth/dash_admin"
+     href={{direccion}}
+    -->
+    <div class="row justify-content-evenly mx-4 ">
+      <button type="button" class="btn btn-primary m-2  col-lg-4" (click)="verificacionLoginUser()">
+        <a class="text-white text-decoration-none" >Ingresar</a>
+      </button>
+
+      <button  type="button" class="btn btn-success m-2  col-lg-6" (click)="verificacionLoginAdmin()">
+        <a  class="text-white text-decoration-none" >Ingresar como administrador</a>
         </button>
-  
 
-        <button class="btn_stl_admin " type="submit">
-          <a  class="text-white" href="auth/dash_admin">Ingresar como administrador</a>
-
-          </button>
-
-
-
-        <p class="warnings" id="warnings"></p>
-        <div class="signup-link">
-          ¿Deseas volver? <a href="./index.html"> Ir a Inicio</a>
-          </div>   
       </div>
-    </form>
-
-  </section>
+    
 
 
-  <script src="assets\js\topbtn.js"></script>
-  <script src="assets\js\val-registro.js"></script>
+
+
+  </form>
+</section>
+</section>
 
 
 

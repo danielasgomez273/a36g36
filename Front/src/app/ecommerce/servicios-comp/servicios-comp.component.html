@@ -1,37 +1,94 @@
 <div class="div0"></div>
 <div class="containerr">
-    <nav>
-        <i class="fa-solid fa-cart-shopping">
-            <div class="compras">
-                <ul class="nav-compras">
-                    <li>imagen</li>
-                    <li>nombre</li>
-                    <li>precio</li>
-                    <li>cantidad</li>
-                </ul>
-                <!--    <button>VACIAR CARRITO</button> -->
-            </div>
-        </i>
-    </nav>
-    <div class="cuerpo seccion1 grid-container banner ">
-        <h1>Nuestros Servicios</h1>
+  
         
-    </div>
-    <div class="servicios grid-container  ">
-        <div class="row cont-serv ">
+    <!--///////////  HERO  ////////////-->
+    <!--///////////  HERO  ////////////-->
 
-       <div class="items card cajas card2 col-lg-3 col-md-4 col-sm-6"  *ngFor="let servicio of servicios, let i=index"> 
-          <img src="../../../assets/cardio.jpg" class="card-img-top" alt="Pilares-tratamiento-diabetes">
-          <div class="info card-body">
-             <h3 class="card-title">{{servicio.nombre}}</h3>
-             <p>{{servicio.descripcion}}</p>
-             <div class="precio">
-                 <p>${{servicio.monto}}</p>
-             </div>
-             <button>Agregar al carrito</button>
-          </div>
+    <div class="hero grid-container ">
+        <div class="row align-items-center hero-sub"> 
+            <div class="col"> 
+                    <h1 class="encabezado ">Nuestros Servicios</h1>
+            </div>
         </div>
     </div>
+
+    <!--///////////  SECCION PRINCIPAL  ////////////-->
+    <!--///////////  SECCION PRINCIPAL  ////////////-->
+    <!-- se hace la estructura con BOOTSTRAP    -->
+    <section class="grid-container">
+        <div class="row">
+    
+
+        
+        <!--    SERVICIOS   -->
+    <div class=" servicios grid-container col-lg-8 servicios ">
+        <div class="row cont-serv justify-content-evenly ">
+
+       <div class="items card cajas card2 col-lg-3 col-md-4 col-sm-6 "  *ngFor="let servicio of servicios, let i=index"> 
+          <img src="../../../assets/cardio.jpg" class="card-img-top" alt="Pilares-tratamiento-diabetes">
+          <div class="info card-body">
+             <h3  class="card-title">{{servicio.nombre}}</h3>
+             <p >{{servicio.descripcion}}</p>
+             <div class="precio">
+                 <p >${{servicio.monto}}</p>
+             </div>
+             <button (click)="agregarNombre(servicio.nombre);agregarMonto(servicio.monto);nuevoCarrito()">Agregar al carrito</button>
+          </div>
+         </div>
+            </div>
+        </div>
+
+
+        <!--    CARRITO   -->
+        <div class="carrito col-lg-4 py-4">
+            <h4 class="text-center">CARRITO DE COMPRAS</h4>
+            
+            <!--    Descripcion lista de servicios  -->
+                <div class=" row align-items-center compras grid-container">
+                    <div class="row  justify-content-evenly">
+                        <div class="col-lg-3 text-center car-desc">
+                            <h6>Servicio</h6>
+                        </div>
+                        <div class="col-lg-3 text-center car-desc">
+                            <h6>Monto</h6>
+                        </div>
+                        <div class="col-lg-3 text-center car-desc">
+                            <h6>Eilminar</h6>
+                        </div>
+                    </div>  
+                </div>
+
+            <!--    Servicios traidos con binding  -->
+            <div class=" row align-items-center compras grid-container">
+                <div class="row justify-content-evenly" *ngFor="let servicio of nuevoPedido, let i=index " >
+                    <div class="col-lg-3 text-center">
+                        <h6>{{servicio[i*2]}}</h6>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <h6>{{servicio[i*2+1]}}</h6>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <h6>Eilminar</h6>
+                    </div>
+
+                </div>  
+            </div>                
+
+
+
+                <div>
+                        
+                </div>
+                    <!--    <button>VACIAR CARRITO</button> -->
+                
+                <div>
+                    <button class="btn btn-success"> <i class="fa-solid fa-cart-shopping"></i> Comprar</button>
+                </div>
+        </div>
+
+    </div>
+</section>
        <!--  <div class="items">  
         <img src="../../../assets/Pilares-tratamiento-diabetes.png" alt="Pilares-tratamiento-diabetes">
           <div class="info">
@@ -54,5 +111,5 @@
              <button>Agregar al carrito</button>
           </div>
        </div > -->
-    </div>
-</div>
+
+
