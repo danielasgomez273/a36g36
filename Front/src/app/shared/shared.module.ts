@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { Router, RouterModule } from '@angular/router';
 import { PagesModule } from '../pages/pages.module';
 import { InicioComponent } from '../pages/inicio/inicio.component';
+import { ScrollBackToTopButtonComponent } from './scroll-back-to-top-button/scroll-back-to-top-button.component';
 
 // Importamos los componentes de pages
 
@@ -16,7 +17,8 @@ import { InicioComponent } from '../pages/inicio/inicio.component';
 @NgModule({
   declarations: [
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    ScrollBackToTopButtonComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { InicioComponent } from '../pages/inicio/inicio.component';
   exports:[
     NavComponent,
     FooterComponent,
-    RouterModule
+    RouterModule,
+    ScrollBackToTopButtonComponent
 
   ]
 })
