@@ -1,6 +1,4 @@
-.div0{
-    height:6rem;
- }
+
  
  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,500&display=swap');
  * {
@@ -65,6 +63,11 @@
      background: #EDF5FC;
      transition: 0.5s;
  }
+ @media screen and (max-width: 768px) {
+    .banner {
+        padding: 100px 50px;
+    }
+}
  
  /*------Container-------*/
  div.container2 {
@@ -96,6 +99,12 @@
     color: #1A609F;
     line-height: 1em;
  }
+
+ @media screen and (max-width: 768px) {
+    .cuerpo h1 {
+        font-size: 3em;
+    }
+}
  
  .cuerpo p {
     position: relative;
@@ -105,6 +114,13 @@
     max-width: 700px;
     color: #333333;
  }
+ @media screen and (max-width: 768px) {
+    .cuerpo p {
+        font-size: 1em;
+        max-width: 500px;
+        margin: 10px 0;
+    }
+}
  
  .seccion1 {
     height: 100vp; 

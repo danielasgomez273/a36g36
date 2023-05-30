@@ -22,6 +22,39 @@ export class ServiciosCompComponent implements OnInit {
       }
          )
     }
+
+
+    ///////  CODIGO PARA AGREGAR AL CARRITO  ////////
+    Snombre:string=""
+    agregarNombre(value:string){
+      this.Snombre=value
+
+      return this.Snombre
+    }
+
+    Smonto:string=""
+    agregarMonto(value2:string){
+      this.Smonto=value2
+      return this.Smonto
+    }
+
+    nuevoPedido:any[]=[]
+    nuevoServicio:any[]=[]
+
+    nuevoCarrito(){
+      /* La idea es guardar en un array los servicios que se van selccionando */ 
+      this.nuevoServicio.push(this.Snombre)
+      this.nuevoServicio.push(this.Smonto)
+
+      this.nuevoPedido.push(this.nuevoServicio)
+
+      return this.nuevoPedido
+    }
+
+
+
+
+
     ngOnInit():void{}
 }
 

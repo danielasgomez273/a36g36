@@ -66,10 +66,10 @@
         "porcentaje":16},
 
         {"tipo":"Insuficiencia Cardíaca",
-        "porcentaje":3}
+        "porcentaje":3},
 
         {"tipo":"Retinopatia Diabetica",
-        "porcentaje":3}
+        "porcentaje":3},
 
         {"tipo":"Nefropatia Diabetica",
         "porcentaje":8}

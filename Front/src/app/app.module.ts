@@ -13,13 +13,17 @@ import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
+import { EcommerceServiceService } from './servicios/ecommerce-service.service';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistroComponent } from './auth/registro/registro.component';
+
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,8 @@ import { RouterModule } from '@angular/router';
     PagesModule,
     EcommerceModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

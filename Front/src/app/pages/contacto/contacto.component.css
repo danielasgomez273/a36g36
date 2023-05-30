@@ -1,7 +1,4 @@
-.div0{
-    height:6rem;
- }
- 
+
  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,500&display=swap');
  * {
      margin: 0;
@@ -111,3 +108,65 @@
     padding: 0;
     /*background: ; */
  }
+ 
+ .formularioC {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+  }
+  
+  .formularioC .form-grupo {
+    margin-bottom: 20px;
+  }
+  
+  .formularioC .form-label {
+    font-weight: bold;
+  }
+  
+  .formularioC .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .formularioC .form-input-error {
+    display: none;
+    color: red;
+    font-size: 12px;
+  }
+  
+  .formularioC .form-validacion-estado {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+  }
+  
+  .formularioC .btn {
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .formularioC .form-mensaje-enviado {
+    display: none;
+    color: green;
+    font-weight: bold;
+  }
+  
+  .formularioC .form-mensaje {
+    display: none;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .formularioC .form-mensaje p {
+    margin: 0;
+  }
+  
