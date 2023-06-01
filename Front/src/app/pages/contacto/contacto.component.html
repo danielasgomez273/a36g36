@@ -10,8 +10,9 @@
     </div>
 </section>
 
+
 <div class="d-flex justify-content-center ">
-    <form action="" class="formularioC container contact-form m-4 p-4 degradado3" id="formularioC">
+    <form [formGroup]="profileForm" action="" class="formularioC container contact-form m-4 p-4 degradado3" id="formularioC">
 
         <!-- NOMBRE -->
         <div class="row p-4">
@@ -19,10 +20,17 @@
                 <label for="nombreFC" class="form-label">Nombre</label>
                 <div class="form-grupo-input">
                     <!-- Input e icono -->
-                    <input type="text" class="form-input" name="nombreFC" id="nombreFC" placeholder="  Ingresa tu nombre">
-                    <i class="form-validacion-estado fa-solid fa-circle-xmark"></i>
+                    <input formControlName="nombre" type="text" class="form-input" name="nombreFC" id="nombreFC" placeholder="  Ingresa tu nombre">
+                    <div *ngIf="nombre_GET.invalid && (nombre_GET.dirty || nombre_GET.touched)"
+                    class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+                
+                        <div *ngIf="nombre_GET.errors?.['required']">
+                          Complete este campo.
+                        </div>
                 </div>
-                <p class="form-input-error">El nombre debe tener de 1 a 20 dígitos y solo puede contener letras</p>
+                 
+                </div>
+                
             </div>
 
 
@@ -31,10 +39,20 @@
                 <label for="emailFC" class="form-label">Email</label>
                 <div class="form-grupo-input">
                     <!-- Input e icono -->
-                    <input type="email" class="form-input" name="emailFC" id="emailFC" placeholder="  Ingresa tu email">
-                    <i class="form-validacion-estado fa-solid fa-circle-xmark"></i>
+                    <input formControlName="email" type="email" class="form-input" name="emailFC" id="emailFC" placeholder="  Ingresa tu email">
+                    <!-- verificacion -->
+        <div *ngIf="email_GET.invalid && (email_GET.dirty || email_GET.touched)"
+        class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+    
+            <div *ngIf="email_GET.errors?.['required']">
+              Complete este campo.
+            </div>
+            <div *ngIf="email_GET.errors?.['email']">
+              Ingrese un email con formato correcto.
+            </div>
+    </div>
                 </div>
-                <p class="form-input-error">Recuerde ingresar el correo con "@" y ".com"</p>
+                
             </div>
 
             <!-- MENSAJE -->
@@ -42,17 +60,25 @@
                 <label for="mensajeFC" class="form-label">Mensaje</label>
                 <div class="form-grupo-input">
                     <!-- Input e icono -->
-                    <input type="text" class="form-input" name="mensajeFC" id="mensajeFC" placeholder="  Ingresa tu mensaje">
-                    <i class="form-validacion-estado fa-solid fa-circle-xmark"></i>
+                    <input formControlName="mensaje" type="text" class="form-input" name="mensajeFC" id="mensajeFC" placeholder="  Ingresa tu mensaje">
+                  <!-- verificacion -->
+        <div *ngIf="mensaje_GET.invalid && (mensaje_GET.dirty || mensaje_GET.touched)"
+        class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+    
+            <div *ngIf="mensaje_GET.errors?.['required']">
+              Complete este campo.
+            </div>
+            
+    </div>  
                 </div>
-                <p class="form-input-error">Porfavor no deje este campo en blanco</p>
+                
             </div>
 
 
             <!-- Boton -->
             <div class="form-grupo col-lg-6">
-                <button class="btn botonFC bg-primary" type="submit" onclick="btnPendiente()">Enviar</button>
-                <p class="form-mensaje-enviado py-3" id="form-mensaje-enviado">Mensaje enviado con exito</p>
+                <button class="btn botonFC bg-primary" type="submit" (click)="verificacionContacto()">Enviar</button>
+                
             </div>
 
             <!-- Mensaje Error -->

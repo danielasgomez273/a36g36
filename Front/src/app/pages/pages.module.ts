@@ -11,7 +11,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 // Importamos modulo de ruteo
 import { PagesRoutingModule } from './pages-routing.module';
 import { RouterModule } from '@angular/router';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -26,7 +26,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    ReactiveFormsModule
   ],
   exports:[
     InicioComponent,

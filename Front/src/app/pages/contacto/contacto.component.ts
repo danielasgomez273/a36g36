@@ -13,53 +13,22 @@ export class ContactoComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,private router:Router , private serv_logincontact:FormContactoService){};
   profileForm=this.formBuilder.group({
     email:["",[Validators.required,Validators.email]],
-    pass:["",[Validators.required,Validators.minLength(7)]]
-
+    nombre:["",[Validators.required,Validators.minLength(7)]],
+    mensaje:["",[Validators.required,Validators.minLength(7)]]
   });
 
   ngOnInit(): void {}
 
 
-
-// ////////////////////////////// METODO DE VERIFICACION USER ////////////////////////////
-  verificacionLoginUser(){
-// si el formulario es valido
-    if(this.profileForm.valid){
-      this.serv_logincontact.login(this.profileForm.value as loginInterface).subscribe({
-          next:(userData) => {
-            console.log(userData);
-          this.router.navigateByUrl("/auth/dash_user")
-          },
-          error: (errorData) => {
-              console.error(errorData);
-          },
-          complete:() => {
-          //alert("Validacion realizada correctamente");
-          }
-
-      });
-      //this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
-      //this.direccion="auth/dash_user"
-    } 
-    else{
-
-      // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
-      this.profileForm.markAllAsTouched();
-      alert("No se ingresaron correctamente los datos o no se reconoce el usuario")
-    
-    }
-  }
-
-
-// /////////////////////////// METODO DE VERIFICACION ADMIN  ///////////////////////////
-    verificacionLoginAdmin(){
+// /////////////////////////// METODO DE VERIFICACION DE FORMULARIO DE CONTACTO  ///////////////////////////
+    verificacionContacto(){
 
       if(this.profileForm.valid){
   
         this.serv_logincontact.login(this.profileForm.value as loginInterface).subscribe({
             next:(userData) => {
             console.log(userData);
-            this.router.navigateByUrl("/auth/dash_admin")
+            alert("mensaje enviado");
 
   
             },
@@ -80,7 +49,7 @@ export class ContactoComponent implements OnInit {
       else{
         // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
         this.profileForm.markAllAsTouched();
-        alert("No se ingresaron correctamente los datos o no se reconoce el usuario")
+        alert("No se ingresaron correctamente los datos")
 
       }
     }
@@ -90,7 +59,10 @@ export class ContactoComponent implements OnInit {
   get email_GET(){
     return this.profileForm.controls['email'];
   }
-  get pass_GET(){
-    return this.profileForm.controls['pass'];
+  get nombre_GET(){
+    return this.profileForm.controls['nombre'];
+  }
+  get mensaje_GET(){
+    return this.profileForm.controls['mensaje'];
   }
 }

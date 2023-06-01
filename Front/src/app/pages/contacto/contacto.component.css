@@ -169,4 +169,15 @@
   .formularioC .form-mensaje p {
     margin: 0;
   }
+  /*  COLORES DE VALIDACION   */
+.ng-valid:not(form).ng-touched{
+  border-bottom: 2px solid  #198754  /*success*/;
+ 
+}
+
+.ng-invalid:not(form).ng-touched{
+  border-bottom:  2px solid  #dc3545 /*danger*/;
+
+
+}
   
