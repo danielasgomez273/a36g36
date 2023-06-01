@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import Paciente
 from .models import Ficha_medica
 from .models import Registro_glucemia
@@ -43,3 +44,4 @@ admin.site.register(Servicio,ServicioAdmin)
 admin.site.register(Paquete,PaqueteAdmin)
 admin.site.register(Carrito,CarritoAdmin)
 admin.site.register(Factura,FacturaAdmin)
+

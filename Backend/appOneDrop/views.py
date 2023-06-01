@@ -11,35 +11,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 # Create your views here.
-#############################
-#ispc apiview
 
-class LoginView(APIView):
-    def post(self, request):
-        # email = request.data.get('email', None)
-        # password = request.data.get('password', None)
-        # email = authenticate (email = email , password = password)
-        print("request.body")
-        splitttt = request.body.split()
-        
-        print(request.body)        
-        print(list(splitttt)['username'])
-
-        user = authenticate(request , username = request.POST['username'], password = request.POST['password'])
-        if user:
-            print("TEORICAMENTE ME LOGUE")
-            login(request,user)
-            return Response(status=status.HTTP_200_OK)
-        
-        return Response(status=status.HTTP_404_NOT_FOUND) 
-
-class LogoutView(APIView):
-    def post(self, request):
-        logout(request)
-        return Response(status=status.HTTP_200_OK)
-
-
-#############################
 def home(request):
     return render(request,'plantilla/home.html')
 

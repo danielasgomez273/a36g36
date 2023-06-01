@@ -40,7 +40,8 @@ CORS_ALLOW_CREDENTIALS =True
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [    
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,13 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appOneDrop',
     'rest_framework',
-    'corsheaders',
 ]
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',    
+MIDDLEWARE = [    
     "corsheaders.middleware.CorsMiddleware",
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware', # ESTA LINEA, CORROBORA CSRF
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -148,3 +148,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_URL = '/signup'
 LOGIN_REDIRECT_URL = reverse_lazy('protegido')
+
+CORS_ORIGIN_ALLOW_ALL = True
+

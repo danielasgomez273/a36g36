@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "tipo_diabetes": "No",
+        "terapia_insulina": "No",
+        "terapia_pastillas": "No",
+        "tipo_glucometro": "No",
+        "tipo_sensor": "No",
+        "objetivo_glucosa": "0.23",
+        "comorbilidades": "No",
+        "paciente": 1
+    },
+    {
+        "id": 2,
+        "tipo_diabetes": "Noad xz",
+        "terapia_insulina": "Noad cz",
+        "terapia_pastillas": "Nofqead",
+        "tipo_glucometro": "Nofewads",
+        "tipo_sensor": "Nodcs",
+        "objetivo_glucosa": "0.01",
+        "comorbilidades": "Noefdcs",
+        "paciente": 2
+    },
+    {
+        "id": 3,
+        "tipo_diabetes": "tipo 1",
+        "terapia_insulina": "tipo 1",
+        "terapia_pastillas": "tipo 1",
+        "tipo_glucometro": "tipo 1",
+        "tipo_sensor": "tipo 1",
+        "objetivo_glucosa": "0.99",
+        "comorbilidades": "sd",
+        "paciente": 3
+    }
+]

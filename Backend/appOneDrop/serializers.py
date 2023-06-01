@@ -6,6 +6,8 @@ class PacienteSerializer(serializers.ModelSerializer):
         model = Paciente    
         #campos de la tabla que van a ser consultados
         fields = ('id', 'nombre_paciente', 'apellido_paciente', 'email_paciente', 'contraseña_paciente', 'telefono_paciente', 'fecha_nacimiento', 'sexo_paciente')
+        # fiels = '__all__'
+        
         #read_only_fields = ('email_paciente',) # indica que estos campos no pueden ser modificados, solo lectura, el problema es que en los posteos no deja cargar el atributo en el formulario...
 
 class FichaMedicaSerializer(serializers.ModelSerializer):
