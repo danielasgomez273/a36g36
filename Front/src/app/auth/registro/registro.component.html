@@ -1,92 +1,189 @@
-<div class="div0"></div>
+<!-- Favicons -->
+
+<link href="assets/img/favicon.png" rel="icon">
 
 
-<!DOCTYPE html>
-<html>
-<html lang="es">
+<!--//////////////////////////////    FOMRULARIO    /////////////////////////////////////-->
+<!--//////////////////////////////    FOMRULARIO    /////////////////////////////////////-->
+<!--//////////////////////////////    FOMRULARIO    /////////////////////////////////////-->
 
-<!-- Empieza Head -->
-
-<head>
-
-
-
-
-  <!-- Título -->
-  <title>OneDrop</title>
-
-  <!-- Description -->
-  <meta name="description" content="OneDrop aplicación de ...">
-  <!-- completar con la descripción-->
-
-  <!-- Keywords -->
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="md:locale" content="es_es" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="keywords" content="salud, diabetes"> <!-- completar -->
-  <meta name="origen" content="OneDrop" />
-  <meta name="author" content="Grupo 30 - OneDrop" />
-  <meta name="copyright" content="&copy; 2022 OneDrop" />
-  <meta name="locality" content="CÓRDOBA, Argentina" />
-  <meta name="language" content="es" />
-  <meta name="revisit-after" content="1 days" />
-  <meta name="robots" content="index, follow" />
-  <meta name="googlebot" content="index, follow" />
+<section class="section-princ" >
+<section class="container cont-form text-bg-light text-center my-4 borde shadow-lg form">
+  <h1 class=" margin titulo">REGISTRO</h1>
   
-  
-  <!-- Favicons -->
+  <form  [formGroup]="profileForm">
 
-  <link href="assets/img/favicon.png" rel="icon">
-  <!--link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"-->
-
-</head> <!-- Termina Head -->
-
-<!-- Empieza Body -->
-
-<body>
-  
-
-
-  <section class="grid-container1 banner2 color-fondo">
-    <form action="" method="POST" id="form">
-      <div class="form ">
-        <h1 >CREAR CUENTA</h1>
-        <div class="grupo">
-          <input type="text" name="" id="name"><span class="barra"></span>
-          <label for="">Nombres</label>
+    <!-- ////////////////////////////  EMAIL  //////////////////////////////  -->
+    <div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
+       <!--  label  -->
+        <div class="col-lg-3 col-md-12 align-self-start ">
+            <label for="exampleFormControlInput1" class="col-form-label">Email</label>
         </div>
-        <div class="grupo">
-          <input type="text" name="" id="lastname"><span class="barra"></span>
-          <label for="">Apellidos</label>
+        <!--  input  -->
+        <div class="col-lg-8 col-md-12 align-self-start  ">
+          <input formControlName="email" id="email" type="email" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="usuario@ejemplo.com">
         </div>
-        <div class="grupo">
-          <input type="email" name="" id="email"><span class="barra"></span>
-          <label for="">Email</label>
-        </div>
-        <div class="grupo">
-          <input type="password" name="" id="password"><span class="barra"></span>
-          <label for="">Password</label>
-        </div>
+       <!--  validacion  -->
+       <div *ngIf="email_GET.invalid && (email_GET.dirty || email_GET.touched)"
+       class="text-danger">
+   
+           <div *ngIf="email_GET.errors?.['required']">
+             Complete este campo.
+           </div>
+           <div *ngIf="email_GET.errors?.['email']">
+             Ingrese una casilla de correo correcta.
+           </div>
+     </div>
 
-        <button
-          style="background: -webkit-linear-gradient(left, #001d4d, #1A609F); border: none;display: block;width: 80%;margin: 10px auto;color: #fff;height: 40px;font-size: 20px;cursor: pointer;"
-          type="submit">Registrarme</button>
-        <p class="warnings" id="warnings"></p>
-        <div class="signup-link">
-          ¿Deseas volver? <a href="./index.html"> Ir a Inicio</a>
-          </div>   
+    </div>
+
+    <!--  /////////////////////////// CONTRASEÑA ////////////////////////////////   -->
+    <div class="row g-3 align-items-center margin  campo-input borde">
+       <!--  label  -->
+      <div class="col-lg-3 align-self-start ">
+        <label for="inputPassword6" class="col-form-label sub-campo-input">Contraseña</label>
       </div>
-    </form>
+        <!--  input  -->
+      <div class="col-lg-8 align-self-start ">
+        <input formControlName="pass" name="" id="password"
+        type="password" id="inputPassword6" class="form-control sub-campo-input" aria-labelledby="passwordHelpInline" placeholder="ejemplocontraseña1234">
+      </div> 
 
-  </section>
+        <!--  validacion  -->
+        <div *ngIf="pass_GET.invalid && (pass_GET.dirty || pass_GET.touched)"
+          class="text-danger">
+      
+              <div *ngIf="pass_GET.errors?.['required']">
+                Complete este campo.
+              </div>
+              <div *ngIf="pass_GET.errors?.['minlength']">
+                Ingrese una contraseña de mas de 6 caracteres.
+              </div>
+        </div>
+
+    </div>
+
+ <!-- ////////////////////////////  NOMBRE  //////////////////////////////  -->
+ <div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
+  <!--  label  -->
+   <div class="col-lg-3 col-md-12 align-self-start ">
+       <label for="exampleFormControlInput1" class="col-form-label">NOMBRE</label>
+   </div>
+   <!--  input  -->
+   <div class="col-lg-8 col-md-12 align-self-start  ">
+     <input formControlName="name" id="name" type="text" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="ingrese su nombre">
+   </div>
+   <!--  validacion  -->
+   <div *ngIf="name_GET.invalid && (name_GET.dirty || name_GET.touched)"
+   class="text-danger">
+
+       <div *ngIf="name_GET.errors?.['required']">
+         Complete este campo.
+       </div>
+ </div>
+
+</div>
+<!-- ////////////////////////////  APELLIDO //////////////////////////////  -->
+<div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
+  <!--  label  -->
+   <div class="col-lg-3 col-md-12 align-self-start ">
+       <label for="exampleFormControlInput1" class="col-form-label">APELLIDO</label>
+   </div>
+   <!--  input  -->
+   <div class="col-lg-8 col-md-12 align-self-start  ">
+     <input formControlName="last-name" id="last-name" type="text" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="ingrese su aoellido">
+   </div>
+  <!--  validacion  -->
+  <div *ngIf="last_name_GET.invalid && (last_name_GET.dirty || last_name_GET.touched)"
+  class="text-danger">
+
+      <div *ngIf="last_name_GET.errors?.['required']">
+        Complete este campo.
+      </div>
+</div>
+
+</div>
+<!-- ////////////////////////////  TELEFONO //////////////////////////////  -->
+<div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
+  <!--  label  -->
+   <div class="col-lg-3 col-md-12 align-self-start ">
+       <label for="exampleFormControlInput1" class="col-form-label">TELEFONO</label>
+   </div>
+   <!--  input  -->
+   <div class="col-lg-8 col-md-12 align-self-start  ">
+     <input formControlName="phone" id="phone" type="text" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="351 555 66666">
+   </div>
+ <!--  validacion  -->
+ <div *ngIf="phone_GET.invalid && (phone_GET.dirty || phone_GET.touched)"
+ class="text-danger">
+
+     <div *ngIf="phone_GET.errors?.['required']">
+       Complete este campo.
+     </div>
+</div>
+
+</div>
+
+<!-- ////////////////////////////  FECHA DE NACIMIENTO //////////////////////////////  -->
+<div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
+  <!--  label  -->
+   <div class="col-lg-3 col-md-12 align-self-start ">
+       <label for="exampleFormControlInput1" class="col-form-label">FECHA DE NACIMIENTO</label>
+   </div>
+   <!--  input  -->
+   <div class="col-lg-8 col-md-12 align-self-start  ">
+     <input formControlName="birthdate" id="birthdate" type="date" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="14/02/1952">
+   </div>
+   <!--  validacion  -->
+ <div *ngIf="birthday_GET.invalid && (birthday_GET.dirty || birthday_GET.touched)"
+ class="text-danger">
+
+     <div *ngIf="birthday_GET.errors?.['required']">
+       Complete este campo.
+     </div>
+</div>
+
+</div>
+
+<!-- ////////////////////////////  FECHA DE NACIMIENTO //////////////////////////////  -->
+<div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
+  <!--  label  -->
+   <div class="col-lg-3 col-md-12 align-self-start ">
+       <label for="exampleFormControlInput1" class="col-form-label">SEXO</label>
+   </div>
+   <!--  input  -->
+   <div class="col-lg-8 col-md-12 align-self-start  ">
+     <input formControlName="birthdate" id="birthdate" type="date" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="14/02/1952">
+   </div>
+<!--  validacion  -->
+<div *ngIf="sex_GET.invalid && (sex_GET.dirty || sex_GET.touched)"
+class="text-danger">
+
+    <div *ngIf="sex_GET.errors?.['required']">
+      Complete este campo.
+    </div>
+</div>
+
+</div>
+
+    <!--  ////////////////////////////////// BOTONES //////////////////////////////   -->
+     <!--  (click)="verificacionLogin()" 
+    href="auth/dash_user"
+    href="auth/dash_admin"
+     href={{direccion}}
+    -->
+    <div class="row justify-content-evenly mx-4 ">
+      <button type="button" class="btn btn-primary m-2  col-lg-4" >
+        <a class="text-white text-decoration-none" (click)="verificacionRegistroUser()">REGISTRARSE</a>
+      </button>
 
 
-  <script src="assets\js\topbtn.js"></script>
-  <script src="assets\js\val-registro.js"></script>
-</body>
-
-</html>
+      </div>
+    
 
 
 
+
+  </form>
+</section>
+</section>
