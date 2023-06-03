@@ -53,6 +53,7 @@ input:focus~.barra::before{
     padding-top: 3rem;
     padding-bottom: 4rem;
     height: auto;
+    background-color: #edf5fc;
 
 }
 

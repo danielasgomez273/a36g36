@@ -5,21 +5,8 @@
      padding: 0;
      box-sizing: border-box;
      font-family: Poppins, sans-serif; 
-     /*outline: solid 1px tomato !important;*/
  }
  
- 
- /*------Navbar-------*/
- 
- /*.container {
-     position: relative;
-     z-index: -10;
-     display: flex;
-     justify-content: space-between;
-     align-items: center; 
-     float:left;
-     box-sizing: border-box;
- }*/
  
  a {
      color: white;
@@ -106,7 +93,7 @@
  .seccion1 {
     height: 100vp; 
     padding: 0;
-    /*background: ; */
+
  }
  
  .formularioC {
@@ -128,7 +115,11 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-  
+  .formularioC .form-grupo-input input#mensajeFC {
+    height: 200px;
+    resize: vertical;
+    text-align: left;
+  }
   .formularioC .form-input-error {
     display: none;
     color: red;
@@ -179,5 +170,45 @@
   border-bottom:  2px solid  #dc3545 /*danger*/;
 
 
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  /* Estilos para dispositivos con un ancho máximo de 768px */
+  .banner {
+    padding: 100px;
+  }
+  
+  .cuerpo h1 {
+    font-size: 4em;
+  }
+  
+  .cuerpo p {
+    font-size: 1em;
+  }
+  
+  .formularioC {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Estilos para dispositivos con un ancho máximo de 480px */
+  .banner {
+    padding: 50px;
+  }
+  
+  .cuerpo h1 {
+    font-size: 3em;
+  }
+  
+  .cuerpo p {
+    font-size: 0.9em;
+  }
+  
+  .formularioC {
+    padding: 10px;
+  }
 }
   
