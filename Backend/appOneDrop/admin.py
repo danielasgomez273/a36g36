@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin
 
 from .models import Paciente
 from .models import Ficha_medica
@@ -8,6 +10,19 @@ from .models import Servicio
 from .models import Paquete
 from .models import Carrito
 from .models import Factura
+from .models import CustomUser
+
+##############
+# PROPUESTA ISPC
+@admin.register(get_user_model())
+class CustomUserAdmin(UserAdmin):
+    pass
+#admin.site.register(CustomUser, UserAdmin)
+# class CustomUserAdmin(admin.ModelAdmin):
+#    pass
+
+##############
+
 
 # Register your models here.
 #esta clase perimite mostrar la tabla de pacientes con esta estructura y estos campos, es opcional

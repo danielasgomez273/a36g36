@@ -1,5 +1,24 @@
 from rest_framework import serializers
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth import get_user_model
 from .models import Paciente , Ficha_medica , Registro_glucemia , Prestador , Servicio , Paquete , Carrito , Factura #refiere a que creare el serializer en base a un modelo existente   
+
+
+class UserSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(
+        required=True)
+    username = serializers.CharField(
+        required=True)
+    password = serializers.CharField(
+        min_length=8 , write_only=True)
+
+    class Meta:
+        model = get_user_model()
+        fields = ('email', 'username', 'password')
+    
+    def validate_password(self, value):
+        return make_password(value)
+    
 
 class PacienteSerializer(serializers.ModelSerializer):
     class Meta:

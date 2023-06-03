@@ -1,14 +1,22 @@
 from django.db import models
 from datetime import date
 from django.utils.timezone import now
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser , AbstractBaseUser
 
+##############
+# PROPUESTA ISPC
+class CustomUser(AbstractUser):
+    email = models.EmailField( max_length=150, default="", unique=True)
+    USERNAME_FIELD ='email'
+    REQUIRED_FIELDS = ['username','password']
+    
+##############
 
 #  PACIENTE  #
 class Paciente(models.Model):
     nombre_paciente = models.CharField(max_length=30 , blank=False)
-    apellido_paciente = models.CharField(max_length=30 , blank=False)
-    email_paciente = models.EmailField(max_length=100 , blank=False , unique=True)
+    apellido_paciente = models.CharField(max_length=30 , blank=False )
+    email_paciente = models.EmailField(max_length=100 , blank=False , default="", unique=True)
     contraseña_paciente = models.CharField(max_length=100 , blank=False)
     telefono_paciente = models.CharField(max_length=30 , blank=False)
     fecha_nacimiento = models.DateField(default=date.today , blank=False)
@@ -25,6 +33,8 @@ class Paciente(models.Model):
     def __str__(self):
         return 'El paciente es ' + self.nombre_paciente +" "+ self.apellido_paciente
     
+
+
 class Ficha_medica(models.Model):
     #tipo_diabetes
     TIPO_1 = 'tipo 1'
@@ -94,7 +104,7 @@ class Registro_glucemia(models.Model):
     
 #  PRESTADOR  #
 class Prestador(models.Model):
-    email_prestador = models.EmailField(max_length=100 , blank=False , unique=True)
+    email_prestador = models.EmailField(max_length=100 , blank=False , default="", unique=True)
     contraseña_prestador = models.CharField(max_length=50 , blank=False)
     sede_prestador = models.CharField(max_length=50 , blank=False)
     telefono_prestador = models.CharField(max_length=50 , blank=False)
