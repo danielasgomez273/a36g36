@@ -145,26 +145,36 @@
 
 </div>
 
-<!-- ////////////////////////////  FECHA DE NACIMIENTO //////////////////////////////  -->
-<div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
+<!-- ////////////////////////////  SEXO //////////////////////////////  -->
+<div class="row g-3 align-items-center margin campo-input borde campo-email borde_validacion">
   <!--  label  -->
-   <div class="col-lg-3 col-md-12 align-self-start ">
-       <label for="exampleFormControlInput1" class="col-form-label">SEXO</label>
-   </div>
-   <!--  input  -->
-   <div class="col-lg-8 col-md-12 align-self-start  ">
-     <input formControlName="birthdate" id="birthdate" type="date" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="14/02/1952">
-   </div>
-<!--  validacion  -->
-<div *ngIf="sex_GET.invalid && (sex_GET.dirty || sex_GET.touched)"
-class="text-danger">
-
-    <div *ngIf="sex_GET.errors?.['required']">
-      Complete este campo.
+  <div class="col-lg-3 col-md-12 align-self-start">
+    <label for="exampleFormControlInput1" class="col-form-label">SEXO</label>
+  </div>
+  <!--  input  -->
+  <div class="col-lg-8 col-md-12 align-self-start">
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-secondary">
+        <input type="radio" formControlName="sex" value="masculino" autocomplete="off"> M
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" formControlName="sex" value="femenino" autocomplete="off"> F
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" formControlName="sex" value="otro" autocomplete="off"> Otro
+      </label>
     </div>
+  </div>
+  <!--  validacion  -->
+  <div *ngIf="sex_GET.invalid && (sex_GET.dirty || sex_GET.touched)" class="text-danger">
+    <div *ngIf="sex_GET.errors?.['required']">
+      Seleccione una opcion.
+    </div>
+  </div>
 </div>
 
-</div>
+
+
 
     <!--  ////////////////////////////////// BOTONES //////////////////////////////   -->
      <!--  (click)="verificacionLogin()" 

@@ -535,7 +535,7 @@ footer p {
 /* ///////////////////////////////////////////////////////////// */
 /* ///////////////////////////////////////////////////////////// */
 
-/*      COLORES DE VALIDACION QUE USA ANGULAR O BOOTSTRAP NO ME ACUERDO BIEN CUAL ERA
+/*      COLORES DE VALIDACION QUE USA BOOTSTRAP NO ME ACUERDO BIEN CUAL ERA
 #198754 success
 #dc3545 danger
 */
@@ -572,7 +572,8 @@ footer p {
 }
 
 .campo-input{
-    height: 10rem;
+    height: 5rem;
+    background-color: transparent;
 }
 
 .sub-campo-input{
@@ -580,9 +581,13 @@ footer p {
 
 
 }
-
+.btn-secondary{
+    bs-btn-bg: transparent;
+}
 .campo-email{
+    max-width: 100%;
     margin-top: 2rem;
+    background-color: transparent;
 }
 
 
@@ -614,3 +619,7 @@ footer p {
 
 
 }
+/* Estilo para los botones de radio */
+input[type="radio"] {
+    background-color: transparent;
+  }
