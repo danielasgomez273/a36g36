@@ -19,9 +19,7 @@ from .models import CustomUser
 from rest_framework.permissions import IsAdminUser , AllowAny
 from rest_framework import permissions
 
-
-##############
-# PROPUESTA ISPC
+# LOGUEO Y SESSIONES
 class LoginView(APIView):
     permission_classes = [AllowAny]
     def post(self, request):
@@ -45,10 +43,20 @@ class SignupView(generics.CreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = UserSerializer
 
+#SOLO USUARIOS
+class VerPerfil(APIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+    http_method_names = ['get']
+    permission_classes = [permissions.IsAuthenticated]
+    def get (self, request):   
+        queryset = CustomUser.objects.filter(id=self.request.user.id)
+        serializer = UserSerializer( queryset , many=True)
+        if self.request.user.is_authenticated:
+            return Response (serializer.data)
 
-##############
-
-#SOLO ADMIN
+####################################### ADMIN #######################################
+#SOLO ADMIN - VER USUARIOS
 class VerUsuarios(generics.ListCreateAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
@@ -59,8 +67,32 @@ class VerUsuarios(generics.ListCreateAPIView):
         serializer = UserSerializer( queryset , many=True)
         if self.request.user.is_authenticated:
             return Response (serializer.data)
+        
+#SOLO ADMIN - VER CARRITOS
+class VerCarritos(generics.ListCreateAPIView):
+    queryset = Carrito.objects.all()
+    serializer_class = CarritoSerializer
+    http_method_names = ['get']
+    permission_classes = [permissions.IsAdminUser]
+    def verCarritos (self, request):
+        queryset = self.get_queryset()
+        serializer = CarritoSerializer( queryset , many=True)
+        if self.request.user.is_authenticated:
+            return Response (serializer.data)
 
-#CRUD SERVICIOS
+#SOLO ADMIN - VER FACTURAS
+class VerFacturas(generics.ListCreateAPIView):
+    queryset = Factura.objects.all()
+    serializer_class = FacturaSerializer
+    http_method_names = ['get']
+    permission_classes = [permissions.IsAdminUser]
+    def verFacturas (self, request):
+        queryset = self.get_queryset()
+        serializer = FacturaSerializer( queryset , many=True)
+        if self.request.user.is_authenticated:
+            return Response (serializer.data)
+        
+#SOLO ADMIN - CRUD SERVICIOS
 class CrudServicios(APIView):
     permission_classes = [permissions.IsAdminUser]
 
@@ -78,107 +110,203 @@ class CrudServicios(APIView):
             return Response( serializer.data, status= status.HTTP_201_CREATED)
         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
     
-
-
-#SOLO PACIENTE
-class CrearPaciente(APIView):
-    ''' 
-    queryset = CustomUser.objects.all()
-    serializer_class = UserSerializer
-    http_method_names = ['get']
+#SOLO ADMIN - CRUD PAQUETES
+class CrudPaquetes(APIView):
     permission_classes = [permissions.IsAdminUser]
-    def listUsers (self, request):
-        queryset = self.get_queryset()
-        serializer = UserSerializer( queryset , many=True)
+
+    def get (self, request):
+        queryset = Paquete.objects.all()
+        serializer = PaqueteSerializer(queryset, many=True)
         if self.request.user.is_authenticated:
             return Response (serializer.data)
-    ''' 
-    pass
+        return Response(status= status.HTTP_400_BAD_REQUEST)
+    
+    def post (self, request, format = None):
+        serializer = PaqueteSerializer (data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response( serializer.data, status= status.HTTP_201_CREATED)
+        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+
+####################################### PACIENTE #######################################
+#SOLO PACIENTE - CRUD PACIENTE
+class CrudPaciente(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get (self, request):  
+        queryset = Paciente.objects.filter(usuario=self.request.user.id)
+        serializer = PacienteSerializer(queryset, many=True)
+        if self.request.user.is_authenticated:
+            return Response (serializer.data)
+        return Response(status= status.HTTP_400_BAD_REQUEST)
+        ''' 
+        PODRIA HACER QUE DIRECTAMENTE SE OBTENGA EL ID DEL USUARIO DESDE LA SESSION
+        Y ENVIARLO A CREAR, EN VEZ DE TENER QUE RECIBIRLO POR LA REQUEST
+
+        Entry.objects.create(
+            blog=beatles,
+            headline='New Lennon Biography',
+            pub_date=date(2008, 6, 1),
+        )
+        '''
+    def post (self, request, format = None):
+        serializer = PacienteSerializer (data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response( serializer.data, status= status.HTTP_201_CREATED)
+        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+
+#SOLO PACIENTE - CRUD REGISTROS            
+class CrudRegistrosGlucemia(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get (self, request):  
+        paciente = Paciente.objects.filter(usuario=self.request.user.id)       
+        idPaciente = paciente.get().pk
+        queryset = Registro_glucemia.objects.filter(paciente_id = idPaciente)
+        serializer = RegistroGlucemiaSerializer(queryset, many=True)
+        if self.request.user.is_authenticated:
+            return Response (serializer.data)
+        return Response(status= status.HTTP_401_UNAUTHORIZED)
+    
+    def post (self, request, format = None):
+        serializer = RegistroGlucemiaSerializer (data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response( serializer.data, status= status.HTTP_201_CREATED)
+        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+
+#SOLO PACIENTE - CRUD FICHA MEDICA
+class CrudFichaMedica(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get (self, request):  
+        paciente = Paciente.objects.filter(usuario=self.request.user.id)       
+        idPaciente = paciente.get().pk
+        queryset = Ficha_medica.objects.filter(paciente_id = idPaciente)
+        serializer = FichaMedicaSerializer(queryset, many=True)
+        if self.request.user.is_authenticated:
+            return Response (serializer.data)
+        return Response(status= status.HTTP_401_UNAUTHORIZED)
+    
+    def post (self, request, format = None):
+        serializer = FichaMedicaSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response( serializer.data, status= status.HTTP_201_CREATED)
+        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+
+#SOLO PACIENTE - CRUD CARRITO
+class CrudCarrito(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get (self, request):  
+        paciente = Paciente.objects.filter(usuario=self.request.user.id)       
+        idPaciente = paciente.get().pk
+        queryset = Carrito.objects.filter(paciente_id = idPaciente)
+        serializer = CarritoSerializer(queryset, many=True)
+        if self.request.user.is_authenticated:
+            return Response (serializer.data)
+        return Response(status= status.HTTP_400_BAD_REQUEST)
+    
+    def post (self, request, format = None):
+        serializer = CarritoSerializer (data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response( serializer.data, status= status.HTTP_201_CREATED)
+        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+
+#SOLO PACIENTE - AGREGAR A CARRITO
+class CrudServicioToCarrito(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+    http_method_names = ['get']
+    lookup_field = 'servicio_pk'
+    serializer_class = ServicioSerializer
+
+    def get (self, request, servicio_pk):  
+        #Obtener el servicio a agregar..
+        querysetServicio = Servicio.objects.filter(id=servicio_pk)
+        serializerServicio = ServicioSerializer( querysetServicio , many=True)
+
+        #Obtener el paciente que va a agregar..
+        paciente = Paciente.objects.filter(usuario=self.request.user.id)    
+        idPaciente = paciente.get().pk
+
+        #Obtener el listado de servicios o paquetes que ya tiene 
+        carrito = Carrito.objects.get(paciente = idPaciente)
+        serviciosEnCarrito = carrito.servicio.get()
+        #HASSTA AQUI TENGO LOS PAQUETES O SERVICIOS.. DEBERIA VER COMO SEGUIR INGRESANDO
+        # DEBERIA POPULAR O ALGO?
+        # SERIA MAS FACIL BORRAR LOS PAQUETES...
+        print(serviciosEnCarrito)
+        
+        serviciosEnCarrito.append(servicio_pk)
+        print(serviciosEnCarrito)
+        carrito.servicio.set(serviciosEnCarrito)
+        carrito.save()
+
+        print(carrito)
+        #carrito.append(servicio_pk)
+        #querysetCarrito.save()
+        serializerCarrito = CarritoSerializer(carrito, many=True)
+
+        if self.request.user.is_authenticated:
+            return Response (serializerCarrito.data)
+        return Response(status= status.HTTP_400_BAD_REQUEST)
+    '''
+    def post (self, request, format = None):
+        serializer = CarritoSerializer (data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response( serializer.data, status= status.HTTP_201_CREATED)
+        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+    '''
+
+
+
+
+####################################### SIN AUTH #######################################
+#SIN AUTH - VER SERVICIOS
+class VerServicios(generics.ListCreateAPIView):
+    queryset = Servicio.objects.all()
+    serializer_class = ServicioSerializer
+    http_method_names = ['get']
+    permission_classes = [permissions.AllowAny]
+    def verServicios (self, request):
+        queryset = self.get_queryset()
+        serializer = ServicioSerializer( queryset , many=True)
+        if self.request.user.is_authenticated:
+            return Response (serializer.data)
+        
+#SIN AUTH - VER PAQUETES
+class VerPaquetes(generics.ListCreateAPIView):
+    queryset = Paquete.objects.all()
+    serializer_class = PaqueteSerializer
+    http_method_names = ['get']
+    permission_classes = [permissions.AllowAny]
+    def verPaquetes (self, request):
+        queryset = self.get_queryset()
+        serializer = PaqueteSerializer( queryset , many=True)
+        if self.request.user.is_authenticated:
+            return Response (serializer.data)
+#SIN AUTH - VER TODOO => ERROR NO ESTA MOSDTRANDO TODOO
+class VerTodos(generics.ListCreateAPIView):
+    queryset = Paquete.objects.all()
+    serializer_class = PaqueteSerializer
+    http_method_names = ['get']
+    permission_classes = [permissions.AllowAny]
+    def verPaquetes (self, request):
+        queryset = self.get_queryset()
+        querysetServicio = Servicio.objects.all()
+        serializer = PaqueteSerializer( queryset , many=True)
+        serializerServicio = ServicioSerializer( querysetServicio , many=True)
+        if self.request.user.is_authenticated:
+            resp = {
+                'servicios': serializerServicio.data ,
+                'paquetes':serializer.data 
+            }
+            print("resp")
+            print(resp)
+            return Response(resp, status=status.HTTP_200_OK)
 # # # # # # # # # # # # # # 
 
-
-''' 
-@csrf_exempt
-def singInDePostman(request):
-    # debe ser un POST SI O SI
-    pass
-
-
-@csrf_exempt
-def singUpDePostman(request):
-    
-#ESTE REGISTRO DE USUARIO NO FUNCIONA, NO PUEDO ACCEDER AL request.POST
-#    if request.POST['password1'] == request.POST['password2']:
-#        try:
-#            #register user,luego save user en bd, guardar usuario en session y luego redireccionar
-#            userCreado = User.objects.create_user( username = request.POST['username'] , password = request.POST['password1'])
-#            userCreado.save() 
-#            login(request,userCreado) #guardar usuario en session 
-#            # EN ESTE CASO, NO REDIRIGO, SOLO CODIGO OK return redirect('protegido')
-#            print("SUPUESTA CREACION DE USUARIO CORRECTA.. AHORA BIEN, SE LOGUE USUARIO¿??????")
-#            return Response (status=status.HTTP_201_CREATED)
-#        except IntegrityError:
-#            print("error de integridad en bd... solucionar respeusta")
-#            return Response (status=status.HTTP_400_BAD_REQUEST)
-#    else:
-#        print("ERROR DE PASS SONSO")
-#        return Response (status=status.HTTP_400_BAD_REQUEST)
-    
-# # # # # # # # # # # # # # 
-
-    pass
-
-def home(request):
-    return render(request,'plantilla/home.html')
-
-
-@csrf_exempt
-def signup(request):
-    if request.method == 'GET':
-        return render(request,'plantilla/signup.html', {
-        'form' : UserCreationForm,
-        'authForm' : AuthenticationForm
-    })
-    else:
-        print("ME ESTA LLEGANDOOOO request.POST")
-        print(request.POST)
-        print("ME LLEGO")
-        if 'password' in request.POST:
-            user = authenticate(request , username = request.POST['username'], password = request.POST['password'])
-            if user is None:
-                return render(request,'plantilla/signup.html', {
-                    'form' : UserCreationForm,
-                    'authForm' : AuthenticationForm,
-                    'error' : 'Credenciallllles no vaalalalalidadsd'
-                }) 
-            else:        
-                login(request,user) #guardar usuario en session 
-                return redirect('protegido') 
-        elif 'password1' in request.POST:   
-            if request.POST['password1'] == request.POST['password2']:
-                try:
-                    #register user,luego save user en bd, guardar usuario en session y luego redireccionar
-                    userCreado = User.objects.create_user( username = request.POST['username'] , password = request.POST['password1'])
-                    userCreado.save() 
-                    login(request,userCreado) #guardar usuario en session 
-                    return redirect('protegido')
-                except IntegrityError:
-                    return render(request,'plantilla/signup.html', {
-                        'form' : UserCreationForm,
-                        'error' : 'User ya existeeeeee IntegrityError'
-                    })          
-            else:
-                return render(request,'plantilla/signup.html', {
-                    'form' : UserCreationForm,
-                    'error' : 'Passss no coinciden sonsooo'
-                })  
-
-@login_required
-def protegido(request):
-    return render(request,'plantilla/protegido.html')
-
-def signout(request):
-    logout(request)
-    return redirect('home')
-
-'''

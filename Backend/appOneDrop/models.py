@@ -21,6 +21,7 @@ class Paciente(models.Model):
     telefono_paciente = models.CharField(max_length=30 , blank=False)
     fecha_nacimiento = models.DateField(default=date.today , blank=False)
     sexo_paciente = models.CharField(max_length=30 , null=True, blank=True)
+    usuario = models.OneToOneField(CustomUser , null=False, blank=False, on_delete=models.CASCADE )
 
     class Meta:
         db_table = 'paciente'
@@ -33,8 +34,6 @@ class Paciente(models.Model):
     def __str__(self):
         return 'El paciente es ' + self.nombre_paciente +" "+ self.apellido_paciente
     
-
-
 class Ficha_medica(models.Model):
     #tipo_diabetes
     TIPO_1 = 'tipo 1'

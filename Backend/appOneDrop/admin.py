@@ -27,7 +27,7 @@ class CustomUserAdmin(UserAdmin):
 # Register your models here.
 #esta clase perimite mostrar la tabla de pacientes con esta estructura y estos campos, es opcional
 class PacienteAdmin(admin.ModelAdmin):
-    list_display = ( "nombre_paciente" , "apellido_paciente" , "email_paciente" , "telefono_paciente" , "fecha_nacimiento" ,"sexo_paciente")
+    list_display = ( "nombre_paciente" , "apellido_paciente" , "email_paciente" , "telefono_paciente" , "fecha_nacimiento" ,"sexo_paciente", "usuario_id")
 
 class Ficha_medicaAdmin(admin.ModelAdmin):
     list_display = ( "tipo_diabetes" , "terapia_insulina" , "terapia_pastillas" , "tipo_glucometro" , "tipo_sensor" , "comorbilidades" , "objetivo_glucosa" , "paciente"  )
