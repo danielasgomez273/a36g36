@@ -23,33 +23,13 @@ export class LoginService {
 
   // SE CREA METODO DE LOGUEO Y CONTROL QUE CONSUMIRA EL LOGIN COMPONENT
       // credenciales trae los datos del form y es de tipo loginInterface.
-  login(credenciales:loginInterface):Observable<userInterface>{
+  login(credenciales:loginInterface):Observable<any>{
+        //No tiene sentido, pero tomamos los datos
+        console.log("Estos son los datos que de ingresaron en el formulario")
+        console.log("Fijate como hacer la verificacion despues")
+        console.log(credenciales)
 
-    console.log("el email: "+ credenciales.email);
-
-    // OBTENEMOS EL ATRIBUTO email DEL OBSERVABLE Y SE LO CONVIERTE EN STRING
-    this.email_string = this.http.get<userInterface>('././assets/data_usuarios.json').pipe(
-      map((usuario: userInterface) =>{
-        return usuario.email.toString();
-      })).toString()
-
-      console.log("??"+this.email_string)
-      
-      if(this.email_string=credenciales.email){
-      }
-      return  this.http.get<userInterface>('././assets/data_usuarios.json')
-  }
-
-
-   // METODO POST DE FORMULARIO //////////
-   // METODO POST DE FORMULARIO /////////
-   // METODO POST DE FORMULARIO /////////
-    public LOGIN_POST(url:string,cuerpo: { email: any; pass: any; }){ 
-      
-      // PASAMOS COMO PARAMTRO EL ENDPOINT (URL) AL CUAL ENVIAMOS LA INFORMACION
-      // Y COMO SEGUNDO EL OBJETO QUE VA A CONTENER LA INFORMACION (BODY)
-      return this.http.post(url,cuerpo);
-
+        return this.http.get("http://localhost:3000/USUARIOS")
     }
   // CIERRA EXPORT
   }

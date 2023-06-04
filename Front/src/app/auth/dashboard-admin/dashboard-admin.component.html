@@ -123,7 +123,7 @@
 
           <div class="col-lg-3 bg-white  border border-secondary-subtle  m-2 p-4">
             <h5 class="text-center">ID</h5>
-            <input formControlName="id" class="controls text-dark" type="text" name="nombres" id="nombres">      
+            <input formControlName="id" class="controls text-dark" type="number" name="nombres" id="nombres">      
               
                       <!-- verificacion -->
             <div *ngIf="id_GET.invalid && (id_GET.dirty || id_GET.touched)"
@@ -141,7 +141,7 @@
 
           <div class="col-lg-3 bg-white  border border-secondary-subtle  m-2 p-4">
             <h5 class="text-center">Precio</h5>
-            <input formControlName="precio_servicio" class="controls text-dark" type="text" name="nombres" id="nombres">
+            <input formControlName="precio_servicio" class="controls text-dark" type="number" name="nombres" id="nombres">
             
                     <!-- verificacion -->
                   <div *ngIf="precio_servicio_GET.invalid && (precio_servicio_GET.dirty || precio_servicio_GET.touched)"
@@ -193,7 +193,7 @@
 
           <div class="col-lg-2 bg-white  border border-secondary-subtle  m-2 p-4">
             <h5 class="text-center">Prestador</h5>
-            <input formControlName="prestador" class="controls text-dark" type="text" name="nombres" id="nombres"> 
+            <input formControlName="prestador" class="controls text-dark" type="number" name="nombres" id="nombres"> 
             
                     <!-- verificacion -->
                     <div *ngIf="prestador_GET.invalid && (prestador_GET.dirty || prestador_GET.touched)"

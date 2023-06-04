@@ -155,95 +155,18 @@
       "precio_servicio": "2500.00",
       "comentarios_servicio": "comentarios sobre el nutricionista",
       "prestador": 4
+    },
+    {
+      "id": "99",
+      "nombre_servicio": "Consulta General",
+      "descripcion_servicio": "Consulta con medico general",
+      "precio_servicio": "4300",
+      "comentarios_servicio": "Esto es un comentario",
+      "prestador": "21",
+      "sede_servicio": "Catamarca"
     }
   ],
   "USUARIOS": [
-    {
-      "email": "hola@asdl"
-    }
-  ],
-  "registro_de_servicios": [
-    {
-      "id": 1,
-      "nombre_servicio": "adv",
-      "descripcion_servicio": "svc x",
-      "sede_servicio": "dvac s",
-      "precio_servicio": "3515.00",
-      "comentarios_servicio": "dac",
-      "prestador": 1
-    },
-    {
-      "mensaje": "datos enviados",
-      "id": 2
-    },
-    {
-      "id": 3,
-      "nombre_servicio": "asdasd",
-      "descripcion_servicio": "",
-      "precio_servicio": "",
-      "comentarios_servicio": "",
-      "prestador": ""
-    },
-    {
-      "id": "asasd",
-      "nombre_servicio": "asdasd",
-      "descripcion_servicio": "asd",
-      "precio_servicio": "asdasd",
-      "comentarios_servicio": "asd",
-      "prestador": "asd"
-    },
-    {
-      "id": "9990",
-      "nombre_servicio": "nombre del servicio",
-      "descripcion_servicio": "esta es la descripcion del servicio",
-      "precio_servicio": "299930",
-      "comentarios_servicio": "espero que funciones :D",
-      "prestador": "23"
-    },
-    {
-      "id": "asdasd",
-      "nombre_servicio": "asdasd",
-      "descripcion_servicio": "asd",
-      "precio_servicio": "asdsad",
-      "comentarios_servicio": "asd",
-      "prestador": "asd",
-      "sede_servicio": "asd"
-    },
-    {
-      "id": "asd",
-      "nombre_servicio": "asd",
-      "descripcion_servicio": "asd",
-      "precio_servicio": "asd",
-      "comentarios_servicio": "asd",
-      "prestador": "asd",
-      "sede_servicio": "asd"
-    },
-    {
-      "id": "asdasdasd",
-      "nombre_servicio": "asdasd",
-      "descripcion_servicio": "asdasdasd",
-      "precio_servicio": "asdasdasd",
-      "comentarios_servicio": "asd",
-      "prestador": "asd",
-      "sede_servicio": "asdasd"
-    },
-    {
-      "id": "123",
-      "nombre_servicio": "asdasd",
-      "descripcion_servicio": "sada",
-      "precio_servicio": "12323",
-      "comentarios_servicio": "asdasda",
-      "prestador": "asdasd",
-      "sede_servicio": "asdasd"
-    },
-    {
-      "id": "222",
-      "nombre_servicio": "asasd",
-      "descripcion_servicio": "asdasd",
-      "precio_servicio": "asdasd",
-      "comentarios_servicio": "asdasd",
-      "prestador": "asdasd",
-      "sede_servicio": "asdasd"
-    }
+
   ]
 }

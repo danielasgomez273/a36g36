@@ -68,11 +68,22 @@ export class RegistroComponent implements OnInit{
 // ////////////////////////////// METODO DE VERIFICACION USER ////////////////////////////
   verificacionRegistroUser(){
 // si el formulario es valido
-    if(this.profileForm.valid){
+if(this.profileForm.valid){
+  // CODIGO QUE CONSUME EL SERVICIO
+  this.serv_login.login(this.profileForm.value as loginInterface).subscribe({
 
-      alert("Ingreso exitoso")
-      this.router.navigateByUrl("/auth/dash_user")  
-      this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
+   next:(userData) => {
+   },
+   error:(errorData) => {
+     console.log(errorData)
+   },
+   complete:() => {
+   }
+ })
+
+// CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
+ this.router.navigateByUrl("/auth/dash_user")
+ this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
 
     } 
     else{

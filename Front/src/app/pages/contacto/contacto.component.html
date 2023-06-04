@@ -16,7 +16,7 @@
 
         <!-- NOMBRE -->
         <div class="row p-4">
-            <div class="form-grupo col-lg-6" id="grupo-nombreFC">
+            <div class="form-grupo col-lg-4 m-1" id="grupo-nombreFC">
                 <label for="nombreFC" class="form-label">Nombre</label>
                 <div class="form-grupo-input">
                     <!-- Input e icono -->
@@ -35,7 +35,7 @@
 
 
             <!-- EMAIL -->
-            <div class="form-grupo col-lg-6" id="grupo-emailFC">
+            <div class="form-grupo col-lg-6 m-1" id="grupo-emailFC">
                 <label for="emailFC" class="form-label">Email</label>
                 <div class="form-grupo-input">
                     <!-- Input e icono -->
@@ -60,7 +60,8 @@
                 <label for="mensajeFC" class="form-label">Mensaje</label>
                 <div class="form-grupo-input">
                     <!-- Input e icono -->
-                    <input formControlName="mensaje" type="text" class="form-input" name="mensajeFC" id="mensajeFC" placeholder="  Ingresa tu mensaje">
+                    <textarea type="text" cols="30" rows="10"  formControlName="mensaje" type="text" class="form-input" name="mensajeFC" id="mensajeFC" placeholder="  Ingresa tu mensaje">
+                    </textarea>
                   <!-- verificacion -->
         <div *ngIf="mensaje_GET.invalid && (mensaje_GET.dirty || mensaje_GET.touched)"
         class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">

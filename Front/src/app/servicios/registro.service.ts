@@ -23,22 +23,16 @@ export class RegistroService {
 
   // SE CREA METODO DE LOGUEO Y CONTROL QUE CONSUMIRA EL LOGIN COMPONENT
       // credenciales trae los datos del form y es de tipo loginInterface.
-  login(credenciales:loginInterface):Observable<userInterface>{
+      login(credenciales:any):Observable<any>{
+        //No tiene sentido, pero tomamos los datos
+        console.log("Estos son los datos que de ingresaron en el formulario")
+        console.log("Fijate como hacer la verificacion despues")
+        console.log(credenciales)
 
-    console.log("el email: "+ credenciales.email);
 
-    // OBTENEMOS EL ATRIBUTO email DEL OBSERVABLE Y SE LO CONVIERTE EN STRING
-    this.email_string = this.http.get<userInterface>('././assets/data_usuarios.json').pipe(
-      map((usuario: userInterface) =>{
-        return usuario.email.toString();
-      })).toString()
-
-      console.log("??"+this.email_string)
-      
-      if(this.email_string=credenciales.email){
-      }
-      return  this.http.get<userInterface>('././assets/data_usuarios.json')
-  }
+      // La idea seria que los envie con el metodo POST
+        return this.http.post("http://localhost:3000/USUARIOS",credenciales)
+    }
 
 
    // METODO POST DE FORMULARIO //////////

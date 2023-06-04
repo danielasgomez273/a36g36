@@ -113,7 +113,7 @@ export class DashboardAdminComponent implements OnInit{
     // SI EL FORMULARIO CUMPLE CON LA VALIDACION
     if(this.formPOST.valid){
 
-          this.estadistica.POST('http://localhost:3000/registro_de_servicios',
+          this.estadistica.POST('http://localhost:3000/SERVICIOS',
             {
               id:this.formPOST.value.id,
               nombre_servicio:this.formPOST.value.nombre_servicio,
@@ -122,7 +122,6 @@ export class DashboardAdminComponent implements OnInit{
               comentarios_servicio:this.formPOST.value.comentarios_servicio,
               prestador:this.formPOST.value.prestador,
               sede_servicio:this.formPOST.value.sede_servicio,
-
             })
             .subscribe((respuesta: any) => {
               alert("Servicio Registrado")
