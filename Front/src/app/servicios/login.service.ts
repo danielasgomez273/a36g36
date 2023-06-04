@@ -1,4 +1,4 @@
-import { Injectable, ReflectiveInjector } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { loginInterface } from './interfaces/loginInterface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,15 +13,15 @@ import { userInterface } from './interfaces/userInterface';
   providedIn: 'root'
 })
 export class LoginService {
+ 
 
-  constructor( private http:HttpClient) { 
-  }
+  constructor( private http:HttpClient ) { }
 
 
-  email_string:string="asd"
+  email_string:string=""
   
 
-  // SE CREA METODO DE LOGUEO QUE CONSUMIRA EL LOGIN COMPONENT
+  // SE CREA METODO DE LOGUEO Y CONTROL QUE CONSUMIRA EL LOGIN COMPONENT
       // credenciales trae los datos del form y es de tipo loginInterface.
   login(credenciales:loginInterface):Observable<userInterface>{
 
@@ -36,20 +36,23 @@ export class LoginService {
       console.log("??"+this.email_string)
       
       if(this.email_string=credenciales.email){
-
-
       }
-
-          return  this.http.get<userInterface>('././assets/data_usuarios.json')
-
-   
-  }
-   
-    
-
+      return  this.http.get<userInterface>('././assets/data_usuarios.json')
   }
 
-function str(email: string) {
-  throw new Error('Function not implemented.');
-}
+
+   // METODO POST DE FORMULARIO //////////
+   // METODO POST DE FORMULARIO /////////
+   // METODO POST DE FORMULARIO /////////
+    public LOGIN_POST(url:string,cuerpo: { email: any; pass: any; }){ 
+      
+      // PASAMOS COMO PARAMTRO EL ENDPOINT (URL) AL CUAL ENVIAMOS LA INFORMACION
+      // Y COMO SEGUNDO EL OBJETO QUE VA A CONTENER LA INFORMACION (BODY)
+      return this.http.post(url,cuerpo);
+
+    }
+  // CIERRA EXPORT
+  }
+
+
 

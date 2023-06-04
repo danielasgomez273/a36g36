@@ -23,18 +23,21 @@
         <!--  input  -->
         <div class="col-lg-8 col-md-12 align-self-start  ">
           <input formControlName="email" id="email" type="email" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="usuario@ejemplo.com">
-        </div>
+
         <!-- verificacion -->
-        <div *ngIf="email_GET.invalid && (email_GET.dirty || email_GET.touched)"
-            class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
-        
-                <div *ngIf="email_GET.errors?.['required']">
-                  Complete este campo.
-                </div>
-                <div *ngIf="email_GET.errors?.['email']">
-                  Ingrese un email con formato correcto.
-                </div>
+            <div *ngIf="email_GET.invalid && (email_GET.dirty || email_GET.touched)"
+                class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+            
+                    <div *ngIf="email_GET.errors?.['required']">
+                      Complete este campo.
+                    </div>
+                    <div *ngIf="email_GET.errors?.['email']">
+                      Ingrese un email con formato correcto.
+                    </div>
+            </div>      
+      
         </div>
+
     </div>
 
     <!--  /////////////////////////// CONTRASEÑA ////////////////////////////////   -->
@@ -47,19 +50,22 @@
       <div class="col-lg-8 align-self-start ">
         <input formControlName="pass" name="" id="password"
         type="password" id="inputPassword6" class="form-control sub-campo-input" aria-labelledby="passwordHelpInline" placeholder="ejemplocontraseña1234">
+
+          <!--  validacion  -->
+        <div *ngIf="pass_GET.invalid && (pass_GET.dirty || pass_GET.touched)"
+        class="text-danger">
+    
+            <div *ngIf="pass_GET.errors?.['required']">
+              Complete este campo.
+            </div>
+            <div *ngIf="pass_GET.errors?.['minlength']">
+              Ingrese una contraseña de mas de 6 caracteres.
+            </div>
       </div>
 
-        <!--  validacion  -->
-        <div *ngIf="pass_GET.invalid && (pass_GET.dirty || pass_GET.touched)"
-          class="text-danger">
-      
-              <div *ngIf="pass_GET.errors?.['required']">
-                Complete este campo.
-              </div>
-              <div *ngIf="pass_GET.errors?.['minlength']">
-                Ingrese una contraseña de mas de 6 caracteres.
-              </div>
-        </div>
+      </div>
+
+        
     </div>
 
     <!--  ////////////////////////////////// BOTONES //////////////////////////////   -->

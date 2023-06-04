@@ -25,26 +25,8 @@ export class ContactoComponent implements OnInit {
 
       if(this.profileForm.valid){
   
-        this.serv_logincontact.login(this.profileForm.value as loginInterface).subscribe({
-            next:(userData) => {
-            console.log(userData);
-            alert("mensaje enviado");
-
-  
-            },
-            error: (errorData) => {
-                console.error(errorData);
-            },
-  
-            complete:() => {
-            //alert("Validacion realizada correctamente");
-  
-  
-            }
-  
-        });
-        //this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
-
+        alert("Mensaje enviado")
+        this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
       } 
       else{
         // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO

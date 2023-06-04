@@ -1,151 +1,249 @@
 {
-  "servicios":[
-      {"nombre":"Consulta Diabetologia",
-      "descripcion":"Consulta con profesional en Diabetologia",
-      "monto":4000},
-    
-      {"nombre":"Consulta Cardiologia",
-      "descripcion":"Consulta con profesional en Cardiologia",
-      "monto":4000},
-
-      {"nombre":"Consulta Nefrologia",
-      "descripcion":"Consulta con profesional en Nefrologia",
-      "monto":4000},
-
-      {"nombre":"Consulta Oftalmologia",
-      "descripcion":"Consulta con profesional en Oftalmologia",
-      "monto":4000},
-
-      {"nombre":"Consulta Nutricion",
-      "descripcion":"Consulta con profesional en Nutricion",
-      "monto":4000},
-
-      {"nombre":"Consulta Salud Mental",
-      "descripcion":"Consulta con profesional en Salud Mental",
-      "monto":4000},
-    
-      {"nombre":"Circuito Vital Basico",
-      "descripcion":"Incluye consulta con profesional en Diabetologia, Cardiologia y Nutricion",
-      "monto":12000},
-
-      {"nombre":"Circuito Vital Full",
-      "descripcion":"Incluye consulta con profesional en Diabetologia, Cardiologia, Nutricion y Analisis Clinicos",
-      "monto":22000},
-    
-      {"nombre":"Analisis Clinicos",
-      "descripcion":"Cita para extraccion de sangre",
-      "monto":2000}],
-
-
-
-      "estadisticas_admins":[
-        {"tipo":"Diabetes Tipo 1",
-        "cantidad":200},
-      
-        {"tipo":"Diabetes Tipo 2",
-        "cantidad":230},
-      
-        {"tipo":"Diabetes LADA",
-        "cantidad":189},
-
-        {"tipo":"Diabetes Gestacional",
-        "cantidad":34},
-
-        {"tipo":"Diabetes MOBY",
-        "cantidad":19}
-      ],
-      
-      "estadisticas_comorbilidades_admins":[
-        {"tipo":"Hipertension",
-        "porcentaje":52},
-      
-        {"tipo":"Dislipemia",
-        "porcentaje":18},
-      
-        {"tipo":"Sobrepeso y Obesidad",
-        "porcentaje":16},
-
-        {"tipo":"Insuficiencia Cardíaca",
-        "porcentaje":3},
-
-        {"tipo":"Retinopatia Diabetica",
-        "porcentaje":3},
-
-        {"tipo":"Nefropatia Diabetica",
-        "porcentaje":8}
-      ],
-
-
-
-      "serv_disponibles_admins":[
-        {"tipo":"Análisis Clínicos",
-        "descripcion":"Glucosa en ayunas, PTOG, HbA1c, Perfil lipidico, Funcion renal",
-       "precio":4000},
-        
-        {"tipo":"Consulta Nutrición",
-        "descripcion":"Consulta con profesional en Nutricion",
-       "precio":4000},
-
-       {"tipo":"Consulta Diabetologia",
-       "descripcion":"Consulta con profesional en Diabetologia",
-      "precio":4000}
-
-      ],
-
-      
-      "ingresos_admins":[
-        {"tipo":"Ingresos Diarios",
-        "monto":40000},
-
-        {"tipo":"Ingresos Semanales",
-        "monto":300000},
-
-        {"tipo":"Ingresos Quincenales",
-        "monto":750000},
-
-        {"tipo":"Ingresos Mensuales",
-        "monto":1500000}
-
-      ],
-
-      "notas_usuarios":[
-        {"fechas":"07:32 am, 11 Oct 22",
-        "glucemia":"1.2mg/dl",
-        "comentario":"Almorce fideos con fileto"
-        },
-
-        {"fechas":"08:00 am, 13 Oct 22",
-        "glucemia":"1.3mg/dl",
-        "comentario":"No desayune todavia"
-        },
-
-        {"fechas":"07:12 am, 15 Oct 22",
-        "glucemia":"1.1mg/dl",
-        "comentario":"Desayune cafe con leche"
-        },
-
-        {"fechas":"09:32 am, 17 Oct 22",
-        "glucemia":"1.0mg/dl",
-        "comentario":"Almorce guiso de arroz con pollo"
-        },
-
-        {"fechas":"07:09 am, 19 Oct 22",
-        "glucemia":"0.9mg/dl",
-        "comentario":"Desayune te con medialunas"
-        },
-
-        {"fechas":"07:52 am, 21 Oct 22",
-        "glucemia":"1.2mg/dl",
-        "comentario":"No cene"
-        },
-
-        {"fechas":"07:32 am, 23 Oct 22",
-        "glucemia":"1.8mg/dl",
-        "comentario":"Hice ayuno intermitente"
-        }
-        
-
-      ]
-
-
-  }
+  "estadisticas_admins": [
+    {
+      "tipo": "Diabetes Tipo 1",
+      "cantidad": 200
+    },
+    {
+      "tipo": "Diabetes Tipo 2",
+      "cantidad": 230
+    },
+    {
+      "tipo": "Diabetes LADA",
+      "cantidad": 189
+    },
+    {
+      "tipo": "Diabetes Gestacional",
+      "cantidad": 34
+    },
+    {
+      "tipo": "Diabetes MOBY",
+      "cantidad": 19
+    }
+  ],
+  "estadisticas_comorbilidades_admins": [
+    {
+      "tipo": "Hipertension",
+      "porcentaje": 52
+    },
+    {
+      "tipo": "Dislipemia",
+      "porcentaje": 18
+    },
+    {
+      "tipo": "Sobrepeso y Obesidad",
+      "porcentaje": 16
+    },
+    {
+      "tipo": "Insuficiencia Cardíaca",
+      "porcentaje": 3
+    },
+    {
+      "tipo": "Retinopatia Diabetica",
+      "porcentaje": 3
+    },
+    {
+      "tipo": "Nefropatia Diabetica",
+      "porcentaje": 8
+    }
+  ],
+  "serv_disponibles_admins": [
+    {
+      "tipo": "Análisis Clínicos",
+      "descripcion": "Glucosa en ayunas, PTOG, HbA1c, Perfil lipidico, Funcion renal",
+      "precio": 4000
+    },
+    {
+      "tipo": "Consulta Nutrición",
+      "descripcion": "Consulta con profesional en Nutricion",
+      "precio": 4000
+    },
+    {
+      "tipo": "Consulta Diabetologia",
+      "descripcion": "Consulta con profesional en Diabetologia",
+      "precio": 4000
+    }
+  ],
+  "ingresos_admins": [
+    {
+      "tipo": "Ingresos Diarios",
+      "monto": 40000
+    },
+    {
+      "tipo": "Ingresos Semanales",
+      "monto": 300000
+    },
+    {
+      "tipo": "Ingresos Quincenales",
+      "monto": 750000
+    },
+    {
+      "tipo": "Ingresos Mensuales",
+      "monto": 1500000
+    }
+  ],
+  "notas_usuarios": [
+    {
+      "fechas": "07:32 am, 11 Oct 22",
+      "glucemia": "1.2mg/dl",
+      "comentario": "Almorce fideos con fileto"
+    },
+    {
+      "fechas": "08:00 am, 13 Oct 22",
+      "glucemia": "1.3mg/dl",
+      "comentario": "No desayune todavia"
+    },
+    {
+      "fechas": "07:12 am, 15 Oct 22",
+      "glucemia": "1.1mg/dl",
+      "comentario": "Desayune cafe con leche"
+    },
+    {
+      "fechas": "09:32 am, 17 Oct 22",
+      "glucemia": "1.0mg/dl",
+      "comentario": "Almorce guiso de arroz con pollo"
+    },
+    {
+      "fechas": "07:09 am, 19 Oct 22",
+      "glucemia": "0.9mg/dl",
+      "comentario": "Desayune te con medialunas"
+    },
+    {
+      "fechas": "07:52 am, 21 Oct 22",
+      "glucemia": "1.2mg/dl",
+      "comentario": "No cene"
+    },
+    {
+      "fechas": "07:32 am, 23 Oct 22",
+      "glucemia": "1.8mg/dl",
+      "comentario": "Hice ayuno intermitente"
+    }
+  ],
+  "SERVICIOS": [
+    {
+      "id": 1,
+      "nombre_servicio": "Analisis Clinicos",
+      "descripcion_servicio": "Cita para extraccion de sangre para luego hacer los analisis correspondientes",
+      "sede_servicio": "Cordoba",
+      "precio_servicio": "3515.00",
+      "comentarios_servicio": "No se que puede ir en comentarios",
+      "prestador": 1
+    },
+    {
+      "id": 2,
+      "nombre_servicio": "Consulta Diabetologo",
+      "descripcion_servicio": "Cita con diabetologo",
+      "sede_servicio": "Cordoba",
+      "precio_servicio": "3515.00",
+      "comentarios_servicio": "No se que puede ir en comentarios",
+      "prestador": 4
+    },
+    {
+      "id": 3,
+      "nombre_servicio": "Paquete Plata",
+      "descripcion_servicio": "Algunos servicios",
+      "sede_servicio": "Cordoba",
+      "precio_servicio": "20500.00",
+      "comentarios_servicio": "comentarios sobre el paquete plata",
+      "prestador": 3
+    },
+    {
+      "id": 4,
+      "nombre_servicio": "Consulta Nutricionista",
+      "descripcion_servicio": "Consulta con el nutricionista",
+      "sede_servicio": "Cordoba",
+      "precio_servicio": "2500.00",
+      "comentarios_servicio": "comentarios sobre el nutricionista",
+      "prestador": 4
+    }
+  ],
+  "USUARIOS": [
+    {
+      "email": "hola@asdl"
+    }
+  ],
+  "registro_de_servicios": [
+    {
+      "id": 1,
+      "nombre_servicio": "adv",
+      "descripcion_servicio": "svc x",
+      "sede_servicio": "dvac s",
+      "precio_servicio": "3515.00",
+      "comentarios_servicio": "dac",
+      "prestador": 1
+    },
+    {
+      "mensaje": "datos enviados",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "nombre_servicio": "asdasd",
+      "descripcion_servicio": "",
+      "precio_servicio": "",
+      "comentarios_servicio": "",
+      "prestador": ""
+    },
+    {
+      "id": "asasd",
+      "nombre_servicio": "asdasd",
+      "descripcion_servicio": "asd",
+      "precio_servicio": "asdasd",
+      "comentarios_servicio": "asd",
+      "prestador": "asd"
+    },
+    {
+      "id": "9990",
+      "nombre_servicio": "nombre del servicio",
+      "descripcion_servicio": "esta es la descripcion del servicio",
+      "precio_servicio": "299930",
+      "comentarios_servicio": "espero que funciones :D",
+      "prestador": "23"
+    },
+    {
+      "id": "asdasd",
+      "nombre_servicio": "asdasd",
+      "descripcion_servicio": "asd",
+      "precio_servicio": "asdsad",
+      "comentarios_servicio": "asd",
+      "prestador": "asd",
+      "sede_servicio": "asd"
+    },
+    {
+      "id": "asd",
+      "nombre_servicio": "asd",
+      "descripcion_servicio": "asd",
+      "precio_servicio": "asd",
+      "comentarios_servicio": "asd",
+      "prestador": "asd",
+      "sede_servicio": "asd"
+    },
+    {
+      "id": "asdasdasd",
+      "nombre_servicio": "asdasd",
+      "descripcion_servicio": "asdasdasd",
+      "precio_servicio": "asdasdasd",
+      "comentarios_servicio": "asd",
+      "prestador": "asd",
+      "sede_servicio": "asdasd"
+    },
+    {
+      "id": "123",
+      "nombre_servicio": "asdasd",
+      "descripcion_servicio": "sada",
+      "precio_servicio": "12323",
+      "comentarios_servicio": "asdasda",
+      "prestador": "asdasd",
+      "sede_servicio": "asdasd"
+    },
+    {
+      "id": "222",
+      "nombre_servicio": "asasd",
+      "descripcion_servicio": "asdasd",
+      "precio_servicio": "asdasd",
+      "comentarios_servicio": "asdasd",
+      "prestador": "asdasd",
+      "sede_servicio": "asdasd"
+    }
+  ]
+}

@@ -31,47 +31,8 @@ export class RegistroComponent implements OnInit{
 
   });
 
-  // SE INYECTA FormBuilder               y   EL SERVICIO   LoginService
-  constructor(private formBuilder:FormBuilder,private router:Router , private serv_login:LoginService){};
 
-// METODO DE BORDES
-  bordeOk(){
-    this.borde_validacion="borde-validacion_ok"
-  }
-
-
-// ////////////////////////////// METODO DE VERIFICACION USER ////////////////////////////
-  verificacionRegistroUser(){
-// si el formulario es valido
-    if(this.profileForm.valid){
-      this.serv_login.login(this.profileForm.value as loginInterface).subscribe({
-          next:(userData) => {
-            console.log(userData);
-          this.router.navigateByUrl("/auth/dash_user")
-          },
-          error: (errorData) => {
-              console.error(errorData);
-          },
-          complete:() => {
-          //alert("Validacion realizada correctamente");
-          }
-
-      });
-      //this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
-      //this.direccion="auth/dash_user"
-    } 
-    else{
-
-      // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
-      this.profileForm.markAllAsTouched();
-      alert("No se ingresaron correctamente los datos")
-    
-    }
-  }
-
-
-
-  ///// METODOS GET /////
+///// METODOS GET /////
   get email_GET(){
     return this.profileForm.controls.email;
   }
@@ -93,6 +54,39 @@ export class RegistroComponent implements OnInit{
   get phone_GET(){
     return this.profileForm.controls.phone;
   }
+
+  
+  // SE INYECTA FormBuilder               y   EL SERVICIO   LoginService
+  constructor(private formBuilder:FormBuilder,private router:Router , private serv_login:LoginService){};
+
+// METODO DE BORDES
+  bordeOk(){
+    this.borde_validacion="borde-validacion_ok"
+  }
+
+
+// ////////////////////////////// METODO DE VERIFICACION USER ////////////////////////////
+  verificacionRegistroUser(){
+// si el formulario es valido
+    if(this.profileForm.valid){
+
+      alert("Ingreso exitoso")
+      this.router.navigateByUrl("/auth/dash_user")  
+      this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
+
+    } 
+    else{
+
+      // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
+      this.profileForm.markAllAsTouched();
+      alert("No se ingresaron correctamente los datos")
+    
+    }
+  }
+
+
+
+  
 
 
 

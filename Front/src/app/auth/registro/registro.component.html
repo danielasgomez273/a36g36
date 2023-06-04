@@ -22,19 +22,18 @@
         <!--  input  -->
         <div class="col-lg-8 col-md-12 align-self-start  ">
           <input formControlName="email" id="email" type="email" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="usuario@ejemplo.com">
+          <!--  validacion  -->
+          <div *ngIf="email_GET.invalid && (email_GET.dirty || email_GET.touched)"
+          class="text-danger">
+      
+              <div *ngIf="email_GET.errors?.['required']">
+                Complete este campo.
+              </div>
+              <div *ngIf="email_GET.errors?.['email']">
+                Ingrese una casilla de correo correcta.
+              </div>
+          </div>
         </div>
-       <!--  validacion  -->
-       <div *ngIf="email_GET.invalid && (email_GET.dirty || email_GET.touched)"
-       class="text-danger">
-   
-           <div *ngIf="email_GET.errors?.['required']">
-             Complete este campo.
-           </div>
-           <div *ngIf="email_GET.errors?.['email']">
-             Ingrese una casilla de correo correcta.
-           </div>
-     </div>
-
     </div>
 
     <!--  /////////////////////////// CONTRASEÑA ////////////////////////////////   -->
@@ -47,19 +46,19 @@
       <div class="col-lg-8 align-self-start ">
         <input formControlName="pass" name="" id="password"
         type="password" id="inputPassword6" class="form-control sub-campo-input" aria-labelledby="passwordHelpInline" placeholder="ejemplocontraseña1234">
+        <!--  validacion  -->
+            <div *ngIf="pass_GET.invalid && (pass_GET.dirty || pass_GET.touched)"
+              class="text-danger">
+          
+                  <div *ngIf="pass_GET.errors?.['required']">
+                    Complete este campo.
+                  </div>
+                  <div *ngIf="pass_GET.errors?.['minlength']">
+                    Ingrese una contraseña de mas de 6 caracteres.
+                  </div>
+            </div>
       </div> 
 
-        <!--  validacion  -->
-        <div *ngIf="pass_GET.invalid && (pass_GET.dirty || pass_GET.touched)"
-          class="text-danger">
-      
-              <div *ngIf="pass_GET.errors?.['required']">
-                Complete este campo.
-              </div>
-              <div *ngIf="pass_GET.errors?.['minlength']">
-                Ingrese una contraseña de mas de 6 caracteres.
-              </div>
-        </div>
 
     </div>
 
@@ -67,60 +66,60 @@
  <div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
   <!--  label  -->
    <div class="col-lg-3 col-md-12 align-self-start ">
-       <label for="exampleFormControlInput1" class="col-form-label">NOMBRE</label>
+       <label for="exampleFormControlInput1" class="col-form-label">Nombre</label>
    </div>
    <!--  input  -->
    <div class="col-lg-8 col-md-12 align-self-start  ">
      <input formControlName="name" id="name" type="text" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="ingrese su nombre">
-   </div>
-   <!--  validacion  -->
-   <div *ngIf="name_GET.invalid && (name_GET.dirty || name_GET.touched)"
-   class="text-danger">
+     <!--  validacion  -->
+     <div *ngIf="name_GET.invalid && (name_GET.dirty || name_GET.touched)"
+     class="text-danger">
 
-       <div *ngIf="name_GET.errors?.['required']">
-         Complete este campo.
-       </div>
- </div>
+         <div *ngIf="name_GET.errors?.['required']">
+           Complete este campo.
+         </div>
+     </div>
+   </div>
 
 </div>
 <!-- ////////////////////////////  APELLIDO //////////////////////////////  -->
 <div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
   <!--  label  -->
    <div class="col-lg-3 col-md-12 align-self-start ">
-       <label for="exampleFormControlInput1" class="col-form-label">APELLIDO</label>
+       <label for="exampleFormControlInput1" class="col-form-label">Apellido</label>
    </div>
    <!--  input  -->
    <div class="col-lg-8 col-md-12 align-self-start  ">
      <input formControlName="last_name" id="last_name" type="text" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="ingrese su apellido">
-   </div>
-  <!--  validacion  -->
-  <div *ngIf="last_name_GET.invalid && (last_name_GET.dirty || last_name_GET.touched)"
-  class="text-danger">
+     <!--  validacion  -->
+     <div *ngIf="last_name_GET.invalid && (last_name_GET.dirty || last_name_GET.touched)"
+     class="text-danger">
 
-      <div *ngIf="last_name_GET.errors?.['required']">
-        Complete este campo.
-      </div>
-</div>
+         <div *ngIf="last_name_GET.errors?.['required']">
+           Complete este campo.
+         </div>
+     </div>
+   </div>
 
 </div>
 <!-- ////////////////////////////  TELEFONO //////////////////////////////  -->
 <div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
   <!--  label  -->
    <div class="col-lg-3 col-md-12 align-self-start ">
-       <label for="exampleFormControlInput1" class="col-form-label">TELEFONO</label>
+       <label for="exampleFormControlInput1" class="col-form-label">Telefono</label>
    </div>
    <!--  input  -->
    <div class="col-lg-8 col-md-12 align-self-start  ">
      <input formControlName="phone" id="phone" type="text" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="351 555 66666">
+          <!--  validacion  -->
+          <div *ngIf="phone_GET.invalid && (phone_GET.dirty || phone_GET.touched)"
+          class="text-danger">
+          
+              <div *ngIf="phone_GET.errors?.['required']">
+                Complete este campo.
+              </div>
+            </div>
    </div>
- <!--  validacion  -->
- <div *ngIf="phone_GET.invalid && (phone_GET.dirty || phone_GET.touched)"
- class="text-danger">
-
-     <div *ngIf="phone_GET.errors?.['required']">
-       Complete este campo.
-     </div>
-</div>
 
 </div>
 
@@ -128,20 +127,20 @@
 <div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
   <!--  label  -->
    <div class="col-lg-3 col-md-12 align-self-start ">
-       <label for="exampleFormControlInput1" class="col-form-label">FECHA DE NACIMIENTO</label>
+       <label for="exampleFormControlInput1" class="col-form-label">Fecha de Nacimiento</label>
    </div>
    <!--  input  -->
    <div class="col-lg-8 col-md-12 align-self-start  ">
      <input formControlName="birthday" id="birthday" type="date" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="14/02/1952">
+        <!--  validacion  -->
+        <div *ngIf="birthday_GET.invalid && (birthday_GET.dirty || birthday_GET.touched)"
+      class="text-danger">
+      
+          <div *ngIf="birthday_GET.errors?.['required']">
+            Complete este campo.
+          </div>
+        </div>
    </div>
-   <!--  validacion  -->
- <div *ngIf="birthday_GET.invalid && (birthday_GET.dirty || birthday_GET.touched)"
- class="text-danger">
-
-     <div *ngIf="birthday_GET.errors?.['required']">
-       Complete este campo.
-     </div>
-</div>
 
 </div>
 
@@ -149,7 +148,7 @@
 <div class="row g-3 align-items-center margin campo-input borde campo-email borde_validacion">
   <!--  label  -->
   <div class="col-lg-3 col-md-12 align-self-start">
-    <label for="exampleFormControlInput1" class="col-form-label">SEXO</label>
+    <label for="exampleFormControlInput1" class="col-form-label">Sexo</label>
   </div>
   <!--  input  -->
   <div class="col-lg-8 col-md-12 align-self-start">
@@ -164,17 +163,14 @@
         <input type="radio" formControlName="sex" value="otro" autocomplete="off"> Otro
       </label>
     </div>
-  </div>
-  <!--  validacion  -->
-  <div *ngIf="sex_GET.invalid && (sex_GET.dirty || sex_GET.touched)" class="text-danger">
-    <div *ngIf="sex_GET.errors?.['required']">
-      Seleccione una opcion.
-    </div>
+          <!--  validacion  -->
+          <div *ngIf="sex_GET.invalid && (sex_GET.dirty || sex_GET.touched)" class="text-danger">
+            <div *ngIf="sex_GET.errors?.['required']">
+              Seleccione una opcion.
+            </div>
+          </div>
   </div>
 </div>
-
-
-
 
     <!--  ////////////////////////////////// BOTONES //////////////////////////////   -->
      <!--  (click)="verificacionLogin()" 

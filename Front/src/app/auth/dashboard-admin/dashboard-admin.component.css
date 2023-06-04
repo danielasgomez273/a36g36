@@ -22,6 +22,8 @@
   
   html{
     scroll-behavior: smooth;
+    margin: 0rem;
+    padding: 0rem;
   }
 
   /* COLOR DE SIDEBAR Y NAV DEL DASHBOARD*/
@@ -57,18 +59,37 @@
   }
   
   /* CONTENIDO EN LA SECCION DE ESTADISTICAS*/
-  
-  .da-sec-t1{
-    margin:1rem;
+  /* CONTENIDO EN LA SECCION DE ESTADISTICAS*/
+  /* CONTENIDO EN LA SECCION DE ESTADISTICAS*/
+  .da-sect1{
+    padding:1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+
   }
-  
+  .da-sec-t1{
+    margin-left:2rem;
+    margin-bottom: 2rem;
+   
+  }
+
+
+  /*Seccion Cantidad de pacientes con diabetes*/
+  /*Seccion Cantidad de pacientes con diabetes*/
+
   .da-serv-cont-marg{
     margin-top: 1rem;
   }
   .borde-top{
     margin-top:1.5rem;
   }
-  
+  /* Seccion Servicios FORMULARIO*/
+
+
+
+
+
   /* Seccion Servicios FORMULARIO*/
   * {
       margin: 0;
@@ -141,3 +162,11 @@
 
   }
 
+/*    VARIOS    */
+.borde{
+  border: 1px solid black;
+}
+
+.b-radius{
+  border-radius: .3rem;
+}
