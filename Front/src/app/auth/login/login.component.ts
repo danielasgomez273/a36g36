@@ -38,21 +38,22 @@ export class LoginComponent implements OnInit{
   verificacionLoginUser(){
 // si el formulario es valido
     if(this.profileForm.valid){
-      this.serv_login.login(this.profileForm.value as loginInterface).subscribe({
-          next:(userData) => {
-            console.log(userData);
-          this.router.navigateByUrl("/auth/dash_user")
-          },
-          error: (errorData) => {
-              console.error(errorData);
-          },
-          complete:() => {
-          //alert("Validacion realizada correctamente");
-          }
+       // PARTE QUE CONSUME EL SERVICIO
+       this.serv_login.login(this.profileForm.value as loginInterface).subscribe({
 
-      });
-      //this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
-      //this.direccion="auth/dash_user"
+        next:(userData) => {
+        },
+        error:(errorData) => {
+          console.log(errorData)
+        },
+        complete:() => {
+        }
+      })
+
+  // CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
+      this.router.navigateByUrl("/auth/dash_user")
+      this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
+
     } 
     else{
 
@@ -68,26 +69,23 @@ export class LoginComponent implements OnInit{
     verificacionLoginAdmin(){
 
       if(this.profileForm.valid){
-  
-        this.serv_login.login(this.profileForm.value as loginInterface).subscribe({
-            next:(userData) => {
-            console.log(userData);
-            this.router.navigateByUrl("/auth/dash_admin")
 
-  
-            },
-            error: (errorData) => {
-                console.error(errorData);
-            },
-  
-            complete:() => {
-            //alert("Validacion realizada correctamente");
-  
-  
-            }
-  
-        });
-        //this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
+        // PARTE QUE CONSUME EL SERVICIO
+            this.serv_login.login(this.profileForm.value as loginInterface).subscribe({
+
+              next:(userData) => {
+              },
+              error:(errorData) => {
+                console.log(errorData)
+              },
+              complete:() => {
+              }
+            })
+
+        // CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
+
+            this.router.navigateByUrl("/auth/dash_admin")         
+            this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
 
       } 
       else{

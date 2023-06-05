@@ -1,11 +1,12 @@
 /* Estilos generales del nav */
 
-.conteiner {
+.container {
   background-color: #f5f3f3;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-.conteiner nav {
-  width: 100%;
+.container nav {
   display: flex;
   justify-content: flex-end;
   padding: 15px;
@@ -17,7 +18,7 @@
   display: none;
 }
 
-.conteiner nav button {
+.container nav button {
   display: none;
   z-index: 1;
 }
@@ -29,7 +30,7 @@
   z-index: 1;
 }
 
-.conteiner nav i:hover > .compras {
+.container nav i:hover > .compras {
   width: 400px;
   height: 400px;
   position: absolute;
@@ -38,7 +39,7 @@
   z-index: 1;
 }
 
-.conteiner nav i:hover .nav-compras {
+.container nav i:hover .nav-compras {
   font-size: 10px;
   display: flex;
   justify-content: space-between;
@@ -46,7 +47,7 @@
   border-bottom: solid thin #e1e1e1;
 }
 
-.conteiner nav i:hover .compras > button {
+.container nav i:hover .compras > button {
   display: block;
   width: 90%;
   padding: 1rem;
@@ -59,7 +60,7 @@
   cursor: pointer;
 }
 
-.conteiner nav i:hover .compras > button:hover {
+.container nav i:hover .compras > button:hover {
   border: solid thin #1A609F;
   transition: all 4s;
 }
@@ -113,7 +114,7 @@
 .banner {
   position: absolute;
   right: 0;
-  width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   padding: 150px;
   display: flex;
@@ -122,10 +123,6 @@
   background: #edf5fc;
   transition: 0.5s;
 }
-
-/*------Container-------*/
-
-
 
 
 /*------Cuerpo-------*/
@@ -145,17 +142,11 @@
 
 .cuerpo p {
   position: relative;
-  font-size: 1.1em;
+  font-size: 0.9em;
   margin: 20px 0;
   font-weight: 400;
   max-width: 700px;
   color: #333333;
-}
-
-.seccion1 {
-  height: 100vp;
-  padding: 0 0 10% 0%;
-  /*background: ; */
 }
 
 /*------Cards--------*/
@@ -181,26 +172,33 @@
   background: transparent;
   margin: 1%;
   border: none;
-  height: 40rem;
+  height: 35rem;
 }
 
-.card3 {
-  background: transparent;
-  margin: 1%;
-  border: none;
-  height: 20rem;
-  border: 1px solid #777777;
-  border-radius: 0.3rem;
-}
 
 .cajas {
-  box-shadow: 0 0 16px rgba(0, 0, 0, 1);
+  width: 33.3%;
   border-radius: 5px;
+  box-shadow: 0 0 5px #000;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  background: #0000;
+  border: 0px solid;
+  border-color: #1a609f;
+  position: relative;
 }
+.cajas:hover {
+  color: #000;
+  box-shadow: 0 4px 16px #000;
+  transition: all 0.2s ease;
+}
+
 
 .card-title {
   text-align: center;
   color: #1a609f;
+  font-size: 1.5rem;
 }
 
 .card-text {
@@ -218,16 +216,13 @@
 /*------Seccion--------*/
 
 .seccion {
-  height: 100vp;
-  padding: 5%;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 1%;
 }
-
-.seccion1 {
-  height: 100vp;
-  padding: 10%;
-  /*background: ; */
+.row{
+  margin: 0 auto;
 }
-
 .img-act {
   width: 40%;
   margin: auto;
@@ -297,6 +292,14 @@
   .info button {
     font-size: 1rem;
   }
+  .carrito h4{
+    font-weight: 400;
+    font-size: 1.5rem;
+    }
+    .cajas {
+      width: 100%;
+      font-size: 10px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -304,7 +307,10 @@
     padding: 40px;
   }
   
-
+  .cajas {
+    width: 50%;
+    font-size: 15px;
+  }
   
   .cuerpo h1 {
     font-size: 3em;
@@ -318,6 +324,10 @@
   .card3 {
     height: auto;
   }
+  .carrito h4{
+    font-weight: 400;
+    font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -325,7 +335,10 @@
     padding: 20px;
   }
   
-
+  .cajas {
+    width: 100%;
+    font-size: 15px;
+  }
   
   .cuerpo h1 {
     font-size: 3em;
@@ -340,6 +353,10 @@
   .seccion {
     padding: 5%;
   }
+  .carrito h4{
+    font-weight: 400;
+    font-size: 0.5rem;
+    }
 }
 /*  /////////  NUEVOS ESTILO  /////////   */
 /*  /////////  NUEVOS ESTILO  /////////   */
@@ -369,10 +386,19 @@
 /*  ESTILOS DEL CARRITO */
 
 .carrito{
-  margin: 0rem;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
   background-color:#c0d5cc;
   border: 1px solid #7a978b;
-
+  box-shadow: 0 0 16px rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  padding: 1%;
+}
+.carrito h4{
+text-align: center;
+font-weight: 800;
+font-size: 2rem;
+color: #1a609f;
 }
 
 .car-desc{
@@ -385,6 +411,9 @@
   background-color:#d6e4de;
   margin: .5rem;
   border-radius: .5rem;
+  
+  margin: 0rem;
+  margin-bottom: .5rem;
 
 }
 .boton-carr{

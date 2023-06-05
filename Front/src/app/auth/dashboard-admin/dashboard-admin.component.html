@@ -1,29 +1,32 @@
 
-      <!-- SECCION DE CONTENIDO  -->
-      <!-- PRIMERA FILA -->
-      <section class="container-fluid da-sect1">
-        <div class="div0"></div>
-        <h4 class="da-sec-t1 logo"> Cantidad de pacientes con diabetes</h4>
-        <div id="content">
-          <div class="row ">
-            <div *ngFor="let estadistica of estadisticas_admins" class="bg-light col-lg-4 col-md-6 p-4 ">
+      <!-- CANTIDAD DE PACIENTES CON DIABETES -->
+      <!-- CANTIDAD DE PACIENTES CON DIABETES -->
+      <!-- CANTIDAD DE PACIENTES CON DIABETES -->      
+      <section class=" da-sect1  ">
+
+          <h4 class="da-sec-t1 logo "> Cantidad de pacientes con diabetes</h4>
+
+        <div  class="grid-container ">
+          <div class="row justify-content-evenly ">
+            <div *ngFor="let estadistica of estadisticas_admins" class="bg-light border border-primary col-lg-2 col-md-3 p-4 m-2 b-radius ">
               <h5>{{estadistica.cantidad}}</h5>
               <small>{{estadistica.tipo}}</small>
             </div>
-
           </div>
         </div>
-
       </section>
 
-      <!-- SEGUNDA FILA -->
-      <section class="container-fluid da-sect1 ">
-        <h5 class="logo da-sec-t1"> Pacientes con Diabetes y comorbilidades</h5>
-        <div id="content" class="container-fluid ">
-          <div class="row">
+      <!-- PACIENTES CON DIABETES Y COMORBILIDADES -->
+      <!-- PACIENTES CON DIABETES Y COMORBILIDADES -->
+      <!-- PACIENTES CON DIABETES Y COMORBILIDADES -->
+      <section class=" da-sect1 bg-light border border-secondary-subtle ">
+      
+        <h4 class="da-sec-t1 logo "> Pacientes con Diabetes y comorbilidades</h4>
+        <div  class="grid-container ">
+          <div class="row  justify-content-evenly">
 
             <!-- tarjeta 1 -->
-            <div class="col-lg-3 col-md-6"  *ngFor="let comorbilidad of comorbilidades_admins">
+            <div class="col-lg-3 col-md-6 bg-white border border-secondary-subtle p-4 m-2 b-radius"  *ngFor="let comorbilidad of comorbilidades_admins">
               <div class="card3" >
                 <div class="card-body">
                   <h5 class="mb-0"> {{comorbilidad.porcentaje}}% </h5>
@@ -41,52 +44,214 @@
 
       </section>
 
-      <!-- SECCION (SERVICIOS) -->
-      <section class="container-fluid da-serv-cont-marg border-top segunda-seccion">
-        <h5 id="servicios" class="da-sec-t1 logo "> Servicios Disponibles</h5>
-        <div id="content" class="container-fluid" *ngFor="let servicio of servicios_admins">
+      <!-- SERVICIOS DISPONIBLES -->
+      <!-- SERVICIOS DISPONIBLES -->
+      <!-- SERVICIOS DISPONIBLES -->
+      <section class=" da-sect1 ">
+        <h4  class="da-sec-t1 logo "> Servicios Disponibles</h4>
+        <div class=" grid-container  " *ngFor="let servicio of servicios_admins">
 
-          <div class="row bg-light border d-flex align-items-center regist-servicios ">
-            <div class="col ">
-              <p> {{servicio.tipo}}</p>
+          <div class="row b-radius border border-primary bg-light justify-content-evenly align-items-center p-4 m-4    ">
+            <div class="col-lg-4 bg-white  border border-secondary-subtle  m-2 p-4">
+              <h5 class="text-center">Nombre Servicio</h5>
+              <p class="text-center">{{servicio.nombre_servicio}}</p>
             </div>
-            <div class="col">
-              <small>{{servicio.descripcion}}</small>
+            <div class="col-lg-2 bg-white  border border-secondary-subtle m-2 p-4">
+              <h5 class="text-center">Monto</h5>
+              <p  class="text-center">{{servicio.precio_servicio}}</p>
             </div>
-            <div class="col">
-              <small>Precio: {{servicio.precio}}</small>
+            <div class="col-lg-2 bg-white   border border-secondary-subtle m-2 p-4">
+              <h5 class="text-center">ID</h5>
+              <p class="text-center">{{servicio.id}}</p>
             </div>
+
+            <div class="col-lg-12 bg-white  border border-secondary-subtle m-2 p-4">
+              <h5 class="text-center">Descripción</h5>
+              <p class="text-center">{{servicio.descripcion_servicio}}</p>
+            </div>
+
+            <div class="col-lg-2 bg-white  border border-secondary-subtle m-2 p-4">
+              <h5 class="text-center">Sede</h5>
+              <p class="text-center">{{servicio.sede_servicio}}</p>
+            </div>
+            <div class="col-lg-2 bg-white  border border-secondary-subtle m-2 p-4">
+              <h5 class="text-center">Prestador</h5>
+              <p class="text-center">{{servicio.prestador}}</p>
+            </div>
+            <div class="col-lg-6 bg-white  border border-secondary-subtle m-2 p-4">
+              <h5 class="text-center">Comentarios</h5>
+              <p class="text-center">{{servicio.comentarios_servicio}}</p>
+            </div>
+
+
+
+
           </div>
 
         </div>
       </section>
-      <!-- SECCION (SERVICIOS) FORMULARIO -->
-      <section id="page-container" class="da-sec-t1 borde-top">
-        <h5 id="servicios" class="da-sec-t1 logo">Registro de Servicios</h5>
-        <form class="form-register p-4 " action="">
-          <input class="controls text-dark" type="text" name="nombres" id="nombres"
-            placeholder="Ingrese Nombre de la Prestación Médica">
-          <input class="controls text-dark" type="text" name="apellidos" id="apellidos"
-            placeholder="Ingrese el Monto de la Prestación">
-          <input class="controls text-dark" type="text" name="correo" id="correo"
-            placeholder="Ingrese breve descripción de la Prestación">
-          <!--<p>Estoy de acuerdo con Terminos y Condiciones</a></p>-->
-          <input class="botons bg-info" type="submit" value="Registrar Servicio">
+      <!-- REGISTRO DE SERVICIOS -->
+      <!-- REGISTRO DE SERVICIOS -->
+      <!-- REGISTRO DE SERVICIOS -->
+      <section  class="da-sect1 bg-success border border-secondary-subtle">
+        
+        <form class="form-register  bg-success " [formGroup]="formPOST" (submit)="enviarDatos()">
+          <h3 id="servicios" class="da-sec-t1 logo text-center">Formularios para el registro de servicios</h3>
+          <div class="grid-container">
+            <div class="row  b-radius border border-secondary-subtle bg-light justify-content-evenly align-items-center p-4 m-4" >
+
+
+      <!-- INPUTS -->
+
+          <div class="col-lg-3 bg-white  border border-secondary-subtle m-2 p-4">
+            <h5 class="text-center">Nombre del Servicio</h5>
+            <input formControlName="nombre_servicio" class="controls text-dark" type="text" name="nombres" id="nombres"
+            > 
+        <!-- verificacion -->
+        <div *ngIf="nombre_servicio_GET.invalid && (nombre_servicio_GET.dirty || nombre_servicio_GET.touched)"
+        class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+    
+            <div *ngIf="nombre_servicio_GET.errors?.['required']">
+              Complete este campo.
+            </div>
+
+        </div> 
+            
+            
+
+          </div>
+
+          <div class="col-lg-3 bg-white  border border-secondary-subtle  m-2 p-4">
+            <h5 class="text-center">ID</h5>
+            <input formControlName="id" class="controls text-dark" type="number" name="nombres" id="nombres">      
+              
+                      <!-- verificacion -->
+            <div *ngIf="id_GET.invalid && (id_GET.dirty || id_GET.touched)"
+            class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+        
+                <div *ngIf="id_GET.errors?.['required']">
+                  Complete este campo.
+                </div>
+
+        </div> 
+
+
+
+          </div>
+
+          <div class="col-lg-3 bg-white  border border-secondary-subtle  m-2 p-4">
+            <h5 class="text-center">Precio</h5>
+            <input formControlName="precio_servicio" class="controls text-dark" type="number" name="nombres" id="nombres">
+            
+                    <!-- verificacion -->
+                  <div *ngIf="precio_servicio_GET.invalid && (precio_servicio_GET.dirty || precio_servicio_GET.touched)"
+                    class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+                
+                        <div *ngIf="precio_servicio_GET.errors?.['required']">
+                          Complete este campo.
+                        </div>
+                       
+                </div> 
+
+
+          </div>
+
+          <div class="col-lg-12 bg-white  border border-secondary-subtle  m-2 p-4">
+            <h5 class="text-center">Descripcion</h5>
+            <input formControlName="descripcion_servicio" class="controls text-dark" type="text" name="nombres" id="nombres">
+            
+                  <!-- verificacion -->
+                  <div *ngIf="descripcion_servicio_GET.invalid && (descripcion_servicio_GET.dirty || descripcion_servicio_GET.touched)"
+                  class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+              
+                      <div *ngIf="descripcion_servicio_GET.errors?.['required']">
+                        Complete este campo.
+                      </div>
+
+              </div>   
+
+
+          </div>
+
+          <div class="col-lg-2 bg-white  border border-secondary-subtle  m-2 p-4">
+            <h5 class="text-center">Sede</h5>
+            <input formControlName="sede_servicio" class="controls text-dark" type="text" name="nombres" id="nombres">
+            
+                    <!-- verificacion -->
+                    <div *ngIf="sede_servicio_GET.invalid && (sede_servicio_GET.dirty || sede_servicio_GET.touched)"
+                    class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+                
+                        <div *ngIf="sede_servicio_GET.errors?.['required']">
+                          Complete este campo.
+                        </div>
+                       
+                </div> 
+
+
+
+          </div>
+
+          <div class="col-lg-2 bg-white  border border-secondary-subtle  m-2 p-4">
+            <h5 class="text-center">Prestador</h5>
+            <input formControlName="prestador" class="controls text-dark" type="number" name="nombres" id="nombres"> 
+            
+                    <!-- verificacion -->
+                    <div *ngIf="prestador_GET.invalid && (prestador_GET.dirty || prestador_GET.touched)"
+                    class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+                
+                        <div *ngIf="prestador_GET.errors?.['required']">
+                          Complete este campo.
+                        </div>
+                </div> 
+
+          </div>
+
+          <div class="col-lg-6 bg-white  border border-secondary-subtle  m-2 p-4">
+            <h5 class="text-center">Comentarios</h5>
+            <input formControlName="comentarios_servicio" class="controls text-dark" type="text" name="nombres" id="nombres">
+            
+                    <!-- verificacion -->
+                    <div *ngIf="comentarios_servicio_GET.invalid && (comentarios_servicio_GET.dirty || comentarios_servicio_GET.touched)"
+                    class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
+                
+                        <div *ngIf="comentarios_servicio_GET.errors?.['required']">
+                          Complete este campo.
+                        </div>
+                        
+                </div> 
+
+
+          </div>
+ 
+  
+          <button  class="btn btn-success py-2 px-4">Registrar Servicio</button>
+          
+        </div>
+        </div>
         </form>
       </section>
 
-      <!-- SECCION (INGRESOS) -->
-      <section class="border-top da-sec-t1">
+      <!-- INGRESOS POR PERIODO -->
+      <!-- INGRESOS POR PERIODO -->
+      <!-- INGRESOS POR PERIODO -->
+      <section class=" da-sect1">
 
-        <h5 id="ingresos" class="da-sec-t1 logo"> Ingresos por periodo</h5>
-        <div id="content"  >
+        <h4 id="ingresos" class="da-sec-t1 logo"> Ingresos por periodo</h4>
+        <div  class="grid-container" >
 
-          <div class="row " >
-            <div class="bg-light col-lg-3 col-md-6 p-4 cardsm" *ngFor="let ingresos of ingresos_admins">
+          <div class="row justify-content-evenly align-items-center  " >
+            <div class="border border-primary bg-light m-2 col-lg-2 col-md-6 p-4 b-radius" *ngFor="let ingresos of ingresos_admins">
+
+            <div>
               <h5>${{ingresos.monto}}</h5>
+
+            </div>
+            <div>
               <small>{{ingresos.tipo}}</small>
             </div>
+            
           </div>
+        </div>
         </div>
 
       </section>

@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { EcommerceServiceService } from './servicios/ecommerce-service.service';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistroComponent } from './auth/registro/registro.component';
+import { FormContactoService } from './servicios/form-contacto.service';
 
 
 
@@ -33,9 +34,9 @@ import { RegistroComponent } from './auth/registro/registro.component';
     EcommerceModule,
     HttpClientModule,
     ReactiveFormsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
