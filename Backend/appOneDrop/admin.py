@@ -27,7 +27,7 @@ class CustomUserAdmin(UserAdmin):
 # Register your models here.
 #esta clase perimite mostrar la tabla de pacientes con esta estructura y estos campos, es opcional
 class PacienteAdmin(admin.ModelAdmin):
-    list_display = ( "nombre_paciente" , "apellido_paciente" , "email_paciente" , "telefono_paciente" , "fecha_nacimiento" ,"sexo_paciente", "usuario_id")
+    list_display = ( "nombre_paciente" , "apellido_paciente" , "telefono_paciente" , "fecha_nacimiento" ,"sexo_paciente", "usuario_id") #"email_paciente" , 
 
 class Ficha_medicaAdmin(admin.ModelAdmin):
     list_display = ( "tipo_diabetes" , "terapia_insulina" , "terapia_pastillas" , "tipo_glucometro" , "tipo_sensor" , "comorbilidades" , "objetivo_glucosa" , "paciente"  )
@@ -36,7 +36,8 @@ class Registro_glucemiaAdmin(admin.ModelAdmin):
     list_display = ( "fecha_registro" , "valor_glucemia" , "comentario_registro" , "paciente" )
 
 class PrestadorAdmin(admin.ModelAdmin):
-    list_display = ( "email_prestador" , "nombre_usuario_prestador" , "sede_prestador" , "telefono_prestador" , "informacion_extra_prestador")
+    list_display = ( "nombre_usuario_prestador" , "sede_prestador" , "telefono_prestador" , "informacion_extra_prestador") 
+    # ,"email_prestador" 
 
 class ServicioAdmin(admin.ModelAdmin):
     list_display = ( "nombre_servicio" , "descripcion_servicio" , "sede_servicio" , "precio_servicio" , "comentarios_servicio" , "duracion_servicio" , "prestador")
