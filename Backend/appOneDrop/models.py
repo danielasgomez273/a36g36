@@ -1,17 +1,27 @@
 from django.db import models
 from datetime import date
 from django.utils.timezone import now
+from django.contrib.auth.models import AbstractUser , AbstractBaseUser
 
+##############
+# PROPUESTA ISPC
+class CustomUser(AbstractUser):
+    email = models.EmailField( max_length=150, default="", unique=True)
+    USERNAME_FIELD ='email'
+    REQUIRED_FIELDS = ['username','password']
+    
+##############
 
 #  PACIENTE  #
 class Paciente(models.Model):
     nombre_paciente = models.CharField(max_length=30 , blank=False)
-    apellido_paciente = models.CharField(max_length=30 , blank=False)
-    email_paciente = models.EmailField(max_length=100 , blank=False , unique=True)
+    apellido_paciente = models.CharField(max_length=30 , blank=False )
+    email_paciente = models.EmailField(max_length=100 , blank=False , default="", unique=True)
     contraseña_paciente = models.CharField(max_length=100 , blank=False)
     telefono_paciente = models.CharField(max_length=30 , blank=False)
     fecha_nacimiento = models.DateField(default=date.today , blank=False)
     sexo_paciente = models.CharField(max_length=30 , null=True, blank=True)
+    usuario = models.OneToOneField(CustomUser , null=False, blank=False, on_delete=models.CASCADE )
 
     class Meta:
         db_table = 'paciente'
@@ -23,32 +33,65 @@ class Paciente(models.Model):
     #este metodo luego se muestra o sirve, para que cuando vea la tabla de registros glucemia, la relacion se muestre en base a este string
     def __str__(self):
         return 'El paciente es ' + self.nombre_paciente +" "+ self.apellido_paciente
-
-
+    
 class Ficha_medica(models.Model):
-    # https://docs.djangoproject.com/en/4.2/ref/models/fields/
-    #VER OPCIONES PARA PONER ENUMS, TIPO OPCIONES EN LOS CAMPOS DE DIABETES, TERAPIAS, GLUCOMETROS Y SENSORES.. COMORBILIDAD LIBRE?
-    tipo_diabetes = models.CharField(max_length=30 , blank=False) 
-    terapia_insulina = models.CharField(max_length=30 , null=True, blank=True)
-    terapia_pastillas = models.CharField(max_length=50 , null=True, blank=True)
-    tipo_glucometro = models.CharField(max_length=100 , null=True, blank=True)
-    tipo_sensor = models.CharField(max_length=30 , null=True, blank=True)
-    comorbilidades = models.CharField(max_length=200 , null=True, blank=True)
+    #tipo_diabetes
+    TIPO_1 = 'tipo 1'
+    TIPO_2 = 'tipo 2'
+    GESTACIONAL = 'gestacional'
+    choices_tipo_diabetes = (
+         (TIPO_1, 'Tipo 1'),
+         (TIPO_2, 'Tipo 2'),
+         (GESTACIONAL, 'Gestacional'),
+     )    
+    #terapia_insulina
+    TERAPIA_INSULINA_1 = 'tipo 1'
+    TERAPIA_INSULINA_2 = 'tipo 2'
+    choices_terapia_insulina = (
+         (TERAPIA_INSULINA_1, 'Tipo 1'),
+         (TERAPIA_INSULINA_2, 'Tipo 2'),
+     )
+    #terapia_pastillas
+    TERAPIA_PASTILLAS_1 = 'tipo 1'
+    TERAPIA_PASTILLAS_2 = 'tipo 2'
+    choices_terapia_pastillas = (
+         (TERAPIA_PASTILLAS_1, 'Tipo 1'),
+         (TERAPIA_PASTILLAS_2, 'Tipo 2'),
+     )
+    #tipo_glucometro
+    TIPO_GLUCOMETRO_1 = 'tipo 1'
+    TIPO_GLUCOMETRO_2 = 'tipo 2'
+    choices_tipo_glucometro = (
+         (TIPO_GLUCOMETRO_1, 'Tipo 1'),
+         (TIPO_GLUCOMETRO_2, 'Tipo 2'),
+     )
+    #tipo_sensor
+    TIPO_SENSOR_1 = 'tipo 1'
+    TIPO_SENSOR_2 = 'tipo 2'
+    choices_tipo_sensor = (
+         (TIPO_SENSOR_1, 'Tipo 1'),
+         (TIPO_SENSOR_2, 'Tipo 2'),
+     )
+    tipo_diabetes = models.CharField(max_length=35 , choices = choices_tipo_diabetes) 
+    terapia_insulina = models.CharField(max_length=30 , choices = choices_terapia_insulina)
+    terapia_pastillas = models.CharField(max_length=30 , choices = choices_terapia_pastillas)
+    tipo_glucometro = models.CharField(max_length=30 , choices = choices_tipo_glucometro)
+    tipo_sensor = models.CharField(max_length=30 , choices = choices_tipo_sensor)
+    comorbilidades = models.TextField(default="No")
     objetivo_glucosa = models.DecimalField(max_digits=3, decimal_places=2)
-    paciente = models.OneToOneField(Paciente , null=True, blank=True ,  on_delete=models.CASCADE ) # primary_key=True, ?? #
+    paciente = models.OneToOneField(Paciente , null=False, blank=True ,  on_delete=models.CASCADE )
 
     class Meta:
         db_table = 'Ficha_medica'
         verbose_name = 'Ficha medica'
         verbose_name_plural = 'Fichas medicas'    
 
-
 class Registro_glucemia(models.Model):
     fecha_registro = models.DateTimeField(default=now , blank=False)
     valor_glucemia = models.DecimalField(max_digits=3, decimal_places=2 , blank=False)
     comentario_registro = models.CharField(max_length=200 , null=True, blank=True)
-    paciente = models.ForeignKey(Paciente , null=True, blank=True ,  on_delete=models.CASCADE ) # primary_key=True, ?? #
-    
+    paciente = models.ForeignKey(Paciente , null=True, blank=True ,  on_delete=models.CASCADE )
+
     class Meta:
         db_table = 'Registro_glucemia'
         verbose_name = 'Registro glucemia'
@@ -58,10 +101,9 @@ class Registro_glucemia(models.Model):
     def __str__(self):
         return "El valor de glucemia es " + self.valor_glucemia + " , medido el " + self.fecha_registro
     
-
 #  PRESTADOR  #
 class Prestador(models.Model):
-    email_prestador = models.EmailField(max_length=100 , blank=False , unique=True)
+    email_prestador = models.EmailField(max_length=100 , blank=False , default="", unique=True)
     contraseña_prestador = models.CharField(max_length=50 , blank=False)
     sede_prestador = models.CharField(max_length=50 , blank=False)
     telefono_prestador = models.CharField(max_length=50 , blank=False)
@@ -77,11 +119,10 @@ class Prestador(models.Model):
     def __str__(self):
         return 'El prestador es ' + self.nombre_usuario_prestador
     
-
 #  SERVICIOS  #
 class Servicio(models.Model):
     nombre_servicio = models.CharField(max_length=50 , blank=False)
-    descripcion_servicio = models.CharField(max_length=200 , blank=False)
+    descripcion_servicio = models.TextField()
     sede_servicio = models.CharField(max_length=50 , blank=False)
     precio_servicio = models.DecimalField(max_digits=8, decimal_places=2)
     comentarios_servicio = models.CharField(max_length=200, null=True , blank= True)
@@ -96,15 +137,14 @@ class Servicio(models.Model):
         return self.nombre_servicio    
     def __str__(self):
         return 'El servicio es ' + self.nombre_servicio
-    
-
+   
 #  PAQUETES  #
 class Paquete(models.Model):
     nombre_paquete = models.CharField(max_length=50 ,default="paquete" ,blank=False)
     duracion_total = models.CharField(max_length=50 , blank=False)
     precio_total = models.CharField(max_length=50 , blank=False)
     sede_paquete = models.CharField(max_length=50 , blank=False)
-    fecha_seleccionada = models.DateTimeField(default=now , blank=False)
+    fecha_seleccionada = models.DateTimeField(default=now , blank=False) # auto_now_add=True
     servicio = models.ManyToManyField(Servicio)
     
     class Meta:
@@ -115,12 +155,18 @@ class Paquete(models.Model):
         return self.nombre_paquete    
     def __str__(self):
         return 'El paquete es ' + self.nombre_paquete   
-    
-
 
 #  CARRITO  #
 class Carrito(models.Model):
-    estado_carrito = models.CharField(max_length=50 , blank=False) # deberia ser un enum?
+    COMPRADO = 'comprado'
+    PAGO_PENDIENTE = 'pago pendiente'
+    ELIMINADO = 'eliminado'
+    choices_estado_carrito = (
+         (COMPRADO, 'Comprado'),
+         (PAGO_PENDIENTE, 'Pago pendiente'),
+         (ELIMINADO, 'Eliminado'),
+     )
+    estado_carrito = models.CharField(max_length=30 , choices = choices_estado_carrito)
     paciente = models.ForeignKey(Paciente, null=True , blank= True, on_delete=models.CASCADE)
     servicio = models.ManyToManyField(Paquete)
 
@@ -133,10 +179,20 @@ class Carrito(models.Model):
     
 #  FACTURA  #
 class Factura(models.Model):
+    EFECTIVO = 'EFECTIVO'
+    DEBITO = 'DEBITO'
+    CREDITO = 'CREDITO'
+    OTROS = 'OTROS'
+    choices_medio_pago_factura = (
+         (EFECTIVO, 'EFECTIVO'),
+         (DEBITO, 'DEBITO'),
+         (CREDITO, 'CREDITO'),
+         (OTROS, 'OTROS'),
+     )
     fecha_completa_factura = models.DateTimeField(default=now , blank=False)
     concepto_factura = models.CharField(max_length=50 , blank=False) # deberia ser un enum?
     valor_factura = models.DecimalField(max_digits=8, decimal_places=2)
-    medio_pago_factura = models.CharField(max_length=50 , blank=False) # deberia ser un enum?
+    medio_pago_factura = models.CharField(max_length=30 , choices = choices_medio_pago_factura)
     estado_pago = models.CharField(max_length=50 , blank=False) # deberia ser un enum?    
     carrito = models.OneToOneField(Carrito , null=True, blank=True ,  on_delete=models.CASCADE )
 

@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin
+
 from .models import Paciente
 from .models import Ficha_medica
 from .models import Registro_glucemia
@@ -7,20 +10,24 @@ from .models import Servicio
 from .models import Paquete
 from .models import Carrito
 from .models import Factura
+from .models import CustomUser
+
+##############
+# PROPUESTA ISPC
+@admin.register(get_user_model())
+class CustomUserAdmin(UserAdmin):
+    pass
+#admin.site.register(CustomUser, UserAdmin)
+# class CustomUserAdmin(admin.ModelAdmin):
+#    pass
+
+##############
+
 
 # Register your models here.
-#     admin.site.register(Paciente)
-#     admin.site.register(Ficha_medica)
-#     admin.site.register(Registro_glucemia)
-#     admin.site.register(Prestador)
-#     admin.site.register(Servicio)
-#     admin.site.register(Paquete)
-#     admin.site.register(Carrito)
-
-
 #esta clase perimite mostrar la tabla de pacientes con esta estructura y estos campos, es opcional
 class PacienteAdmin(admin.ModelAdmin):
-    list_display = ( "nombre_paciente" , "apellido_paciente" , "email_paciente" , "telefono_paciente" , "fecha_nacimiento" ,"sexo_paciente")
+    list_display = ( "nombre_paciente" , "apellido_paciente" , "email_paciente" , "telefono_paciente" , "fecha_nacimiento" ,"sexo_paciente", "usuario_id")
 
 class Ficha_medicaAdmin(admin.ModelAdmin):
     list_display = ( "tipo_diabetes" , "terapia_insulina" , "terapia_pastillas" , "tipo_glucometro" , "tipo_sensor" , "comorbilidades" , "objetivo_glucosa" , "paciente"  )
@@ -52,3 +59,4 @@ admin.site.register(Servicio,ServicioAdmin)
 admin.site.register(Paquete,PaqueteAdmin)
 admin.site.register(Carrito,CarritoAdmin)
 admin.site.register(Factura,FacturaAdmin)
+
