@@ -16,8 +16,8 @@ class CustomUser(AbstractUser):
 class Paciente(models.Model):
     nombre_paciente = models.CharField(max_length=30 , blank=False)
     apellido_paciente = models.CharField(max_length=30 , blank=False )
-    email_paciente = models.EmailField(max_length=100 , blank=False , default="", unique=True)
-    contraseña_paciente = models.CharField(max_length=100 , blank=False)
+    #custom user email_paciente = models.EmailField(max_length=100 , blank=False , default="", unique=True)
+    #custom user contraseña_paciente = models.CharField(max_length=100 , blank=False)
     telefono_paciente = models.CharField(max_length=30 , blank=False)
     fecha_nacimiento = models.DateField(default=date.today , blank=False)
     sexo_paciente = models.CharField(max_length=30 , null=True, blank=True)
@@ -103,8 +103,8 @@ class Registro_glucemia(models.Model):
     
 #  PRESTADOR  #
 class Prestador(models.Model):
-    email_prestador = models.EmailField(max_length=100 , blank=False , default="", unique=True)
-    contraseña_prestador = models.CharField(max_length=50 , blank=False)
+    #custom user email_prestador = models.EmailField(max_length=100 , blank=False , default="", unique=True)
+    #custom user contraseña_prestador = models.CharField(max_length=50 , blank=False)
     sede_prestador = models.CharField(max_length=50 , blank=False)
     telefono_prestador = models.CharField(max_length=50 , blank=False)
     informacion_extra_prestador = models.CharField(max_length=200 , null=True, blank=True)
@@ -175,7 +175,7 @@ class Carrito(models.Model):
         verbose_name = 'Carrito'
         verbose_name_plural = 'Carritos'    
     def __str__(self):
-        return 'De' + self.paciente.email_paciente
+        return 'De' + self.paciente.nombre_paciente
     
 #  FACTURA  #
 class Factura(models.Model):
