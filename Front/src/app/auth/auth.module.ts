@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { Registro2usuarioComponent } from './registro2usuario/registro2usuario.component';
 
 
 
@@ -16,7 +17,8 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
     LoginComponent,
     RegistroComponent,
     DashboardUsuarioComponent,
-    DashboardAdminComponent
+    DashboardAdminComponent,
+    Registro2usuarioComponent
   ],
   imports: [
     CommonModule,

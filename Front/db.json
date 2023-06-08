@@ -167,6 +167,81 @@
     }
   ],
   "USUARIOS": [
-
+    {
+      "id": [
+        ""
+      ],
+      "email": "",
+      "pass": "",
+      "username": ""
+    },
+    {
+      "email": "asadsad@asdasd",
+      "pass": "asdasdadasd",
+      "username": "asdadasd12",
+      "id": "PeztXp8"
+    },
+    {
+      "email": "asdasda@sdasd",
+      "pass": "asdadsasdasdasd",
+      "username": "asdasdasdasd",
+      "id": "z1Fqsyw"
+    },
+    {
+      "email": "asdad@asd12",
+      "pass": "asdasdasd",
+      "username": "asdadasdadsasd",
+      "id": "sfMet9U"
+    },
+    {
+      "email": "asd@asd",
+      "pass": "asdkhasd",
+      "username": "ashdasdhvasd",
+      "id": "jE8HAbC"
+    },
+    {
+      "email": "assss@asdsd",
+      "pass": "adsssda",
+      "username": "asdasdasd",
+      "id": "p2ODBJC"
+    },
+    {
+      "email": "asd@asd",
+      "pass": "asdasdouabsd",
+      "username": "asudbasoudabs",
+      "id": "Ws0PUD1"
+    }
+  ],
+  "USUARIOSDATOSPERSONALES": [
+    {
+      "name": "asdadasdas",
+      "last_name": "ASDAS",
+      "birthday": "2023-06-23",
+      "sex": "masculino",
+      "phone": 12212312312,
+      "tipo_diabetes": "tipo 2",
+      "terapia_insulina": "terapia 1",
+      "terapia_pastillas": "terapia 2",
+      "tipo_glucometro": "glucometro 2",
+      "tipo_sensor": "Sensor 2",
+      "comorbilidades": "ASDASD",
+      "objetivo_glucosa": "ASDASDASD",
+      "id": 1
+    },
+    {
+      "name": "ASDAS",
+      "last_name": "asd",
+      "birthday": "2023-06-16",
+      "sex": "femenino",
+      "phone": 22223123123,
+      "tipo_diabetes": "tipo 1",
+      "terapia_insulina": "terapia 3",
+      "terapia_pastillas": "terapia 2",
+      "tipo_glucometro": "otro / no uso",
+      "tipo_sensor": "Sensor 2",
+      "comorbilidades": "alergia",
+      "objetivo_glucosa": "12",
+      "id": 2
+    }
   ]
 }

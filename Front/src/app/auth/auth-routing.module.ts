@@ -5,6 +5,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { RouterModule , Routes} from '@angular/router';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario.component';
+import { Registro2usuarioComponent } from './registro2usuario/registro2usuario.component';
 
 
 // RUTAS EXPORTADAS AL NAV
@@ -15,6 +16,8 @@ const routes:Routes=[
         {path:'registrarse', component:RegistroComponent},
         {path:'dash_admin', component:DashboardAdminComponent},
         {path:'dash_user', component:DashboardUsuarioComponent},
+        {path:'registro2usuario', component:Registro2usuarioComponent},
+
 
         {path:'**', redirectTo:'login'}
 

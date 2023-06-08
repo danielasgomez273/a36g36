@@ -45,5 +45,18 @@ export class RegistroService {
       return this.http.post(url,cuerpo);
 
     }
+
+
+
+  /////////////////////////////////////
+  //          SERVICIO POST          //
+  /////////////////////////////////////
+
+  POSTRegistroUsuario(urlPOST:string, body: any){
+    
+    return this.http.post(urlPOST,body)
+
+
+}
   // CIERRA EXPORT
   }

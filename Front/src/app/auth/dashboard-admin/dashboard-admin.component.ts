@@ -16,7 +16,7 @@ export class DashboardAdminComponent implements OnInit{
   servicios_admins:any;
   ingresos_admins: any;
 
-  formPOST: FormGroup;
+  formPOSTRegistroServicio: FormGroup;
 
   //////////////////////////
 
@@ -32,6 +32,7 @@ export class DashboardAdminComponent implements OnInit{
 
 
   //////////////////////////
+  // METODOS SUSCRIPTOS AL LOS DATOS
 
     this.estadistica.muestraComorbilidades().subscribe({
       next:(comorbilidades_S)=>{
@@ -67,8 +68,8 @@ export class DashboardAdminComponent implements OnInit{
   //////////////////////////
 
 
-
-  this.formPOST= this.formBuilder.group({
+// OBJETO FORMBUILDER
+  this.formPOSTRegistroServicio= this.formBuilder.group({
 
     id:["",Validators.required],
     nombre_servicio:["",Validators.required],
@@ -82,25 +83,25 @@ export class DashboardAdminComponent implements OnInit{
   }
     ///// METODOS GET /////
     get id_GET(){
-      return this.formPOST.controls['id'];
+      return this.formPOSTRegistroServicio.controls['id'];
     }
     get nombre_servicio_GET(){
-      return this.formPOST.controls['nombre_servicio'];
+      return this.formPOSTRegistroServicio.controls['nombre_servicio'];
     }
     get descripcion_servicio_GET(){
-      return this.formPOST.controls['descripcion_servicio'];
+      return this.formPOSTRegistroServicio.controls['descripcion_servicio'];
     }
     get sede_servicio_GET(){
-      return this.formPOST.controls['sede_servicio'];
+      return this.formPOSTRegistroServicio.controls['sede_servicio'];
     }
     get precio_servicio_GET(){
-      return this.formPOST.controls['precio_servicio'];
+      return this.formPOSTRegistroServicio.controls['precio_servicio'];
     }
     get comentarios_servicio_GET(){
-      return this.formPOST.controls['comentarios_servicio'];
+      return this.formPOSTRegistroServicio.controls['comentarios_servicio'];
     }
     get prestador_GET(){
-      return this.formPOST.controls['prestador'];
+      return this.formPOSTRegistroServicio.controls['prestador'];
     }
     
 
@@ -108,20 +109,21 @@ export class DashboardAdminComponent implements OnInit{
   //////////// POST //////////////
   ////////////////////////////////
 
-  enviarDatos(){
+  enviarDatosDeServicio(){
 
     // SI EL FORMULARIO CUMPLE CON LA VALIDACION
-    if(this.formPOST.valid){
+    if(this.formPOSTRegistroServicio.valid){
 
-          this.estadistica.POST('http://localhost:3000/SERVICIOS',
+      // Envia los datos al post
+          this.estadistica.POSTRegistroServicio('http://localhost:3000/SERVICIOS',
             {
-              id:this.formPOST.value.id,
-              nombre_servicio:this.formPOST.value.nombre_servicio,
-              descripcion_servicio:this.formPOST.value.descripcion_servicio,
-              precio_servicio:this.formPOST.value.precio_servicio,
-              comentarios_servicio:this.formPOST.value.comentarios_servicio,
-              prestador:this.formPOST.value.prestador,
-              sede_servicio:this.formPOST.value.sede_servicio,
+              id:this.formPOSTRegistroServicio.value.id,
+              nombre_servicio:this.formPOSTRegistroServicio.value.nombre_servicio,
+              descripcion_servicio:this.formPOSTRegistroServicio.value.descripcion_servicio,
+              precio_servicio:this.formPOSTRegistroServicio.value.precio_servicio,
+              comentarios_servicio:this.formPOSTRegistroServicio.value.comentarios_servicio,
+              prestador:this.formPOSTRegistroServicio.value.prestador,
+              sede_servicio:this.formPOSTRegistroServicio.value.sede_servicio,
             })
             .subscribe((respuesta: any) => {
               alert("Servicio Registrado")
@@ -130,7 +132,7 @@ export class DashboardAdminComponent implements OnInit{
 
           else{
             alert("Ingrese los datos correctamente")
-        this.formPOST.markAllAsTouched();
+        this.formPOSTRegistroServicio.markAllAsTouched();
 
           }
     

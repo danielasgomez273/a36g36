@@ -40,10 +40,10 @@ export class EstadisAdminsService {
   }
 
   /////////////////////////////////////
-  //        SERVICIO POST  
+  //          SERVICIO POST          //
   /////////////////////////////////////
 
-  POST(urlPOST:string, body: any){
+  POSTRegistroServicio(urlPOST:string, body: any){
     
       return this.http.post(urlPOST,body)
 
