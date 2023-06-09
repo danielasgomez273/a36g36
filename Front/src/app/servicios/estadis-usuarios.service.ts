@@ -16,7 +16,11 @@ export class EstadisUsuariosService {
     return this.http.get(this.url+"notas_usuarios")
   }
 
+// metodo GET para traer los servicios
+muestraservicioausuario( ){
 
+  return this.http.get(this.url+"SERVICIOS")
+}
 
 
 
