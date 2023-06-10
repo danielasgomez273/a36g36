@@ -20,6 +20,8 @@ import { FormContactoService } from './servicios/form-contacto.service';
 
 
 
+// instalado en pkg json, y agregado a providers por david
+import { CookieService } from "ngx-cookie-service";
 
 
 @NgModule({
@@ -35,7 +37,7 @@ import { FormContactoService } from './servicios/form-contacto.service';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -52,11 +52,11 @@ this.formPOSTRegistroUsuario= this.formBuilder.group({
       if(this.formPOSTRegistroUsuario.valid){
 
                 // Envia los datos
-                this.serv_registro.POSTRegistroUsuario('http://localhost:3000/USUARIOS',
+                this.serv_registro.POSTRegistroUsuario( 'http://127.0.0.1:8000/api/auth/signup/',
                 {
                   // INFORMACION QUE VAMOS A PASAR  
                   email:this.formPOSTRegistroUsuario.value.email,
-                  pass:this.formPOSTRegistroUsuario.value.pass,
+                  password:this.formPOSTRegistroUsuario.value.pass,
                   username:this.formPOSTRegistroUsuario.value.username,
                 }
                 
@@ -65,8 +65,20 @@ this.formPOSTRegistroUsuario= this.formBuilder.group({
  
                 })
 
+                // ACA HAY QUE ESPERAR UNA RESPUESTA 201 SI SE CREO USUARIO, SINO ERROR
+
+                // ACA HAY QUE ESPERAR UNA RESPUESTA 201 SI SE CREO USUARIO, SINO ERROR
+                // ACA HAY QUE ESPERAR UNA RESPUESTA 201 SI SE CREO USUARIO, SINO ERROR
+                // ACA HAY QUE ESPERAR UNA RESPUESTA 201 SI SE CREO USUARIO, SINO ERROR
+                // ACA HAY QUE ESPERAR UNA RESPUESTA 201 SI SE CREO USUARIO, SINO ERROR
+                // ACA HAY QUE ESPERAR UNA RESPUESTA 201 SI SE CREO USUARIO, SINO ERROR
+                // ACA HAY QUE ESPERAR UNA RESPUESTA 201 SI SE CREO USUARIO, SINO ERROR
+                // ACA HAY QUE ESPERAR UNA RESPUESTA 201 SI SE CREO USUARIO, SINO ERROR
+
+
+                
       // CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
-      this.router.navigateByUrl("/auth/registro2usuario")
+      // this.router.navigateByUrl("/auth/registro2usuario")
       this.formPOSTRegistroUsuario.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
 
       } 
