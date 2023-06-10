@@ -6,7 +6,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-root{
+:root{
     scroll-behavior: smooth;
 }
 
@@ -18,7 +18,8 @@ root{
 
 
 .dashboardUser .headerDashboard{
-    background: -webkit-linear-gradient(left, #a345b292, #fa42989e);
+  background: rgb(26,96,159);
+  background: linear-gradient(90deg, rgba(26,96,159,1) 40%, rgba(164,233,246,1) 100%);
 }
 /*
 .dashboardPaciente .headerDashboard img{
@@ -108,20 +109,29 @@ root{
 /* listado de registros   */
 .dashboardUser .registros .registro{
   /*  background: -webkit-linear-gradient(left, #001e4db2, #1a619f86);*/
-    padding: 5px;
-    margin: auto;
-    margin-bottom: 10px;
-    width: 95%;
-    max-width: 350px;
+  background: -webkit-linear-gradient(left, #a345b292, #fa42989e);
+  padding: 5px;
+  margin: 10px auto;
+  width: calc(25% - 20px);
+  max-width: 350px;
+  border-radius: 1rem;
+  border-color: #1a609f;
+  border-style:groove;
 }
 .dashboardUser .registros .registro:hover{
-    transform: scale(1.02);
+  transform: scale(1.02);
+}
+
+.dashboardUser .registros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .dashboardUser .registros p{
-    margin: 1rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.2;
+  margin: 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
 }
 .dashboardUser .registros .registro p{
     margin: 0;
@@ -135,7 +145,19 @@ root{
     font-weight: 500;
     font-size: 1.1rem;
 }
-
+.dashboardUser .titulo {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.titulo{
+  text-align: center;
+    color: #1A609F;
+    margin: 1%;
+    margin-top: 6rem;
+    line-height: 2.5;
+}
 /*  ESTILOS DEL CARRITO */
 
 .carrito{
@@ -460,6 +482,32 @@ root{
     .banner {
       padding: 120px;
     }
+    .dashboardUser .headerDashboard .nombreUsuario {
+      font-size: 2rem;
+  }
+
+  .dashboardUser .contenedorGrafico p {
+      font-size: 1rem;
+  }
+
+  .dashboardUser .contenedorGrafico .botoneraPeriodo {
+      width: 280px;
+  }
+
+  .dashboardUser .contenedorGrafico .grafico {
+      width: 90%;
+  }
+
+  .dashboardUser .btnAgregar {
+      margin-left: calc(100vw - 60px);
+  }
+
+  .dashboardUser .registros .registro {
+      width: 100%;
+      max-width: none;
+      margin: 10px auto;
+  }
+  
   }
   
   @media screen and (max-width: 992px) {
@@ -502,6 +550,19 @@ root{
         width: 100%;
         font-size: 10px;
       }
+      .dashboardUser .headerDashboard .nombreUsuario {
+        font-size: 1.8rem;
+    }
+
+    .dashboardUser .contenedorGrafico .botoneraPeriodo {
+        width: 320px;
+    }
+
+    .dashboardUser .registros .registro {
+        width: calc(50% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
   }
   
   @media screen and (max-width: 768px) {
@@ -530,6 +591,18 @@ root{
       font-weight: 400;
       font-size: 1rem;
       }
+      .dashboardUser .headerDashboard .nombreUsuario {
+        font-size: 1.5rem;
+    }
+
+    .dashboardUser .contenedorGrafico .botoneraPeriodo {
+        width: 260px;
+    }
+
+    .dashboardUser .registros .registro {
+        width: 100%;
+        max-width: none;
+    }
   }
   
   @media screen and (max-width: 576px) {
@@ -559,4 +632,20 @@ root{
       font-weight: 400;
       font-size: 0.5rem;
       }
+      .dashboardUser .headerDashboard .nombreUsuario {
+        font-size: 1.2rem;
+    }
+
+    .dashboardUser .contenedorGrafico p {
+        font-size: 1rem;
+    }
+
+    .dashboardUser .contenedorGrafico .botoneraPeriodo {
+        width: 200px;
+    }
+
+    .dashboardUser .registros .registro {
+        width: 100%;
+        max-width: none;
+    }
   }
