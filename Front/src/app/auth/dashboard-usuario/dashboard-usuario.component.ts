@@ -11,7 +11,8 @@ export class DashboardUsuarioComponent implements OnInit {
 
 
   notas_usuarios: any;
-  constructor(private notas:EstadisUsuariosService , private log :LoginService){
+  servicios: any;
+  constructor(private notas:EstadisUsuariosService , private log :LoginService, private usuario:LoginService){
   this.notas.muestraNotas().subscribe({
     next:(notas_S)=>{
       this.notas_usuarios=notas_S
@@ -23,7 +24,8 @@ export class DashboardUsuarioComponent implements OnInit {
 
   // una vez que el login.component setea la cookie, deberia poder accederla desde aca y saber que efectivamente el usuario esta logueado...
   console.log("log.getToken()", log.getToken(), "--")
-}
+
+
   this.usuario.muestraservicioausuario().subscribe({
     next:(servicios_S)=>{
       this.servicios=servicios_S
@@ -36,6 +38,8 @@ export class DashboardUsuarioComponent implements OnInit {
      )
 
 } 
+
+
 ///////  CODIGO PARA AGREGAR AL CARRITO  ////////
 Snombre:string=""
 agregarNombre(value:string){
@@ -63,16 +67,8 @@ nuevoCarrito(){
   return this.nuevoPedido
 }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
-
-
-
-
-
-
-
-
 
 
 }

@@ -44,6 +44,12 @@ export class LoginService {
         const loguedUser = this.http.post(url,bodyyy)
         return loguedUser
     }
+
+    url:string='http://127.0.0.1:8000/api/paciente/servicios/';
+    muestraservicioausuario( ){
+
+      return this.http.get(this.url)
+    }
   // CIERRA EXPORT
   }
 
