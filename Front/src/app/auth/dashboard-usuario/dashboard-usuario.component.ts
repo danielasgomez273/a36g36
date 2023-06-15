@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { EstadisUsuariosService } from 'src/app/servicios/estadis-usuarios.service';
-import { LoginService } from 'src/app/servicios/login.service';
+
+// INTERFACE
+import { NotasGlucemia } from '../../servicios/interfaces/notas-glucemia';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
+
+
 
 @Component({
   selector: 'app-dashboard-usuario',
@@ -9,35 +17,100 @@ import { LoginService } from 'src/app/servicios/login.service';
 })
 export class DashboardUsuarioComponent implements OnInit {
 
-
-  notas_usuarios: any;
+  notas_glucemia: any;
   servicios: any;
-  constructor(private notas:EstadisUsuariosService , private log :LoginService, private usuario:LoginService){
-  this.notas.muestraNotas().subscribe({
-    next:(notas_S)=>{
-      this.notas_usuarios=notas_S
-    },
-    error:(errorData)=>{
-      console.error(errorData);
-    } 
-  })
+
+  formNotasPOST: FormGroup | any;
+
+
+  ////////////////////////////////////////////////////////////
+  constructor(
+    private paciente:EstadisUsuariosService,
+    private usuario:AuthService,
+    private formBuilder:FormBuilder){
+
+
+
+    };
+
+  
+  ///////////////////////////////////////////////////////////
+  ngOnInit(): void {
+
+        // OBJETO FORMBUILDER
+        this.formNotasPOST= this.formBuilder.group({
+
+          fecha_registro:["",Validators.required],
+          valor_glucemia:["",Validators.required],
+          comentario_registro:["",Validators.required],
+      
+        })
+    
+    
+    /////////// MUESTRA NOTAS A USUARIO /////////////
+      this.paciente.muestraNotasUsuario().subscribe({
+      next:(notas_S)=>{
+        this.notas_glucemia=notas_S
+      },
+      error:(errorData)=>{
+        console.error(errorData);
+      } 
+    })
+
+    ///////// MUESTRA SERVICIOS A USUARIO ///////////
+    this.paciente.muestraServicioAUsuario().subscribe({
+      next:(servicios_S)=>{
+        this.servicios=servicios_S
+      },
+      error:(errorData)=>{
+        console.error(errorData);
+      }
+    })
+    
 
   // una vez que el login.component setea la cookie, deberia poder accederla desde aca y saber que efectivamente el usuario esta logueado...
-  console.log("log.getToken()", log.getToken(), "--")
-
-
-  this.usuario.muestraservicioausuario().subscribe({
-    next:(servicios_S)=>{
-      this.servicios=servicios_S
-    },
-    error:(errorData)=>{
-      console.error(errorData);
-    }
-    
-  }
-     )
+  console.log("log.getToken()", this.usuario.getToken(), "--")
 
 } 
+///////////// CIERRA NGONINIT /////////////
+
+/////////// AGREGA NOTAS A USUARIO //////////////
+  agregarNota(){
+    // SI EL FORMULARIO CUMPLE CON LA VALIDACION
+    if(this.formNotasPOST.valid){
+      // Envia los datos al post
+          this.paciente.nuevaNota('http://localhost:3000/notas_usuarios',
+            {
+
+              fecha_registro:this.formNotasPOST.value.fecha_registro,
+              valor_glucemia:this.formNotasPOST.value.valor_glucemia,
+              comentario_registro:this.formNotasPOST.value.comentario_registro,
+            })
+            .subscribe((respuesta: any) => {
+              alert("Nota registrada")
+            })
+          }
+
+          else{
+            alert("Ingrese los datos correctamente")
+        this.formNotasPOST.markAllAsTouched();
+
+          }
+    
+  }
+
+     ///// METODOS GET /////
+  //   get fechaRegistro_GET(){
+  //    return this.formNotasPOST.controls['fechaResitro'];
+  //  }
+  //  get valorGlucemia_GET(){
+  //  }
+  //  get comentarioRegistro_GET(){
+  //    return this.formNotasPOST.controls['comentarioResgistro'];
+  //  }
+
+
+
 
 
 ///////  CODIGO PARA AGREGAR AL CARRITO  ////////
@@ -66,9 +139,7 @@ nuevoCarrito(){
 
   return this.nuevoPedido
 }
-  ngOnInit(): void {
 
-  }
 
 
 }

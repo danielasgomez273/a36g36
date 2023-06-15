@@ -84,39 +84,31 @@
   ],
   "notas_usuarios": [
     {
-      "fechas": "07:32 am, 11 Oct 22",
-      "glucemia": "1.2mg/dl",
-      "comentario": "Almorce fideos con fileto"
+      "id": 1,
+      "fecha_registro": "2023-05-01T02:40:00-03:00",
+      "valor_glucemia": "1.25",
+      "comentario_registro": "a la 1 am comi un fantoche",
+      "paciente": 1
     },
     {
-      "fechas": "08:00 am, 13 Oct 22",
-      "glucemia": "1.3mg/dl",
-      "comentario": "No desayune todavia"
+      "id": 2,
+      "fecha_registro": "2023-05-19T04:38:00-03:00",
+      "valor_glucemia": "1.00",
+      "comentario_registro": "hace 3 horas comi un fantoche",
+      "paciente": 1
     },
     {
-      "fechas": "07:12 am, 15 Oct 22",
-      "glucemia": "1.1mg/dl",
-      "comentario": "Desayune cafe con leche"
+      "id": 3,
+      "paciente": 1,
+      "fecha_registro": "2023-06-07T21:02",
+      "valor_glucemia": 1.2,
+      "comentario_registro": "desayune te con leche y medialunas"
     },
     {
-      "fechas": "09:32 am, 17 Oct 22",
-      "glucemia": "1.0mg/dl",
-      "comentario": "Almorce guiso de arroz con pollo"
-    },
-    {
-      "fechas": "07:09 am, 19 Oct 22",
-      "glucemia": "0.9mg/dl",
-      "comentario": "Desayune te con medialunas"
-    },
-    {
-      "fechas": "07:52 am, 21 Oct 22",
-      "glucemia": "1.2mg/dl",
-      "comentario": "No cene"
-    },
-    {
-      "fechas": "07:32 am, 23 Oct 22",
-      "glucemia": "1.8mg/dl",
-      "comentario": "Hice ayuno intermitente"
+      "fecha_registro": "2023-06-09T23:32",
+      "valor_glucemia": 1.4,
+      "comentario_registro": "merende te con leche y medialunas",
+      "id": 4
     }
   ],
   "SERVICIOS": [

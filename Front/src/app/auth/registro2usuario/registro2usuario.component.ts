@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { loginInterface } from 'src/app/servicios/interfaces/loginInterface';
 
-import { RegistroService } from 'src/app/servicios/registro.service';
+
 
 @Component({
   selector: 'app-registro2usuario',
@@ -12,36 +13,42 @@ import { RegistroService } from 'src/app/servicios/registro.service';
 })
 export class Registro2usuarioComponent implements OnInit{
 
-  formPOSTRegistro2Usuarios: FormGroup;
+//////////////////////////////////////////////////////
+  formPOSTRegistro2Usuarios: FormGroup | any;
 
-  // SE INYECTA FormBuilder               y   EL SERVICIO   LoginService
-  constructor(private formBuilder:FormBuilder,private router:Router , private serv_Registro2Datos:RegistroService){;
-
-
-
-  // SE CREA OBJETO TIPO formBuilder 
-  this.formPOSTRegistro2Usuarios=this.formBuilder.group({
-
-    // DATOS PERSONALES
-    id_pacinte:[""],
-    name:["",[Validators.required]],
-    last_name:["",[Validators.required]],
-    birthday:["",[Validators.required]],
-    sex:["",[Validators.required]],
-    phone:["",[Validators.required]],
+//////////////////////////////////////////////////////
+  ngOnInit(): void {
     
-    // DATOS MEDICOS
-    id_fichamedica:[],
-    tipo_diabetes:["",[Validators.required]],
-    terapia_insulina:["",[Validators.required]],
-    terapia_pastillas:["",[Validators.required]],
-    tipo_glucometro:["",[Validators.required]],
-    tipo_sensor:["",[Validators.required]],
-    comorbilidades:["",[Validators.required]],
-    objetivo_glucosa:["",[Validators.required]],
+    this.formPOSTRegistro2Usuarios=this.formBuilder.group({
+    
+      // DATOS PERSONALES
+      id_pacinte:[""],
+      name:["",[Validators.required]],
+      last_name:["",[Validators.required]],
+      birthday:["",[Validators.required]],
+      sex:["",[Validators.required]],
+      phone:["",[Validators.required]],
+      
+      // DATOS MEDICOS
+      id_fichamedica:[],
+      tipo_diabetes:["",[Validators.required]],
+      terapia_insulina:["",[Validators.required]],
+      terapia_pastillas:["",[Validators.required]],
+      tipo_glucometro:["",[Validators.required]],
+      tipo_sensor:["",[Validators.required]],
+      comorbilidades:["",[Validators.required]],
+      objetivo_glucosa:["",[Validators.required]],
+    
+    });
 
-  });
-}
+
+  }
+
+/////////////////////////////////////////////////////
+  constructor(
+    private formBuilder:FormBuilder,
+    private router:Router,
+    private serv_Registro2Datos:AuthService){};
 
 
 //////////////////// METODOS GET //////////////////////
@@ -131,13 +138,15 @@ export class Registro2usuarioComponent implements OnInit{
     }
   }
 
+//////////////////////////////////////////////////////////////
+
 
 
       
 
 
 
-  ngOnInit(): void {}
+
 
 
 

@@ -4,10 +4,11 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { Registro2usuarioComponent } from './registro2usuario/registro2usuario.component';
+
 
 
 
@@ -23,7 +24,8 @@ import { Registro2usuarioComponent } from './registro2usuario/registro2usuario.c
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     RouterModule

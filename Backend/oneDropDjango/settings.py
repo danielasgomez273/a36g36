@@ -43,13 +43,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [    
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware', # ESTA LINEA, CORROBORA CSRF
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'oneDropDjango.urls'
@@ -82,7 +82,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': '154647572',
+        'PASSWORD': '1317',
         'NAME': 'onedrop_2023_v3',
         'OPTIONS':{
             'sql_mode':'traditional'
@@ -160,3 +160,23 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOW_CREDENTIALS = True
+############################
+## CODIGO AGREGADO MARTIN ##
+############################
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:4200',
+
+]
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:4200',
+]
+
+
+
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True

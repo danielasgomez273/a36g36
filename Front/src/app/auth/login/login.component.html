@@ -12,17 +12,17 @@
 <section class="container cont-form text-bg-light text-center my-4 borde shadow-lg form">
   <h1 class=" margin titulo">LOGIN</h1>
   
-  <form  [formGroup]="profileForm" action="" method="POST" id="form">
+  <form  [formGroup]="profileForm"  (submit)="submit()" >
 
     <!-- ////////////////////////////  EMAIL  //////////////////////////////  -->
     <div class="row g-3 align-items-center  margin campo-input borde campo-email borde_validacion " >
        <!--  label  -->
         <div class="col-lg-3 col-md-12 align-self-start ">
-            <label for="exampleFormControlInput1" class="col-form-label sub-campo-input {{borde_validacion}} ">Email</label>
+            <label for="exampleFormControlInput1" class="col-form-label sub-campo-input  ">Email</label>
         </div>
         <!--  input  -->
         <div class="col-lg-8 col-md-12 align-self-start  ">
-          <input formControlName="email" id="email" type="email" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="usuario@ejemplo.com">
+          <input formControlName="email"  type="email" class="form-control sub-campo-input" id="exampleFormControlInput1" placeholder="usuario@ejemplo.com">
 
         <!-- verificacion -->
             <div *ngIf="email_GET.invalid && (email_GET.dirty || email_GET.touched)"
@@ -48,7 +48,7 @@
       </div>
         <!--  input  -->
       <div class="col-lg-8 align-self-start ">
-        <input formControlName="pass" name="" id="password"
+        <input formControlName="password" name="" id="password"
         type="password" id="inputPassword6" class="form-control sub-campo-input" aria-labelledby="passwordHelpInline" placeholder="ejemplocontraseña1234">
 
           <!--  validacion  -->
@@ -59,7 +59,7 @@
               Complete este campo.
             </div>
             <div *ngIf="pass_GET.errors?.['minlength']">
-              Ingrese una contraseña de mas de 6 caracteres.
+              Ingrese una contraseña de mas de 9 caracteres.
             </div>
       </div>
 
@@ -69,21 +69,20 @@
     </div>
 
     <!--  ////////////////////////////////// BOTONES //////////////////////////////   -->
-     <!--  (click)="verificacionLogin()" 
-    href="auth/dash_user"
-    href="auth/dash_admin"
-     href={{direccion}}
-    -->
     <div class="row justify-content-evenly mx-4 ">
-      <button type="button" class="btn btn-primary m-2  col-lg-4" (click)="verificacionLoginUser()">
-        <a class="text-white text-decoration-none" >Ingresar</a>
-      </button>
+      <button type="submit" class="btn btn-primary m-2  col-lg-4">Ingresar</button>
+    </div>
+      
+      
+      
+      <!-- 
+       <button  type="button" class="btn btn-success m-2  col-lg-6" (click)="verificacionLoginAdmin()">
+         <a  class="text-white text-decoration-none" >Ingresar como administrador</a>
+         </button>
+ 
+ 
+     -->
 
-      <button  type="button" class="btn btn-success m-2  col-lg-6" (click)="verificacionLoginAdmin()">
-        <a  class="text-white text-decoration-none" >Ingresar como administrador</a>
-        </button>
-
-      </div>
     
 
 
