@@ -93,4 +93,13 @@ export class DashboardUsuarioComponent implements OnInit {
       this.nuevoPedido.splice(index, 1);
     }
   }
+  calcularMontoTotal(): number {
+    let total = 0;
+
+    for (const item of this.nuevoPedido) {
+      total += parseFloat(item[1]);
+    }
+
+    return total;
+  }
 }
