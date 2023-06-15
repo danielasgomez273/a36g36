@@ -249,6 +249,21 @@
       "comorbilidades": "rewrwrewrw",
       "objetivo_glucosa": "ewrewrwerwe",
       "id": 3
+    },
+    {
+      "name": "sdsdsdsds",
+      "last_name": "sdasdasdsad",
+      "birthday": "2023-06-29",
+      "sex": "masculino",
+      "phone": 23123123123,
+      "tipo_diabetes": "tipo 2",
+      "terapia_insulina": "terapia 1",
+      "terapia_pastillas": "terapia 2",
+      "tipo_glucometro": "glucometro 1",
+      "tipo_sensor": "Sensor 2",
+      "comorbilidades": "232131231",
+      "objetivo_glucosa": "312213123",
+      "id": 4
     }
   ]
 }
