@@ -36,6 +36,7 @@ class LoginView(APIView):
 class LogoutView(APIView):
     permission_classes = [AllowAny]
     def post(self, request):
+        print(request)
         logout(request)
         return Response (status=status.HTTP_200_OK)
     
@@ -130,7 +131,10 @@ class CrudPaquetes(APIView):
 
 ####################################### PACIENTE #######################################
 #SOLO PACIENTE - CRUD PACIENTE
-class CrudPaciente(APIView):
+class CrudPaciente(APIView):    
+    # queryset = Paciente.objects.all()
+    # serializer_class = PacienteSerializer
+    http_method_names = ['get' , 'post']
     permission_classes = [permissions.IsAuthenticated]
 
     def get (self, request):  
@@ -150,9 +154,55 @@ class CrudPaciente(APIView):
         )
         '''
     def post (self, request, format = None):
-        serializer = PacienteSerializer (data = request.data)
+        # print(request.data)
+        # print(request.COOKIES)
+        
+        print("----------- entrando al POST de paciente -------------")
+
+        sessionID = request.COOKIES.get('sessionid')
+        print(sessionID)
+        #DEBO OBTENER LOS DATOS DEL USUARIO MEDIANTE LA SESSION_DATA
+        
+        print("----------- entrando al POST de paciente -------------")
+
+        # PARA PACIENTE => ('id', 'nombre_paciente', 'apellido_paciente', 'telefono_paciente', 'fecha_nacimiento', 'sexo_paciente', 'usuario')
+
+# QUE DEBO ENVIAR COMO usuario? UN usuario ENTIDAD O UN ID del usuario??
+# Primero probare un numero de id
+# y sino, debere buscar en la bd al usuario real
+        usuario = "usuario desde cookie"
+        nuevoPaciente = {
+            "nombre_paciente" : request.data["nombre_paciente"] ,
+            "apellido_paciente" : request.data["apellido_paciente"] ,
+            "telefono_paciente" : request.data["telefono_paciente"] ,
+            "fecha_nacimiento" : request.data["fecha_nacimiento"] ,
+            "sexo_paciente" : request.data["sexo_paciente"] ,
+            "usuario" : usuario
+        }
+        
+        print(" ******** PACIENTE QUE QUIERO CREAR ********")
+        print(request.data)
+        print(" ******** PACIENTE QUE QUIERO CREAR ********")
+
+# QUE DEBO ENVIAR COMO PACIENTE? UN PACIENTE ENTIDAD O UN ID??
+        paciente ="id paciente?"
+        nuevaFichaMedica = {
+            "tipo_diabetes" : request.data["tipo_diabetes"] ,
+            "terapia_insulina" : request.data["terapia_insulina"] ,
+            "terapia_pastillas" : request.data["terapia_pastillas"] ,
+            "tipo_glucometro" : request.data["tipo_glucometro"] ,
+            "tipo_sensor" : request.data["tipo_sensor"] ,
+            "comorbilidades" : request.data["comorbilidades"] ,
+            "paciente" : paciente
+        }
+
+
+        serializer = PacienteSerializer (data = nuevoPaciente)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save()            
+            print("----------- NUEVO PACIENTE GUARDADO -------------")
+            print(serializer)
+            print("----------- NUEVO PACIENTE GUARDADO  -------------")
             return Response( serializer.data, status= status.HTTP_201_CREATED)
         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
 

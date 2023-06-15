@@ -82,7 +82,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': '1317',
+        'PASSWORD': '154647572',
         'NAME': 'onedrop_2023_v3',
         'OPTIONS':{
             'sql_mode':'traditional'
