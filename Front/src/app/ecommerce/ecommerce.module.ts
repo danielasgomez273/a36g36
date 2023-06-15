@@ -7,6 +7,8 @@ import { ServiciosCompComponent } from './servicios-comp/servicios-comp.componen
 // Importamos el modulo de router module
 import { RouterModule } from '@angular/router';
 import { EcommerceRoutingModule } from './ecommerce-routing.module';
+import { formulariopagoComponent } from './formulario-pago/formulario-pago.component';
+
 
 
 
@@ -16,7 +18,8 @@ import { EcommerceRoutingModule } from './ecommerce-routing.module';
 
 @NgModule({
   declarations: [
-    ServiciosCompComponent
+    ServiciosCompComponent,
+    formulariopagoComponent
   ],
   imports: [
     CommonModule,
