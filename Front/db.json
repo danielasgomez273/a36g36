@@ -234,6 +234,21 @@
       "comorbilidades": "alergia",
       "objetivo_glucosa": "12",
       "id": 2
+    },
+    {
+      "name": "dfdsfsd",
+      "last_name": "dsfsdfsd",
+      "birthday": "2023-06-30",
+      "sex": "masculino",
+      "phone": 42342342,
+      "tipo_diabetes": "tipo 2",
+      "terapia_insulina": "terapia 1",
+      "terapia_pastillas": "No tomo",
+      "tipo_glucometro": "glucometro 1",
+      "tipo_sensor": "Sensor 2",
+      "comorbilidades": "rewrwrewrw",
+      "objetivo_glucosa": "ewrewrwerwe",
+      "id": 3
     }
   ]
 }
