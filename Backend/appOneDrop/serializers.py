@@ -42,7 +42,7 @@ class RegistroGlucemiaSerializer(serializers.ModelSerializer):
 class PrestadorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prestador    
-        fields = ('id',  'sede_prestador', 'telefono_prestador', 'informacion_extra_prestador', 'nombre_usuario_prestador')
+        fields = ('id',  'sede_prestador', 'telefono_prestador', 'informacion_extra_prestador', 'nombre_usuario_prestador', 'usuario_id')
         #'email_prestador', 'contraseña_prestador',
 
 class ServicioSerializer(serializers.ModelSerializer):

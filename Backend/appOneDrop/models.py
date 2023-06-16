@@ -105,19 +105,21 @@ class Registro_glucemia(models.Model):
 class Prestador(models.Model):
     #custom user email_prestador = models.EmailField(max_length=100 , blank=False , default="", unique=True)
     #custom user contraseña_prestador = models.CharField(max_length=50 , blank=False)
+
     sede_prestador = models.CharField(max_length=50 , blank=False)
     telefono_prestador = models.CharField(max_length=50 , blank=False)
     informacion_extra_prestador = models.CharField(max_length=200 , null=True, blank=True)
-    nombre_usuario_prestador = models.CharField(max_length=100 ,default="Prestador", blank=False)
+    nombre_usuario_prestador = models.CharField(max_length=100 ,default="Prestador", blank=False),
+    usuario = models.OneToOneField(CustomUser , null=False, blank=False, on_delete=models.CASCADE )
 
     class Meta:
         db_table = 'Prestador'
         verbose_name = 'Prestador'
         verbose_name_plural = 'Prestadores'    
     def __unicode__(self):
-        return self.nombre_usuario_prestador    
+        return self.sede_prestador    
     def __str__(self):
-        return 'El prestador es ' + self.nombre_usuario_prestador
+        return 'El prestador es ' + self.sede_prestador
     
 #  SERVICIOS  #
 class Servicio(models.Model):
