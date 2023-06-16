@@ -154,55 +154,28 @@ class CrudPaciente(APIView):
         )
         '''
     def post (self, request, format = None):
-        # print(request.data)
-        # print(request.COOKIES)
         
-        print("----------- entrando al POST de paciente -------------")
+        usuarioId = self.request.user.id
+        print( "························· id usuario y username ··················· ")
+        print(usuarioId)
+        print( "························· id usuario y username ··················· ")
 
-        sessionID = request.COOKIES.get('sessionid')
-        print(sessionID)
-        #DEBO OBTENER LOS DATOS DEL USUARIO MEDIANTE LA SESSION_DATA
-        
-        print("----------- entrando al POST de paciente -------------")
-
-        # PARA PACIENTE => ('id', 'nombre_paciente', 'apellido_paciente', 'telefono_paciente', 'fecha_nacimiento', 'sexo_paciente', 'usuario')
-
-# QUE DEBO ENVIAR COMO usuario? UN usuario ENTIDAD O UN ID del usuario??
-# Primero probare un numero de id
-# y sino, debere buscar en la bd al usuario real
-        usuario = "usuario desde cookie"
         nuevoPaciente = {
             "nombre_paciente" : request.data["nombre_paciente"] ,
             "apellido_paciente" : request.data["apellido_paciente"] ,
             "telefono_paciente" : request.data["telefono_paciente"] ,
             "fecha_nacimiento" : request.data["fecha_nacimiento"] ,
             "sexo_paciente" : request.data["sexo_paciente"] ,
-            "usuario" : usuario
-        }
-        
-        print(" ******** PACIENTE QUE QUIERO CREAR ********")
-        print(request.data)
-        print(" ******** PACIENTE QUE QUIERO CREAR ********")
-
-# QUE DEBO ENVIAR COMO PACIENTE? UN PACIENTE ENTIDAD O UN ID??
-        paciente ="id paciente?"
-        nuevaFichaMedica = {
-            "tipo_diabetes" : request.data["tipo_diabetes"] ,
-            "terapia_insulina" : request.data["terapia_insulina"] ,
-            "terapia_pastillas" : request.data["terapia_pastillas"] ,
-            "tipo_glucometro" : request.data["tipo_glucometro"] ,
-            "tipo_sensor" : request.data["tipo_sensor"] ,
-            "comorbilidades" : request.data["comorbilidades"] ,
-            "paciente" : paciente
-        }
-
+            "usuario" : usuarioId
+        }        
 
         serializer = PacienteSerializer (data = nuevoPaciente)
         if serializer.is_valid():
-            serializer.save()            
-            print("----------- NUEVO PACIENTE GUARDADO -------------")
-            print(serializer)
-            print("----------- NUEVO PACIENTE GUARDADO  -------------")
+            serializer.save()
+            print("************ serializer data ************")   
+            print(serializer.data["id"]) #este es el ID del PACIENTE que luego debo enviar a a la ficha para crear la ficha medica
+            print("************ serializer data ************")  
+
             return Response( serializer.data, status= status.HTTP_201_CREATED)
         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
 
@@ -211,16 +184,28 @@ class CrudRegistrosGlucemia(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get (self, request):  
-        paciente = Paciente.objects.filter(usuario=self.request.user.id)       
-        idPaciente = paciente.get().pk
-        queryset = Registro_glucemia.objects.filter(paciente_id = idPaciente)
+        print("ID USUARIO=>")
+        print(self.request.user.id)
+        paciente = Paciente.objects.filter(usuario=self.request.user.id).get()
+        queryset = Registro_glucemia.objects.filter(paciente_id = paciente.pk)
         serializer = RegistroGlucemiaSerializer(queryset, many=True)
         if self.request.user.is_authenticated:
             return Response (serializer.data)
         return Response(status= status.HTTP_401_UNAUTHORIZED)
     
     def post (self, request, format = None):
-        serializer = RegistroGlucemiaSerializer (data = request.data)
+        print("ID USUARIO para registro glucemia=>")
+        print(self.request.user.id)
+        paciente = Paciente.objects.filter(usuario = self.request.user.id).get()
+        paciente = paciente.pk
+
+        nuevoRegistroGlucemia = {
+            "fecha_registro" : request.data["fecha_registro"] ,
+            "valor_glucemia" : request.data["valor_glucemia"] ,
+            "comentario_registro" : request.data["comentario_registro"],
+            "paciente" : paciente
+        }
+        serializer = RegistroGlucemiaSerializer (data = nuevoRegistroGlucemia)
         if serializer.is_valid():
             serializer.save()
             return Response( serializer.data, status= status.HTTP_201_CREATED)
@@ -240,7 +225,23 @@ class CrudFichaMedica(APIView):
         return Response(status= status.HTTP_401_UNAUTHORIZED)
     
     def post (self, request, format = None):
-        serializer = FichaMedicaSerializer(data = request.data)
+        print("ID USUARIO para ficha medica=>")
+        print(self.request.user.id)
+        paciente = Paciente.objects.filter(usuario = self.request.user.id).get()
+        paciente = paciente.pk
+
+        nuevaFichaMedica = {
+            "tipo_diabetes" : request.data["tipo_diabetes"] ,
+            "terapia_insulina" : request.data["terapia_insulina"] ,
+            "terapia_pastillas" : request.data["terapia_pastillas"] ,
+            "tipo_glucometro" : request.data["tipo_glucometro"] ,
+            "tipo_sensor" : request.data["tipo_sensor"] ,
+            "objetivo_glucosa" : request.data["objetivo_glucosa"] ,
+            "comorbilidades" : request.data["comorbilidades"] ,
+            "paciente" : paciente
+        }
+
+        serializer = FichaMedicaSerializer(data = nuevaFichaMedica)
         if serializer.is_valid():
             serializer.save()
             return Response( serializer.data, status= status.HTTP_201_CREATED)

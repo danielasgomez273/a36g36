@@ -99,7 +99,7 @@ class Registro_glucemia(models.Model):
     def __unicode__(self):
         return self.valor_glucemia    
     def __str__(self):
-        return "El valor de glucemia es " + self.valor_glucemia + " , medido el " + self.fecha_registro
+        return "El valor de glucemia es " + str(self.valor_glucemia) + " , medido el " + str(self.fecha_registro)
     
 #  PRESTADOR  #
 class Prestador(models.Model):
