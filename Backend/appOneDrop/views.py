@@ -331,8 +331,12 @@ class CrudFichaMedica(APIView):
     def post (self, request, format = None):
         print("ID USUARIO para ficha medica=>")
         print(self.request.user.id)
+
         paciente = Paciente.objects.filter(usuario = self.request.user.id).get()
-        paciente = paciente.pk
+        pacienteId = paciente.pk     
+
+        print("ID PACIENTE para ficha medica=>")
+        print(pacienteId)
 
         nuevaFichaMedica = {
             "tipo_diabetes" : request.data["tipo_diabetes"] ,
@@ -342,8 +346,10 @@ class CrudFichaMedica(APIView):
             "tipo_sensor" : request.data["tipo_sensor"] ,
             "objetivo_glucosa" : request.data["objetivo_glucosa"] ,
             "comorbilidades" : request.data["comorbilidades"] ,
-            "paciente" : paciente
+            "paciente" : pacienteId
         }
+        print("nuevaFichaMedica=>")
+        print(nuevaFichaMedica)
 
         serializer = FichaMedicaSerializer(data = nuevaFichaMedica)
         if serializer.is_valid():
