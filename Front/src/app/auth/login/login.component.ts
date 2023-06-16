@@ -48,17 +48,15 @@ export class LoginComponent implements OnInit{
           if(this.profileForm.valid){
 
                   this.http.post('http://localhost:8000/api/auth/login/', this.profileForm.getRawValue(), {withCredentials: true})
-                  .subscribe((data) =>{
 
+                  .subscribe((data) =>{
                   this.router.navigateByUrl("/")
                   console.log("Los datos de logueo son:" + data);
                 });                
                 
-            this.router.navigateByUrl("/auth/registro2usuario")
-                
+            this.router.navigateByUrl("/auth/registro2usuario")                
                 this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
-
-                } 
+          } 
           else{
 
             // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
@@ -74,21 +72,16 @@ export class LoginComponent implements OnInit{
   submit2():void{
     // IF para comprobar si el formulario es valido
         if(this.profileForm.valid){
+              this.serv_login.POST('http://localhost:8000/api/auth/login/',{
+                    password:this.profileForm.value.pass,
+                    username:this.profileForm.value.username,
+                  },)
+                  .subscribe((data) =>{
+                    console.log("Los datos de logueo son:" + data);
+                  });  
 
-                this.serv_login.POST('http://localhost:8000/api/auth/login/',{
-                  password:this.profileForm.value.pass,
-                  username:this.profileForm.value.username,
-                },)
-                .subscribe((data) =>{
-                  console.log("Los datos de logueo son:" + data);
-                  
-                });                
-                
-                
-                
-              this.router.navigateByUrl("/auth/registro2usuario")
-              this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
-
+                  this.router.navigateByUrl("/auth/registro2usuario")
+                  this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
               } 
         else{
 

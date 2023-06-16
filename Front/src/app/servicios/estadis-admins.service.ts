@@ -32,7 +32,6 @@ export class EstadisAdminsService {
 
   /////////////////////////////////////
   muestraServicios( ){
-// COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
     return this.http.get(this.url+"api/admin/servicios/", {withCredentials: true})
   }
 
@@ -48,11 +47,7 @@ export class EstadisAdminsService {
   /////////////////////////////////////
 
   POSTRegistroServicio(urlPOST:string, body: any ){
-    // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
-    // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS  
      return this.http.post(urlPOST,body, {withCredentials: true})
-
-
   }
 
 
