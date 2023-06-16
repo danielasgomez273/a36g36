@@ -25,7 +25,8 @@ import { Registro2usuarioComponent } from './registro2usuario/registro2usuario.c
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports:[
     RouterModule
