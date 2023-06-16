@@ -101,14 +101,15 @@ export class Registro2usuarioComponent implements OnInit{
     if(this.formPOSTRegistro2Usuarios.valid){
 
         // ENVIA LOS DATOS
-        this.serv_Registro2Datos.POSTRegistroUsuario('http://localhost:3000/USUARIOSDATOSPERSONALES',
+        this.serv_Registro2Datos.POSTRegistroUsuario('http://localhost:8000/api/paciente/',
         {
         // INFORMACION QUE VAMOS A PASAR
-          name:this.formPOSTRegistro2Usuarios.value.name,
-          last_name:this.formPOSTRegistro2Usuarios.value.last_name,
-          birthday:this.formPOSTRegistro2Usuarios.value.birthday,
-          sex:this.formPOSTRegistro2Usuarios.value.sex,
-          phone:this.formPOSTRegistro2Usuarios.value.phone,
+          nombre_paciente:this.formPOSTRegistro2Usuarios.value.name,
+          apellido_paciente:this.formPOSTRegistro2Usuarios.value.last_name,
+          telefono_paciente:this.formPOSTRegistro2Usuarios.value.phone,
+          fecha_nacimiento:this.formPOSTRegistro2Usuarios.value.birthday,
+          sexo_paciente:this.formPOSTRegistro2Usuarios.value.sex,
+
           tipo_diabetes:this.formPOSTRegistro2Usuarios.value.tipo_diabetes,
           terapia_insulina:this.formPOSTRegistro2Usuarios.value.terapia_insulina,
           terapia_pastillas:this.formPOSTRegistro2Usuarios.value.terapia_pastillas,
@@ -116,7 +117,10 @@ export class Registro2usuarioComponent implements OnInit{
           tipo_sensor:this.formPOSTRegistro2Usuarios.value.tipo_sensor,
           comorbilidades:this.formPOSTRegistro2Usuarios.value.comorbilidades,
           objetivo_glucosa:this.formPOSTRegistro2Usuarios.value.objetivo_glucosa,
+          //  => PENDIENTE A AGREGARRR  comorbilidades:this.formPOSTRegistro2Usuarios.value.objetivo_glucosa,
 
+          // PARA CREAR PACIENTE = ('id', 'usuario') 
+          // PARA CREAR FICHA MEDICA = ('id', 'paciente')
           // VER EL TEMA DE LOS IDS
 
         }

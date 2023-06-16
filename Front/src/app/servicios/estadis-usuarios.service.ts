@@ -30,7 +30,7 @@ export class EstadisUsuariosService {
 
 
   //// MUESTRA LAS NOTAS  
-  url_NOTAS:string='http://localhost:3000/notas_usuarios';
+  url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
   muestraNotasUsuario( ){
     return this.http.get(this.url_NOTAS)
   }
