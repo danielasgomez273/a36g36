@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormularioPagoService } from 'src/app/servicios/Formulario-Pago.service';
+import { FormPagoService } from 'src/app/servicios/form-pago.service';
+
 
 @Component({
   selector: 'app-formulario-pago',
@@ -9,49 +10,52 @@ import { FormularioPagoService } from 'src/app/servicios/Formulario-Pago.service
   styleUrls: ['./formulario-pago.component.css']
 })
 export class FormularioPagoComponent implements OnInit {
-  formPOSTFormularioPago!: FormGroup;
+  formPOSTPago: FormGroup | any;
 
+  ////////////////////////////////////////////////////////////
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private serv_registro: FormularioPagoService
+    private serv_pago:FormPagoService
   ) {}
 
   ngOnInit(): void {
-    this.formPOSTFormularioPago = this.formBuilder.group({
-      id: [],
+    this.formPOSTPago = this.formBuilder.group({
+  
       email: ['', [Validators.required, Validators.email]],
       pass: ['', [Validators.required, Validators.minLength(9)]],
       username: ['', [Validators.required]]
     });
   }
 
+  //////////////////////////////////////////////////////////
+
   get email_GET() {
-    return this.formPOSTFormularioPago.get('email');
+    return this.formPOSTPago.get('email');
   }
   
   get pass_GET() {
-    return this.formPOSTFormularioPago.get('pass');
+    return this.formPOSTPago.get('pass');
   }
   
   get username_GET() {
-    return this.formPOSTFormularioPago.get('username');
+    return this.formPOSTPago.get('username');
   }
 
-  enviarDatosRegistroInicial() {
-    if (this.formPOSTFormularioPago.valid) {
-      this.serv_registro
+  enviarDatosFormPago() {
+    if (this.formPOSTPago.valid) {
+      this.serv_pago
         .POSTFormularioPago('http://127.0.0.1:8000/api/auth/signup/', {
-          email: this.formPOSTFormularioPago.value.email,
-          password: this.formPOSTFormularioPago.value.pass,
-          username: this.formPOSTFormularioPago.value.username,
+          email: this.formPOSTPago.value.email,
+          password: this.formPOSTPago.value.pass,
+          username: this.formPOSTPago.value.username,
         })
         .subscribe((respuesta: any) => {});
 
-      this.router.navigateByUrl('/auth/registro2usuario');
-      this.formPOSTFormularioPago.reset();
+      this.router.navigateByUrl('/auth/dash_user');
+      this.formPOSTPago.reset();
     } else {
-      this.formPOSTFormularioPago.markAllAsTouched();
+      this.formPOSTPago.markAllAsTouched();
       alert('No se ingresaron correctamente los datos');
     }
   }
