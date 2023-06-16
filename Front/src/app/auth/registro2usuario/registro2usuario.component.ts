@@ -85,6 +85,7 @@ export class Registro2usuarioComponent implements OnInit{
           .subscribe((respuesta: any) => {
           }
         )
+
         // CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
         this.router.navigateByUrl("/auth/registro3usuario")
         this.formPOSTRegistro2Usuarios.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
