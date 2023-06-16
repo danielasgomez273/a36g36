@@ -120,6 +120,7 @@ export class Registro2usuarioComponent implements OnInit{
         //Envia datos de creacion FICHA MEDICA
         //Envia datos de creacion FICHA MEDICA
         //Envia datos de creacion FICHA MEDICA
+        /*
         this.serv_Registro2Datos.POSTRegistroUsuario('http://localhost:8000/api/paciente/ficha_medica/',{
             // esta funcion deberia llamarse post a secas, porque es polimorfica a cualquier post, osea no ahcce nada especial referido a que sea un post de registros de ususarios...
             tipo_diabetes:this.formPOSTRegistro2Usuarios.value.tipo_diabetes,
@@ -134,6 +135,7 @@ export class Registro2usuarioComponent implements OnInit{
 
           }
         )       
+        */
          //Envia datos de creacion FICHA MEDICA
         //Envia datos de creacion FICHA MEDICA
         //Envia datos de creacion FICHA MEDICA
