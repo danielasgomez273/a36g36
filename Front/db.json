@@ -47,23 +47,6 @@
       "porcentaje": 8
     }
   ],
-  "serv_disponibles_admins": [
-    {
-      "tipo": "Análisis Clínicos",
-      "descripcion": "Glucosa en ayunas, PTOG, HbA1c, Perfil lipidico, Funcion renal",
-      "precio": 4000
-    },
-    {
-      "tipo": "Consulta Nutrición",
-      "descripcion": "Consulta con profesional en Nutricion",
-      "precio": 4000
-    },
-    {
-      "tipo": "Consulta Diabetologia",
-      "descripcion": "Consulta con profesional en Diabetologia",
-      "precio": 4000
-    }
-  ],
   "ingresos_admins": [
     {
       "tipo": "Ingresos Diarios",
@@ -80,35 +63,6 @@
     {
       "tipo": "Ingresos Mensuales",
       "monto": 1500000
-    }
-  ],
-  "notas_usuarios": [
-    {
-      "id": 1,
-      "fecha_registro": "2023-05-01T02:40:00-03:00",
-      "valor_glucemia": "1.25",
-      "comentario_registro": "a la 1 am comi un fantoche",
-      "paciente": 1
-    },
-    {
-      "id": 2,
-      "fecha_registro": "2023-05-19T04:38:00-03:00",
-      "valor_glucemia": "1.00",
-      "comentario_registro": "hace 3 horas comi un fantoche",
-      "paciente": 1
-    },
-    {
-      "id": 3,
-      "paciente": 1,
-      "fecha_registro": "2023-06-07T21:02",
-      "valor_glucemia": 1.2,
-      "comentario_registro": "desayune te con leche y medialunas"
-    },
-    {
-      "fecha_registro": "2023-06-09T23:32",
-      "valor_glucemia": 1.4,
-      "comentario_registro": "merende te con leche y medialunas",
-      "id": 4
     }
   ],
   "SERVICIOS": [
@@ -158,157 +112,70 @@
       "sede_servicio": "Catamarca"
     }
   ],
-  "USUARIOS": [
+  "hola": [
+    "////////////// DATOS DE FORMULARIO DE REGISTRO /////////////////"
+  ],
+  "REGISTRO_INICIAL": [
     {
-      "id": [
-        ""
-      ],
-      "email": "",
-      "pass": "",
-      "username": ""
-    },
-    {
-      "email": "asadsad@asdasd",
-      "pass": "asdasdadasd",
-      "username": "asdadasd12",
-      "id": "PeztXp8"
-    },
-    {
-      "email": "asdasda@sdasd",
-      "pass": "asdadsasdasdasd",
-      "username": "asdasdasdasd",
-      "id": "z1Fqsyw"
-    },
-    {
-      "email": "asdad@asd12",
-      "pass": "asdasdasd",
-      "username": "asdadasdadsasd",
-      "id": "sfMet9U"
-    },
-    {
-      "email": "asd@asd",
-      "pass": "asdkhasd",
-      "username": "ashdasdhvasd",
-      "id": "jE8HAbC"
-    },
-    {
-      "email": "assss@asdsd",
-      "pass": "adsssda",
-      "username": "asdasdasd",
-      "id": "p2ODBJC"
-    },
-    {
-      "email": "asd@asd",
-      "pass": "asdasdouabsd",
-      "username": "asudbasoudabs",
-      "id": "Ws0PUD1"
+      "email": "vege@gmail.com",
+      "password": "123123123",
+      "username": "vege77",
+      "id": 1
     }
   ],
-  "USUARIOSDATOSPERSONALES": [
+  "REGISTRO_DATOS_PERSONALES": [
     {
-      "name": "asdadasdas",
-      "last_name": "ASDAS",
-      "birthday": "2023-06-23",
-      "sex": "masculino",
-      "phone": 12212312312,
-      "tipo_diabetes": "tipo 2",
-      "terapia_insulina": "terapia 1",
-      "terapia_pastillas": "terapia 2",
-      "tipo_glucometro": "glucometro 2",
-      "tipo_sensor": "Sensor 2",
-      "comorbilidades": "ASDASD",
-      "objetivo_glucosa": "ASDASDASD",
+      "nombre_paciente": "isaias",
+      "apellido_paciente": "gatti",
+      "telefono_paciente": 123123123,
+      "fecha_nacimiento": "2022-07-05",
+      "sexo_paciente": "masculino",
       "id": 1
-    },
-    {
-      "name": "ASDAS",
-      "last_name": "asd",
-      "birthday": "2023-06-16",
-      "sex": "femenino",
-      "phone": 22223123123,
-      "tipo_diabetes": "tipo 1",
-      "terapia_insulina": "terapia 3",
-      "terapia_pastillas": "terapia 2",
-      "tipo_glucometro": "otro / no uso",
-      "tipo_sensor": "Sensor 2",
-      "comorbilidades": "alergia",
-      "objetivo_glucosa": "12",
-      "id": 2
-    },
-    {
-      "name": "dfdsfsd",
-      "last_name": "dsfsdfsd",
-      "birthday": "2023-06-30",
-      "sex": "masculino",
-      "phone": 42342342,
-      "tipo_diabetes": "tipo 2",
-      "terapia_insulina": "terapia 1",
-      "terapia_pastillas": "No tomo",
-      "tipo_glucometro": "glucometro 1",
-      "tipo_sensor": "Sensor 2",
-      "comorbilidades": "rewrwrewrw",
-      "objetivo_glucosa": "ewrewrwerwe",
-      "id": 3
-    },
-    {
-      "name": "sdsdsdsds",
-      "last_name": "sdasdasdsad",
-      "birthday": "2023-06-29",
-      "sex": "masculino",
-      "phone": 23123123123,
-      "tipo_diabetes": "tipo 2",
-      "terapia_insulina": "terapia 1",
-      "terapia_pastillas": "terapia 2",
-      "tipo_glucometro": "glucometro 1",
-      "tipo_sensor": "Sensor 2",
-      "comorbilidades": "232131231",
-      "objetivo_glucosa": "312213123",
-      "id": 4
-    },
-    {
-      "name": "sdasdasd",
-      "last_name": "sdasdasdasdas",
-      "birthday": "2023-06-22",
-      "sex": "masculino",
-      "phone": 243434324234,
-      "tipo_diabetes": "tipo 2",
-      "terapia_insulina": "terapia 2",
-      "terapia_pastillas": "terapia 1",
-      "tipo_glucometro": "glucometro 2",
-      "tipo_sensor": "Sensor 2",
-      "comorbilidades": "343243243242",
-      "objetivo_glucosa": "432423432432",
-      "id": 5
-    },
-    {
-      "name": "sdasdas",
-      "last_name": "dasdasdasd",
-      "birthday": "2023-06-06",
-      "sex": "masculino",
-      "phone": 43432432432,
-      "tipo_diabetes": "Gestaciones",
-      "terapia_insulina": "terapia 1",
-      "terapia_pastillas": "No tomo",
-      "tipo_glucometro": "glucometro 1",
-      "tipo_sensor": "otro / no uso",
-      "comorbilidades": "sdsadasdsad",
-      "objetivo_glucosa": "sdasdasdassad",
-      "id": 6
-    },
-    {
-      "name": "dsadsadas",
-      "last_name": "dsadsadasd",
-      "birthday": "2023-06-01",
-      "sex": "femenino",
-      "phone": 233432423,
-      "tipo_diabetes": "tipo 2",
-      "terapia_insulina": "terapia 2",
-      "terapia_pastillas": "terapia 2",
-      "tipo_glucometro": "glucometro 2",
-      "tipo_sensor": "Sensor 2",
-      "comorbilidades": "3423432",
-      "objetivo_glucosa": "34234234",
-      "id": 7
     }
-  ]
+  ],
+  "REGISTRO_DATOS_FICHA_MEDICA": [
+    {
+      "tipo_diabetes": "tipo 1",
+      "terapia_insulina": "terapia 2",
+      "terapia_pastillas": "terapia 2",
+      "tipo_glucometro": "glucometro 2",
+      "tipo_sensor": "otro / no uso",
+      "objetivo_glucosa": "normal",
+      "comorbilidades": "alergia a la leche ",
+      "id": 1
+    }
+  ],
+  "hola2": [
+    "////////////// DATOS DEL DASHBORAD DEL USUARIO /////////////////"
+  ],
+  "notas_usuarios": [
+    {
+      "id": 1,
+      "fecha_registro": "2023-05-01T02:40:00-03:00",
+      "valor_glucemia": "1.25",
+      "comentario_registro": "a la 1 am comi un fantoche",
+      "paciente": 1
+    },
+    {
+      "id": 2,
+      "fecha_registro": "2023-05-19T04:38:00-03:00",
+      "valor_glucemia": "1.00",
+      "comentario_registro": "hace 3 horas comi un fantoche",
+      "paciente": 1
+    },
+    {
+      "id": 3,
+      "paciente": 1,
+      "fecha_registro": "2023-06-07T21:02",
+      "valor_glucemia": 1.2,
+      "comentario_registro": "desayune te con leche y medialunas"
+    },
+    {
+      "fecha_registro": "2023-06-09T23:32",
+      "valor_glucemia": 1.4,
+      "comentario_registro": "merende te con leche y medialunas",
+      "id": 4
+    }
+  ],
+  "datos_pago": []
 }

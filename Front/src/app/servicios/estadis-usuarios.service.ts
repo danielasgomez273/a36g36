@@ -30,7 +30,9 @@ export class EstadisUsuariosService {
 
 
   //// MUESTRA LAS NOTAS  
-  url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
+  //url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
+  url_NOTAS:string='http://localhost:3000/notas_usuarios';
+
   muestraNotasUsuario( ){
     return this.http.get(this.url_NOTAS, {withCredentials: true})
   }
@@ -38,7 +40,8 @@ export class EstadisUsuariosService {
 
   ///////////////////////////////////////////////////////////
   //// MUESTRA LOS SERVICIOS DISPONIBLES A LOS USUARIOS ////
-  url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
+  //url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
+  url_SERVICIOS:string='http://localhost:3000/SERVICIOS';
   muestraServicioAUsuario( ){
     return this.http.get<NotasGlucemia[]>(this.url_SERVICIOS, {withCredentials: true})
   }

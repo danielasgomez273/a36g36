@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     );
 
 
-    this.http.get('http://localhost:8000/api/verPerfil/', {withCredentials: true}).subscribe(
+    this.http.get('http://localhost:4200/', {withCredentials: true}).subscribe(
       (res: any) => {
         this.message = `Bienvenido`;
         Emitters.authEmitter.emit(true);

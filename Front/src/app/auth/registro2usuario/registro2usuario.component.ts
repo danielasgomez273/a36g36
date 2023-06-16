@@ -28,20 +28,9 @@ export class Registro2usuarioComponent implements OnInit{
       birthday:["",[Validators.required]],
       sex:["",[Validators.required]],
       phone:["",[Validators.required]],
-      
-      // DATOS MEDICOS
-      id_fichamedica:[],
-      tipo_diabetes:["",[Validators.required]],
-      terapia_insulina:["",[Validators.required]],
-      terapia_pastillas:["",[Validators.required]],
-      tipo_glucometro:["",[Validators.required]],
-      tipo_sensor:["",[Validators.required]],
-      comorbilidades:["",[Validators.required]],
-      objetivo_glucosa:["",[Validators.required]],
+
     
     });
-
-
   }
 
 /////////////////////////////////////////////////////
@@ -68,27 +57,7 @@ export class Registro2usuarioComponent implements OnInit{
     get phone_GET(){
       return this.formPOSTRegistro2Usuarios.controls['phone'];
     }
-    get tipo_diabetes_GET(){
-      return this.formPOSTRegistro2Usuarios.controls['tipo_diabetes'];
-    }
-    get terapia_insulina_GET(){
-      return this.formPOSTRegistro2Usuarios.controls['terapia_insulina'];
-    }
-    get terapia_pastillas_GET(){
-    return this.formPOSTRegistro2Usuarios.controls['terapia_pastillas'];
-    }
-    get tipo_glucometro_GET(){
-    return this.formPOSTRegistro2Usuarios.controls['tipo_glucometro'];
-    }
-    get tipo_sensor_GET(){
-    return this.formPOSTRegistro2Usuarios.controls['tipo_sensor'];
-    }
-    get comorbilidades_GET(){
-    return this.formPOSTRegistro2Usuarios.controls['comorbilidades'];
-    }
-    get objetivo_glucosa_GET(){
-      return this.formPOSTRegistro2Usuarios.controls['objetivo_glucosa'];
-    }
+    
   
 
   /////////////////////////////////
@@ -100,7 +69,10 @@ export class Registro2usuarioComponent implements OnInit{
     // si el formulario es valido
     if(this.formPOSTRegistro2Usuarios.valid){
         //Envia datos de creacion PACIENTE
-        this.serv_Registro2Datos.POSTRegistroUsuario('http://localhost:8000/api/paciente/',
+
+
+        //this.serv_Registro2Datos.POST('http://localhost:8000/api/paciente/',
+        this.serv_Registro2Datos.POST('http://localhost:3000/REGISTRO_DATOS_PERSONALES',
           {
           // INFORMACION QUE VAMOS A PASAR
             nombre_paciente:this.formPOSTRegistro2Usuarios.value.name,
@@ -111,37 +83,11 @@ export class Registro2usuarioComponent implements OnInit{
           }
           )
           .subscribe((respuesta: any) => {
-
           }
         )
 
-
-
-        //Envia datos de creacion FICHA MEDICA
-        //Envia datos de creacion FICHA MEDICA
-        //Envia datos de creacion FICHA MEDICA
-        this.serv_Registro2Datos.POSTRegistroUsuario('http://localhost:8000/api/paciente/ficha_medica/',{
-            // esta funcion deberia llamarse post a secas, porque es polimorfica a cualquier post, osea no ahcce nada especial referido a que sea un post de registros de ususarios...
-            tipo_diabetes:this.formPOSTRegistro2Usuarios.value.tipo_diabetes,
-            terapia_insulina:this.formPOSTRegistro2Usuarios.value.terapia_insulina,
-            terapia_pastillas:this.formPOSTRegistro2Usuarios.value.terapia_pastillas,
-            tipo_glucometro:this.formPOSTRegistro2Usuarios.value.tipo_glucometro,
-            tipo_sensor:this.formPOSTRegistro2Usuarios.value.tipo_sensor,
-            objetivo_glucosa:this.formPOSTRegistro2Usuarios.value.objetivo_glucosa,
-            comorbilidades:this.formPOSTRegistro2Usuarios.value.comorbilidades,
-          })
-          .subscribe((respuesta: any) => {
-
-          }
-        )       
-         //Envia datos de creacion FICHA MEDICA
-        //Envia datos de creacion FICHA MEDICA
-        //Envia datos de creacion FICHA MEDICA
-
-
-
         // CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
-        this.router.navigateByUrl("/auth/dash_user")
+        this.router.navigateByUrl("/auth/registro3usuario")
         this.formPOSTRegistro2Usuarios.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
 
         } 

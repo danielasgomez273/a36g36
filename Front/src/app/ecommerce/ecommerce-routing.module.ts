@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'servicios', component: ServiciosCompComponent },
-  { path: 'formulario-pago', component: FormularioPagoComponent },
+  { path: 'formulario_pago', component: FormularioPagoComponent },
   { path: '**', redirectTo: './auth/dashuser' }
 ];
 

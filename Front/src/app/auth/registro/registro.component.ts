@@ -55,7 +55,8 @@ export class RegistroComponent implements OnInit{
       if(this.formPOSTRegistroUsuario.valid){
 
             // Envia los datos
-            this.serv_registro.POSTRegistroUsuario( 'http://127.0.0.1:8000/api/auth/signup/',
+            //this.serv_registro.POST( 'http://localhost:3000/REGISTRO_INICIAL',
+            this.serv_registro.POST( 'http://127.0.0.1:8000/api/auth/signup/',
             {
               // INFORMACION QUE VAMOS A PASAR  
               email:this.formPOSTRegistroUsuario.value.email,
@@ -73,7 +74,7 @@ export class RegistroComponent implements OnInit{
 
                 
             // CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
-            this.router.navigateByUrl("/auth/registro2usuario")
+            this.router.navigateByUrl("/auth/login")
             this.formPOSTRegistroUsuario.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
 
       } 

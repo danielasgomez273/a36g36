@@ -17,7 +17,7 @@ export class AuthService {
 ///////////////////   REGISTRO   /////////////////////////////
 //////////////////////////////////////////////////////////////
 
-  POSTRegistroUsuario(urlPOST:string, body: any){
+  POST(urlPOST:string, body: any){
     return this.http.post(urlPOST,body, {withCredentials: true})
 }
 
