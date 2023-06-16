@@ -22,7 +22,7 @@ export class EstadisUsuariosService {
 
   //// AGREGA NOTAS
     nuevaNota(url:string, datos: any){
-      return this.http.post(url,datos);
+      return this.http.post(url,datos, {withCredentials: true});
     }
 
 
@@ -32,15 +32,15 @@ export class EstadisUsuariosService {
   //// MUESTRA LAS NOTAS  
   url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
   muestraNotasUsuario( ){
-    return this.http.get(this.url_NOTAS)
+    return this.http.get(this.url_NOTAS, {withCredentials: true})
   }
-
+ 
 
   ///////////////////////////////////////////////////////////
   //// MUESTRA LOS SERVICIOS DISPONIBLES A LOS USUARIOS ////
-  url_SERVICIOS:string='http://localhost:3000/SERVICIOS';
+  url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
   muestraServicioAUsuario( ){
-    return this.http.get<NotasGlucemia[]>(this.url_SERVICIOS)
+    return this.http.get<NotasGlucemia[]>(this.url_SERVICIOS, {withCredentials: true})
   }
 
 
