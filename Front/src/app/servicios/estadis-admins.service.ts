@@ -32,8 +32,12 @@ export class EstadisAdminsService {
 
   /////////////////////////////////////
   muestraServicios( ){
-// COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
+<<<<<<< HEAD
     return this.http.get(this.url+"api/admin/servicios/", {withCredentials: true})
+=======
+// COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
+return this.http.get(this.url+"api/admin/servicios/", {withCredentials: true})
+>>>>>>> d3173a4957530aed588b65dc37bc924f2e9266d2
   }
 
 
@@ -48,11 +52,7 @@ export class EstadisAdminsService {
   /////////////////////////////////////
 
   POSTRegistroServicio(urlPOST:string, body: any ){
-    // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
-    // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS  
      return this.http.post(urlPOST,body, {withCredentials: true})
-
-
   }
 
 

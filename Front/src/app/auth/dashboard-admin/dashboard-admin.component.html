@@ -56,13 +56,9 @@
               <h5 class="text-center">Nombre Servicio</h5>
               <p class="text-center">{{servicio.nombre_servicio}}</p>
             </div>
-            <div class="col-lg-2 bg-white  border border-secondary-subtle m-2 p-4">
+            <div class="col-lg-4 bg-white  border border-secondary-subtle m-2 p-4">
               <h5 class="text-center">Monto</h5>
               <p  class="text-center">{{servicio.precio_servicio}}</p>
-            </div>
-            <div class="col-lg-2 bg-white   border border-secondary-subtle m-2 p-4">
-              <h5 class="text-center">ID</h5>
-              <p class="text-center">{{servicio.id}}</p>
             </div>
 
             <div class="col-lg-12 bg-white  border border-secondary-subtle m-2 p-4">
@@ -70,15 +66,7 @@
               <p class="text-center">{{servicio.descripcion_servicio}}</p>
             </div>
 
-            <div class="col-lg-2 bg-white  border border-secondary-subtle m-2 p-4">
-              <h5 class="text-center">Sede</h5>
-              <p class="text-center">{{servicio.sede_servicio}}</p>
-            </div>
-            <div class="col-lg-2 bg-white  border border-secondary-subtle m-2 p-4">
-              <h5 class="text-center">Prestador</h5>
-              <p class="text-center">{{servicio.prestador}}</p>
-            </div>
-            <div class="col-lg-6 bg-white  border border-secondary-subtle m-2 p-4">
+            <div class="col-lg-12 bg-white  border border-secondary-subtle m-2 p-4">
               <h5 class="text-center">Comentarios</h5>
               <p class="text-center">{{servicio.comentarios_servicio}}</p>
             </div>
@@ -121,25 +109,8 @@
 
           </div>
 
-          <div class="col-lg-3 bg-white  border border-secondary-subtle  m-2 p-4">
-            <h5 class="text-center">ID</h5>
-            <input formControlName="id" class="controls text-dark" type="number" name="nombres" id="nombres">      
-              
-                      <!-- verificacion -->
-            <div *ngIf="id_GET.invalid && (id_GET.dirty || id_GET.touched)"
-            class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
-        
-                <div *ngIf="id_GET.errors?.['required']">
-                  Complete este campo.
-                </div>
 
-        </div> 
-
-
-
-          </div>
-
-          <div class="col-lg-3 bg-white  border border-secondary-subtle  m-2 p-4">
+          <div class="col-lg-4 bg-white  border border-secondary-subtle  m-2 p-4">
             <h5 class="text-center">Precio</h5>
             <input formControlName="precio_servicio" class="controls text-dark" type="number" name="nombres" id="nombres">
             
@@ -173,40 +144,7 @@
 
           </div>
 
-          <div class="col-lg-2 bg-white  border border-secondary-subtle  m-2 p-4">
-            <h5 class="text-center">Sede</h5>
-            <input formControlName="sede_servicio" class="controls text-dark" type="text" name="nombres" id="nombres">
-            
-                    <!-- verificacion -->
-                    <div *ngIf="sede_servicio_GET.invalid && (sede_servicio_GET.dirty || sede_servicio_GET.touched)"
-                    class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
-                
-                        <div *ngIf="sede_servicio_GET.errors?.['required']">
-                          Complete este campo.
-                        </div>
-                       
-                </div> 
-
-
-
-          </div>
-
-          <div class="col-lg-2 bg-white  border border-secondary-subtle  m-2 p-4">
-            <h5 class="text-center">Prestador</h5>
-            <input formControlName="prestador" class="controls text-dark" type="number" name="nombres" id="nombres"> 
-            
-                    <!-- verificacion -->
-                    <div *ngIf="prestador_GET.invalid && (prestador_GET.dirty || prestador_GET.touched)"
-                    class="text-danger msj-verificacion col-lg-12 col-md-12 align-self-start">
-                
-                        <div *ngIf="prestador_GET.errors?.['required']">
-                          Complete este campo.
-                        </div>
-                </div> 
-
-          </div>
-
-          <div class="col-lg-6 bg-white  border border-secondary-subtle  m-2 p-4">
+          <div class="col-lg-12 bg-white  border border-secondary-subtle  m-2 p-4">
             <h5 class="text-center">Comentarios</h5>
             <input formControlName="comentarios_servicio" class="controls text-dark" type="text" name="nombres" id="nombres">
             

@@ -71,37 +71,25 @@ export class DashboardAdminComponent implements OnInit{
 // OBJETO FORMBUILDER
   this.formPOSTRegistroServicio= this.formBuilder.group({
 
-    id:["",Validators.required],
     nombre_servicio:["",Validators.required],
     descripcion_servicio:["",Validators.required],
-    sede_servicio:["",Validators.required],
     precio_servicio:["",Validators.required],
     comentarios_servicio:["",Validators.required],
-    prestador:["",Validators.required],
-
   })
   }
     ///// METODOS GET /////
-    get id_GET(){
-      return this.formPOSTRegistroServicio.controls['id'];
-    }
     get nombre_servicio_GET(){
       return this.formPOSTRegistroServicio.controls['nombre_servicio'];
     }
     get descripcion_servicio_GET(){
       return this.formPOSTRegistroServicio.controls['descripcion_servicio'];
     }
-    get sede_servicio_GET(){
-      return this.formPOSTRegistroServicio.controls['sede_servicio'];
-    }
+
     get precio_servicio_GET(){
       return this.formPOSTRegistroServicio.controls['precio_servicio'];
     }
     get comentarios_servicio_GET(){
       return this.formPOSTRegistroServicio.controls['comentarios_servicio'];
-    }
-    get prestador_GET(){
-      return this.formPOSTRegistroServicio.controls['prestador'];
     }
     
 
@@ -116,6 +104,7 @@ export class DashboardAdminComponent implements OnInit{
 
       // Envia los datos al post
           this.estadistica.POSTRegistroServicio('http://localhost:8000/api/admin/servicios/',
+
             {
               /*
               EL ID ES AUTOGENERADO POR LA BD, AL REGISTRAR UN SERVICIO NO HACE FALTA MANDARLO, DEBEMOS ELIMINARLO DEL FORM
