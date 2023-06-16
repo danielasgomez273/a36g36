@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit{
 
 
 
-  /////////////////////// METODO DE SUBMIT DE LOGEO  ////////////////////////////
+  ///// METODO DE SUBMIT DE LOGEO FUNCIONAL SIN  CONSUMO DE SERVICIO  /////
     submit():void{
       // IF para comprobar si el formulario es valido
           if(this.profileForm.valid){
@@ -51,9 +51,10 @@ export class LoginComponent implements OnInit{
                   .subscribe((data) =>{
 
                   this.router.navigateByUrl("/")
-                  console.log("Los datos de usuario son:" + data);
+                  console.log("Los datos de logueo son:" + data);
                 });                
                 
+            this.router.navigateByUrl("/auth/registro2usuario")
                 
                 this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
 
@@ -66,6 +67,42 @@ export class LoginComponent implements OnInit{
           
           }
       }
+
+
+  ///// METODO DE SUBMIT DE LOGEO CON CONSUMO DE SERVICIO  /////
+
+  submit2():void{
+    // IF para comprobar si el formulario es valido
+        if(this.profileForm.valid){
+
+                this.serv_login.POST('http://localhost:8000/api/auth/login/',{
+                  password:this.profileForm.value.pass,
+                  username:this.profileForm.value.username,
+                },)
+                .subscribe((data) =>{
+                  console.log("Los datos de logueo son:" + data);
+                  
+                });                
+                
+                
+                
+              this.router.navigateByUrl("/auth/registro2usuario")
+              this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
+
+              } 
+        else{
+
+          // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
+          this.profileForm.markAllAsTouched();
+          alert("No se ingresaron correctamente los datos o no se reconoce el usuario")
+        
+        }
+    }
+
+
+
+
+
 
   ///// METODOS GET /////
     get email_GET(){

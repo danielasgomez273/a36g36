@@ -69,6 +69,8 @@ export class DashboardUsuarioComponent implements OnInit {
     }
   }
 
+
+  ///////// CARRITO
   agregarNombre(value: string): void {
     this.Snombre = value;
   }

@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { Registro2usuarioComponent } from './registro2usuario/registro2usuario.component';
+import { Registro3usuarioComponent } from './registro3usuario/registro3usuario.component';
 
 
 
@@ -19,7 +20,8 @@ import { Registro2usuarioComponent } from './registro2usuario/registro2usuario.c
     RegistroComponent,
     DashboardUsuarioComponent,
     DashboardAdminComponent,
-    Registro2usuarioComponent
+    Registro2usuarioComponent,
+    Registro3usuarioComponent
   ],
   imports: [
     CommonModule,
