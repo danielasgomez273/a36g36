@@ -99,31 +99,46 @@ export class Registro2usuarioComponent implements OnInit{
   enviarDatosRegistroDOS(){
     // si el formulario es valido
     if(this.formPOSTRegistro2Usuarios.valid){
+        //Envia datos de creacion PACIENTE
+        this.serv_Registro2Datos.POSTRegistroUsuario('http://localhost:8000/api/paciente/',
+          {
+          // INFORMACION QUE VAMOS A PASAR
+            nombre_paciente:this.formPOSTRegistro2Usuarios.value.name,
+            apellido_paciente:this.formPOSTRegistro2Usuarios.value.last_name,
+            telefono_paciente:this.formPOSTRegistro2Usuarios.value.phone,
+            fecha_nacimiento:this.formPOSTRegistro2Usuarios.value.birthday,
+            sexo_paciente:this.formPOSTRegistro2Usuarios.value.sex,
+          }
+          )
+          .subscribe((respuesta: any) => {
 
-        // ENVIA LOS DATOS
-        this.serv_Registro2Datos.POSTRegistroUsuario('http://localhost:3000/USUARIOSDATOSPERSONALES',
-        {
-        // INFORMACION QUE VAMOS A PASAR
-          name:this.formPOSTRegistro2Usuarios.value.name,
-          last_name:this.formPOSTRegistro2Usuarios.value.last_name,
-          birthday:this.formPOSTRegistro2Usuarios.value.birthday,
-          sex:this.formPOSTRegistro2Usuarios.value.sex,
-          phone:this.formPOSTRegistro2Usuarios.value.phone,
-          tipo_diabetes:this.formPOSTRegistro2Usuarios.value.tipo_diabetes,
-          terapia_insulina:this.formPOSTRegistro2Usuarios.value.terapia_insulina,
-          terapia_pastillas:this.formPOSTRegistro2Usuarios.value.terapia_pastillas,
-          tipo_glucometro:this.formPOSTRegistro2Usuarios.value.tipo_glucometro,
-          tipo_sensor:this.formPOSTRegistro2Usuarios.value.tipo_sensor,
-          comorbilidades:this.formPOSTRegistro2Usuarios.value.comorbilidades,
-          objetivo_glucosa:this.formPOSTRegistro2Usuarios.value.objetivo_glucosa,
-
-          // VER EL TEMA DE LOS IDS
-
-        }
+          }
         )
-        .subscribe((respuesta: any) => {
 
-        })
+
+
+        //Envia datos de creacion FICHA MEDICA
+        //Envia datos de creacion FICHA MEDICA
+        //Envia datos de creacion FICHA MEDICA
+        this.serv_Registro2Datos.POSTRegistroUsuario('http://localhost:8000/api/paciente/ficha_medica/',{
+            // esta funcion deberia llamarse post a secas, porque es polimorfica a cualquier post, osea no ahcce nada especial referido a que sea un post de registros de ususarios...
+            tipo_diabetes:this.formPOSTRegistro2Usuarios.value.tipo_diabetes,
+            terapia_insulina:this.formPOSTRegistro2Usuarios.value.terapia_insulina,
+            terapia_pastillas:this.formPOSTRegistro2Usuarios.value.terapia_pastillas,
+            tipo_glucometro:this.formPOSTRegistro2Usuarios.value.tipo_glucometro,
+            tipo_sensor:this.formPOSTRegistro2Usuarios.value.tipo_sensor,
+            objetivo_glucosa:this.formPOSTRegistro2Usuarios.value.objetivo_glucosa,
+            comorbilidades:this.formPOSTRegistro2Usuarios.value.comorbilidades,
+          })
+          .subscribe((respuesta: any) => {
+
+          }
+        )       
+         //Envia datos de creacion FICHA MEDICA
+        //Envia datos de creacion FICHA MEDICA
+        //Envia datos de creacion FICHA MEDICA
+
+
 
         // CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
         this.router.navigateByUrl("/auth/dash_user")
