@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { EstadisUsuariosService } from 'src/app/servicios/estadis-usuarios.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-usuario',
@@ -21,7 +22,8 @@ export class DashboardUsuarioComponent implements OnInit {
   constructor(
     private paciente: EstadisUsuariosService,
     private usuario: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -101,5 +103,8 @@ export class DashboardUsuarioComponent implements OnInit {
     }
 
     return total;
+  }
+  comprar() {
+    this.router.navigateByUrl('/formulario-pago');
   }
 }

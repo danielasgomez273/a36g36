@@ -9,7 +9,7 @@ import { FormularioPagoService } from 'src/app/servicios/Formulario-Pago.service
   styleUrls: ['./formulario-pago.component.css']
 })
 export class FormularioPagoComponent implements OnInit {
-  formPOSTFormularioPago: FormGroup | any;
+  formPOSTFormularioPago!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,15 +27,15 @@ export class FormularioPagoComponent implements OnInit {
   }
 
   get email_GET() {
-    return this.formPOSTFormularioPago.controls['email'];
+    return this.formPOSTFormularioPago.get('email');
   }
   
   get pass_GET() {
-    return this.formPOSTFormularioPago.controls['pass'];
+    return this.formPOSTFormularioPago.get('pass');
   }
   
   get username_GET() {
-    return this.formPOSTFormularioPago.controls['username'];
+    return this.formPOSTFormularioPago.get('username');
   }
 
   enviarDatosRegistroInicial() {
