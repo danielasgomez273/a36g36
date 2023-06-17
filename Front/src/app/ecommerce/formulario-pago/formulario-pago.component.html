@@ -4,8 +4,16 @@
   <section class="container cont-form text-bg-light text-center my-4 borde shadow-lg form">
     <h1 class="margin titulo">DATOS DE PAGO</h1>
     <h5 class="margin">Ingresa los datos de tu tarjeta</h5>
-
-    <form [formGroup]="formPOSTPago" (submit)="enviarDatosFormPago()">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-12">
+        <div class="row justify-content-between">
+          <div class="col-auto">
+            <img src="assets/metodos-pago.webp" alt="tarjetas" class="tarjeta-img">
+          </div>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="formPOSTPago" (ngSubmit)="enviarDatosFormPago()">
 
       <div class="row g-3 align-items-center margin campo-input borde campo-email borde_validacion">
         <div class="col-lg-3 col-md-12 align-self-start">
@@ -48,10 +56,13 @@
             <div *ngIf="vencimiento_GET?.errors?.['required']">
               Complete este campo.
             </div>
+            <div *ngIf="vencimiento_GET?.errors?.['pattern']">
+              Ingrese una fecha de vencimiento válida.
+            </div>
           </div>
         </div>
       </div>
-     
+
       <div class="row g-3 align-items-center margin campo-input borde campo-email borde_validacion">
         <div class="col-lg-3 col-md-12 align-self-start">
           <label for="codigoSeguridad" class="col-form-label">Codigo de Seguridad</label>
@@ -69,7 +80,7 @@
         </div>
       </div>
 
-         <div class="row g-3 align-items-center margin campo-input borde campo-email borde_validacion">
+      <div class="row g-3 align-items-center margin campo-input borde campo-email borde_validacion">
         <div class="col-lg-3 col-md-12 align-self-start">
           <label for="dniTitular" class="col-form-label">DNI del titular</label>
         </div>
@@ -86,7 +97,7 @@
         </div>
       </div>
       <div class="row justify-content-evenly mx-4">
-        <button class="btn btn-primary mx-4 py-2 px-4">CONFIRMAR COMPRA</button>
+        <button type="submit" class="btn btn-primary mx-4 py-2 px-4" [disabled]="!formPOSTPago.valid">CONFIRMAR COMPRA</button>
       </div>
 
     </form>

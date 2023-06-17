@@ -49,24 +49,25 @@ export class FormularioPagoComponent implements OnInit {
 
   enviarDatosFormPago() {
     if (this.formPOSTPago.valid) {
-      this.serv_pago
-        .POSTFormularioPago('http://127.0.0.1:8000/api/auth/signup/', {
-          tarjeta: this.formPOSTPago.value.tarjeta,
-          titular: this.formPOSTPago.value.titular,
-          vencimiento: this.formPOSTPago.value.vencimiento,
-          codigoSeguridad: this.formPOSTPago.value.codigoSeguridad,
-          dniTitular: this.formPOSTPago.value.dniTitular,
-        })
-        .subscribe((respuesta: any) => {});
+      alert('Felicitaciones. Tu compra se realizó con éxito.');
 
-      // Redireccionar al siguiente componente después de la compra
-      this.formPOSTPago.markAllAsTouched();
-      alert('Felicitaciones! Tu compra ha sido completada');
-    } else {
-      this.formPOSTPago.markAllAsTouched();
-      alert('No se ingresaron correctamente los datos');
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay';
+
+      const mensaje = document.createElement('div');
+      mensaje.className = 'mensaje-exito';
+      mensaje.textContent = 'TU COMPRA SE REALIZÓ CON ÉXITO';
+
+      overlay.appendChild(mensaje);
+      document.body.appendChild(overlay);
+
+      setTimeout(() => {
+        document.body.removeChild(overlay);
+        this.router.navigateByUrl('/auth/dash_user');
+      }, 3000);
     }
   }
+
   validarNumeros(event: any) {
     const pattern = /^[0-9]*$/;
     const inputChar = String.fromCharCode(event.charCode);
@@ -75,4 +76,3 @@ export class FormularioPagoComponent implements OnInit {
     }
   }
 }
-
