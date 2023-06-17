@@ -36,41 +36,56 @@ class Paciente(models.Model):
     
 class Ficha_medica(models.Model):
     #tipo_diabetes
-    TIPO_1 = 'tipo 1'
-    TIPO_2 = 'tipo 2'
-    GESTACIONAL = 'gestacional'
+    TIPO_1 = 'Tipo 1'
+    TIPO_2 = 'Tipo 2'
+    GESTACIONAL = 'Gestacional'
+    MONOGENICA ='Monogenica'
+    OTROS = 'Otros'
+
     choices_tipo_diabetes = (
          (TIPO_1, 'Tipo 1'),
          (TIPO_2, 'Tipo 2'),
          (GESTACIONAL, 'Gestacional'),
+         (MONOGENICA, 'Monogenica'),
+         (OTROS, 'Otros'),
      )    
     #terapia_insulina
-    TERAPIA_INSULINA_1 = 'tipo 1'
-    TERAPIA_INSULINA_2 = 'tipo 2'
+    DOSIS_BASAL = 'Dosis Basal'
+    DOSIS_EN_BOLO = 'Dosis en Bolo'
+    NO_USO_OTROS = 'No Uso/Otros'
     choices_terapia_insulina = (
-         (TERAPIA_INSULINA_1, 'Tipo 1'),
-         (TERAPIA_INSULINA_2, 'Tipo 2'),
+         (DOSIS_BASAL, 'Dosis Basal'),
+         (DOSIS_EN_BOLO, 'Dosis en Bolo'),
+         (NO_USO_OTROS, 'No Uso/Otros'),
      )
     #terapia_pastillas
-    TERAPIA_PASTILLAS_1 = 'tipo 1'
-    TERAPIA_PASTILLAS_2 = 'tipo 2'
+    TOLBUTAMIDA = 'Tolbutamida'
+    GLIMEPIRIDA = 'Glimepirida'
+    GLIPPIZIDA = 'Glipizida'
     choices_terapia_pastillas = (
-         (TERAPIA_PASTILLAS_1, 'Tipo 1'),
-         (TERAPIA_PASTILLAS_2, 'Tipo 2'),
+         (TOLBUTAMIDA, 'Tolbutamida'),
+         (GLIMEPIRIDA, 'Glimepirida'),
+         (GLIPPIZIDA, 'Glipizida'),
      )
     #tipo_glucometro
-    TIPO_GLUCOMETRO_1 = 'tipo 1'
-    TIPO_GLUCOMETRO_2 = 'tipo 2'
+    MEDIDOR_CAPILAR = 'Medidor Capilar'
+    MEDIDOR_CONTINUO = 'Medidor Continuo (MCG)'
+    MEDIDOR_TIPO_FLASH = 'Medidor Tipo Flash'
+    NO_USO = 'No uso/Otro'
     choices_tipo_glucometro = (
-         (TIPO_GLUCOMETRO_1, 'Tipo 1'),
-         (TIPO_GLUCOMETRO_2, 'Tipo 2'),
+         (MEDIDOR_CAPILAR, 'Medidor Capilar'),
+         (MEDIDOR_CONTINUO, 'Medidor Continuo (MCG)'),
+         (MEDIDOR_TIPO_FLASH, 'Medidor Tipo Flash'),
+         (NO_USO, 'No uso/Otro'),
      )
     #tipo_sensor
-    TIPO_SENSOR_1 = 'tipo 1'
-    TIPO_SENSOR_2 = 'tipo 2'
+    FREESTYLE_LIBRE_ABBOTT = 'FreeStyle Libre de Abbott' 
+    GUARDIAN_CONNECT_MEDTRONIC = 'Guardian Connect de Medtronic'
+    NO_USO = 'No uso'
     choices_tipo_sensor = (
-         (TIPO_SENSOR_1, 'Tipo 1'),
-         (TIPO_SENSOR_2, 'Tipo 2'),
+         (FREESTYLE_LIBRE_ABBOTT, 'FreeStyle Libre de Abbott'),
+         (GUARDIAN_CONNECT_MEDTRONIC, 'Guardian Connect de Medtronic'),
+         (NO_USO, 'No uso'),
      )
     tipo_diabetes = models.CharField(max_length=35 , choices = choices_tipo_diabetes) 
     terapia_insulina = models.CharField(max_length=30 , choices = choices_terapia_insulina)
