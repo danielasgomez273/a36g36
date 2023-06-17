@@ -21,8 +21,8 @@ const routes:Routes=[
         {path:'dash_user', component:DashboardUsuarioComponent},
         {path:'registro2usuario', component:Registro2usuarioComponent},
         {path:'registro3usuario', component:Registro3usuarioComponent},
-        {path:'edit_nota', component:ModNotaUsuarioComponent},
-        {path:'edit_servcicio', component:ModServicioAdminComponent},
+        {path:'edit_nota/:id', component:ModNotaUsuarioComponent},
+        {path:'edit_servcicio/:id', component:ModServicioAdminComponent},
 
 
 

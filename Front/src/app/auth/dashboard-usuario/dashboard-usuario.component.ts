@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { EstadisUsuariosService } from 'src/app/servicios/estadis-usuarios.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 
 @Component({
@@ -20,15 +20,22 @@ export class DashboardUsuarioComponent implements OnInit {
   Smonto: string = '';
   nuevoPedido: any[] = [];
 
+  dataid!: number;
+
+
+
   constructor(
     private paciente: EstadisUsuariosService,
     private usuario: AuthService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private routerAct: ActivatedRoute,
+
   ) {}
 
   ngOnInit(): void {
     this.formNotasPOST = this.formBuilder.group({
+ 
       fecha_registro: ['', Validators.required],
       valor_glucemia: ['', Validators.required],
       comentario_registro: ['', Validators.required],
@@ -51,6 +58,11 @@ export class DashboardUsuarioComponent implements OnInit {
         console.error(errorData);
       }
     });
+
+  // METODO PARA CAPTURAR EL ID
+
+
+
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -59,6 +71,7 @@ export class DashboardUsuarioComponent implements OnInit {
     if (this.formNotasPOST.valid) {
       //this.paciente.nuevaNota('http://localhost:8000/api/paciente/registros_glucemia/', {
       this.paciente.nuevaNota('http://localhost:3000/notas_usuarios', {
+
           fecha_registro: this.formNotasPOST.value.fecha_registro,
           valor_glucemia: this.formNotasPOST.value.valor_glucemia,
           comentario_registro: this.formNotasPOST.value.comentario_registro,
@@ -66,11 +79,16 @@ export class DashboardUsuarioComponent implements OnInit {
         .subscribe((respuesta: any) => {
           alert('Nota registrada');
           this.getNotas()
+          this.formNotasPOST.reset()
+
         });
     } else {
       alert('Ingrese los datos correctamente');
       this.formNotasPOST.markAllAsTouched();
     }
+
+
+
   }
 
   // METODO GET
@@ -85,11 +103,18 @@ export class DashboardUsuarioComponent implements OnInit {
     });
 
   }
+  // METODO DELETE
+    eliminar(id:string){
+      this.paciente.DELETE(id).subscribe(()=>{
+        alert("nota modificada")
+        this.getNotas()
+        console.log("el id de delete es"+id)
+      })
+    }
 
 
-  
 
-  ///////// CARRITO ///////////////////////////
+  //////////////// CARRITO /////////////////
   agregarNombre(value: string): void {
     this.Snombre = value;
   }

@@ -38,13 +38,19 @@
     </div>
   </form>
 
+<!--/////////////////////  ULTIMOS REGISTROS  //////////////////////-->
+
   <!-- Modal -->
   <h2 class="titulo">ULTIMOS REGISTROS</h2>
   <div class="registros">
     <div class="bg-light col-lg-4 col-md-6 p-4 registro" *ngFor="let nota of notas_glucemia">
+      <p class="fecha">Numero: {{nota.id}}</p>
       <p class="fecha">Fecha: {{nota.fecha_registro}}ml</p>
       <p class="glucemia">Glucemia:{{nota.valor_glucemia}}</p>
       <p class="notas">Notas:{{nota.comentario_registro}}</p>
+      <button routerLink="/auth/edit_nota/{{nota.id}}" type="submit" class="m-1 p-2 col-lg-4 btn btn-success">Editar</button>
+      <button (click)="eliminar(nota.id)" type="button" class="m-1 p-2 btn btn-danger">Eliminar</button>
+
     </div>
   </div>
 </div>
