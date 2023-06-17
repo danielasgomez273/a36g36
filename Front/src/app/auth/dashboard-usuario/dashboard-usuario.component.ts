@@ -70,7 +70,7 @@ export class DashboardUsuarioComponent implements OnInit {
   agregarNota(): void {
     if (this.formNotasPOST.valid) {
       //this.paciente.nuevaNota('http://localhost:8000/api/paciente/registros_glucemia/', {
-      this.paciente.nuevaNota('http://localhost:3000/notas_usuarios', {
+      this.paciente.nuevaNota('http://localhost:8000/api/paciente/registros_glucemia/', {
 
           fecha_registro: this.formNotasPOST.value.fecha_registro,
           valor_glucemia: this.formNotasPOST.value.valor_glucemia,
