@@ -10,6 +10,7 @@ import { FormPagoService } from 'src/app/servicios/form-pago.service';
 })
 export class FormularioPagoComponent implements OnInit {
   formPOSTPago!: FormGroup;
+  mostrarMensajeExito: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,18 +52,10 @@ export class FormularioPagoComponent implements OnInit {
     if (this.formPOSTPago.valid) {
       alert('Felicitaciones. Tu compra se realizó con éxito.');
 
-      const overlay = document.createElement('div');
-      overlay.className = 'overlay';
-
-      const mensaje = document.createElement('div');
-      mensaje.className = 'mensaje-exito';
-      mensaje.textContent = 'TU COMPRA SE REALIZÓ CON ÉXITO';
-
-      overlay.appendChild(mensaje);
-      document.body.appendChild(overlay);
+      this.mostrarMensajeExito = true;
 
       setTimeout(() => {
-        document.body.removeChild(overlay);
+        this.mostrarMensajeExito = false;
         this.router.navigateByUrl('/auth/dash_user');
       }, 3000);
     }
