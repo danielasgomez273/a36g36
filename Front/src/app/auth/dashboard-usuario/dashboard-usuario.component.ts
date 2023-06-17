@@ -151,6 +151,6 @@ export class DashboardUsuarioComponent implements OnInit {
     return total;
   }
   comprar() {
-    this.router.navigateByUrl('/formulario-pago');
+    this.router.navigateByUrl('/formulario_pago');
   }
 }
