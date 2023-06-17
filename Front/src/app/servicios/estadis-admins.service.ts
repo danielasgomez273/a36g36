@@ -32,10 +32,7 @@ export class EstadisAdminsService {
 
   /////////////////////////////////////
   muestraServicios( ){
-// COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
-// this.url+"api/admin/servicios/"
-    return this.http.get("http://localhost:3000/SERVICIOS" , {withCredentials: true})
-
+    return this.http.get(this.url+"api/admin/servicios/", {withCredentials: true})
   }
 
 

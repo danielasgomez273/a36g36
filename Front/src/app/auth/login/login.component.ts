@@ -73,8 +73,8 @@ export class LoginComponent implements OnInit{
     // IF para comprobar si el formulario es valido
         if(this.profileForm.valid){
               this.serv_login.POST('http://localhost:8000/api/auth/login/',{
-                    password:this.profileForm.value.pass,
-                    username:this.profileForm.value.username,
+                    password:this.profileForm.value.password,
+                    email:this.profileForm.value.email,
                   },)
                   .subscribe((data) =>{
                     console.log("Los datos de logueo son:" + data);
