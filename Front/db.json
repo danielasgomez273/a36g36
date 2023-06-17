@@ -175,6 +175,12 @@
       "valor_glucemia": 1.4,
       "comentario_registro": "merende te con leche y medialunas",
       "id": 4
+    },
+    {
+      "fecha_registro": "2023-06-02T12:32",
+      "valor_glucemia": 1.2,
+      "comentario_registro": "merende te con leche y masitas",
+      "id": 5
     }
   ],
   "datos_pago": []

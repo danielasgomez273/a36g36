@@ -45,7 +45,7 @@ export class EstadisAdminsService {
 
   POSTRegistroServicio(urlPOST:string, body: any){
     
-      return this.http.post(urlPOST,body)
+      return this.http.post(urlPOST,body,{withCredentials:true})
 
 
   }
