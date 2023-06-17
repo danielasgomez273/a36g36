@@ -19,6 +19,8 @@ from .models import CustomUser
 from rest_framework.permissions import IsAdminUser , AllowAny
 from rest_framework import permissions
 
+from django.shortcuts import get_object_or_404
+
 # LOGUEO Y SESSIONES
 class LoginView(APIView):
     permission_classes = [AllowAny]
@@ -28,6 +30,9 @@ class LoginView(APIView):
         user = authenticate (email = email , password = password)   
         if user:
             login(request, user)
+            # indica que cuando cierre el navegador deberia cerrar session!
+            # modificara a las sessiones a medida que se vayan logueando
+            self.request.session.set_expiry(0)
 # # # ACA DEBO REVISAR, buscar pte con el ID de USUARIO... si hay un pte, y si este pte ya completo la ficha medica, DEBO RESPONDER CON UN CODIGO QUE ENVIE DIRECTO AL DASHBOARD, EN EL CASO DE QUE HAYA UN PTE REGISTRADO, pero sin la ficha, enviar a la ficha.. y si no hay paciente con dicho id que haga el camino completo
             return Response(
                 UserSerializer(user).data,
@@ -191,6 +196,9 @@ class CrudRegistrosGlucemia(APIView):
     def get (self, request):  
         print("ID USUARIO=>")
         print(self.request.user.id)
+        print(self.request.user.pk)
+        print(self.request.user.is_authenticated == True)
+
         paciente = Paciente.objects.filter(usuario=self.request.user.id).get()
         queryset = Registro_glucemia.objects.filter(paciente_id = paciente.pk)
         serializer = RegistroGlucemiaSerializer(queryset, many=True)
@@ -219,107 +227,55 @@ class CrudRegistrosGlucemia(APIView):
 
 
 
-
-
-
-
-
-
-
-
-
-class CrudRegistrosGlucemiaById(generics.DestroyAPIView):  # revisar si funciona, antes estuve usando Apiview en vez de destroy
-
-    permission_classes = [permissions.IsAuthenticated]
-    http_method_names = ['delete', 'update']
+class CrudRegistrosGlucemiaById (APIView):#(generics.DestroyAPIView): revisar si funciona docs refiere que debe ser destroy..
+    permission_classes = [permissions.AllowAny]
+    http_method_names = ['get','delete', 'put']
     lookup_field = 'registro_pk'
     serializer_class = RegistroGlucemiaSerializer
+    def get (self, request, registro_pk):
+        print("ID USUARIO=>")
+        print(self.request.user.id)
+        print(self.request.user.is_authenticated == True)
+        
+        queryset = Registro_glucemia.objects.filter(id = registro_pk)
+
+        serializer = RegistroGlucemiaSerializer(queryset, many=True)
+        paciente = Paciente.objects.filter(usuario_id=self.request.user.id )
+
+        if self.request.user.is_authenticated and paciente.get().id == queryset.get().paciente_id:
+            return Response (serializer.data)
+        return Response(status= status.HTTP_401_UNAUTHORIZED)
+    
 
     def delete (self, request, registro_pk):
-        print(">>>>>>>>>>>>>>>>>>> entre a metodo DELETE >>>>>>>>>>>>>>>>>>>>>>")
         if self.request.user.is_authenticated:            
-            print("ID USUARIO=>")
-            print(self.request.user.id)
-
-            # debo saber si el usuario actual quiere eliminar sino no puede
             paciente = Paciente.objects.filter(usuario=self.request.user.id).get()
             idPaciente = paciente.pk
-            print("idPaciente=>")
-            print(idPaciente)
-
             queryset = Registro_glucemia.objects.filter(id = registro_pk)
-            
-            print("idPaciente es igual a id dueño del registro??")
-            print(idPaciente == queryset.get().paciente)
-
-            if(idPaciente == queryset.get().paciente):
-                print("SIII EL PTE AUTEHNTICADO ES EL DUEÑO DEL REGISTRO")
-                #aca puedo eliminar o editar
+            if(idPaciente == queryset.get().paciente_id):
                 queryset.get().delete()
-                print("SUPUESSSSTAMENTE YA ELIMINE EL REGISTRO==========> REVISAR BASE DE DATOS")
                 return Response (status=204)
         return Response(status= status.HTTP_401_UNAUTHORIZED)
     
-    def put (self, request, registro_pk):               
-        print("/*/*/*/*/*/*/*/ entre a metodo UPDATE /*/*/*/*/*/*/*/>>>")
-
-        print("METODO UPDATE EN PROCESOOOOOO")
-        if self.request.user.is_authenticated:            
-            print("ID USUARIO=>")
-            print(self.request.user.id)
+    def put (self, request, registro_pk):                       
+        model = get_object_or_404(Registro_glucemia, pk=registro_pk) 
+        data = {
+            "fecha_registro": request.data[0]["fecha_registro"] ,
+            "valor_glucemia": request.data[0]["valor_glucemia"] ,
+            "comentario_registro": "soy un registro hardcodeado porque tengo error enviando la info..." #request.data[0]["comentario_registro"]
+        } 
+        if self.request.user.is_authenticated:
             paciente = Paciente.objects.filter(usuario=self.request.user.id).get()
             idPaciente = paciente.pk
-            print("idPaciente=>")
-            print(idPaciente)
 
             queryset = Registro_glucemia.objects.filter(id = registro_pk)
-            
-            print("idPaciente es igual a id dueño del registro??")
-            print(idPaciente == queryset.get().paciente)
 
-            if(idPaciente == queryset.get().paciente):
-                print("SIII EL PTE AUTEHNTICADO ES EL DUEÑO DEL REGISTRO")
-                
-                
-                
-                #aca puedo eliminar o editar
-                queryset.get().delete()
-
-                registroEditado = {
-                    "fecha_registro" : request.data["fecha_registro"] ,
-                    "valor_glucemia" : request.data["valor_glucemia"] ,
-                    "comentario_registro" : request.data["comentario_registro"],
-                    "paciente" : paciente
-                }
-
-                serializer = RegistroGlucemiaSerializer (data = registroEditado)
+            if(idPaciente == queryset.get().paciente_id):
+                serializer = RegistroGlucemiaSerializer (model, data = data, partial=True)                
                 if serializer.is_valid():
-
-                    #aca podria hacer un if de si cambio algun valor, pero seria mas facil pasar al fron toda la info y que el usuasroi solo cambie lo que quiera, y volver a recibir toda la info directamente
-                    queryset.get().fecha_registro = request.data["fecha_registro"] 
-                    queryset.get().valor_glucemia = request.data["valor_glucemia"] 
-                    queryset.get().comentario_registro = request.data["comentario_registro"]
-
-
-                    # aca debo revisar cual de los dos metodos me guarda el valor de manera correcta...
-                    # aca debo revisar cual de los dos metodos me guarda el valor de manera correcta...
-                    serializer.save() 
-                    queryset.get().save()
-                    # aca debo revisar cual de los dos metodos me guarda el valor de manera correcta...
-                    # aca debo revisar cual de los dos metodos me guarda el valor de manera correcta...
-
-
-                    print("SUPUESSSSTAMENTE YA EDITE EL REGISTRO==========> REVISAR BASE DE DATOS")
-
+                    serializer.save()   
                     return Response(status= status.HTTP_200_OK)
-        return Response(status= status.HTTP_401_UNAUTHORIZED)
-
-
-
-
-
-
-
+        return Response(status= status.HTTP_418_IM_A_TEAPOT)
 
 
 

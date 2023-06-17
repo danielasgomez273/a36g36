@@ -28,7 +28,7 @@ urlpatterns = [
     #METODO PARA EDITAR PENDIENTE y eliminar????
     path('api/paciente/', views.CrudPaciente.as_view(), name='crud_paciente'),
     path('api/paciente/registros_glucemia/', views.CrudRegistrosGlucemia.as_view(), name='crud_registros_glucemia'),
-    path('api/paciente/registros_glucemia/<int:registro_pk>/', views.CrudRegistrosGlucemiaById.as_view(),name='crud_registros_glucemia_by_id'),
+    path('api/paciente/registros_glucemia/<int:registro_pk>', views.CrudRegistrosGlucemiaById.as_view(),name='crud_registros_glucemia_by_id'),
     path('api/paciente/ficha_medica/', views.CrudFichaMedica.as_view(), name='crud_ficha_medica'),
     path('api/paciente/carrito/', views.CrudCarrito.as_view(), name='crud_carrito'),    
     path('api/paciente/carrito/servicio/<int:servicio_pk>/', views.CrudServicioToCarrito.as_view(), name='crud_servicio_to_carrito'),
