@@ -4,6 +4,7 @@ import { EstadisUsuariosService } from 'src/app/servicios/estadis-usuarios.servi
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-dashboard-usuario',
   templateUrl: './dashboard-usuario.component.html',
@@ -52,16 +53,19 @@ export class DashboardUsuarioComponent implements OnInit {
     });
   }
 
+  ////////////////////////////////////////////////////////////////////////////
+  // METODO POST
   agregarNota(): void {
     if (this.formNotasPOST.valid) {
-      this.paciente
-        .nuevaNota('http://localhost:8000/api/paciente/registros_glucemia/', {
+      //this.paciente.nuevaNota('http://localhost:8000/api/paciente/registros_glucemia/', {
+      this.paciente.nuevaNota('http://localhost:3000/notas_usuarios', {
           fecha_registro: this.formNotasPOST.value.fecha_registro,
           valor_glucemia: this.formNotasPOST.value.valor_glucemia,
           comentario_registro: this.formNotasPOST.value.comentario_registro,
         })
         .subscribe((respuesta: any) => {
           alert('Nota registrada');
+          this.getNotas()
         });
     } else {
       alert('Ingrese los datos correctamente');
@@ -69,8 +73,23 @@ export class DashboardUsuarioComponent implements OnInit {
     }
   }
 
+  // METODO GET
+  getNotas(){
+    this.paciente.muestraNotasUsuario().subscribe({
+      next: (notas_S) => {
+        this.notas_glucemia = notas_S;
+      },
+      error: (errorData) => {
+        console.error(errorData);
+      }
+    });
 
-  ///////// CARRITO
+  }
+
+
+  
+
+  ///////// CARRITO ///////////////////////////
   agregarNombre(value: string): void {
     this.Snombre = value;
   }
