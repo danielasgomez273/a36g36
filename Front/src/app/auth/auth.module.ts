@@ -9,6 +9,8 @@ import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { Registro2usuarioComponent } from './registro2usuario/registro2usuario.component';
 import { Registro3usuarioComponent } from './registro3usuario/registro3usuario.component';
+import { ModNotaUsuarioComponent } from './mod-nota-usuario/mod-nota-usuario.component';
+import { ModServicioAdminComponent } from './mod-servicio-admin/mod-servicio-admin.component';
 
 
 
@@ -21,7 +23,9 @@ import { Registro3usuarioComponent } from './registro3usuario/registro3usuario.c
     DashboardUsuarioComponent,
     DashboardAdminComponent,
     Registro2usuarioComponent,
-    Registro3usuarioComponent
+    Registro3usuarioComponent,
+    ModNotaUsuarioComponent,
+    ModServicioAdminComponent
   ],
   imports: [
     CommonModule,

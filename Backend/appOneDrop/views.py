@@ -25,9 +25,10 @@ class LoginView(APIView):
     def post(self, request):
         email = request.data.get('email', None)
         password = request.data.get('password', None)
-        user = authenticate (email = email , password = password)        
+        user = authenticate (email = email , password = password)   
         if user:
             login(request, user)
+# # # ACA DEBO REVISAR, buscar pte con el ID de USUARIO... si hay un pte, y si este pte ya completo la ficha medica, DEBO RESPONDER CON UN CODIGO QUE ENVIE DIRECTO AL DASHBOARD, EN EL CASO DE QUE HAYA UN PTE REGISTRADO, pero sin la ficha, enviar a la ficha.. y si no hay paciente con dicho id que haga el camino completo
             return Response(
                 UserSerializer(user).data,
                 status=status.HTTP_200_OK)
@@ -36,7 +37,10 @@ class LoginView(APIView):
 class LogoutView(APIView):
     permission_classes = [AllowAny]
     def post(self, request):
-        print(request)
+
+        print("ANTES de logout....")
+        print(self.request.user.id)
+
         logout(request)
         return Response (status=status.HTTP_200_OK)
     
@@ -153,10 +157,12 @@ class CrudPaciente(APIView):
             return Response (serializer.data)
         return Response(status= status.HTTP_400_BAD_REQUEST)
     
-    def post (self, request, format = None):        
-        usuarioId = self.request.user.id
-        print( "························· id usuario PARA POST PACIENTE ··················· ")
+    def post (self, request, format = None):   
+        usuarioId = self.request.user.pk
+        print( "·········· id usuario PARA POST PACIENTE ·········· ")
         print(usuarioId)
+        print(self.request.user.get_username())
+        print(request.user.id)
 
         nuevoPaciente = {
             "nombre_paciente" : request.data["nombre_paciente"] ,
@@ -166,6 +172,9 @@ class CrudPaciente(APIView):
             "sexo_paciente" : request.data["sexo_paciente"] ,
             "usuario" : usuarioId
         }        
+        
+        print( "NUEVO PACIENTE A CREAR=>")
+        print(nuevoPaciente)
 
         serializer = PacienteSerializer (data = nuevoPaciente)
         if serializer.is_valid():

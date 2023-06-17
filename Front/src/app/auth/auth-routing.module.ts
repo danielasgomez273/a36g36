@@ -7,6 +7,8 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
 import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario.component';
 import { Registro2usuarioComponent } from './registro2usuario/registro2usuario.component';
 import { Registro3usuarioComponent } from './registro3usuario/registro3usuario.component';
+import { ModNotaUsuarioComponent } from './mod-nota-usuario/mod-nota-usuario.component';
+import { ModServicioAdminComponent } from './mod-servicio-admin/mod-servicio-admin.component';
 
 
 // RUTAS EXPORTADAS AL NAV
@@ -19,6 +21,8 @@ const routes:Routes=[
         {path:'dash_user', component:DashboardUsuarioComponent},
         {path:'registro2usuario', component:Registro2usuarioComponent},
         {path:'registro3usuario', component:Registro3usuarioComponent},
+        {path:'edit_nota/:id', component:ModNotaUsuarioComponent},
+        {path:'edit_servicio/:id', component:ModServicioAdminComponent},
 
 
 
