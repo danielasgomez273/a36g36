@@ -70,6 +70,8 @@
               <h5 class="text-center">Comentarios</h5>
               <p class="text-center">{{servicio.comentarios_servicio}}</p>
             </div>
+            <button routerLink="/auth/edit_servicio/{{servicio.id}}" type="submit" class="m-1 p-2 col-lg-4 btn btn-success">Editar</button>
+            <button (click)="eliminar(servicio.id)" type="button" class="m-1 p-2 btn btn-danger col-lg-4">Eliminar</button>
 
 
 

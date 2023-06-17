@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router,Params } from '@angular/router';
-import { EstadisAdminsService } from 'src/app/servicios/estadis-admins.service';
 import { EstadisUsuariosService } from 'src/app/servicios/estadis-usuarios.service';
 
 
@@ -13,6 +12,8 @@ export class ModNotaUsuarioComponent implements OnInit {
   dataid!: number;
   nota:any;
 
+
+//////////////////////////////////////////////////////////////////
   constructor(
     private routerAct: ActivatedRoute,
     private router: Router,

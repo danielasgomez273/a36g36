@@ -22,7 +22,7 @@ const routes:Routes=[
         {path:'registro2usuario', component:Registro2usuarioComponent},
         {path:'registro3usuario', component:Registro3usuarioComponent},
         {path:'edit_nota/:id', component:ModNotaUsuarioComponent},
-        {path:'edit_servcicio/:id', component:ModServicioAdminComponent},
+        {path:'edit_servicio/:id', component:ModServicioAdminComponent},
 
 
 

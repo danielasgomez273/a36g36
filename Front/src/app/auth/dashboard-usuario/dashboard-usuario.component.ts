@@ -37,7 +37,7 @@ export class DashboardUsuarioComponent implements OnInit {
     this.formNotasPOST = this.formBuilder.group({
  
       fecha_registro: ['', Validators.required],
-      valor_glucemia: ['', Validators.required],
+      valor_glucemia: ['', Validators.required,Validators.maxLength(3)],
       comentario_registro: ['', Validators.required],
     });
 
@@ -59,7 +59,7 @@ export class DashboardUsuarioComponent implements OnInit {
       }
     });
 
-  // METODO PARA CAPTURAR EL ID
+  
 
 
 
@@ -106,7 +106,7 @@ export class DashboardUsuarioComponent implements OnInit {
   // METODO DELETE
     eliminar(id:string){
       this.paciente.DELETE(id).subscribe(()=>{
-        alert("nota modificada")
+        alert("Nota Eliminada")
         this.getNotas()
         console.log("el id de delete es"+id)
       })
