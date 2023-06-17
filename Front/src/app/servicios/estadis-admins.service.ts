@@ -32,12 +32,10 @@ export class EstadisAdminsService {
 
   /////////////////////////////////////
   muestraServicios( ){
-<<<<<<< HEAD
-    return this.http.get(this.url+"api/admin/servicios/", {withCredentials: true})
-=======
 // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
-return this.http.get(this.url+"api/admin/servicios/", {withCredentials: true})
->>>>>>> d3173a4957530aed588b65dc37bc924f2e9266d2
+// this.url+"api/admin/servicios/"
+    return this.http.get("http://localhost:3000/SERVICIOS" , {withCredentials: true})
+
   }
 
 
@@ -51,9 +49,34 @@ return this.http.get(this.url+"api/admin/servicios/", {withCredentials: true})
   //          SERVICIO POST          //
   /////////////////////////////////////
 
-  POSTRegistroServicio(urlPOST:string, body: any ){
-     return this.http.post(urlPOST,body, {withCredentials: true})
+  POSTRegistroServicio(urlPOST:string, body: any){
+    
+      return this.http.post(urlPOST,body)
+
   }
+
+    // metodo para ELIMINAR la informacion
+    DELETE(id:string){
+      return this.http.delete("http://localhost:3000/SERVICIOS/"+id)
+  
+    }
+
+  //// MODIFICAR SERVICIOS
+  // metodo para TRAER la informacion
+  url_SERVICIOS:string='http://localhost:3000/SERVICIOS/';
+
+
+  modificar(id:number){
+    return this.http.get(this.url_SERVICIOS+id)
+
+  }
+
+  // metodo para MODIFICAR la informacion
+  modificar2(datos:any, id:number){
+    return this.http.put(this.url_SERVICIOS+id,datos)
+
+  }
+
 
 
 }

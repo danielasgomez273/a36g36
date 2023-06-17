@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EstadisAdminsService } from 'src/app/servicios/estadis-admins.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { AuthService } from 'src/app/servicios/auth.service';
+
+
 
 
 
@@ -16,11 +20,36 @@ export class DashboardAdminComponent implements OnInit{
   servicios_admins:any;
   ingresos_admins: any;
 
-  formPOSTRegistroServicio: FormGroup;
+  formPOSTRegistroServicio: FormGroup | any;
 
-  //////////////////////////
+  reg_servicios: any;
+  dataid!: number;
 
-  constructor(private estadistica:EstadisAdminsService, private formBuilder:FormBuilder){
+
+  //////////////////////////////////////////////////////////////
+
+  constructor(
+    private estadistica:EstadisAdminsService,
+    private formBuilder:FormBuilder,
+    private admin:AuthService,
+    private router: Router,
+    private routerAct:ActivatedRoute
+    
+    ){}
+  
+///////////////////////////////////////////////////////////////
+  ngOnInit():void{
+
+    // OBJETO FORMBUILDER
+      this.formPOSTRegistroServicio= this.formBuilder.group({
+
+        nombre_servicio:["",Validators.required],
+        descripcion_servicio:["",Validators.required],
+        precio_servicio:["",Validators.required],
+        comentarios_servicio:["",Validators.required],
+      })
+
+
     this.estadistica.muestraEstadisticas().subscribe({
       next:(estadisticas_S)=>{
         this.estadisticas_admins=estadisticas_S
@@ -68,16 +97,10 @@ export class DashboardAdminComponent implements OnInit{
   //////////////////////////
 
 
-// OBJETO FORMBUILDER
-  this.formPOSTRegistroServicio= this.formBuilder.group({
 
-    nombre_servicio:["",Validators.required],
-    descripcion_servicio:["",Validators.required],
-    precio_servicio:["",Validators.required],
-    comentarios_servicio:["",Validators.required],
-  })
   }
-    ///// METODOS GET /////
+
+    ///// METODOS GET PARTICULARES /////
     get nombre_servicio_GET(){
       return this.formPOSTRegistroServicio.controls['nombre_servicio'];
     }
@@ -91,7 +114,28 @@ export class DashboardAdminComponent implements OnInit{
     get comentarios_servicio_GET(){
       return this.formPOSTRegistroServicio.controls['comentarios_servicio'];
     }
+
     
+    getServicios(){
+      this.estadistica.muestraServicios().subscribe({
+        next:(servicio_S)=>{
+          this.servicios_admins=servicio_S
+        },
+        error:(errorData)=>{
+          console.error(errorData);
+        } 
+      })
+    }
+
+  /////// METODO DELETE
+  eliminar(id:string){
+    this.estadistica.DELETE(id).subscribe(()=>{
+      alert("Nota Eliminada")
+      this.getServicios()
+      console.log("el id de delete es"+id)
+    })
+  }
+
 
   /////////////////////////////////
   //////////// POST //////////////
@@ -141,12 +185,7 @@ export class DashboardAdminComponent implements OnInit{
 
 
 
-  ngOnInit():void{
-    
 
-
-
-  }
 
 
 

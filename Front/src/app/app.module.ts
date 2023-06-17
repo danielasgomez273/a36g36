@@ -10,7 +10,8 @@ import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { EcommerceModule } from './ecommerce/ecommerce.module';
 import { HttpClientModule } from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { Router, RouterModule } from '@angular/router';
 import { EcommerceServiceService } from './servicios/ecommerce-service.service';
@@ -38,6 +39,7 @@ import { AuthService } from './servicios/auth.service';
     EcommerceModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
