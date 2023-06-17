@@ -67,4 +67,12 @@ export class FormularioPagoComponent implements OnInit {
       alert('No se ingresaron correctamente los datos');
     }
   }
+  validarNumeros(event: any) {
+    const pattern = /^[0-9]*$/;
+    const inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
 }
+
