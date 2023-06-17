@@ -44,12 +44,12 @@
     <div class="row g-3 align-items-center margin  campo-input borde">
        <!--  label  -->
       <div class="col-lg-3 align-self-start ">
-        <label for="inputPassword6" class="col-form-label sub-campo-input">Contraseña</label>
+        <label for="password" class="col-form-label sub-campo-input">Contraseña</label>
       </div>
-        <!--  input  -->
+        <!--  input   id="inputPassword6" -->
       <div class="col-lg-8 align-self-start ">
-        <input formControlName="password" name="" id="password"
-        type="password" id="inputPassword6" class="form-control sub-campo-input" aria-labelledby="passwordHelpInline" placeholder="ejemplocontraseña1234">
+        <input formControlName="password" name="" id="password" 
+        type="password" class="form-control sub-campo-input" aria-labelledby="passwordHelpInline" placeholder="ejemplocontraseña1234">
 
           <!--  validacion  -->
         <div *ngIf="pass_GET.invalid && (pass_GET.dirty || pass_GET.touched)"
