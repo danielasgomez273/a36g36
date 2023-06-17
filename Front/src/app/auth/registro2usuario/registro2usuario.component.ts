@@ -72,7 +72,7 @@ export class Registro2usuarioComponent implements OnInit{
 
 
         //this.serv_Registro2Datos.POST('http://localhost:8000/api/paciente/',
-        this.serv_Registro2Datos.POST('http://localhost:3000/REGISTRO_DATOS_PERSONALES',
+        this.serv_Registro2Datos.POST('http://localhost:8000/api/paciente/',
           {
           // INFORMACION QUE VAMOS A PASAR
             nombre_paciente:this.formPOSTRegistro2Usuarios.value.name,

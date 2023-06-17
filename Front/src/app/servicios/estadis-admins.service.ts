@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EstadisAdminsService {
-  url:string="http://localhost:3000/";
+  url:string="http://localhost:8000/";
 
   /////////////////////////////////////
   constructor(
@@ -16,27 +16,32 @@ export class EstadisAdminsService {
   /////////////////////////////////////
   muestraEstadisticas( ){
 
-    return this.http.get(this.url+"estadisticas_admins")
+    // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
+
+   // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS 
+    return this.http.get(this.url+"estadisticas_admins", {withCredentials: true})
   }
 
   /////////////////////////////////////
   muestraComorbilidades( ){
-
-    return this.http.get(this.url+"estadisticas_comorbilidades_admins")
+// COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
+   // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS 
+   return this.http.get(this.url+"estadisticas_comorbilidades_admins", {withCredentials: true})
   }
 
 
   /////////////////////////////////////
   muestraServicios( ){
+// COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
+    return this.http.get(this.url+"api/admin/servicios/", {withCredentials: true})
 
-    return this.http.get(this.url+"SERVICIOS")
   }
 
 
   /////////////////////////////////////
   muestraIngresos( ){
 
-    return this.http.get(this.url+"ingresos_admins")
+    return this.http.get(this.url+"ingresos_admins", {withCredentials: true})
   }
 
   /////////////////////////////////////
@@ -45,8 +50,7 @@ export class EstadisAdminsService {
 
   POSTRegistroServicio(urlPOST:string, body: any){
     
-      return this.http.post(urlPOST,body,{withCredentials:true})
-
+      return this.http.post(urlPOST,body)
 
   }
 

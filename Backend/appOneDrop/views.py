@@ -96,7 +96,7 @@ class VerFacturas(generics.ListCreateAPIView):
 #SOLO ADMIN - CRUD SERVICIOS
 class CrudServicios(APIView):
     permission_classes = [permissions.IsAdminUser]
-
+    
     def get (self, request):
         queryset = Servicio.objects.all()
         serializer = ServicioSerializer(queryset, many=True)
@@ -105,7 +105,18 @@ class CrudServicios(APIView):
         return Response(status= status.HTTP_400_BAD_REQUEST)
     
     def post (self, request, format = None):
-        serializer = ServicioSerializer (data = request.data)
+        userAdmin = Prestador.objects.filter(usuario_id = self.request.user.id).get()
+        userAdminPk = userAdmin.pk
+        nuevoServicio ={
+            'nombre_servicio' : request.data["nombre_servicio"] , 
+            'descripcion_servicio' : request.data["descripcion_servicio"] , 
+            'sede_servicio' : request.data["sede_servicio"] , 
+            'precio_servicio' : request.data["precio_servicio"] ,
+            'comentarios_servicio' : request.data["comentarios_servicio"] , 
+            'prestador' : userAdminPk
+        }
+
+        serializer = ServicioSerializer (data = nuevoServicio)
         if serializer.is_valid():
             serializer.save()
             return Response( serializer.data, status= status.HTTP_201_CREATED)
@@ -131,9 +142,7 @@ class CrudPaquetes(APIView):
 
 ####################################### PACIENTE #######################################
 #SOLO PACIENTE - CRUD PACIENTE
-class CrudPaciente(APIView):    
-    # queryset = Paciente.objects.all()
-    # serializer_class = PacienteSerializer
+class CrudPaciente(APIView): 
     http_method_names = ['get' , 'post']
     permission_classes = [permissions.IsAuthenticated]
 
@@ -143,22 +152,11 @@ class CrudPaciente(APIView):
         if self.request.user.is_authenticated:
             return Response (serializer.data)
         return Response(status= status.HTTP_400_BAD_REQUEST)
-        ''' 
-        PODRIA HACER QUE DIRECTAMENTE SE OBTENGA EL ID DEL USUARIO DESDE LA SESSION
-        Y ENVIARLO A CREAR, EN VEZ DE TENER QUE RECIBIRLO POR LA REQUEST
-
-        Entry.objects.create(
-            blog=beatles,
-            headline='New Lennon Biography',
-            pub_date=date(2008, 6, 1),
-        )
-        '''
-    def post (self, request, format = None):
-        
+    
+    def post (self, request, format = None):        
         usuarioId = self.request.user.id
-        print( "························· id usuario y username ··················· ")
+        print( "························· id usuario PARA POST PACIENTE ··················· ")
         print(usuarioId)
-        print( "························· id usuario y username ··················· ")
 
         nuevoPaciente = {
             "nombre_paciente" : request.data["nombre_paciente"] ,
@@ -172,10 +170,8 @@ class CrudPaciente(APIView):
         serializer = PacienteSerializer (data = nuevoPaciente)
         if serializer.is_valid():
             serializer.save()
-            print("************ serializer data ************")   
-            print(serializer.data["id"]) #este es el ID del PACIENTE que luego debo enviar a a la ficha para crear la ficha medica
-            print("************ serializer data ************")  
-
+            print("************ ID del nuevo PACIENTE ************")   
+            print(serializer.data["id"]) 
             return Response( serializer.data, status= status.HTTP_201_CREATED)
         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
 
@@ -210,6 +206,114 @@ class CrudRegistrosGlucemia(APIView):
             serializer.save()
             return Response( serializer.data, status= status.HTTP_201_CREATED)
         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+    
+
+
+
+
+
+
+
+
+
+
+
+
+class CrudRegistrosGlucemiaById(generics.DestroyAPIView):  # revisar si funciona, antes estuve usando Apiview en vez de destroy
+
+    permission_classes = [permissions.IsAuthenticated]
+    http_method_names = ['delete', 'update']
+    lookup_field = 'registro_pk'
+    serializer_class = RegistroGlucemiaSerializer
+
+    def delete (self, request, registro_pk):
+        print(">>>>>>>>>>>>>>>>>>> entre a metodo DELETE >>>>>>>>>>>>>>>>>>>>>>")
+        if self.request.user.is_authenticated:            
+            print("ID USUARIO=>")
+            print(self.request.user.id)
+
+            # debo saber si el usuario actual quiere eliminar sino no puede
+            paciente = Paciente.objects.filter(usuario=self.request.user.id).get()
+            idPaciente = paciente.pk
+            print("idPaciente=>")
+            print(idPaciente)
+
+            queryset = Registro_glucemia.objects.filter(id = registro_pk)
+            
+            print("idPaciente es igual a id dueño del registro??")
+            print(idPaciente == queryset.get().paciente)
+
+            if(idPaciente == queryset.get().paciente):
+                print("SIII EL PTE AUTEHNTICADO ES EL DUEÑO DEL REGISTRO")
+                #aca puedo eliminar o editar
+                queryset.get().delete()
+                print("SUPUESSSSTAMENTE YA ELIMINE EL REGISTRO==========> REVISAR BASE DE DATOS")
+                return Response (status=204)
+        return Response(status= status.HTTP_401_UNAUTHORIZED)
+    
+    def put (self, request, registro_pk):               
+        print("/*/*/*/*/*/*/*/ entre a metodo UPDATE /*/*/*/*/*/*/*/>>>")
+
+        print("METODO UPDATE EN PROCESOOOOOO")
+        if self.request.user.is_authenticated:            
+            print("ID USUARIO=>")
+            print(self.request.user.id)
+            paciente = Paciente.objects.filter(usuario=self.request.user.id).get()
+            idPaciente = paciente.pk
+            print("idPaciente=>")
+            print(idPaciente)
+
+            queryset = Registro_glucemia.objects.filter(id = registro_pk)
+            
+            print("idPaciente es igual a id dueño del registro??")
+            print(idPaciente == queryset.get().paciente)
+
+            if(idPaciente == queryset.get().paciente):
+                print("SIII EL PTE AUTEHNTICADO ES EL DUEÑO DEL REGISTRO")
+                
+                
+                
+                #aca puedo eliminar o editar
+                queryset.get().delete()
+
+                registroEditado = {
+                    "fecha_registro" : request.data["fecha_registro"] ,
+                    "valor_glucemia" : request.data["valor_glucemia"] ,
+                    "comentario_registro" : request.data["comentario_registro"],
+                    "paciente" : paciente
+                }
+
+                serializer = RegistroGlucemiaSerializer (data = registroEditado)
+                if serializer.is_valid():
+
+                    #aca podria hacer un if de si cambio algun valor, pero seria mas facil pasar al fron toda la info y que el usuasroi solo cambie lo que quiera, y volver a recibir toda la info directamente
+                    queryset.get().fecha_registro = request.data["fecha_registro"] 
+                    queryset.get().valor_glucemia = request.data["valor_glucemia"] 
+                    queryset.get().comentario_registro = request.data["comentario_registro"]
+
+
+                    # aca debo revisar cual de los dos metodos me guarda el valor de manera correcta...
+                    # aca debo revisar cual de los dos metodos me guarda el valor de manera correcta...
+                    serializer.save() 
+                    queryset.get().save()
+                    # aca debo revisar cual de los dos metodos me guarda el valor de manera correcta...
+                    # aca debo revisar cual de los dos metodos me guarda el valor de manera correcta...
+
+
+                    print("SUPUESSSSTAMENTE YA EDITE EL REGISTRO==========> REVISAR BASE DE DATOS")
+
+                    return Response(status= status.HTTP_200_OK)
+        return Response(status= status.HTTP_401_UNAUTHORIZED)
+
+
+
+
+
+
+
+
+
+
 
 #SOLO PACIENTE - CRUD FICHA MEDICA
 class CrudFichaMedica(APIView):
@@ -227,8 +331,12 @@ class CrudFichaMedica(APIView):
     def post (self, request, format = None):
         print("ID USUARIO para ficha medica=>")
         print(self.request.user.id)
+
         paciente = Paciente.objects.filter(usuario = self.request.user.id).get()
-        paciente = paciente.pk
+        pacienteId = paciente.pk     
+
+        print("ID PACIENTE para ficha medica=>")
+        print(pacienteId)
 
         nuevaFichaMedica = {
             "tipo_diabetes" : request.data["tipo_diabetes"] ,
@@ -238,8 +346,10 @@ class CrudFichaMedica(APIView):
             "tipo_sensor" : request.data["tipo_sensor"] ,
             "objetivo_glucosa" : request.data["objetivo_glucosa"] ,
             "comorbilidades" : request.data["comorbilidades"] ,
-            "paciente" : paciente
+            "paciente" : pacienteId
         }
+        print("nuevaFichaMedica=>")
+        print(nuevaFichaMedica)
 
         serializer = FichaMedicaSerializer(data = nuevaFichaMedica)
         if serializer.is_valid():
