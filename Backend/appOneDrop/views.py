@@ -119,7 +119,6 @@ class CrudServicios(APIView):
         nuevoServicio ={
             'nombre_servicio' : request.data["nombre_servicio"] , 
             'descripcion_servicio' : request.data["descripcion_servicio"] , 
-            'sede_servicio' : request.data["sede_servicio"] , 
             'precio_servicio' : request.data["precio_servicio"] ,
             'comentarios_servicio' : request.data["comentarios_servicio"] , 
             'prestador' : userAdminPk
@@ -130,6 +129,62 @@ class CrudServicios(APIView):
             serializer.save()
             return Response( serializer.data, status= status.HTTP_201_CREATED)
         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+    
+class CrudServiciosById (APIView):#(generics.DestroyAPIView): revisar si funciona docs refiere que debe ser destroy..
+    permission_classes = [permissions.AllowAny] # AVERIGUAR SOBRE ESTA PARTE, SE SUPONE QUE DEBERIA SOLO PERMITIR AUTHENTICADOS, SIN EMBARGO LOP TESTEO MAS ABAJO...
+    http_method_names = ['get','delete', 'put']
+    lookup_field = 'servicio_pk'
+    serializer_class = ServicioSerializer
+    def get (self, request, servicio_pk):
+        print("ID USUARIO=>")
+        print(self.request.user.id)
+        print(self.request.user.is_authenticated == True)
+        
+        queryset = Servicio.objects.filter(id = servicio_pk)
+
+        serializer = ServicioSerializer(queryset, many=True)
+        prestador = Prestador.objects.filter(usuario_id=self.request.user.id )
+
+        if self.request.user.is_authenticated and prestador.get().id == queryset.get().prestador_id:
+            return Response (serializer.data)
+        return Response(status= status.HTTP_401_UNAUTHORIZED)
+    
+
+    def delete (self, request, servicio_pk):
+        if self.request.user.is_authenticated:    
+            prestador = Prestador.objects.filter(usuario=self.request.user.id).get()
+            idprestador = prestador.pk
+            queryset = Servicio.objects.filter(id = servicio_pk)
+            if(idprestador == queryset.get().prestador_id):
+                queryset.get().delete()
+                return Response (status=204)
+        return Response(status= status.HTTP_401_UNAUTHORIZED)
+    
+    def put (self, request, servicio_pk):                       
+        model = get_object_or_404(Servicio, pk=servicio_pk) 
+        data = {
+            "nombre_servicio": request.data[0]["nombre_servicio"] ,
+            "descripcion_servicio": request.data[0]["descripcion_servicio"] ,
+            "precio_servicio": request.data[0]["precio_servicio"] ,
+            "comentarios_servicio": request.data[0]["comentarios_servicio"] 
+        } 
+        if self.request.user.is_authenticated:
+            prestador = Prestador.objects.filter(usuario=self.request.user.id).get()
+            idprestador = prestador.pk
+
+            queryset = Servicio.objects.filter(id = servicio_pk)
+
+            if(idprestador == queryset.get().prestador_id):
+                serializer = ServicioSerializer (model, data = data, partial=True)                
+                if serializer.is_valid():
+                    serializer.save()   
+                    return Response(status= status.HTTP_200_OK)
+        return Response(status= status.HTTP_418_IM_A_TEAPOT)    
+
+
+
+
+
     
 #SOLO ADMIN - CRUD PAQUETES
 class CrudPaquetes(APIView):
@@ -228,7 +283,7 @@ class CrudRegistrosGlucemia(APIView):
 
 
 class CrudRegistrosGlucemiaById (APIView):#(generics.DestroyAPIView): revisar si funciona docs refiere que debe ser destroy..
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.AllowAny] # AVERIGUAR SOBRE ESTA PARTE, SE SUPONE QUE DEBERIA SOLO PERMITIR AUTHENTICADOS, SIN EMBARGO LOP TESTEO MAS ABAJO...
     http_method_names = ['get','delete', 'put']
     lookup_field = 'registro_pk'
     serializer_class = RegistroGlucemiaSerializer
@@ -260,25 +315,21 @@ class CrudRegistrosGlucemiaById (APIView):#(generics.DestroyAPIView): revisar si
     def put (self, request, registro_pk):                       
         model = get_object_or_404(Registro_glucemia, pk=registro_pk) 
         data = {
-            "fecha_registro": request.data[0]["fecha_registro"] ,
             "valor_glucemia": request.data[0]["valor_glucemia"] ,
-            "comentario_registro": "soy un registro hardcodeado porque tengo error enviando la info..." #request.data[0]["comentario_registro"]
-        } 
+            "comentario_registro":request.data[0]["comentario_registro"]
+        }
+
         if self.request.user.is_authenticated:
             paciente = Paciente.objects.filter(usuario=self.request.user.id).get()
             idPaciente = paciente.pk
-
             queryset = Registro_glucemia.objects.filter(id = registro_pk)
 
             if(idPaciente == queryset.get().paciente_id):
-                serializer = RegistroGlucemiaSerializer (model, data = data, partial=True)                
+                serializer = RegistroGlucemiaSerializer (model, data = data, partial=True) 
                 if serializer.is_valid():
                     serializer.save()   
                     return Response(status= status.HTTP_200_OK)
         return Response(status= status.HTTP_418_IM_A_TEAPOT)
-
-
-
 
 #SOLO PACIENTE - CRUD FICHA MEDICA
 class CrudFichaMedica(APIView):

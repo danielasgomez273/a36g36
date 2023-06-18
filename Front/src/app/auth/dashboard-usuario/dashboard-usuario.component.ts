@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { EstadisUsuariosService } from 'src/app/servicios/estadis-usuarios.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class DashboardUsuarioComponent implements OnInit {
   nuevoPedido: any[] = [];
 
   dataid!: number;
+  serviciosCarrito: any;
 
 
 
@@ -30,6 +32,7 @@ export class DashboardUsuarioComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private routerAct: ActivatedRoute,
+    private http:HttpClient
 
   ) {}
 
@@ -53,6 +56,16 @@ export class DashboardUsuarioComponent implements OnInit {
     this.paciente.muestraServicioAUsuario().subscribe({
       next: (servicios_S) => {
         this.servicios = servicios_S;
+      },
+      error: (errorData) => {
+        console.error(errorData);
+      }
+    });
+
+
+    this.paciente.muestraCarritoAUsuario().subscribe({
+      next: (servicios_C) => {
+        this.serviciosCarrito = servicios_C;
       },
       error: (errorData) => {
         console.error(errorData);
@@ -115,6 +128,36 @@ export class DashboardUsuarioComponent implements OnInit {
 
 
   //////////////// CARRITO /////////////////
+  getCarrito(){
+    this.paciente.muestraCarritoAUsuario().subscribe({
+      next: (servicios_C) => {
+        this.serviciosCarrito = servicios_C;
+      },
+      error: (errorData) => {
+        console.error(errorData);
+      }
+    });
+
+  }
+
+agregarCarrito(servicio:any){
+  return this.http.post("http://localhost:3000/CARRITO",servicio,{withCredentials: true}).subscribe((data)=>{
+
+    console.log(data)
+    this.getCarrito()
+
+  })
+
+
+}
+
+
+
+
+
+
+
+
   agregarNombre(value: string): void {
     this.Snombre = value;
   }
@@ -141,6 +184,7 @@ export class DashboardUsuarioComponent implements OnInit {
       this.nuevoPedido.splice(index, 1);
     }
   }
+
   calcularMontoTotal(): number {
     let total = 0;
 

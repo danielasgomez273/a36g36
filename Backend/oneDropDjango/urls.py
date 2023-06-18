@@ -18,6 +18,7 @@ urlpatterns = [
 
     #METODO PARA ELIMINAR Y EDITAR PENDIENTE => SERVICIOS Y PAQUETES
     path('api/admin/servicios/', views.CrudServicios.as_view(), name='crud_servicios'),
+    path('api/admin/servicios/<int:servicio_pk>', views.CrudServiciosById.as_view(),name='crud_Servicios_by_id'),
     path('api/admin/paquetes/', views.CrudPaquetes.as_view(), name='crud_paquetes'),
     
     path('api/admin/carritos/', views.VerCarritos.as_view(), name='ver_carritos'),
