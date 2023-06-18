@@ -48,7 +48,7 @@ class PrestadorSerializer(serializers.ModelSerializer):
 class ServicioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Servicio    
-        fields = ('id', 'nombre_servicio', 'descripcion_servicio', 'sede_servicio', 'precio_servicio', 'comentarios_servicio', 'prestador')
+        fields = ('id', 'nombre_servicio', 'descripcion_servicio', 'precio_servicio', 'comentarios_servicio', 'prestador')
 
 class PaqueteSerializer(serializers.ModelSerializer):
     class Meta:

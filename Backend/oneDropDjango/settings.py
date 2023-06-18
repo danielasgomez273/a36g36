@@ -159,7 +159,6 @@ REST_FRAMEWORK = {
     ]
 }
 
-CORS_ALLOW_CREDENTIALS = True
 ############################
 ## CODIGO AGREGADO MARTIN ##
 ############################
@@ -175,6 +174,8 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 
+
+CORS_ALLOW_CREDENTIALS = True
 
 CSRF_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_SAMESITE = 'None'
