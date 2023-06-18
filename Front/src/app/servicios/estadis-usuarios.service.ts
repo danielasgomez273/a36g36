@@ -54,7 +54,6 @@ export class EstadisUsuariosService {
   // metodo para ELIMINAR la informacion
   DELETE(id:string){
     return this.http.delete("http://localhost:8000/api/paciente/registros_glucemia/"+id , {withCredentials: true})
-
   }
 
 
