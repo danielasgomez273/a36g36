@@ -38,19 +38,17 @@
     </div>
   </form>
 
-<!--/////////////////////  ULTIMOS REGISTROS  //////////////////////-->
+  <!--/////////////////////  ULTIMOS REGISTROS  //////////////////////-->
 
   <!-- Modal -->
   <h2 class="titulo">ULTIMOS REGISTROS</h2>
   <div class="registros">
     <div class="bg-light col-lg-4 col-md-6 p-4 registro" *ngFor="let nota of notas_glucemia">
-      
       <p class="fecha">Fecha: {{nota.fecha_registro}}ml</p>
       <p class="glucemia">Glucemia:{{nota.valor_glucemia}}</p>
       <p class="notas">Notas:{{nota.comentario_registro}}</p>
       <button routerLink="/auth/edit_nota/{{nota.id}}" type="submit" class="m-1 p-2 col-lg-4 btn btn-success">Editar</button>
       <button (click)="eliminar(nota.id)" type="button" class="m-1 p-2 col-lg-4 btn btn-danger">Eliminar</button>
-
     </div>
   </div>
 </div>
@@ -108,22 +106,21 @@
       <div class="col-lg-3 col-md-3 col-sm-3 text-center row">
 
 
-        <button class="btn btn-danger boton-carr col-lg-12" (click)="eliminar_serv(servicio.id)">
+        <button class="btn btn-danger boton-carr col-lg-12" (click)="eliminarDelCarrito(i)">
           <i class="fa-regular fa-trash-can"></i>
         </button>
       </div>
-
     </div>
     <div class="row justify-content-end mt-2">
       <div class="col-lg-8">
-        <h5 class="text-end">Total: $ </h5>
+        <h5 class="text-end">Total: ${{ calcularMontoTotal() }}</h5>
       </div>
     </div>
 
-    <div>
-      <button (click)="comprar()">Comprar</button>
+      <div>
+        <button (click)="comprar()">Comprar</button>
+      </div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -135,4 +132,3 @@
   integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6iRJHn3Db3mOXSYXbUQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- script de app -->
-
