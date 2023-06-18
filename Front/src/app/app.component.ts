@@ -32,10 +32,6 @@ export class AppComponent implements OnInit {
         this.message = `Bienvenido`;
         Emitters.authEmitter.emit(true);
       },
-      err => {
-        this.message = 'Usted no de ha autencicado';
-        Emitters.authEmitter.emit(false);
-      }
     );
   }
 

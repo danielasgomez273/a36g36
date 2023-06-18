@@ -163,6 +163,15 @@
       "precio_servicio": "2500.00",
       "comentarios_servicio": "comentarios sobre el nutricionista",
       "prestador": 4
+    },
+    {
+      "id": 2,
+      "nombre_servicio": "Consulta Diabetologo",
+      "descripcion_servicio": "Cita con diabetologo en la sede de nuestra clinica",
+      "sede_servicio": "Cordoba",
+      "precio_servicio": "3515.00",
+      "comentarios_servicio": "No se que puede ir en comentarios",
+      "prestador": 4
     }
   ],
   "hola2": [
