@@ -100,7 +100,9 @@ export class DashboardUsuarioComponent implements OnInit {
 
   agregarCarrito(servicio: any): void {
     this.http
-      .post('http://localhost:3000/CARRITO', servicio, { withCredentials: true })
+      // BACK => 'http://localhost:8000/api/paciente/carrito/servicio/<int:servicio_pk>/'
+      // FRONT => 'http://localhost:3000/CARRITO'
+      .post('http://localhost:8000/api/paciente/carrito/servicio/2/'/* => ACA NECESITO PASAR EL ID DEL PRODUCTO A AGREGAR AL CARRITO */, servicio, { withCredentials: true })
       .subscribe((data) => {
         console.log(data);
         this.getCarrito();

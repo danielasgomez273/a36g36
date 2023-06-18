@@ -11,7 +11,7 @@ import { NotasGlucemia } from './interfaces/notas-glucemia';
 })
 export class EstadisUsuariosService {
   
-  // url:string='http://127.0.0.1:8000/api/paciente/registros_glucemia/';
+  // BACK => 'http://127.0.0.1:8000/api/paciente/registros_glucemia/';
   /////////////////////////////////////////////////
   constructor(
     private http:HttpClient) { }
@@ -26,7 +26,7 @@ export class EstadisUsuariosService {
   ////////////////// CODIGO NOTAS ///////////////////
   ///////////////////////////////////////////////////
   //// MUESTRA LAS NOTAS  
-  //url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
+  // BACK => 'http://localhost:8000/api/paciente/registros_glucemia/';
   url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
 
   muestraNotasUsuario( ){
@@ -67,20 +67,28 @@ export class EstadisUsuariosService {
   /////////////////////////////////////////////////////////
 
   //// MUESTRA LOS SERVICIOS DISPONIBLES A LOS USUARIOS ////
-  //url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
-  url_SERVICIOS:string='http://localhost:3000/SERVICIOS';
+
+  // BACK => url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
+  // FRONT => 
+  url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
   muestraServicioAUsuario( ){
     return this.http.get<NotasGlucemia[]>(this.url_SERVICIOS, {withCredentials: true})
   }
 
   //// MUESTRA CARRITO USUARIOS ////
+
+  // BACK => 'http://localhost:8000/api/paciente/carrito/'
+  // FRONT => 'http://localhost:3000/CARRITO/'
   muestraCarritoAUsuario( ){
-    return this.http.get('http://localhost:3000/CARRITO', {withCredentials: true})
+    return this.http.get('http://localhost:8000/api/paciente/carrito/', {withCredentials: true})
   }
 
   //// ELIMINAR SERVICIO DE CARRITO USUARIOS ////
+
+  // BACK => 'http://localhost:8000/api/paciente/carrito/'
+  // FRONT => 'http://localhost:3000/CARRITO/'
   DELETE_SERV(id:string){
-    return this.http.delete('http://localhost:3000/CARRITO/'+id , {withCredentials: true})
+    return this.http.delete('http://localhost:8000/api/paciente/carrito/'+id , {withCredentials: true})
   }
 
 
