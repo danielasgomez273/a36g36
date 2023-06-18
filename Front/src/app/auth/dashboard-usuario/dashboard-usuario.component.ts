@@ -148,9 +148,44 @@ agregarCarrito(servicio:any){
 
   })
 
-
 }
 
+  // METODO DELETE
+  eliminar_serv(id:string){
+    this.paciente.DELETE_SERV(id).subscribe(()=>{
+      alert("Servicio eliminado del carrito")
+      this.getCarrito()
+      console.log("el id de delete es"+id)
+    })
+  }
+
+  // CALCULO DEL
+  monto:number = 20
+  montoT(){
+
+    return this.paciente.muestraCarritoAUsuario().subscribe({
+      next: (servicios_C) => {
+        this.serviciosCarrito = servicios_C;
+
+      },
+      error: (errorData) => {
+        console.error(errorData);
+      }
+    });
+  }
+
+
+  calcularMonto(){
+    this.paciente.muestraCarritoAUsuario().subscribe({
+      next: (servicios_C) => {
+        this.serviciosCarrito = servicios_C;
+
+      },
+      error: (errorData) => {
+        console.error(errorData);
+      }
+    });
+  }
 
 
 

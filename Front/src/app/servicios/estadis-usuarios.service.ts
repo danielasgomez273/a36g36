@@ -22,7 +22,9 @@ export class EstadisUsuariosService {
   //////////////////////////////////////////////////////
 
 
-
+  ///////////////////////////////////////////////////
+  ////////////////// CODIGO NOTAS ///////////////////
+  ///////////////////////////////////////////////////
   //// MUESTRA LAS NOTAS  
   //url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
   url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
@@ -60,7 +62,10 @@ export class EstadisUsuariosService {
 
  
 
-  ///////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  ////////////////// CODIGO DEL CARRITO ///////////////////
+  /////////////////////////////////////////////////////////
+
   //// MUESTRA LOS SERVICIOS DISPONIBLES A LOS USUARIOS ////
   //url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
   url_SERVICIOS:string='http://localhost:3000/SERVICIOS';
@@ -71,6 +76,11 @@ export class EstadisUsuariosService {
   //// MUESTRA CARRITO USUARIOS ////
   muestraCarritoAUsuario( ){
     return this.http.get('http://localhost:3000/CARRITO', {withCredentials: true})
+  }
+
+  //// ELIMINAR SERVICIO DE CARRITO USUARIOS ////
+  DELETE_SERV(id:string){
+    return this.http.delete('http://localhost:3000/CARRITO/'+id , {withCredentials: true})
   }
 
 
