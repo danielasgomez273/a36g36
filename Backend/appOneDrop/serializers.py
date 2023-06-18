@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import get_user_model
-from .models import Paciente , Ficha_medica , Registro_glucemia , Prestador , Servicio , Paquete , Carrito , Factura #refiere a que creare el serializer en base a un modelo existente   
+from .models import Paciente , Ficha_medica , Registro_glucemia , Prestador , Servicio , Carrito , Factura #refiere a que creare el serializer en base a un modelo existente   
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -50,15 +50,17 @@ class ServicioSerializer(serializers.ModelSerializer):
         model = Servicio    
         fields = ('id', 'nombre_servicio', 'descripcion_servicio', 'precio_servicio', 'comentarios_servicio', 'prestador')
 
-class PaqueteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Paquete    
-        fields = ('id', 'nombre_paquete', 'duracion_total', 'precio_total', 'sede_paquete', 'fecha_seleccionada', 'servicio')
+# class PaqueteSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Paquete    
+#         fields = ('id', 'nombre_paquete', 'duracion_total', 'precio_total', 'sede_paquete', 'fecha_seleccionada', 'servicio')
 
 class CarritoSerializer(serializers.ModelSerializer):
+    # servicio = serializers.PrimaryKeyRelatedField (many=True, queryset = Servicio.objects.all())
+    servicio = ServicioSerializer(many=True, read_only=True) 
     class Meta:
         model = Carrito    
-        fields = ('id', 'estado_carrito', 'paciente', 'servicio')
+        fields = ('id', 'estado_carrito', 'paciente', 'servicio') # __all__
 
 class FacturaSerializer(serializers.ModelSerializer):
     class Meta:

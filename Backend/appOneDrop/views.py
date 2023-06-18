@@ -12,9 +12,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import viewsets
 
-from .models import Paciente , Ficha_medica , Registro_glucemia , Prestador , Servicio , Paquete , Carrito , Factura
+from .models import Paciente , Ficha_medica , Registro_glucemia , Prestador , Servicio , Carrito , Factura
 
-from .serializers import UserSerializer, PacienteSerializer , FichaMedicaSerializer , RegistroGlucemiaSerializer ,PrestadorSerializer , ServicioSerializer , PaqueteSerializer , CarritoSerializer , FacturaSerializer
+from .serializers import UserSerializer, PacienteSerializer , FichaMedicaSerializer , RegistroGlucemiaSerializer ,PrestadorSerializer , ServicioSerializer , CarritoSerializer , FacturaSerializer
 from .models import CustomUser
 from rest_framework.permissions import IsAdminUser , AllowAny
 from rest_framework import permissions
@@ -187,22 +187,23 @@ class CrudServiciosById (APIView):#(generics.DestroyAPIView): revisar si funcion
 
     
 #SOLO ADMIN - CRUD PAQUETES
-class CrudPaquetes(APIView):
-    permission_classes = [permissions.IsAdminUser]
-
-    def get (self, request):
-        queryset = Paquete.objects.all()
-        serializer = PaqueteSerializer(queryset, many=True)
-        if self.request.user.is_authenticated:
-            return Response (serializer.data)
-        return Response(status= status.HTTP_400_BAD_REQUEST)
-    
-    def post (self, request, format = None):
-        serializer = PaqueteSerializer (data = request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response( serializer.data, status= status.HTTP_201_CREATED)
-        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+# class CrudPaquetes(APIView):
+#     permission_classes = [permissions.IsAdminUser]
+# 
+#     def get (self, request):
+#         queryset = Paquete.objects.all()
+#         serializer = PaqueteSerializer(queryset, many=True)
+#         if self.request.user.is_authenticated:
+#             return Response (serializer.data)
+#         return Response(status= status.HTTP_400_BAD_REQUEST)
+#     
+#     def post (self, request, format = None):
+#         serializer = PaqueteSerializer (data = request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response( serializer.data, status= status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+# 
 
 ####################################### PACIENTE #######################################
 #SOLO PACIENTE - CRUD PACIENTE
@@ -378,6 +379,7 @@ class CrudCarrito(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get (self, request):  
+        print("*********** entrando al GET de carrito **************")
         paciente = Paciente.objects.filter(usuario=self.request.user.id)       
         idPaciente = paciente.get().pk
         queryset = Carrito.objects.filter(paciente_id = idPaciente)
@@ -396,10 +398,63 @@ class CrudCarrito(APIView):
 #SOLO PACIENTE - AGREGAR A CARRITO
 class CrudServicioToCarrito(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    http_method_names = ['get']
+    http_method_names = ['get','post']
     lookup_field = 'servicio_pk'
-    serializer_class = ServicioSerializer
+    serializer_class = CarritoSerializer
+        
+    def post (self, request, servicio_pk, format = None):
+        resp = Response(status= status.HTTP_500_INTERNAL_SERVER_ERROR)
+        print("/////////// entrando al POST de SERVICIO AL CARRITO ///////////")
+        
+        # Buscar carrito de paciente, o crear uno nuevo si no encuentra
+        paciente = Paciente.objects.filter(usuario=self.request.user.id)   
+        pacienteId = paciente.get().id
+        print("paciente =>")
+        print(paciente.get().id)
 
+        carrito = Carrito.objects.filter(paciente_id = pacienteId).first() #este metodo deberia devolver un None si no hay ninguno        
+        print("CARRITO ENCONTRADO?")
+        print(carrito)        
+
+        if carrito == None:
+            print("carrito no existia, se crea uno nuevo")
+            pac = Paciente.objects.filter(id = pacienteId).get()
+            serv = Servicio.objects.filter(id = servicio_pk).get()
+
+            carr = Carrito.objects.create(estado_carrito = "vacio", paciente = pac , servicio = serv)
+            carritoCreado = Carrito.objects.get(id = carr.id)
+            print(carritoCreado)
+        #    data = {
+        #        'estado_carrito' : 'vacio', # ACA PUEDE QUE SEA OTRA OPCION  VACIO o Vacio
+        #        'paciente' : pacienteId, 
+        #        'servicio' : servicio_pk
+        #    }
+        #    serializer = CarritoSerializer (data = data , many = True)
+        #    print(" --------------------   serializer.is_valid() -------------------- ")
+        #    print(serializer.is_valid())
+        #    print(" --------------------   serializer.is_valid() -------------------- ")
+        #    if serializer.is_valid():                    
+        #        print(" --------------------   CREE UN CARRITO NUEVO Y ENVIE UN PRODUCT -------------------- ")
+        #        serializer.save()           
+        #        carrito = Carrito.objects.filter(paciente_id = pacienteId)
+        #        return Response( serializer.data, status= status.HTTP_201_CREATED)
+        #    else: return Response(status= status.HTTP_418_IM_A_TEAPOT)   
+
+
+        print("carrito ya existia.. enviare un producto mas al carrito=>")
+        print(carrito.id)       
+        serv = Servicio.objects.filter(id = servicio_pk).get()
+        carrito.servicio.add(serv)
+        #  model = get_object_or_404(Carrito, pk=carrito.id) #carrito 
+        #  data = servicio_pk
+        #  serializer = CarritoSerializer (model, data = data, partial=True)
+        #  if serializer.is_valid():
+        #      serializer.save()   
+        #      return Response(status= status.HTTP_201_CREATED)
+        #  return Response(status= status.HTTP_418_IM_A_TEAPOT)   
+
+    
+'''
     def get (self, request, servicio_pk):  
         #Obtener el servicio a agregar..
         querysetServicio = Servicio.objects.filter(id=servicio_pk)
@@ -430,16 +485,7 @@ class CrudServicioToCarrito(APIView):
         if self.request.user.is_authenticated:
             return Response (serializerCarrito.data)
         return Response(status= status.HTTP_400_BAD_REQUEST)
-    '''
-    def post (self, request, format = None):
-        serializer = CarritoSerializer (data = request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response( serializer.data, status= status.HTTP_201_CREATED)
-        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
-    '''
-
-
+ '''
 
 
 ####################################### SIN AUTH #######################################
@@ -456,34 +502,35 @@ class VerServicios(generics.ListCreateAPIView):
             return Response (serializer.data)
         
 #SIN AUTH - VER PAQUETES
-class VerPaquetes(generics.ListCreateAPIView):
-    queryset = Paquete.objects.all()
-    serializer_class = PaqueteSerializer
-    http_method_names = ['get']
-    permission_classes = [permissions.AllowAny]
-    def verPaquetes (self, request):
-        queryset = self.get_queryset()
-        serializer = PaqueteSerializer( queryset , many=True)
-        if self.request.user.is_authenticated:
-            return Response (serializer.data)
+# class VerPaquetes(generics.ListCreateAPIView):
+#     queryset = Paquete.objects.all()
+#     serializer_class = PaqueteSerializer
+#     http_method_names = ['get']
+#     permission_classes = [permissions.AllowAny]
+#     def verPaquetes (self, request):
+#         queryset = self.get_queryset()
+#         serializer = PaqueteSerializer( queryset , many=True)
+#         if self.request.user.is_authenticated:
+#             return Response (serializer.data)
+
 #SIN AUTH - VER TODOO => ERROR NO ESTA MOSDTRANDO TODOO
-class VerTodos(generics.ListCreateAPIView):
-    queryset = Paquete.objects.all()
-    serializer_class = PaqueteSerializer
-    http_method_names = ['get']
-    permission_classes = [permissions.AllowAny]
-    def verPaquetes (self, request):
-        queryset = self.get_queryset()
-        querysetServicio = Servicio.objects.all()
-        serializer = PaqueteSerializer( queryset , many=True)
-        serializerServicio = ServicioSerializer( querysetServicio , many=True)
-        if self.request.user.is_authenticated:
-            resp = {
-                'servicios': serializerServicio.data ,
-                'paquetes':serializer.data 
-            }
-            print("resp")
-            print(resp)
-            return Response(resp, status=status.HTTP_200_OK)
-# # # # # # # # # # # # # # 
+# class VerTodos(generics.ListCreateAPIView):
+#     queryset = Paquete.objects.all()
+#     serializer_class = PaqueteSerializer
+#     http_method_names = ['get']
+#     permission_classes = [permissions.AllowAny]
+#     def verPaquetes (self, request):
+#         queryset = self.get_queryset()
+#         querysetServicio = Servicio.objects.all()
+#         serializer = PaqueteSerializer( queryset , many=True)
+#         serializerServicio = ServicioSerializer( querysetServicio , many=True)
+#         if self.request.user.is_authenticated:
+#             resp = {
+#                 'servicios': serializerServicio.data ,
+#                 'paquetes':serializer.data 
+#             }
+#             print("resp")
+#             print(resp)
+#             return Response(resp, status=status.HTTP_200_OK)
+#
 

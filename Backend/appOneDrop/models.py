@@ -156,36 +156,38 @@ class Servicio(models.Model):
         return 'El servicio es ' + self.nombre_servicio
    
 #  PAQUETES  #
-class Paquete(models.Model):
-    nombre_paquete = models.CharField(max_length=50 ,default="paquete" ,blank=False)
-    duracion_total = models.CharField(max_length=50 , blank=False)
-    precio_total = models.CharField(max_length=50 , blank=False)
-    sede_paquete = models.CharField(max_length=50 , blank=False)
-    fecha_seleccionada = models.DateTimeField(default=now , blank=False) # auto_now_add=True
-    servicio = models.ManyToManyField(Servicio)
-    
-    class Meta:
-        db_table = 'Paquete'
-        verbose_name = 'Paquete'
-        verbose_name_plural = 'Paquetes'    
-    def __unicode__(self):
-        return self.nombre_paquete    
-    def __str__(self):
-        return 'El paquete es ' + self.nombre_paquete   
+# class Paquete(models.Model):
+#     nombre_paquete = models.CharField(max_length=50 ,default="paquete" ,blank=False)
+#     duracion_total = models.CharField(max_length=50 , blank=False)
+#     precio_total = models.CharField(max_length=50 , blank=False)
+#     sede_paquete = models.CharField(max_length=50 , blank=False)
+#     fecha_seleccionada = models.DateTimeField(default=now , blank=False) # auto_now_add=True
+#     servicio = models.ManyToManyField(Servicio)
+#     
+#     class Meta:
+#         db_table = 'Paquete'
+#         verbose_name = 'Paquete'
+#         verbose_name_plural = 'Paquetes'    
+#     def __unicode__(self):
+#         return self.nombre_paquete    
+#     def __str__(self):
+#         return 'El paquete es ' + self.nombre_paquete   
 
 #  CARRITO  #
 class Carrito(models.Model):
+    VACIO = 'vacio'
     COMPRADO = 'comprado'
     PAGO_PENDIENTE = 'pago pendiente'
     ELIMINADO = 'eliminado'
     choices_estado_carrito = (
+         (VACIO, 'Vacio'),
          (COMPRADO, 'Comprado'),
          (PAGO_PENDIENTE, 'Pago pendiente'),
          (ELIMINADO, 'Eliminado'),
      )
     estado_carrito = models.CharField(max_length=30 , choices = choices_estado_carrito)
     paciente = models.ForeignKey(Paciente, null=True , blank= True, on_delete=models.CASCADE)
-    servicio = models.ManyToManyField(Paquete)
+    servicio = models.ManyToManyField(Servicio)
 
     class Meta:
         db_table = 'Carrito'
