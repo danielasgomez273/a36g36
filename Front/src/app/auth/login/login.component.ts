@@ -93,10 +93,6 @@ export class LoginComponent implements OnInit{
     }
 
 
-
-
-
-
   ///// METODOS GET /////
     get email_GET(){
       return this.profileForm.controls.email;

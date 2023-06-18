@@ -136,6 +136,35 @@
       "id": 1
     }
   ],
+  "CARRITO": [
+    {
+      "id": 3,
+      "nombre_servicio": "Paquete Plata",
+      "descripcion_servicio": "Algunos servicios",
+      "sede_servicio": "Cordoba",
+      "precio_servicio": "20500.00",
+      "comentarios_servicio": "comentarios sobre el paquete plata",
+      "prestador": 3
+    },
+    {
+      "id": "99",
+      "nombre_servicio": "Consulta General",
+      "descripcion_servicio": "Consulta con medico general",
+      "precio_servicio": "4300",
+      "comentarios_servicio": "Esto es un comentario",
+      "prestador": "21",
+      "sede_servicio": "Catamarca"
+    },
+    {
+      "id": 4,
+      "nombre_servicio": "Consulta Nutricionista",
+      "descripcion_servicio": "Consulta con el nutricionista",
+      "sede_servicio": "Cordoba",
+      "precio_servicio": "2500.00",
+      "comentarios_servicio": "comentarios sobre el nutricionista",
+      "prestador": 4
+    }
+  ],
   "hola2": [
     "////////////// DATOS DEL DASHBORAD DEL USUARIO /////////////////"
   ],
