@@ -3,11 +3,6 @@
     <h2 class="titulo text-center">EDITAR REGISTRO</h2>
   <div class="p-4 container">
     <div class="row">
-      <div class="p-2 col-lg-4">
-        <label for="fecha-registro" class="form-label">Fecha Registro</label>
-        <input [(ngModel)]="nota[0].fecha_registro"  [ngModelOptions]="{standalone: true}" type="datetime-local" class="form-control" id="fecha-registro"
-          aria-describedby="emailHelp">
-      </div>
       <div class="p-2  col-lg-6">
         <label for="valor-glucemia" class="form-label">Valor Glucemia</label>
         <input [(ngModel)]="nota[0].valor_glucemia"  [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="valor-glucemia">
@@ -21,7 +16,7 @@
 
       <button (click)="update()" type="submit" class="m-1 col-lg-4 btn btn-success">Modificar Nota</button>
       <button routerLink="/auth/dash_user" type="submit" class="m-1 col-lg-4 btn btn-danger">Volver</button>
-      <pre>{{nota|json}}</pre>
+      
     </div>
   </div>
 </form>
