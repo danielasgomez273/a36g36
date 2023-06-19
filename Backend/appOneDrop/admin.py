@@ -7,7 +7,7 @@ from .models import Ficha_medica
 from .models import Registro_glucemia
 from .models import Prestador
 from .models import Servicio
-from .models import Paquete
+# from .models import Paquete
 from .models import Carrito
 from .models import Factura
 from .models import CustomUser
@@ -42,8 +42,8 @@ class PrestadorAdmin(admin.ModelAdmin):
 class ServicioAdmin(admin.ModelAdmin):
     list_display = ( "nombre_servicio" , "descripcion_servicio" , "sede_servicio" , "precio_servicio" , "comentarios_servicio" , "duracion_servicio" , "prestador")
 
-class PaqueteAdmin(admin.ModelAdmin):
-    list_display = ( "nombre_paquete" , "duracion_total" , "precio_total" , "sede_paquete" , "fecha_seleccionada")
+# class PaqueteAdmin(admin.ModelAdmin):
+#     list_display = ( "nombre_paquete" , "duracion_total" , "precio_total" , "sede_paquete" , "fecha_seleccionada")
 
 class CarritoAdmin(admin.ModelAdmin):
     list_display = ( "estado_carrito" , "paciente")
@@ -57,7 +57,7 @@ admin.site.register(Ficha_medica,Ficha_medicaAdmin)
 admin.site.register(Registro_glucemia, Registro_glucemiaAdmin)
 admin.site.register(Prestador,PrestadorAdmin)
 admin.site.register(Servicio,ServicioAdmin)
-admin.site.register(Paquete,PaqueteAdmin)
+# admin.site.register(Paquete,PaqueteAdmin)
 admin.site.register(Carrito,CarritoAdmin)
 admin.site.register(Factura,FacturaAdmin)
 

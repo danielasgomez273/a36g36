@@ -36,41 +36,56 @@ class Paciente(models.Model):
     
 class Ficha_medica(models.Model):
     #tipo_diabetes
-    TIPO_1 = 'tipo 1'
-    TIPO_2 = 'tipo 2'
-    GESTACIONAL = 'gestacional'
+    TIPO_1 = 'Tipo 1'
+    TIPO_2 = 'Tipo 2'
+    GESTACIONAL = 'Gestacional'
+    MONOGENICA ='Monogenica'
+    OTROS = 'Otros'
+
     choices_tipo_diabetes = (
          (TIPO_1, 'Tipo 1'),
          (TIPO_2, 'Tipo 2'),
          (GESTACIONAL, 'Gestacional'),
+         (MONOGENICA, 'Monogenica'),
+         (OTROS, 'Otros'),
      )    
     #terapia_insulina
-    TERAPIA_INSULINA_1 = 'tipo 1'
-    TERAPIA_INSULINA_2 = 'tipo 2'
+    DOSIS_BASAL = 'Dosis Basal'
+    DOSIS_EN_BOLO = 'Dosis en Bolo'
+    NO_USO_OTROS = 'No Uso/Otros'
     choices_terapia_insulina = (
-         (TERAPIA_INSULINA_1, 'Tipo 1'),
-         (TERAPIA_INSULINA_2, 'Tipo 2'),
+         (DOSIS_BASAL, 'Dosis Basal'),
+         (DOSIS_EN_BOLO, 'Dosis en Bolo'),
+         (NO_USO_OTROS, 'No Uso/Otros'),
      )
     #terapia_pastillas
-    TERAPIA_PASTILLAS_1 = 'tipo 1'
-    TERAPIA_PASTILLAS_2 = 'tipo 2'
+    TOLBUTAMIDA = 'Tolbutamida'
+    GLIMEPIRIDA = 'Glimepirida'
+    GLIPPIZIDA = 'Glipizida'
     choices_terapia_pastillas = (
-         (TERAPIA_PASTILLAS_1, 'Tipo 1'),
-         (TERAPIA_PASTILLAS_2, 'Tipo 2'),
+         (TOLBUTAMIDA, 'Tolbutamida'),
+         (GLIMEPIRIDA, 'Glimepirida'),
+         (GLIPPIZIDA, 'Glipizida'),
      )
     #tipo_glucometro
-    TIPO_GLUCOMETRO_1 = 'tipo 1'
-    TIPO_GLUCOMETRO_2 = 'tipo 2'
+    MEDIDOR_CAPILAR = 'Medidor Capilar'
+    MEDIDOR_CONTINUO = 'Medidor Continuo (MCG)'
+    MEDIDOR_TIPO_FLASH = 'Medidor Tipo Flash'
+    NO_USO = 'No uso/Otro'
     choices_tipo_glucometro = (
-         (TIPO_GLUCOMETRO_1, 'Tipo 1'),
-         (TIPO_GLUCOMETRO_2, 'Tipo 2'),
+         (MEDIDOR_CAPILAR, 'Medidor Capilar'),
+         (MEDIDOR_CONTINUO, 'Medidor Continuo (MCG)'),
+         (MEDIDOR_TIPO_FLASH, 'Medidor Tipo Flash'),
+         (NO_USO, 'No uso/Otro'),
      )
     #tipo_sensor
-    TIPO_SENSOR_1 = 'tipo 1'
-    TIPO_SENSOR_2 = 'tipo 2'
+    FREESTYLE_LIBRE_ABBOTT = 'FreeStyle Libre de Abbott' 
+    GUARDIAN_CONNECT_MEDTRONIC = 'Guardian Connect de Medtronic'
+    NO_USO = 'No uso'
     choices_tipo_sensor = (
-         (TIPO_SENSOR_1, 'Tipo 1'),
-         (TIPO_SENSOR_2, 'Tipo 2'),
+         (FREESTYLE_LIBRE_ABBOTT, 'FreeStyle Libre de Abbott'),
+         (GUARDIAN_CONNECT_MEDTRONIC, 'Guardian Connect de Medtronic'),
+         (NO_USO, 'No uso'),
      )
     tipo_diabetes = models.CharField(max_length=35 , choices = choices_tipo_diabetes) 
     terapia_insulina = models.CharField(max_length=30 , choices = choices_terapia_insulina)
@@ -99,25 +114,27 @@ class Registro_glucemia(models.Model):
     def __unicode__(self):
         return self.valor_glucemia    
     def __str__(self):
-        return "El valor de glucemia es " + self.valor_glucemia + " , medido el " + self.fecha_registro
+        return "El valor de glucemia es " + str(self.valor_glucemia) + " , medido el " + str(self.fecha_registro)
     
 #  PRESTADOR  #
 class Prestador(models.Model):
     #custom user email_prestador = models.EmailField(max_length=100 , blank=False , default="", unique=True)
     #custom user contraseña_prestador = models.CharField(max_length=50 , blank=False)
+
     sede_prestador = models.CharField(max_length=50 , blank=False)
     telefono_prestador = models.CharField(max_length=50 , blank=False)
     informacion_extra_prestador = models.CharField(max_length=200 , null=True, blank=True)
-    nombre_usuario_prestador = models.CharField(max_length=100 ,default="Prestador", blank=False)
+    nombre_usuario_prestador = models.CharField(max_length=100 ,default="Prestador", blank=False),
+    usuario = models.OneToOneField(CustomUser , null=False, blank=False, on_delete=models.CASCADE )
 
     class Meta:
         db_table = 'Prestador'
         verbose_name = 'Prestador'
         verbose_name_plural = 'Prestadores'    
     def __unicode__(self):
-        return self.nombre_usuario_prestador    
+        return self.sede_prestador    
     def __str__(self):
-        return 'El prestador es ' + self.nombre_usuario_prestador
+        return 'El prestador es ' + self.sede_prestador
     
 #  SERVICIOS  #
 class Servicio(models.Model):
@@ -139,36 +156,38 @@ class Servicio(models.Model):
         return 'El servicio es ' + self.nombre_servicio
    
 #  PAQUETES  #
-class Paquete(models.Model):
-    nombre_paquete = models.CharField(max_length=50 ,default="paquete" ,blank=False)
-    duracion_total = models.CharField(max_length=50 , blank=False)
-    precio_total = models.CharField(max_length=50 , blank=False)
-    sede_paquete = models.CharField(max_length=50 , blank=False)
-    fecha_seleccionada = models.DateTimeField(default=now , blank=False) # auto_now_add=True
-    servicio = models.ManyToManyField(Servicio)
-    
-    class Meta:
-        db_table = 'Paquete'
-        verbose_name = 'Paquete'
-        verbose_name_plural = 'Paquetes'    
-    def __unicode__(self):
-        return self.nombre_paquete    
-    def __str__(self):
-        return 'El paquete es ' + self.nombre_paquete   
+# class Paquete(models.Model):
+#     nombre_paquete = models.CharField(max_length=50 ,default="paquete" ,blank=False)
+#     duracion_total = models.CharField(max_length=50 , blank=False)
+#     precio_total = models.CharField(max_length=50 , blank=False)
+#     sede_paquete = models.CharField(max_length=50 , blank=False)
+#     fecha_seleccionada = models.DateTimeField(default=now , blank=False) # auto_now_add=True
+#     servicio = models.ManyToManyField(Servicio)
+#     
+#     class Meta:
+#         db_table = 'Paquete'
+#         verbose_name = 'Paquete'
+#         verbose_name_plural = 'Paquetes'    
+#     def __unicode__(self):
+#         return self.nombre_paquete    
+#     def __str__(self):
+#         return 'El paquete es ' + self.nombre_paquete   
 
 #  CARRITO  #
 class Carrito(models.Model):
+    VACIO = 'vacio'
     COMPRADO = 'comprado'
     PAGO_PENDIENTE = 'pago pendiente'
     ELIMINADO = 'eliminado'
     choices_estado_carrito = (
+         (VACIO, 'Vacio'),
          (COMPRADO, 'Comprado'),
          (PAGO_PENDIENTE, 'Pago pendiente'),
          (ELIMINADO, 'Eliminado'),
      )
     estado_carrito = models.CharField(max_length=30 , choices = choices_estado_carrito)
     paciente = models.ForeignKey(Paciente, null=True , blank= True, on_delete=models.CASCADE)
-    servicio = models.ManyToManyField(Paquete)
+    servicio = models.ManyToManyField(Servicio)
 
     class Meta:
         db_table = 'Carrito'

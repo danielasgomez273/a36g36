@@ -7,25 +7,23 @@ import { ServiciosCompComponent } from './servicios-comp/servicios-comp.componen
 // Importamos el modulo de router module
 import { RouterModule } from '@angular/router';
 import { EcommerceRoutingModule } from './ecommerce-routing.module';
-
-
-
-
-
-
+import { FormularioPagoComponent } from './formulario-pago/formulario-pago.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ServiciosCompComponent
+    ServiciosCompComponent,
+    FormularioPagoComponent
   ],
   imports: [
     CommonModule,
-    EcommerceRoutingModule
-    
+    EcommerceRoutingModule,
+    ReactiveFormsModule // Agrega esta línea para importar el módulo de formularios reactivos
   ],
   exports:[
     ServiciosCompComponent,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class EcommerceModule { }

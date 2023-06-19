@@ -5,9 +5,6 @@
 <!-- Empieza Head -->
 
 <head>
-
-
-
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
@@ -90,26 +87,47 @@
         <li class="nav-item botones" id="nav-item">
             <a class="nav-link" id="nav-link" routerLink="contacto"> Contacto </a>
         </li>
-        <li class="nav-item botones" id="nav-item">
-            <a class="nav-link" id="nav-link" routerLink="auth/registrarse"> Registrarse</a>
-        </li>
 
 
-        <li class="nav-item botones boton1" id="nav-item">
-        
-             <a class="nav-link boton1bis" id="nav-link" routerLink="auth/login"> Ingresar</a>
-      
-        </li>
+
+
+        <div >
+          <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="!authenticated">
+            <li class="nav-item botones" id="nav-item">
+              <a class="nav-link" id="nav-link" routerLink="auth/registrarse"> Registrarse</a>
+          </li>
+          
+          <li class="nav-item botones boton1" id="nav-item">
+               <a class="nav-link boton1bis" id="nav-link" routerLink="auth/login"> Ingresar</a>
+          </li>
+          </ul>
+    
+
+          </div>
+          <div>
+          <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="authenticated">
+            <li class="nav-item botones boton1" id="nav-item">
+              <a routerLink="auth/ingresar" class="nav-link  boton1bis" (click)="logout()">Cerrar Sesion</a>
+            </li>
+          </ul>
+        </div>
+
+
+
+
+
 
       </ul>
     </div>
   </div>
 </nav>
 
-</body>
-</html>
 
+{{message}}
 
 <router-outlet></router-outlet>
 <app-scroll-back-to-top-button></app-scroll-back-to-top-button>
 <app-footer></app-footer>
+
+</body>
+</html>

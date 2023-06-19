@@ -1,8 +1,12 @@
+import { HttpBackend, HttpClient, HttpClientModule, HttpHeaderResponse, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,Validators } from '@angular/forms';
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { loginInterface } from 'src/app/servicios/interfaces/loginInterface';
-import { LoginService } from 'src/app/servicios/login.service';
+import { HttpHeaders } from '@angular/common/http';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { Emitters } from 'src/app/emitters/emitters';
+
+
 
 // SE USARAN FORMULARIOS REACTIVOS Y VALIDACIONES SINCRONICAS
 
@@ -13,103 +17,93 @@ import { LoginService } from 'src/app/servicios/login.service';
 })
 
 export class LoginComponent implements OnInit{
-
-  borde_validacion:string=""
-
-
-  // SE CREA OBJETO TIPO formBuilder 
-
-  profileForm=this.formBuilder.group({
-    email:["",[Validators.required,Validators.email]],
-    pass:["",[Validators.required,Validators.minLength(7)]]
-
-  });
-
-  // SE INYECTA FormBuilder               y   EL SERVICIO   LoginService
-  constructor(private formBuilder:FormBuilder,private router:Router , private serv_login:LoginService){};
-
-// METODO DE BORDES
-  bordeOk(){
-    this.borde_validacion="borde-validacion_ok"
-  }
+  //////////////////////////////////////////////////////////
+    profileForm:FormGroup | any;
 
 
-// ////////////////////////////// METODO DE VERIFICACION USER ////////////////////////////
-  verificacionLoginUser(){
-// si el formulario es valido
-    if(this.profileForm.valid){
-       // PARTE QUE CONSUME EL SERVICIO
-       this.serv_login.login(this.profileForm.value as loginInterface).subscribe({
 
-        next:(userData) => {
-        },
-        error:(errorData) => {
-          console.log(errorData)
-        },
-        complete:() => {
-        }
-      })
+  //////////////////////////////////////////////////////////
+    ngOnInit(): void {
 
-  // CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
-      this.router.navigateByUrl("/auth/dash_user")
-      this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
-
-    } 
-    else{
-
-      // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
-      this.profileForm.markAllAsTouched();
-      alert("No se ingresaron correctamente los datos o no se reconoce el usuario")
-    
+        this.profileForm=this.formBuilder.group({
+          email:["",[Validators.required,Validators.email]],
+          password:["",[Validators.required,Validators.minLength(9)]]
+      
+        });
     }
-  }
+  //////////////////////////////////////////////////////////
+
+    constructor(
+      private formBuilder:FormBuilder,
+      private router:Router,
+      private serv_login:AuthService,
+      private http : HttpClient){};
 
 
-// /////////////////////////// METODO DE VERIFICACION ADMIN  ///////////////////////////
-    verificacionLoginAdmin(){
 
-      if(this.profileForm.valid){
 
-        // PARTE QUE CONSUME EL SERVICIO
-            this.serv_login.login(this.profileForm.value as loginInterface).subscribe({
+  ///// METODO DE SUBMIT DE LOGEO FUNCIONAL SIN  CONSUMO DE SERVICIO  /////
+    submit():void{
+      // IF para comprobar si el formulario es valido
+          if(this.profileForm.valid){
 
-              next:(userData) => {
-              },
-              error:(errorData) => {
-                console.log(errorData)
-              },
-              complete:() => {
-              }
-            })
+                  this.http.post('http://localhost:8000/api/auth/login/', this.profileForm.getRawValue(), {withCredentials: true})
 
-        // CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
+                  .subscribe((data) =>{
+                  this.router.navigateByUrl("/")
+                  console.log("Los datos de logueo son:" + data);
+                });                
+                
+            this.router.navigateByUrl("/auth/registro2usuario")                
+                this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
+          } 
+          else{
 
-            this.router.navigateByUrl("/auth/dash_admin")         
-            this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
-
-      } 
-      else{
-  
-        // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
-        this.profileForm.markAllAsTouched();
-        alert("No se ingresaron correctamente los datos o no se reconoce el usuario")
-
+            // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
+            this.profileForm.markAllAsTouched();
+            alert("No se ingresaron correctamente los datos o no se reconoce el usuario")
+          
+          }
       }
+
+
+  ///// METODO DE SUBMIT DE LOGEO CON CONSUMO DE SERVICIO  /////
+
+  submit2():void{
+    // IF para comprobar si el formulario es valido
+        if(this.profileForm.valid){
+              this.serv_login.POST('http://localhost:8000/api/auth/login/',{
+                    password:this.profileForm.value.password,
+                    email:this.profileForm.value.email,
+                  },)
+                  .subscribe((data) =>{
+                    console.log("Los datos de logueo son:" + data);
+                  });  
+
+                  this.router.navigateByUrl("/auth/registro2usuario")
+                  this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
+              } 
+        else{
+
+          // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
+          this.profileForm.markAllAsTouched();
+          alert("No se ingresaron correctamente los datos o no se reconoce el usuario")
+        
+        }
     }
 
 
   ///// METODOS GET /////
-  get email_GET(){
-    return this.profileForm.controls.email;
-  }
-  get pass_GET(){
-    return this.profileForm.controls.pass;
-  }
+    get email_GET(){
+      return this.profileForm.controls.email;
+    }
+    get pass_GET(){
+      return this.profileForm.controls.password;
+    }
 
 
 
 
-  ngOnInit(): void {}
+
 }
-
 

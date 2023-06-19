@@ -165,19 +165,19 @@
   background: transparent;
   margin: 1%;
   border: none;
-  height: 35rem;
+  height: 25rem;
 }
 
 .card {
   background: transparent;
   margin: 1%;
   border: none;
-  height: 35rem;
+  height: 25rem;
 }
 
 
 .cajas {
-  width: 33.3%;
+  width: 25%;
   border-radius: 5px;
   box-shadow: 0 0 5px #000;
   color: #000;
@@ -431,6 +431,7 @@ color: #1a609f;
 
 .cont-serv {
   background-color: #edf5fc;
+  height: inherit;
 }
 
 

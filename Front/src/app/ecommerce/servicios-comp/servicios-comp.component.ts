@@ -11,6 +11,8 @@ export class ServiciosCompComponent implements OnInit {
 
 
     constructor(private servicio:EcommerceServiceService){
+
+    //////// MUESTRA SERVICIOS ////////
       this.servicio.muestraservicio().subscribe({
         next:(servicios_S)=>{
           this.servicios=servicios_S

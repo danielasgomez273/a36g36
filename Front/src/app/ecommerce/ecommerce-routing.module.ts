@@ -1,33 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Importamos modulos
 import { ServiciosCompComponent } from './servicios-comp/servicios-comp.component';
+import { FormularioPagoComponent } from './formulario-pago/formulario-pago.component';
 
-// Iportamos Router Module
 import { RouterModule, Routes } from '@angular/router';
 
-
-const routes:Routes=[
-  {path:'',
-    children:[
-        {path:'servicios', component:ServiciosCompComponent},
-
-        {path:'**', redirectTo:'servicios'}
-
-    ]
-}
-]
-
+const routes: Routes = [
+  { path: 'servicios', component: ServiciosCompComponent },
+  { path: 'formulario_pago', component: FormularioPagoComponent },
+  { path: '**', redirectTo: './auth/dashuser' }
+];
 
 @NgModule({
-  declarations: [
-
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ]
+  imports: [CommonModule, RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class EcommerceRoutingModule { }
-
+export class EcommerceRoutingModule {}

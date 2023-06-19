@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { userInterface } from './interfaces/userInterface';
 
+
 // LA IDEA DE ESTE SERVICIO ESTA VERIFICAR QUE EL EMAIL INGRESADO COINCIDA CON ALGUNO DE NUESTRA
 // "BASE DE DATOS" Y EN EL CASO DE QUE SI QUE TIRE UN MENSAJE VE VALIDACION CORRERCTA. PERO POR AHORA NO PUDIMOS COMPLETARLO
 
@@ -45,5 +46,26 @@ export class RegistroService {
       return this.http.post(url,cuerpo);
 
     }
+
+  /////////////////////////////////////
+  //          SERVICIO POST          //
+  /////////////////////////////////////
+
+  POSTRegistroUsuario(urlPOST:string, body: any){
+    return this.http.post(urlPOST,body)
+}
+
+
+
+
+
+
+
+
+
+
   // CIERRA EXPORT
+
+
   }
+

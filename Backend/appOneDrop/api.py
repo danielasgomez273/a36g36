@@ -1,6 +1,6 @@
-from .models import Paciente , Ficha_medica , Registro_glucemia , Prestador , Servicio , Paquete , Carrito , Factura
+from .models import Paciente , Ficha_medica , Registro_glucemia , Prestador , Servicio , Carrito , Factura
 from rest_framework import viewsets , permissions
-from .serializers import PacienteSerializer , FichaMedicaSerializer , RegistroGlucemiaSerializer ,PrestadorSerializer , ServicioSerializer , PaqueteSerializer , CarritoSerializer , FacturaSerializer
+from .serializers import PacienteSerializer , FichaMedicaSerializer , RegistroGlucemiaSerializer ,PrestadorSerializer , ServicioSerializer , CarritoSerializer , FacturaSerializer
 
 class PacienteViewSet(viewsets.ModelViewSet):
     queryset = Paciente.objects.all()
@@ -27,10 +27,10 @@ class ServicioViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAdminUser]
     serializer_class = ServicioSerializer 
 
-class PaqueteViewSet(viewsets.ModelViewSet):
-    queryset = Paquete.objects.all()
-    permission_classes = [permissions.IsAdminUser]
-    serializer_class = PaqueteSerializer 
+# class PaqueteViewSet(viewsets.ModelViewSet):
+#     queryset = Paquete.objects.all()
+#     permission_classes = [permissions.IsAdminUser]
+#     serializer_class = PaqueteSerializer 
 
 class CarritoViewSet(viewsets.ModelViewSet):
     queryset = Carrito.objects.all()

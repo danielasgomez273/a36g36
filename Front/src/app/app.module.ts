@@ -10,9 +10,10 @@ import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { EcommerceModule } from './ecommerce/ecommerce.module';
 import { HttpClientModule } from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { RouterModule } from '@angular/router';
+
+import { Router, RouterModule } from '@angular/router';
 import { EcommerceServiceService } from './servicios/ecommerce-service.service';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistroComponent } from './auth/registro/registro.component';
@@ -20,6 +21,10 @@ import { FormContactoService } from './servicios/form-contacto.service';
 
 
 
+
+// instalado en pkg json, y agregado a providers por david
+import { CookieService } from "ngx-cookie-service";
+import { AuthService } from './servicios/auth.service';
 
 
 @NgModule({
@@ -34,8 +39,9 @@ import { FormContactoService } from './servicios/form-contacto.service';
     EcommerceModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,8 +5,7 @@ from rest_framework.authtoken import views as authtokenViews
 
 urlpatterns = [
 #SESIONES Y LOGUEO
-    path('api/auth/signup/', views.SignupView.as_view(), name='auth_signup'),
-    
+    path('api/auth/signup/', views.SignupView.as_view(), name='auth_signup'),    
     path('api/auth/login/',views.LoginView.as_view(), name ='auth_login'),
     path('api/auth/logout/',views.LogoutView.as_view(), name ='auth_logout'),
 
@@ -18,25 +17,23 @@ urlpatterns = [
 
     #METODO PARA ELIMINAR Y EDITAR PENDIENTE => SERVICIOS Y PAQUETES
     path('api/admin/servicios/', views.CrudServicios.as_view(), name='crud_servicios'),
-    path('api/admin/paquetes/', views.CrudPaquetes.as_view(), name='crud_paquetes'),
-    
+    path('api/admin/servicios/<int:servicio_pk>', views.CrudServiciosById.as_view(),name='crud_Servicios_by_id'),
+#   path('api/admin/paquetes/', views.CrudPaquetes.as_view(), name='crud_paquetes'),    
     path('api/admin/carritos/', views.VerCarritos.as_view(), name='ver_carritos'),
     path('api/admin/facturas/', views.VerFacturas.as_view(), name='ver_facturas'),
-
 
 ##SOLO PACIENTE------------
     #METODO PARA EDITAR PENDIENTE y eliminar????
     path('api/paciente/', views.CrudPaciente.as_view(), name='crud_paciente'),
     path('api/paciente/registros_glucemia/', views.CrudRegistrosGlucemia.as_view(), name='crud_registros_glucemia'),
+    path('api/paciente/registros_glucemia/<int:registro_pk>', views.CrudRegistrosGlucemiaById.as_view(),name='crud_registros_glucemia_by_id'),
     path('api/paciente/ficha_medica/', views.CrudFichaMedica.as_view(), name='crud_ficha_medica'),
-    path('api/paciente/carrito/', views.CrudCarrito.as_view(), name='crud_carrito'),
-    
+    path('api/paciente/carrito/', views.CrudCarrito.as_view(), name='crud_carrito'),    
     path('api/paciente/carrito/servicio/<int:servicio_pk>/', views.CrudServicioToCarrito.as_view(), name='crud_servicio_to_carrito'),
-
 ##SIN AUTH
     path('api/paciente/servicios/', views.VerServicios.as_view(), name='ver_servicios'),
-    path('api/paciente/paquetes/', views.VerPaquetes.as_view(), name='ver_paquetes'),
-    path('api/paciente/ver_todos/', views.VerTodos.as_view(), name='ver_todo'),
+#    path('api/paciente/paquetes/', views.VerPaquetes.as_view(), name='ver_paquetes'),
+#    path('api/paciente/ver_todos/', views.VerTodos.as_view(), name='ver_todo'),
 
 # que usuario pueda ver todos los paquetes
 

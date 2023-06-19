@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,Validators } from '@angular/forms';
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { loginInterface } from 'src/app/servicios/interfaces/loginInterface';
-import { LoginService } from 'src/app/servicios/login.service';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 // SE USARAN FORMULARIOS REACTIVOS Y VALIDACIONES SINCRONICAS
 
@@ -14,94 +13,86 @@ import { LoginService } from 'src/app/servicios/login.service';
 
 export class RegistroComponent implements OnInit{
 
-  borde_validacion:string=""
+////////////////////////////////////////////////////////////////////////
+  formPOSTRegistroUsuario: FormGroup | any;
 
-
-  // SE CREA OBJETO TIPO formBuilder 
-
-  profileForm=this.formBuilder.group({
-    email:["",[Validators.required,Validators.email]],
-    pass:["",[Validators.required,Validators.minLength(7)]],
-    name:["",[Validators.required]],
-    last_name:["",[Validators.required]],
-    phone:["",[Validators.required]],
-    birthday:["",[Validators.required]],
-    sex:["",[Validators.required]],
+  
+//////////////////////////////////////////////////////////////////////
+  ngOnInit(): void {
     
+    this.formPOSTRegistroUsuario= this.formBuilder.group({
+      id:[],
+      email:["",[Validators.required,Validators.email]],
+      pass:["",[Validators.required,Validators.minLength(9)]],
+      username:["",[Validators.required]]
+    })
 
-  });
+  }
+
+  ///////////////////////////////////////////////////////////////////////           
+    constructor(
+      private formBuilder:FormBuilder,
+      private router:Router,
+      private serv_registro:AuthService){};
 
 
-///// METODOS GET /////
+  //////////// METODOS GET ///////////
   get email_GET(){
-    return this.profileForm.controls.email;
+    return this.formPOSTRegistroUsuario.controls['email'];
   }
   get pass_GET(){
-    return this.profileForm.controls.pass;
+    return this.formPOSTRegistroUsuario.controls['pass'];
   }
-  get name_GET(){
-    return this.profileForm.controls.name;
-  }
-  get last_name_GET(){
-    return this.profileForm.controls.last_name;
-  }
-  get birthday_GET(){
-    return this.profileForm.controls.birthday;
-  }
-  get sex_GET(){
-    return this.profileForm.controls.sex;
-  }
-  get phone_GET(){
-    return this.profileForm.controls.phone;
-  }
-
-  
-  // SE INYECTA FormBuilder               y   EL SERVICIO   LoginService
-  constructor(private formBuilder:FormBuilder,private router:Router , private serv_login:LoginService){};
-
-// METODO DE BORDES
-  bordeOk(){
-    this.borde_validacion="borde-validacion_ok"
+  get username_GET(){
+    return this.formPOSTRegistroUsuario.controls['username'];
   }
 
 
-// ////////////////////////////// METODO DE VERIFICACION USER ////////////////////////////
-  verificacionRegistroUser(){
-// si el formulario es valido
-if(this.profileForm.valid){
-  // CODIGO QUE CONSUME EL SERVICIO
-  this.serv_login.login(this.profileForm.value as loginInterface).subscribe({
 
-   next:(userData) => {
-   },
-   error:(errorData) => {
-     console.log(errorData)
-   },
-   complete:() => {
-   }
- })
+  //////////// METODO POST //////////////
+  enviarDatosRegistroInicial(){
+    // SI EL FORMULARIO CUMPLE CON LA VALIDACION
+      if(this.formPOSTRegistroUsuario.valid){
 
-// CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
- this.router.navigateByUrl("/auth/dash_user")
- this.profileForm.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
+            // Envia los datos
+            //this.serv_registro.POST( 'http://localhost:3000/REGISTRO_INICIAL',
+            this.serv_registro.POST( 'http://127.0.0.1:8000/api/auth/signup/',
+            {
+              // INFORMACION QUE VAMOS A PASAR  
+              email:this.formPOSTRegistroUsuario.value.email,
+              password:this.formPOSTRegistroUsuario.value.pass,
+              username:this.formPOSTRegistroUsuario.value.username,
+            }
+                
+            )
+                .subscribe((respuesta: any) => {
+ 
+            })
 
-    } 
-    else{
+            // ACA HAY QUE ESPERAR UNA RESPUESTA 201 SI SE CREO USUARIO, SINO ERROR
 
-      // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
-      this.profileForm.markAllAsTouched();
-      alert("No se ingresaron correctamente los datos")
-    
-    }
+
+                
+            // CODIGO QUE VALIDA, ES APARTE AL CONSUMO DEL SERVICIO
+            this.router.navigateByUrl("/auth/login")
+            this.formPOSTRegistroUsuario.reset(); // SI VALIDA CORRECTAMENTE SE REINICIAN LOS VALORES DE LOS CAMPOS
+
+      } 
+      else{
+            // SI NO VALIDA TODOS LOS CAMPOS QUEDAN MARCADO EN ROJO
+            this.formPOSTRegistroUsuario.markAllAsTouched();
+            alert("No se ingresaron correctamente los datos")
+          
+      }
   }
 
-
+//////////////////////////////////////////////////////////////
 
   
 
 
 
-  ngOnInit(): void {}
+
 }
 
 

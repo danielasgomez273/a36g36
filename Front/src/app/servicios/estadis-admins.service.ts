@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EstadisAdminsService {
-  url:string="http://localhost:3000/";
+  url:string="http://localhost:8000/";
 
   /////////////////////////////////////
   constructor(
@@ -16,39 +16,60 @@ export class EstadisAdminsService {
   /////////////////////////////////////
   muestraEstadisticas( ){
 
-    return this.http.get(this.url+"estadisticas_admins")
+    // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
+
+   // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS 
+    return this.http.get(this.url+"estadisticas_admins", {withCredentials: true})
   }
 
   /////////////////////////////////////
   muestraComorbilidades( ){
-
-    return this.http.get(this.url+"estadisticas_comorbilidades_admins")
+// COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS
+   // COMENTE ESTO PARA QUE NO ME SALTEN ERROES EXTENOS 
+   return this.http.get(this.url+"estadisticas_comorbilidades_admins", {withCredentials: true})
   }
 
 
   /////////////////////////////////////
   muestraServicios( ){
-
-    return this.http.get(this.url+"SERVICIOS")
+    return this.http.get(this.url+"api/admin/servicios/", {withCredentials: true})
   }
 
 
   /////////////////////////////////////
   muestraIngresos( ){
 
-    return this.http.get(this.url+"ingresos_admins")
+    return this.http.get(this.url+"ingresos_admins", {withCredentials: true})
   }
 
   /////////////////////////////////////
-  //        SERVICIO POST  
+  //          SERVICIO POST          //
   /////////////////////////////////////
 
-  POST(urlPOST:string, body: any){
+  POSTRegistroServicio(urlPOST:string, body: any){
     
-      return this.http.post(urlPOST,body)
-
+      return this.http.post(urlPOST,body, {withCredentials: true})
 
   }
 
+    // metodo para ELIMINAR la informacion
+    DELETE(id:string){
+      return this.http.delete("http://localhost:8000/api/admin/servicios/"+id, {withCredentials: true})
+  
+    }
 
+  //// MODIFICAR SERVICIOS
+  // metodo para TRAER la informacion
+  url_SERVICIOS:string='http://localhost:8000/api/admin/servicios/';
+
+
+  modificar(id:number){
+    return this.http.get(this.url_SERVICIOS+id, {withCredentials: true})
+
+  }
+
+  // metodo para MODIFICAR la informacion
+  modificar2(datos:any, id:number){
+    return this.http.put(this.url_SERVICIOS+id,datos, {withCredentials: true})
+  }
 }

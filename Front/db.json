@@ -47,23 +47,6 @@
       "porcentaje": 8
     }
   ],
-  "serv_disponibles_admins": [
-    {
-      "tipo": "Análisis Clínicos",
-      "descripcion": "Glucosa en ayunas, PTOG, HbA1c, Perfil lipidico, Funcion renal",
-      "precio": 4000
-    },
-    {
-      "tipo": "Consulta Nutrición",
-      "descripcion": "Consulta con profesional en Nutricion",
-      "precio": 4000
-    },
-    {
-      "tipo": "Consulta Diabetologia",
-      "descripcion": "Consulta con profesional en Diabetologia",
-      "precio": 4000
-    }
-  ],
   "ingresos_admins": [
     {
       "tipo": "Ingresos Diarios",
@@ -82,57 +65,11 @@
       "monto": 1500000
     }
   ],
-  "notas_usuarios": [
-    {
-      "fechas": "07:32 am, 11 Oct 22",
-      "glucemia": "1.2mg/dl",
-      "comentario": "Almorce fideos con fileto"
-    },
-    {
-      "fechas": "08:00 am, 13 Oct 22",
-      "glucemia": "1.3mg/dl",
-      "comentario": "No desayune todavia"
-    },
-    {
-      "fechas": "07:12 am, 15 Oct 22",
-      "glucemia": "1.1mg/dl",
-      "comentario": "Desayune cafe con leche"
-    },
-    {
-      "fechas": "09:32 am, 17 Oct 22",
-      "glucemia": "1.0mg/dl",
-      "comentario": "Almorce guiso de arroz con pollo"
-    },
-    {
-      "fechas": "07:09 am, 19 Oct 22",
-      "glucemia": "0.9mg/dl",
-      "comentario": "Desayune te con medialunas"
-    },
-    {
-      "fechas": "07:52 am, 21 Oct 22",
-      "glucemia": "1.2mg/dl",
-      "comentario": "No cene"
-    },
-    {
-      "fechas": "07:32 am, 23 Oct 22",
-      "glucemia": "1.8mg/dl",
-      "comentario": "Hice ayuno intermitente"
-    }
-  ],
   "SERVICIOS": [
-    {
-      "id": 1,
-      "nombre_servicio": "Analisis Clinicos",
-      "descripcion_servicio": "Cita para extraccion de sangre para luego hacer los analisis correspondientes",
-      "sede_servicio": "Cordoba",
-      "precio_servicio": "3515.00",
-      "comentarios_servicio": "No se que puede ir en comentarios",
-      "prestador": 1
-    },
     {
       "id": 2,
       "nombre_servicio": "Consulta Diabetologo",
-      "descripcion_servicio": "Cita con diabetologo",
+      "descripcion_servicio": "Cita con diabetologo en la sede de nuestra clinica",
       "sede_servicio": "Cordoba",
       "precio_servicio": "3515.00",
       "comentarios_servicio": "No se que puede ir en comentarios",
@@ -166,7 +103,70 @@
       "sede_servicio": "Catamarca"
     }
   ],
-  "USUARIOS": [
-
-  ]
+  "hola": [
+    "////////////// DATOS DE FORMULARIO DE REGISTRO /////////////////"
+  ],
+  "REGISTRO_INICIAL": [
+    {
+      "email": "vege@gmail.com",
+      "password": "123123123",
+      "username": "vege77",
+      "id": 1
+    }
+  ],
+  "REGISTRO_DATOS_PERSONALES": [
+    {
+      "nombre_paciente": "isaias",
+      "apellido_paciente": "gatti",
+      "telefono_paciente": 123123123,
+      "fecha_nacimiento": "2022-07-05",
+      "sexo_paciente": "masculino",
+      "id": 1
+    }
+  ],
+  "REGISTRO_DATOS_FICHA_MEDICA": [
+    {
+      "tipo_diabetes": "tipo 1",
+      "terapia_insulina": "terapia 2",
+      "terapia_pastillas": "terapia 2",
+      "tipo_glucometro": "glucometro 2",
+      "tipo_sensor": "otro / no uso",
+      "objetivo_glucosa": "normal",
+      "comorbilidades": "alergia a la leche ",
+      "id": 1
+    }
+  ],
+  "CARRITO": [
+    {
+      "id": "99",
+      "nombre_servicio": "Consulta General",
+      "descripcion_servicio": "Consulta con medico general",
+      "precio_servicio": "4300",
+      "comentarios_servicio": "Esto es un comentario",
+      "prestador": "21",
+      "sede_servicio": "Catamarca"
+    },
+    {
+      "id": 2,
+      "nombre_servicio": "Consulta Diabetologo",
+      "descripcion_servicio": "Cita con diabetologo en la sede de nuestra clinica",
+      "sede_servicio": "Cordoba",
+      "precio_servicio": "3515.00",
+      "comentarios_servicio": "No se que puede ir en comentarios",
+      "prestador": 4
+    }
+  ],
+  "hola2": [
+    "////////////// DATOS DEL DASHBORAD DEL USUARIO /////////////////"
+  ],
+  "notas_usuarios": [
+    {
+      "numero_nota": 1,
+      "fecha_registro": "2023-06-03T11:34",
+      "valor_glucemia": 1,
+      "comentario_registro": "Almorcé guiso de arroz con coca",
+      "id": 2
+    }
+  ],
+  "datos_pago": []
 }

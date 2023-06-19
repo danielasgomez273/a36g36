@@ -127,3 +127,15 @@ input[type="radio"] {
         height: 8rem;
     }
 }
+
+/*  estilos de onedrop*/
+.onedrop{
+    color: #0d6efd;/*  #001d4d */
+    font-weight: 400;
+}
+
+.onedrop2{
+    
+    color: #0d6efd;/* #dc3545 */
+
+}
