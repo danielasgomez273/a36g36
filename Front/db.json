@@ -67,40 +67,20 @@
   ],
   "SERVICIOS": [
     {
-      "id": 2,
-      "nombre_servicio": "Consulta Diabetologo",
-      "descripcion_servicio": "Cita con diabetologo en la sede de nuestra clinica",
-      "sede_servicio": "Cordoba",
-      "precio_servicio": "3515.00",
-      "comentarios_servicio": "No se que puede ir en comentarios",
-      "prestador": 4
-    },
-    {
-      "id": 3,
-      "nombre_servicio": "Paquete Plata",
-      "descripcion_servicio": "Algunos servicios",
-      "sede_servicio": "Cordoba",
-      "precio_servicio": "20500.00",
-      "comentarios_servicio": "comentarios sobre el paquete plata",
-      "prestador": 3
-    },
-    {
-      "id": 4,
-      "nombre_servicio": "Consulta Nutricionista",
-      "descripcion_servicio": "Consulta con el nutricionista",
-      "sede_servicio": "Cordoba",
-      "precio_servicio": "2500.00",
-      "comentarios_servicio": "comentarios sobre el nutricionista",
-      "prestador": 4
-    },
-    {
       "id": "99",
-      "nombre_servicio": "Consulta General",
-      "descripcion_servicio": "Consulta con medico general",
+      "nombre_servicio": "Analisis Clinicos",
+      "descripcion_servicio": "Turno para extraccion de sangre para analisis clinicos",
       "precio_servicio": "4300",
-      "comentarios_servicio": "Esto es un comentario",
+      "comentarios_servicio": "Esto es un comentario sobre los analisis",
       "prestador": "21",
       "sede_servicio": "Catamarca"
+    },
+    {
+      "nombre_servicio": "Consulta Diabetologo",
+      "descripcion_servicio": "Consulta con un diabetologo",
+      "precio_servicio": 3999,
+      "comentarios_servicio": "Comentarios sobre el servicio de diabetologia",
+      "id": "R0xK46v"
     }
   ],
   "hola": [
@@ -138,22 +118,20 @@
   ],
   "CARRITO": [
     {
-      "id": "99",
-      "nombre_servicio": "Consulta General",
-      "descripcion_servicio": "Consulta con medico general",
-      "precio_servicio": "4300",
-      "comentarios_servicio": "Esto es un comentario",
-      "prestador": "21",
-      "sede_servicio": "Catamarca"
+      "nombre_servicio": "Consulta Diabetologo",
+      "descripcion_servicio": "Consulta con un diabetologo",
+      "precio_servicio": 3999,
+      "comentarios_servicio": "Comentarios sobre el servicio de diabetologia",
+      "id": "R0xK46v"
     },
     {
-      "id": 2,
-      "nombre_servicio": "Consulta Diabetologo",
-      "descripcion_servicio": "Cita con diabetologo en la sede de nuestra clinica",
-      "sede_servicio": "Cordoba",
-      "precio_servicio": "3515.00",
-      "comentarios_servicio": "No se que puede ir en comentarios",
-      "prestador": 4
+      "id": "99",
+      "nombre_servicio": "Analisis Clinicos",
+      "descripcion_servicio": "Turno para extraccion de sangre para analisis clinicos",
+      "precio_servicio": "4300",
+      "comentarios_servicio": "Esto es un comentario sobre los analisis",
+      "prestador": "21",
+      "sede_servicio": "Catamarca"
     }
   ],
   "hola2": [
@@ -161,11 +139,22 @@
   ],
   "notas_usuarios": [
     {
-      "numero_nota": 1,
-      "fecha_registro": "2023-06-03T11:34",
-      "valor_glucemia": 1,
-      "comentario_registro": "Almorcé guiso de arroz con coca",
-      "id": 2
+      "fecha_registro": "2023-06-02T12:43",
+      "valor_glucemia": 1.3,
+      "comentario_registro": "Desayune cafe con mafaldas :0",
+      "id": 3
+    },
+    {
+      "fecha_registro": "2023-06-06T12:53",
+      "valor_glucemia": 1.4,
+      "comentario_registro": "Durante el almuerzo tome mucha coca-cola",
+      "id": 4
+    },
+    {
+      "fecha_registro": "2023-06-08T12:34",
+      "valor_glucemia": 0.9,
+      "comentario_registro": "Merende mate con medialunas",
+      "id": 5
     }
   ],
   "datos_pago": []

@@ -5,9 +5,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 
 
-
-
-
 @Component({
   selector: 'app-dashboard-admin',
   templateUrl: './dashboard-admin.component.html',
@@ -19,6 +16,7 @@ export class DashboardAdminComponent implements OnInit{
   comorbilidades_admins: any;
   servicios_admins:any;
   ingresos_admins: any;
+  usuarios: any;
 
   formPOSTRegistroServicio: FormGroup | any;
 
@@ -49,7 +47,9 @@ export class DashboardAdminComponent implements OnInit{
         comentarios_servicio:["",Validators.required],
       })
 
-
+      
+  //////////////////////////
+  // METODOS SUSCRIPTOS AL LOS DATOS
     this.estadistica.muestraEstadisticas().subscribe({
       next:(estadisticas_S)=>{
         this.estadisticas_admins=estadisticas_S
@@ -59,10 +59,7 @@ export class DashboardAdminComponent implements OnInit{
       } 
     })
 
-
   //////////////////////////
-  // METODOS SUSCRIPTOS AL LOS DATOS
-
     this.estadistica.muestraComorbilidades().subscribe({
       next:(comorbilidades_S)=>{
         this.comorbilidades_admins=comorbilidades_S
@@ -73,7 +70,16 @@ export class DashboardAdminComponent implements OnInit{
     })
 
   //////////////////////////
+    this.estadistica.muestraUsuarios().subscribe({
+      next:(usuarios_S)=>{
+        this.usuarios=usuarios_S
+      },
+      error:(errorData)=>{
+        console.error(errorData);
+      } 
+    })
 
+  //////////////////////////
     this.estadistica.muestraServicios().subscribe({
       next:(servicio_S)=>{
         this.servicios_admins=servicio_S
@@ -92,13 +98,8 @@ export class DashboardAdminComponent implements OnInit{
       } 
     })
 
-
-  //////////////////////////
-  //////////////////////////
-
-
-
   }
+///////////////////////////////////////////////////////////////
 
     ///// METODOS GET PARTICULARES /////
     get nombre_servicio_GET(){
@@ -115,7 +116,9 @@ export class DashboardAdminComponent implements OnInit{
       return this.formPOSTRegistroServicio.controls['comentarios_servicio'];
     }
 
-    
+  
+    ///////////// METODOS DE SERVICIOS ///////////////
+    // METODO GET
     getServicios(){
       this.estadistica.muestraServicios().subscribe({
         next:(servicio_S)=>{
@@ -127,29 +130,25 @@ export class DashboardAdminComponent implements OnInit{
       })
     }
 
-  /////// METODO DELETE
+  // METODO DELETE
   eliminar(id:string){
     this.estadistica.DELETE(id).subscribe(()=>{
-      alert("Nota Eliminada")
+      alert("Servicio Eliminado")
       this.getServicios()
       console.log("el id de delete es"+id)
     })
   }
 
 
-  /////////////////////////////////
-  //////////// POST //////////////
-  ////////////////////////////////
 
+  // METODO POST
   enviarDatosDeServicio(){
 
     // SI EL FORMULARIO CUMPLE CON LA VALIDACION
     if(this.formPOSTRegistroServicio.valid){
 
       // Envia los datos al post
-          this.estadistica.POSTRegistroServicio('http://localhost:8000/api/admin/servicios/',
-
-            {
+          this.estadistica.POSTRegistroServicio({
               /*
               EL ID ES AUTOGENERADO POR LA BD, AL REGISTRAR UN SERVICIO NO HACE FALTA MANDARLO, DEBEMOS ELIMINARLO DEL FORM
               id:this.formPOSTRegistroServicio.value.id,
@@ -162,10 +161,11 @@ export class DashboardAdminComponent implements OnInit{
               hay que eliminar prestador, esto lo sacamos dessde la session
               prestador:this.formPOSTRegistroServicio.value.prestador,
               */
-              sede_servicio:this.formPOSTRegistroServicio.value.sede_servicio,
+
             })
             .subscribe((respuesta: any) => {
               alert("Servicio Registrado")
+              this.getServicios()
             })
           }
 

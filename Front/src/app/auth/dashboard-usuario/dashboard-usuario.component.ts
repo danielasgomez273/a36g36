@@ -22,6 +22,7 @@ export class DashboardUsuarioComponent implements OnInit {
 
   serviciosCarrito: any;
 
+/////////////////////////////////////////////////
   constructor(
     private paciente: EstadisUsuariosService,
     private usuario: AuthService,
@@ -36,17 +37,44 @@ export class DashboardUsuarioComponent implements OnInit {
       comentario_registro: ['', Validators.required]
     });
   }
-
+////////////////////////////////////////////////
   ngOnInit(): void {
     this.getNotas();
     this.getServicios();
     this.getCarrito();
-  }
 
+    // Codigo que muestra las notas (instancia)
+    this.paciente.muestraNotasUsuario().subscribe({
+      next:(notas_G)=>{
+        this.notas_glucemia=notas_G
+      },
+      error:(errorData)=>{
+        console.error(errorData);
+      } 
+    });
+
+    // Codigo que muestra los servicios (instancia)
+    this.paciente.muestraServicioAUsuario().subscribe({
+      next:(servicio)=>{
+        this.servicios=servicio
+      },
+      error:(errorData)=>{
+        console.error(errorData);
+      } 
+    })    
+
+  }
+////////////////////////////////////////////////
+
+  //////////// CODIGO NOTAS ///////////////
+  //////////// CODIGO NOTAS ///////////////
+  //////////// CODIGO NOTAS ///////////////
+
+  // AGREGAR NOTA
   agregarNota(): void {
     if (this.formNotasPOST.valid) {
-      this.paciente
-        .nuevaNota('http://localhost:8000/api/paciente/registros_glucemia/', {
+      this.paciente.nuevaNota(
+        {
           fecha_registro: this.formNotasPOST.value.fecha_registro,
           valor_glucemia: this.formNotasPOST.value.valor_glucemia,
           comentario_registro: this.formNotasPOST.value.comentario_registro
@@ -62,7 +90,7 @@ export class DashboardUsuarioComponent implements OnInit {
     }
   }
 
-    // METODO GET
+// METODO GET NOTAS
   getNotas(): void {
     this.paciente.muestraNotasUsuario().subscribe({
       next: (notas_S) => {
@@ -73,7 +101,7 @@ export class DashboardUsuarioComponent implements OnInit {
       }
     });
   }
-  // METODO DELETE
+// METODO DELETE NOTAS
   eliminar(id: string): void {
     this.paciente.DELETE(id).subscribe(() => {
       alert('Nota Eliminada');
@@ -82,7 +110,11 @@ export class DashboardUsuarioComponent implements OnInit {
     });
   }
 
-  //////////////// CARRITO /////////////////
+
+
+  //////////////// CODIGO DEL CARRITO /////////////////
+  //////////////// CODIGO DEL CARRITO /////////////////
+  //////////////// CODIGO DEL CARRITO /////////////////
   getCarrito(){
     this.paciente.muestraCarritoAUsuario().subscribe({
       next: (servicios_C) => {
@@ -94,23 +126,17 @@ export class DashboardUsuarioComponent implements OnInit {
     });
 
   }
-
-
-
-
+  // METODO AGREGA AL CARRITO
   agregarCarrito(servicio: any): void {
-    this.http
-      // BACK => 'http://localhost:8000/api/paciente/carrito/servicio/<int:servicio_pk>/'
-      // FRONT => 'http://localhost:3000/CARRITO'
-      .post('http://localhost:8000/api/paciente/carrito/servicio/2/'/* => ACA NECESITO PASAR EL ID DEL PRODUCTO A AGREGAR AL CARRITO */, servicio, { withCredentials: true })
+    this.paciente.agregaAlCarrito(servicio)
       .subscribe((data) => {
         console.log(data);
         this.getCarrito();
       });
   }
 
-    // METODO DELETE
-    eliminar_serv(id:string){
+  // METODO DELETE
+  eliminarServ(id:string){
       this.paciente.DELETE_SERV(id).subscribe(()=>{
         alert("Servicio eliminado del carrito")
         this.getCarrito()
@@ -118,19 +144,22 @@ export class DashboardUsuarioComponent implements OnInit {
       })
     }
 
-    ///////////////////////////////////////////
+  // METODO GET DE SERVICIOS
   getServicios(): void {
-    this.paciente.muestraServicioAUsuario().subscribe({
-      next: (servicios_S) => {
-        this.servicios = servicios_S;
-      },
-      error: (errorData) => {
-        console.error(errorData);
-      }
-    });
-  }
- 
- 
+      this.paciente.muestraServicioAUsuario().subscribe({
+        next: (servicios_S) => {
+          this.servicios = servicios_S;
+        },
+        error: (errorData) => {
+          console.error(errorData);
+        }
+      });
+    }
+    
+    
+  ///////////////////////////////////////////
+  ///////////////////////////////////////////
+  ///////////////////////////////////////////
   agregarNombre(value: string): void {
     this.Snombre = value;
   }

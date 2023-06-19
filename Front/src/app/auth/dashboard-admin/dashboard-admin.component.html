@@ -1,7 +1,7 @@
 
       <!-- CANTIDAD DE PACIENTES CON DIABETES -->
       <!-- CANTIDAD DE PACIENTES CON DIABETES -->
-      <!-- CANTIDAD DE PACIENTES CON DIABETES -->      
+      <!-- CANTIDAD DE PACIENTES CON DIABETES       
       <section class=" da-sect1  ">
 
           <h4 class="da-sec-t1 logo "> Cantidad de pacientes con diabetes</h4>
@@ -15,33 +15,31 @@
           </div>
         </div>
       </section>
+      -->
 
-      <!-- PACIENTES CON DIABETES Y COMORBILIDADES -->
-      <!-- PACIENTES CON DIABETES Y COMORBILIDADES -->
-      <!-- PACIENTES CON DIABETES Y COMORBILIDADES -->
+      <!-- PACIENTES REGISTRADOS -->
+      <!-- PACIENTES REGISTRADOS -->
+      <!-- PACIENTES REGISTRADOS -->
       <section class=" da-sect1 bg-light border border-secondary-subtle ">
       
-        <h4 class="da-sec-t1 logo "> Pacientes con Diabetes y comorbilidades</h4>
+        <h4 class="da-sec-t1 logo "> Pacientes Registrados</h4>
         <div  class="grid-container ">
           <div class="row  justify-content-evenly">
 
             <!-- tarjeta 1 -->
-            <div class="col-lg-3 col-md-6 bg-white border border-secondary-subtle p-4 m-2 b-radius"  *ngFor="let comorbilidad of comorbilidades_admins">
+            <div class="col-lg-3 col-md-6 bg-white border border-secondary-subtle p-4 m-2 b-radius"  *ngFor="let usuario of usuarios">
               <div class="card3" >
                 <div class="card-body">
-                  <h5 class="mb-0"> {{comorbilidad.porcentaje}}% </h5>
-                  <small class="d-inline-block text-muted mb-2">Promedio pacientes</small>
-                  <div class="md-4">
-                    <span class="bagde bagde-primary mr-1"> Cantidad de pacientes con </span>
-                    <span class="bagde bagde-primary text-info">{{comorbilidad.tipo}}</span>
-                  </div>
+                  <h4 class="mb-1 text-center"> {{usuario.nombre_paciente}} {{usuario.apellido_paciente}} </h4>
+                  <p class=" text-muted ">Telefono:  {{usuario.telefono_paciente}}</p>
+                  <p class=" text-muted ">Fecha Nacimiento: {{usuario.fecha_nacimiento}}</p>
+                  <p class=" text-muted ">Sexo:  {{usuario.sexo_paciente}}</p>            
                 </div>
               </div>
             </div>
 
           </div>
         </div>
-
       </section>
 
       <!-- SERVICIOS DISPONIBLES -->
@@ -173,7 +171,7 @@
 
       <!-- INGRESOS POR PERIODO -->
       <!-- INGRESOS POR PERIODO -->
-      <!-- INGRESOS POR PERIODO -->
+      <!-- INGRESOS POR PERIODO 
       <section class=" da-sect1">
 
         <h4 id="ingresos" class="da-sec-t1 logo"> Ingresos por periodo</h4>
@@ -195,4 +193,5 @@
         </div>
 
       </section>
+    -->
 
