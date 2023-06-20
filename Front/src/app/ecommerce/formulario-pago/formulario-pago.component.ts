@@ -21,6 +21,7 @@ export class FormularioPagoComponent implements OnInit {
     private router: Router,
     private serv_pago: FormPagoService,
     private paciente: EstadisUsuariosService,
+    private pago:FormPagoService
 
   ) {}
 
@@ -71,6 +72,27 @@ export class FormularioPagoComponent implements OnInit {
 
   enviarDatosFormPago() {
     if (this.formPOSTPago.valid) {
+
+      this.pago.POSTFormularioPago({
+        /*
+        EL ID ES AUTOGENERADO POR LA BD, AL REGISTRAR UN SERVICIO NO HACE FALTA MANDARLO, DEBEMOS ELIMINARLO DEL FORM
+        id:this.formPOSTRegistroServicio.value.id,
+        */
+        tarjeta:this.formPOSTPago.value.tarjeta,
+        titular:this.formPOSTPago.value.titular,
+        vencimiento:this.formPOSTPago.value.vencimiento,
+        codigoSeguridad:this.formPOSTPago.value.codigoSeguridad,
+        dniTitular:this.formPOSTPago.value.dniTitular,
+
+
+        /*
+        hay que eliminar prestador, esto lo sacamos dessde la session
+        prestador:this.formPOSTRegistroServicio.value.prestador,
+        */
+
+      })
+      .subscribe((respuesta: any) => {
+      })
       alert('Felicitaciones. Tu compra se realizó con éxito.');
 
       this.mostrarMensajeExito = true;
@@ -89,8 +111,6 @@ export class FormularioPagoComponent implements OnInit {
       event.preventDefault();
     }
   }
-
-
 ////////////  METODOS QUE TRAEN SERVICIOS  ///////////
 
   getCarrito(){

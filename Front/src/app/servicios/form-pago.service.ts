@@ -10,14 +10,14 @@ export class FormPagoService {
   constructor( private http:HttpClient ) { }
   
   
-  email_string:string=""
+  url_PAGO:string="http://localhost:3000/datos_pago/"
 
   /////////////////////////////////////
   //          SERVICIO POST          //
   /////////////////////////////////////
 
-  POSTFormularioPago(urlPOST:string, body: any){
-    return this.http.post(urlPOST,body)
+  POSTFormularioPago(body: any){
+    return this.http.post(this.url_PAGO,body,{withCredentials: true})
 }
 
 
