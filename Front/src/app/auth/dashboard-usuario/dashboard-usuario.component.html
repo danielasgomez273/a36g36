@@ -72,7 +72,7 @@
             <div class="precio">
               <p>${{servicio.precio_servicio}}</p>
             </div>
-            <button (click)="agregarCarrito(servicio)">Agregar al carrito</button>
+            <button (click)="agregarCarrito(servicio);agregarNombre(servicio.nombre_servicio);agregarMonto(servicio.precio_servicio);agregarAlCarrito()">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -98,10 +98,10 @@
     <!-- Servicios en el carrito -->
     <div class="row align-items-center justify-content-evenly grid-container p-2 carr-cont-serv" *ngFor="let servicio of serviciosCarrito; let i=index">
       <div class="col-lg-4 col-md-3 col-sm-3 text-center m-1">
-        <h6>{{ servicio[i].nombre_servicio }}</h6>
+        <h6>{{ servicio.nombre_servicio }}</h6>
       </div>
       <div class="col-lg-4 col-md-3 col-sm-3 text-center">
-        <h6>${{servicio[i].precio_servicio }}</h6>
+        <h6>${{servicio.precio_servicio }}</h6>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-3 text-center row">
 
@@ -113,7 +113,7 @@
     </div>
     <div class="row justify-content-end mt-2">
       <div class="col-lg-8">
-        <h5 class="text-end">Total: ${{ calcularMontoTotal() }}</h5>
+        <h5 class="text-end">Total: ${{calcularMontoTotal()}}</h5>
       </div>
     </div>
 

@@ -19,16 +19,16 @@ export class EstadisUsuariosService {
   //////////   URLS  --  solo hay que descomentar una y comentar la otra  //////////
   
   // URL DE NOTAS:
-  url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
-  //url_NOTAS:string='http://localhost:3000/notas_usuarios/';
+  //url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
+  url_NOTAS:string='http://localhost:3000/notas_usuarios/';
 
   // URL DE SERVICIOS:
-  url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
-  //url_SERVICIOS:string='http://localhost:3000/SERVICIOS/';
+  //url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
+  url_SERVICIOS:string='http://localhost:3000/SERVICIOS/';
 
   // URL DE CARRITO:
-  url_CARRITO:string="http://localhost:8000/api/paciente/carrito/";
-  //url_CARRITO:string="http://localhost:3000/CARRITO/";
+  //url_CARRITO:string="http://localhost:8000/api/paciente/carrito/";
+  url_CARRITO:string="http://localhost:3000/CARRITO/";
 
 
 

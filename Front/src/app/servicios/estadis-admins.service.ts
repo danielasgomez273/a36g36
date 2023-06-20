@@ -15,12 +15,12 @@ export class EstadisAdminsService {
   //////////   URLS  --  solo hay que descomentar una y comentar la otra  //////////
     
   // URL DE SERVICIOS:
-  url_SERVICIOS:string="http://localhost:8000/api/admin/servicios/";
-//url_SERVICIOS:string="http://localhost:3000/SERVICIOS/";
+  //url_SERVICIOS:string="http://localhost:8000/api/admin/servicios/";
+  url_SERVICIOS:string="http://localhost:3000/SERVICIOS/";
 
   // URL DE PACIENTES:
-  url_PACIENTES:string='http://localhost:8000/api/paciente/'
-//url_PACIENTES:string="http://localhost:3000/REGISTRO_DATOS_PERSONALES/"
+  //url_PACIENTES:string='http://localhost:8000/api/paciente/'
+  url_PACIENTES:string="http://localhost:3000/REGISTRO_DATOS_PERSONALES/"
 
   // URL GENERAL DEL FRONT (TRANQUI DAVID):
   url:string="http://localhost:3000/"

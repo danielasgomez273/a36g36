@@ -71,7 +71,7 @@
       "nombre_servicio": "Analisis Clinicos",
       "descripcion_servicio": "Turno para extraccion de sangre para analisis clinicos",
       "precio_servicio": "4300",
-      "comentarios_servicio": "Esto es un comentario sobre los analisis",
+      "comentarios_servicio": "Esto es un comentario sobre los analisis clinicos",
       "prestador": "21",
       "sede_servicio": "Catamarca"
     },
@@ -96,11 +96,19 @@
   ],
   "REGISTRO_DATOS_PERSONALES": [
     {
-      "nombre_paciente": "isaias",
-      "apellido_paciente": "gatti",
-      "telefono_paciente": 123123123,
-      "fecha_nacimiento": "2022-07-05",
+      "nombre_paciente": "Isaias",
+      "apellido_paciente": "Gatti",
+      "telefono_paciente": 3543673137,
+      "fecha_nacimiento": "1987-07-05",
       "sexo_paciente": "masculino",
+      "id": 1
+    },
+    {
+      "nombre_paciente": "Valentina",
+      "apellido_paciente": "Lopez",
+      "telefono_paciente": 351678453,
+      "fecha_nacimiento": "1992-01-16",
+      "sexo_paciente": "femenino",
       "id": 1
     }
   ],
@@ -140,8 +148,8 @@
   "notas_usuarios": [
     {
       "fecha_registro": "2023-06-02T12:43",
-      "valor_glucemia": 1.3,
-      "comentario_registro": "Desayune cafe con mafaldas :0",
+      "valor_glucemia": 1.5,
+      "comentario_registro": "Desayune cafe con mafaldas",
       "id": 3
     },
     {
