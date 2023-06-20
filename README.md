@@ -5,11 +5,14 @@
 
 ## Tecnicatura Superior en Desarrollo Web y Aplicaciones Digitales 
 
-### Materia: Módulo Programador Full Stack 
+### Materia: Módulo Programador Web  
 
-### Tutor: Mainero, Alejandro
+### Tutor 2022: Mainero, Alejandro
+### Tutor 2023: Charletti, Carlos
 
 ### Proyecto "One Drop"
+
+### Ciclo lectivo: 2023
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -27,18 +30,56 @@
 
 :small_orange_diamond: Paredes, Jimena A.
 
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+:point_right: ¿Qué es OneDrop?: 
+
+Te lo contamos en éste [link](https://youtu.be/VmxHfew4IAQ) 
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
-:point_right: Video de presentación: 
+:point_right: ¿Qué hicimos durante el 2022?: 
 
-Pueden acceder al video de presentación del proyecto en éste [link](https://www.youtube.com/watch?v=otW-b15-OKY) 
-
+Podés ver el video presentacion de nuestro trabajo en el ciclo 2022 en éste [link](https://www.youtube.com/watch?v=otW-b15-OKY) 
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
+:point_right: ¿Qué hicimos durante el 2023?:
 
-:point_right: Sitio online: 
+Podés acceder al video de presentacion en éste [link](https://www.youtube.com/watch?v=otW-b15-OKY) 
+
+*(Este video corresponde a EVIDENCIA 5/Sprint 3 de las Actividades Integradoras del Módulo)*
+
+Podés acceder al video de nuestra Sprint Review en éste [link](https://youtu.be/EFEYNxMzdPQ) 
+
+*(Este video corresponde a EVIDENCIA 6/Sprint 4 de las Actividades Integradoras del Módulo)*
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+:point_right: ¿Cómo trabajamos?: 
+
+:arrow_right: Ciclo 2022:
+
+:small_orange_diamond: PO: Herrera, Daniel H.
+
+:small_orange_diamond: Scrum Masters: Costa, David y Gómez, Daniela 
+
+:small_orange_diamond: Development Team: Delhugo, Martin, Covaro, Maximiliano (Herrera, Daniel H., Costa, David y Gómez, Daniela)
+
+:arrow_right: Ciclo 2023:
+
+:small_orange_diamond: Development Team: Delhugo, Martin, Covaro, Maximiliano, Paredes, Jimena, Herrera, Daniel, Costa, David y Gómez, Daniela
+
+:small_orange_diamond: Scrum masters 
+
+- Sprint 1: Covaro, Maximiliano
+- Sprint 2: Paredes, Jimena
+- Sprint 3: Delhugo, Martin
+- Sprint 4: Herrera, Daniel
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+:point_right: Sitio online (2022): 
 
 Pueden ver el sitio funcional en éste [link](https://onedropapp-grupo30.netlify.app/) 
 
