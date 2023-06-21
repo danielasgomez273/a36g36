@@ -10,85 +10,81 @@ import { NotasGlucemia } from './interfaces/notas-glucemia';
   providedIn: 'root'
 })
 export class EstadisUsuariosService {
-  
-  // BACK => 'http://127.0.0.1:8000/api/paciente/registros_glucemia/';
-  /////////////////////////////////////////////////
+
   constructor(
     private http:HttpClient) { }
 
+  //////////   URLS  --  solo hay que descomentar una y comentar la otra  //////////
+  //////////   URLS  --  solo hay que descomentar una y comentar la otra  //////////
+  //////////   URLS  --  solo hay que descomentar una y comentar la otra  //////////
+  
+  // URL DE NOTAS:
+  //url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
+  url_NOTAS:string='http://localhost:3000/notas_usuarios/';
 
-    
-    
-  //////////////////////////////////////////////////////
+  // URL DE SERVICIOS:
+  //url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
+  url_SERVICIOS:string='http://localhost:3000/SERVICIOS/';
+
+  // URL DE CARRITO:
+  //url_CARRITO:string="http://localhost:8000/api/paciente/carrito/";
+  url_CARRITO:string="http://localhost:3000/CARRITO/";
+
 
 
   ///////////////////////////////////////////////////
   ////////////////// CODIGO NOTAS ///////////////////
-  ///////////////////////////////////////////////////
+  ///////////////////////////////////////////////////  
+  
   //// MUESTRA LAS NOTAS  
-  // BACK => 'http://localhost:8000/api/paciente/registros_glucemia/';
-  url_NOTAS:string='http://localhost:8000/api/paciente/registros_glucemia/';
-
   muestraNotasUsuario( ){
     return this.http.get(this.url_NOTAS, {withCredentials: true})
   }
 
-
   //// AGREGA NOTAS
-  nuevaNota(url:string, datos: any){
-    return this.http.post(url,datos, {withCredentials: true});
+  nuevaNota(datos: any){
+    return this.http.post(this.url_NOTAS,datos, {withCredentials: true});
   }
-
 
   //// MODIFICAR NOTAS
   // metodo para TRAER la informacion
   modificar(id:number){
     return this.http.get(this.url_NOTAS+id , {withCredentials: true})
-
   }
 
   // metodo para MODIFICAR la informacion
   modificar2(datos:any, id:number){
     return this.http.put(this.url_NOTAS+id,datos , {withCredentials: true})
-
   }
 
   // metodo para ELIMINAR la informacion
   DELETE(id:string){
-    return this.http.delete("http://localhost:8000/api/paciente/registros_glucemia/"+id , {withCredentials: true})
+    return this.http.delete(this.url_NOTAS+id , {withCredentials: true})
   }
 
-
-
- 
 
   /////////////////////////////////////////////////////////
   ////////////////// CODIGO DEL CARRITO ///////////////////
   /////////////////////////////////////////////////////////
 
   //// MUESTRA LOS SERVICIOS DISPONIBLES A LOS USUARIOS ////
-
-  // BACK => url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
-  // FRONT => 
-  url_SERVICIOS:string='http://localhost:8000/api/paciente/servicios/';
   muestraServicioAUsuario( ){
     return this.http.get<NotasGlucemia[]>(this.url_SERVICIOS, {withCredentials: true})
   }
 
   //// MUESTRA CARRITO USUARIOS ////
-
-  // BACK => 'http://localhost:8000/api/paciente/carrito/'
-  // FRONT => 'http://localhost:3000/CARRITO/'
-  muestraCarritoAUsuario( ){
-    return this.http.get('http://localhost:8000/api/paciente/carrito/', {withCredentials: true})
+  muestraCarritoAUsuario(){
+    return this.http.get(this.url_CARRITO, {withCredentials: true})
   }
 
-  //// ELIMINAR SERVICIO DE CARRITO USUARIOS ////
+  //// AGREGA SERVICIO AL CARRITO ////
+  agregaAlCarrito(servicio:any){
+    return this.http.post(this.url_CARRITO,servicio , {withCredentials: true})
+  }
 
-  // BACK => 'http://localhost:8000/api/paciente/carrito/'
-  // FRONT => 'http://localhost:3000/CARRITO/'
+  //// ELIMINA SERVICIO AL CARRITO ////
   DELETE_SERV(id:string){
-    return this.http.delete('http://localhost:8000/api/paciente/carrito/'+id , {withCredentials: true})
+    return this.http.delete(this.url_CARRITO+id , {withCredentials: true})
   }
 
 

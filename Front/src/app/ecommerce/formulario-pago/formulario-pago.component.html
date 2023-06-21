@@ -96,8 +96,18 @@
           </div>
         </div>
       </div>
+
+      <section class="m-4">
+        <h5>Servicios seleccionados:</h5>
+        <div  *ngFor="let nota of items; let i=index">
+          <p class="m-0">{{nota.nombre_servicio}}  ${{nota.precio_servicio}}</p>
+
+        </div>
+      </section>
       <div class="row justify-content-evenly mx-4">
-        <button type="submit" class="btn btn-primary mx-4 py-2 px-4" [disabled]="!formPOSTPago.valid">CONFIRMAR COMPRA</button>
+        <button type="submit" class="col-lg-4 btn btn-primary m-1 p-2" [disabled]="!formPOSTPago.valid">Confirmar Compra</button>
+
+        <button routerLink="/auth/dash_user" type="submit" class="m-1 p-2 col-lg-4 btn btn-success">Volver</button>
       </div>
 
     </form>

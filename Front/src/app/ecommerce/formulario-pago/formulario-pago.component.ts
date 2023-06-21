@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormPagoService } from 'src/app/servicios/form-pago.service';
+import { EstadisUsuariosService } from 'src/app/servicios/estadis-usuarios.service';
+
 
 @Component({
   selector: 'app-formulario-pago',
@@ -11,11 +13,16 @@ import { FormPagoService } from 'src/app/servicios/form-pago.service';
 export class FormularioPagoComponent implements OnInit {
   formPOSTPago!: FormGroup;
   mostrarMensajeExito: boolean = false;
+  serviciosCarrito: any;
+  items: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private serv_pago: FormPagoService
+    private serv_pago: FormPagoService,
+    private paciente: EstadisUsuariosService,
+    private pago:FormPagoService
+
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +33,21 @@ export class FormularioPagoComponent implements OnInit {
       codigoSeguridad: ['', [Validators.required, Validators.pattern('^[0-9]{3}$')]],
       dniTitular: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     });
+
+
+
+    // Codigo que muestra los servicios (instancia)
+    this.paciente.muestraCarritoAUsuario().subscribe({
+      next:(item)=>{
+        this.items=item
+      },
+      error:(errorData)=>{
+        console.error(errorData);
+      } 
+    })    
+
+
+
   }
 
   get tarjeta_GET() {
@@ -50,6 +72,27 @@ export class FormularioPagoComponent implements OnInit {
 
   enviarDatosFormPago() {
     if (this.formPOSTPago.valid) {
+
+      this.pago.POSTFormularioPago({
+        /*
+        EL ID ES AUTOGENERADO POR LA BD, AL REGISTRAR UN SERVICIO NO HACE FALTA MANDARLO, DEBEMOS ELIMINARLO DEL FORM
+        id:this.formPOSTRegistroServicio.value.id,
+        */
+        tarjeta:this.formPOSTPago.value.tarjeta,
+        titular:this.formPOSTPago.value.titular,
+        vencimiento:this.formPOSTPago.value.vencimiento,
+        codigoSeguridad:this.formPOSTPago.value.codigoSeguridad,
+        dniTitular:this.formPOSTPago.value.dniTitular,
+
+
+        /*
+        hay que eliminar prestador, esto lo sacamos dessde la session
+        prestador:this.formPOSTRegistroServicio.value.prestador,
+        */
+
+      })
+      .subscribe((respuesta: any) => {
+      })
       alert('Felicitaciones. Tu compra se realizó con éxito.');
 
       this.mostrarMensajeExito = true;
@@ -68,4 +111,16 @@ export class FormularioPagoComponent implements OnInit {
       event.preventDefault();
     }
   }
+////////////  METODOS QUE TRAEN SERVICIOS  ///////////
+
+  getCarrito(){
+    this.paciente.muestraCarritoAUsuario().subscribe({
+      next: (servicios_C) => {
+        this.serviciosCarrito = servicios_C;
+      },
+      error: (errorData) => {
+        console.error(errorData);
+      }
+    });
+    }
 }

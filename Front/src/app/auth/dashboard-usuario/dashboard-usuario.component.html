@@ -72,7 +72,7 @@
             <div class="precio">
               <p>${{servicio.precio_servicio}}</p>
             </div>
-            <button (click)="agregarCarrito(servicio)">Agregar al carrito</button>
+            <button (click)="agregarCarrito(servicio);agregarNombre(servicio.nombre_servicio);agregarMonto(servicio.precio_servicio);agregarAlCarrito()">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -106,19 +106,19 @@
       <div class="col-lg-3 col-md-3 col-sm-3 text-center row">
 
 
-        <button class="btn btn-danger boton-carr col-lg-12" (click)="eliminarDelCarrito(i)">
+        <button class="btn btn-danger boton-carr col-lg-12" (click)="eliminarServ(servicio.id)">
           <i class="fa-regular fa-trash-can"></i>
         </button>
       </div>
     </div>
     <div class="row justify-content-end mt-2">
       <div class="col-lg-8">
-        <h5 class="text-end">Total: ${{ calcularMontoTotal() }}</h5>
+        <h5 class="text-end">Total: ${{calcularMontoTotal()}}</h5>
       </div>
     </div>
 
       <div>
-        <button (click)="comprar()">Comprar</button>
+        <button class="m-1 px-3 p-1 btn btn-primary boton-carr" (click)="comprar()">Comprar</button>
       </div>
     </div>
   </div>

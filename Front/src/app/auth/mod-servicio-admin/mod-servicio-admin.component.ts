@@ -37,8 +37,8 @@ export class ModServicioAdminComponent implements OnInit {
 
     
   }
+///////////////////////////////////////////////////////////////
 
-  ///////////////////////////////////////////////////////////////
   update(){
     this.serv_estadistica.modificar2(this.servicio,this.dataid).subscribe(()=>{
       this.router.navigate(["auth/dash_admin"])
