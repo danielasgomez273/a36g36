@@ -30,6 +30,8 @@
 
 :small_orange_diamond: Paredes, Jimena A.
 
+:small_orange_diamond: Iuorio, Eduardo J.
+
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
 :point_right: ¿Qué es OneDrop?: 
