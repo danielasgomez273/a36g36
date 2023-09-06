@@ -50,7 +50,7 @@ Podés ver el video presentacion de nuestro trabajo en el ciclo 2022 en éste [l
 
 :point_right: ¿Qué hicimos durante el 2023?:
 
-Podés acceder al video de presentacion en éste [link]([https://www.youtube.com/watch?v=otW-b15-OKY](https://www.youtube.com/watch?v=M-bArdVaAYg&t=234s) 
+Podés acceder al video de presentacion en éste [link](https://www.youtube.com/watch?v=M-bArdVaAYg&t=234s) 
 
 *(Este video corresponde a EVIDENCIA 5/Sprint 3 de las Actividades Integradoras del Módulo)*
 
