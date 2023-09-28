@@ -13,4 +13,6 @@
     <color name="background_grey">#14000000</color>
     <color name="lavender">#14000000</color>
     <color name="red">#FFED0619</color>
+    <color name="pinkonedrop2">#F7429A</color>
+    <color name="greyonedrop">#D4D2D3</color>
 </resources>
