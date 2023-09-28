@@ -13,6 +13,9 @@
         android:theme="@style/Theme.One_drop_cruds"
         tools:targetApi="31">
         <activity
+            android:name=".ContactoActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegPressureActivity"
             android:exported="false" />
         <activity
@@ -21,7 +24,6 @@
         <activity
             android:name=".RegAnalysisActivity"
             android:exported="false" />
-
         <activity
             android:name=".Home"
             android:exported="false" />
