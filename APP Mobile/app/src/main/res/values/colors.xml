@@ -2,7 +2,7 @@
 <resources>
     <color name="blueonedrop">#1A609F</color>
     <color name="pinkonedrop">#F7429A</color>
-    <color name="whiteonedrop">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="blackonedrop">#FF070707</color>
     <color name="blueonedrop2">#001D4D</color>
     <color name="pink">#FF9108C3</color>
@@ -12,4 +12,5 @@
     <color name="btn_delete">#FFF66A6A</color>
     <color name="background_grey">#14000000</color>
     <color name="lavender">#14000000</color>
+    <color name="red">#FFED0619</color>
 </resources>
