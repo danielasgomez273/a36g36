@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFFA0000</color>
+    <color name="green">#FF2D9102</color>
+    <color name="pink">#FF9108C3</color>
+    <color name="yellow">#FFF6D162</color>
+    <color name="grey">#FF424242</color>
+    <color name="btn_edit">#A3F89327</color>
+    <color name="btn_delete">#FFF66A6A</color>
+    <color name="background_grey">#14000000</color>
+    <color name="lavender">#14000000</color>
+</resources>
