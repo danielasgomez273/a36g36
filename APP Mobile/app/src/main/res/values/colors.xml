@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="red">#FFFA0000</color>
+    <color name="blueonedrop">#1A609F</color>
+    <color name="pinkonedrop">#F7429A</color>
+    <color name="whiteonedrop">#FFFFFF</color>
+    <color name="blackonedrop">#FF070707</color>
     <color name="green">#FF2D9102</color>
     <color name="pink">#FF9108C3</color>
     <color name="yellow">#FFF6D162</color>
