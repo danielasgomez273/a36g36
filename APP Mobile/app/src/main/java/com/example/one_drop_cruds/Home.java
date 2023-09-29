@@ -14,7 +14,6 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
     }
 
-
     // METODOS DE NAVEGACION
     public void aRegistrarGlucemia(View v){
         Intent siguiente = new Intent(this, RegGlyActivity.class);
