@@ -19,30 +19,30 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="400dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="350dp"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="0dp">
 
 
                 <EditText
                     android:id="@+id/login_email"
                     android:layout_width="330dp"
                     android:layout_height="60dp"
-                    android:layout_marginTop="30dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/lavender_border"
                     android:drawableLeft="@drawable/baseline_email_24"
                     android:drawablePadding="6dp"
                     android:hint="Email"
-                    android:padding="6dp"/>
+                    android:padding="6dp" />
 
                 <EditText
                     android:id="@+id/login_password"
                     android:layout_width="330dp"
                     android:layout_height="60dp"
-                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/lavender_border"
                     android:drawableLeft="@drawable/baseline_lock_24"
                     android:drawablePadding="8dp"
@@ -56,6 +56,7 @@
                     android:layout_height="70dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
+                    android:backgroundTint="#F7429A"
                     android:text="Login"
                     android:textSize="18sp"
                     app:cornerRadius="30dp" />
