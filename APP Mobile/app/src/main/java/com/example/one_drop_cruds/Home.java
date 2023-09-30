@@ -31,6 +31,7 @@ import android.provider.MediaStore;
 import android.text.TextPaint;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,6 @@ public class Home extends AppCompatActivity {
     TextView textView_welcome;
     FilesManager filesManager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +61,7 @@ public class Home extends AppCompatActivity {
         userSessionManager.validateLoguedUser(); // SI NO ESTA LOGUEADO, SE REDIRIGE A LOGIN
         textView_welcome.setText("¡¡ Bienvenido, "+userSessionManager.getLoguedUsername()+" !!");
 
+<<<<<<< HEAD
         filesManager= new FilesManager(getApplicationContext(), this);
         this.askForPermissionsStorage();
         // filesManager.onCreatePermissionAsk(); // envia por parametro el activty para poder pedir permisos
@@ -72,27 +73,42 @@ public class Home extends AppCompatActivity {
         }
 
  */
+=======
+        filesManager = new FilesManager(getApplicationContext(), this);
+
+        // Agrega el código para el botón "Volver a Inicio" que lleva a ContactoActivity
+        Button backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ContactoActivity.class);
+                startActivity(intent);
+            }
+        });
+>>>>>>> 98d21f4d9abf00a012a4a81568b5f5f88781f971
     }
 
     // METODOS DE NAVEGACION
     public void aRegistrarGlucemia(View v){
         Intent siguiente = new Intent(this, RegGlyActivity.class);
         startActivity(siguiente);
-    }//
+    }
 
     public void aRegistrarAnalisis(View v){
         Intent siguiente = new Intent(this, RegAnalysisActivity.class);
         startActivity(siguiente);
-    }//
+    }
 
     public void toWeight(View v){
         Intent weight = new Intent(this, RegWeightActivity.class);
         startActivity(weight);
     }
+
     public void toPressure(View v){
         Intent pressure = new Intent(this, RegPressureActivity.class);
         startActivity(pressure);
     }
+<<<<<<< HEAD
     public void btn_export_data(View v){
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.onedrop); // solo para enviar logo de oneDrop a pdf
         if(filesManager.exportPdfFileReport(bitmap)){
@@ -129,6 +145,18 @@ public class Home extends AppCompatActivity {
                 Log.i("TAG","-------------- VOY A PEDIR LOS PERMISOS -------------");
             }
         }
+=======
+
+    // PERMISOS
+    private boolean checkPermission() {
+        int writePermission = ContextCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE);
+        int readPermission = ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE);
+        return writePermission == PackageManager.PERMISSION_GRANTED && readPermission == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestPermissions() {
+        ActivityCompat.requestPermissions(this, new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, 200);
+>>>>>>> 98d21f4d9abf00a012a4a81568b5f5f88781f971
     }
 
     @SuppressLint("MissingSuperCall")
@@ -161,12 +189,80 @@ public class Home extends AppCompatActivity {
                                 }
                             }).show();
                 } else {
+<<<<<<< HEAD
                     Log.i("TAG","TENES QUE HABILITAR PERMISOS MANUALMENTE");
                     Toast.makeText(Home.this,"TENES QUE HABILITAR PERMISOS MANUALMENTE", Toast.LENGTH_LONG).show();
+=======
+                    Toast.makeText(this, "Permiso denegado", Toast.LENGTH_LONG).show();
+>>>>>>> 98d21f4d9abf00a012a4a81568b5f5f88781f971
                 }
             }
         }
         super.onRequestPermissionsResult(requestCode,permissions,grantResults);
     }
 
+<<<<<<< HEAD
 }
+=======
+    // CREAR PDF
+    public void btn_export_data(View v) {
+        // Verifica los permisos antes de crear el archivo PDF
+        if (checkPermission()) {
+            createFile();
+        } else {
+            requestPermissions();
+        }
+    }
+
+    private String createUniqueName() {
+        String now = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        return "PDF_"+now+".pdf";
+    }
+
+    public void createFile() {
+        String tituloText = "Este es el titulo del documento";
+        String descripcionText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n" +
+                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, \n" +
+                "when an unknown printer took a galley of type and scrambled it to make a type specimen book. \n" +
+                "It has survived not only five centuries, but also the leap into electronic typesetting, \n" +
+                "remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset\n" +
+                "sheets containing Lorem Ipsum passages, and more recently with desktop publishing software\n" +
+                "like Aldus PageMaker including versions of Lorem Ipsum.\n";
+
+        PdfDocument pdfDocument = new PdfDocument();
+        Paint paint = new Paint();
+        TextPaint titulo = new TextPaint();
+        TextPaint descripcion = new TextPaint();
+
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(816, 1054, 1).create();
+        PdfDocument.Page page = pdfDocument.startPage(pageInfo);
+        Canvas canvas = page.getCanvas();
+
+        titulo.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        titulo.setTextSize(20);
+        canvas.drawText(tituloText, 10, 150, titulo);
+
+        descripcion.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+        descripcion.setTextSize(14);
+
+        String[] arrDescripcion = descripcionText.split("\n");
+        int y = 200;
+        for (int i = 0; i < arrDescripcion.length; i++) {
+            canvas.drawText(arrDescripcion[i], 10, y, descripcion);
+            y += 15;
+        }
+
+        pdfDocument.finishPage(page);
+
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), createUniqueName());
+        try {
+            pdfDocument.writeTo(new FileOutputStream(file));
+            Toast.makeText(this, "Se creó el PDF correctamente", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error al crear el PDF: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+        pdfDocument.close();
+    }
+}
+>>>>>>> 98d21f4d9abf00a012a4a81568b5f5f88781f971

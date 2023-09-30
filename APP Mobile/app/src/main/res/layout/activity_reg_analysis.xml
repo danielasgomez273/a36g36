@@ -18,6 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/fondosinlogo"
             android:orientation="vertical">
 
 
@@ -25,6 +26,7 @@
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+                android:backgroundTint="#F7429A"
                 android:onClick="tomarFoto"
                 android:text="Tomar foto" />
 
@@ -32,6 +34,7 @@
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#F7429A"
                 android:onClick="aGaleria"
                 android:text="Galeria de analisis" />
 
@@ -40,7 +43,7 @@
                 android:layout_width="91dp"
                 android:layout_height="52dp"
                 android:layout_marginBottom="160dp"
-                android:backgroundTint="@color/red"
+                android:backgroundTint="@color/blueonedrop"
                 android:onClick="toHome"
                 android:text="home"
                 app:layout_constraintBottom_toTopOf="@+id/layout_view_reg_weight"
