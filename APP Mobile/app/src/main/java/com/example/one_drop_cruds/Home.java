@@ -103,12 +103,7 @@ public class Home extends AppCompatActivity {
 
     public void btn_export_data(View v){
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.onedrop); // solo para enviar logo de oneDrop a pdf
-        if(/*filesManager.exportPdfFileReport(bitmap)*/ true){
-
-            Log.i("TAG", "·······················································································································");
-            Log.i("TAG", "HexportPdfFileReport");
-            Log.i("TAG", "·······················································································································");
-
+        if(filesManager.exportPdfFileReport(bitmap)){
             Toast.makeText(this, "Se creo el PDF correctamente", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "Error en la creacion del PDF", Toast.LENGTH_LONG).show();

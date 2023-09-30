@@ -219,7 +219,6 @@ public class RegGlyActivity extends AppCompatActivity implements View.OnClickLis
                 dialog.dismiss();
             }
         });
-
         builder.create().show();
     }
     @Override
