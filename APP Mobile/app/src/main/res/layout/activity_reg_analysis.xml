@@ -21,6 +21,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/fondosinlogo"
             android:orientation="vertical">
 
             <ImageView
@@ -39,18 +40,24 @@
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="40dp"
                 android:paddingVertical="10dp"
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="40dp"
                 android:backgroundTint="@color/blueonedrop"
+=======
+                android:layout_height="70dp"
+                android:backgroundTint="#F7429A"
+>>>>>>> d940723442618b31f0951e2782a7006ddae3e91d
                 android:onClick="tomarFoto"
                 android:text="Tomar Foto" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:orientation="horizontal"
                 android:gravity="center"
                 >
@@ -82,6 +89,26 @@
                 android:onClick="aGaleria"
                 android:text="Galeria de analisis" />
 
+=======
+                android:backgroundTint="#F7429A"
+                android:onClick="aGaleria"
+                android:text="Galeria de analisis" />
+
+            <Button
+                android:id="@+id/btn_home_weight"
+                android:layout_width="91dp"
+                android:layout_height="52dp"
+                android:layout_marginBottom="160dp"
+                android:backgroundTint="@color/blueonedrop"
+                android:onClick="toHome"
+                android:text="home"
+                app:layout_constraintBottom_toTopOf="@+id/layout_view_reg_weight"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+>>>>>>> d940723442618b31f0951e2782a7006ddae3e91d
 
             </LinearLayout>
 

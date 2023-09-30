@@ -135,7 +135,6 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         SQLiteDatabase bd = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("email", email);
-
         contentValues.put("password", passwordEncoder.encodePassword(password));
         long result = bd.insert("users", null, contentValues);
         return result == -1? false : true;

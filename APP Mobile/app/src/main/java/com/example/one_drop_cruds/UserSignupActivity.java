@@ -32,27 +32,39 @@ public class UserSignupActivity extends AppCompatActivity {
                 String confirmPassword = binding.signupConfirm.getText().toString();
 
                 if(email.equals("")||password.equals("")||confirmPassword.equals(""))
-                    Toast.makeText(UserSignupActivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UserSignupActivity.this, "¡ Debes completar todos los campos !", Toast.LENGTH_SHORT).show();
                 else{
                     if(password.equals(confirmPassword)){
                         Boolean checkUserEmail = adminBD.checkEmail(email);
 
-                        if(checkUserEmail == false){
+                        if(!checkUserEmail){
                             Boolean insert = adminBD.createUser(email, password);
 
-                            if(insert == true){
-                                Toast.makeText(UserSignupActivity.this, "Signup Successfully!", Toast.LENGTH_SHORT).show();
+                            System.out.println("********************************************************************");
+                            System.out.println("REGISTRO DE USUARIO EXITOSO!");
+                            System.out.println("********************************************************************");
+
+                            Toast.makeText(UserSignupActivity.this, "¡Registro exitoso!", Toast.LENGTH_SHORT).show();
+                            if(insert){
+                                // Toast.makeText(UserSignupActivity.this, "¡Registro exitoso!", Toast.LENGTH_SHORT).show();
+
+
+                                // ACA DEBEMOS
+                                // AGREGAR USUARIO A SHARED PREFERNECES
+                                // REDIRIGIR A FORMULARIO DE AGREGAR DATOS MEDICOS? O A HOME...
                                 Intent intent = new Intent(getApplicationContext(), UserLoginActivity.class);
                                 startActivity(intent);
                             }else{
-                                Toast.makeText(UserSignupActivity.this, "Signup Failed!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UserSignupActivity.this, "Error durante el registro!", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else{
-                            Toast.makeText(UserSignupActivity.this, "User already exists! Please login", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UserSignupActivity.this, "Ya estas registrado!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), UserLoginActivity.class);
+                            startActivity(intent);
                         }
                     }else{
-                        Toast.makeText(UserSignupActivity.this, "Invalid Password!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UserSignupActivity.this, "Las contraseñas no concuerdan!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

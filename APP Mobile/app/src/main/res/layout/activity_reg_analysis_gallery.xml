@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
 
+=======
+>>>>>>> d940723442618b31f0951e2782a7006ddae3e91d
     android:background="@drawable/fondosinlogo"
     tools:context=".Galeria_Analisis">
 
