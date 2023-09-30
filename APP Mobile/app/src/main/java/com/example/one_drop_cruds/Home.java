@@ -111,8 +111,21 @@ public class Home extends AppCompatActivity {
 
     public void btn_export_data(View v){
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.onedrop); // solo para enviar logo de oneDrop a pdf
-        if(filesManager.exportPdfFileReport(bitmap)){
+
+        String path = filesManager.exportPdfFileReport(bitmap);
+        if(path != null){
             Toast.makeText(this, "Se creo el PDF correctamente", Toast.LENGTH_LONG).show();
+
+            /*
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(path)));
+            shareIntent.setType("application/pdf");
+            shareIntent.setPackage("com.whatsapp");
+            startActivity(Intent.createChooser(shareIntent, "Compartir a través de"));
+
+             */
+
         } else {
             Toast.makeText(this, "Error en la creacion del PDF", Toast.LENGTH_LONG).show();
         }
@@ -184,4 +197,5 @@ public class Home extends AppCompatActivity {
         }
         super.onRequestPermissionsResult(requestCode,permissions,grantResults);
     }
+
 }

@@ -5,12 +5,14 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
 import android.os.Environment;
 import android.text.TextPaint;
 import android.util.Log;
@@ -70,14 +72,7 @@ public class FilesManager {
         return reg_List;
     }
     private String getAllRegisters(){
-        ArrayList<String> glyResults = getRegisters(this.TABLE_GLY);
-        ArrayList<String> pressureResults = getRegisters(this.TABLE_PRESSURE);
-        ArrayList<String> weightResults = getRegisters(this.TABLE_WEIGHT);
-
-
         String result = "Sin resultados \n";
-
-
                 /*
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n" +
                 "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, \n" +
@@ -91,17 +86,9 @@ public class FilesManager {
         return result;
     }
 
-    public boolean exportPdfFileReport(Bitmap bitmap) {
-        Log.i("TAG", "·······················································································································");
-        Log.i("TAG", "exportPdfFileReport");
-        Log.i("TAG", "·······················································································································");
-
-
-        Boolean exportSuccess = false;
+    public String exportPdfFileReport(Bitmap bitmap) {
+        //Boolean exportSuccess = false;
         String docTitle = "Reportes generados con fecha: "+new SimpleDateFormat("dd/MM/yyyy").format(new Date());
-
-        String descriptionText = getAllRegisters();
-
 
         PdfDocument pdfDocument = new PdfDocument();
         Paint paint = new Paint();
@@ -140,43 +127,48 @@ public class FilesManager {
          */
 
         ArrayList<String> glyResults = getRegisters(this.TABLE_GLY);
-
-        Log.i("TAG", "·······················································································································");
-        Log.i("TAG", "OBTENGO CADA ARRAY DE REGISTRO Y LO AGREGO AL CANVA");
-        Log.i("TAG", "·······················································································································");
-
-
         int y = 200;
         // OBTENGO CADA ARRAY DE REGISTRO Y LO AGREGO AL CANVA
-        for (int i = 0; i < glyResults.size(); i++) {
-            canvas.drawText(glyResults.get(i), 10, y, description);
-            y += 15;
+        if (glyResults.size()>0){
+            for (int i = 0; i < glyResults.size(); i++) {
+                canvas.drawText(glyResults.get(i), 10, y, description);
+                y += 15;
+            }
         }
-
+/*
         ArrayList<String> pressureResults = getRegisters(this.TABLE_PRESSURE);
-        for (int i = 0; i < pressureResults.size(); i++) {
-            canvas.drawText(pressureResults.get(i), 10, y, description);
-            y += 15;
+        if(pressureResults.size()>0){
+            for (int i = 0; i < pressureResults.size(); i++) {
+                canvas.drawText(pressureResults.get(i), 10, y, description);
+                y += 15;
+            }
         }
 
         ArrayList<String> weightResults = getRegisters(this.TABLE_WEIGHT);
-        for (int i = 0; i < weightResults.size(); i++) {
-            canvas.drawText(weightResults.get(i), 10, y, description);
-            y += 15;
+        if(weightResults.size()>0){
+            for (int i = 0; i < weightResults.size(); i++) {
+                canvas.drawText(weightResults.get(i), 10, y, description);
+                y += 15;
+            }
         }
+
+ */
+        Log.i("TAG", "·······················································································································");
+        Log.i("TAG", "OBTENGO CADA ARRAY DE REGISTRO Y LO AGREGO AL CANVA");
+        Log.i("TAG", "·······················································································································");
 
         pdfDocument.finishPage(page);
 
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), createUniqueFileName());
         try {
             pdfDocument.writeTo(new FileOutputStream(file));
-            exportSuccess = true;
+            return file.getPath();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         pdfDocument.close();
-        return exportSuccess;
+        return null;
     }
-
 
 }
