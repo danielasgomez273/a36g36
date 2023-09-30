@@ -76,17 +76,17 @@
 
     <Button
         android:id="@+id/btn_export_data"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/yellow"
+        android:backgroundTint="@color/blueonedrop2"
         android:onClick="btn_export_data"
         android:text="EXPORTAR DATOS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.392" />
+        app:layout_constraintVertical_bias="0.912" />
 
     <ImageView
         android:id="@+id/imageView"
