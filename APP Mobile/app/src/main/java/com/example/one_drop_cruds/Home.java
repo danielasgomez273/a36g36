@@ -65,7 +65,16 @@ public class Home extends AppCompatActivity {
         filesManager= new FilesManager(getApplicationContext(), this);
         this.askForPermissionsStorage();
 
-
+// Agrega el código para el botón "CONTACTANOS"
+        Button contactButton = findViewById(R.id.backButton);
+        contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, ContactoActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
         // Agrega el código para el botón "Volver a Inicio" que lleva a ContactoActivity
         /*
         Button backButton = findViewById(R.id.backButton);
@@ -78,7 +87,6 @@ public class Home extends AppCompatActivity {
         });
 
          */
-    }
 
     // METODOS DE NAVEGACION
     public void aRegistrarGlucemia(View v){
