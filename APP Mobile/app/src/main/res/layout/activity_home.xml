@@ -64,16 +64,15 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layoutDirection="locale"
         android:backgroundTint="@color/btn_delete"
-        android:text="mis datos (Seria un editar... Falta en registro, un segundo paso de carga de datos medicos...)"
+        android:text="Mi Perfil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_export_data"
