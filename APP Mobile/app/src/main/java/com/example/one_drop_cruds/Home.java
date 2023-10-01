@@ -74,6 +74,16 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // Agrega el código para el botón "Mi Perfil"
+        Button perfilButton = findViewById(R.id.button3);
+        perfilButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Iniciar la actividad del perfil
+                Intent intent = new Intent(Home.this, ProfileActivity.class); // Reemplaza ProfileActivity con el nombre de tu actividad de perfil
+                startActivity(intent);
+            }
+        });
     }
         // Agrega el código para el botón "Volver a Inicio" que lleva a ContactoActivity
         /*
