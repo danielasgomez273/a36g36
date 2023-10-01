@@ -32,6 +32,7 @@
             android:padding="20dp">
 
 
+
             <EditText
                 android:id="@+id/signup_name"
                 android:layout_width="330dp"
@@ -41,7 +42,7 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_how_to_reg_24"
                 android:drawablePadding="8dp"
-                android:hint="Apellidos"
+                android:hint="@string/f_m_last_name"
                 android:padding="8dp" />
 
             <EditText
@@ -53,7 +54,7 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_how_to_reg_24"
                 android:drawablePadding="8dp"
-                android:hint="Nombres"
+                android:hint="@string/f_m_name"
                 android:padding="8dp" />
 
             <EditText
@@ -65,7 +66,7 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_numbers_24"
                 android:drawablePadding="8dp"
-                android:hint="Edad"
+                android:hint="@string/f_m_age"
                 android:padding="8dp" />
 
             <EditText
@@ -77,7 +78,7 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_cake_24"
                 android:drawablePadding="8dp"
-                android:hint="Fecha de Nacimiento"
+                android:hint="@string/f_m_birthday"
                 android:padding="8dp" />
 
 
@@ -90,7 +91,7 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_monitor_weight_24"
                 android:drawablePadding="8dp"
-                android:hint="Peso (Kg)"
+                android:hint="@string/f_m_weight"
                 android:padding="8dp" />
 
             <EditText
@@ -102,7 +103,7 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_health_and_safety_24"
                 android:drawablePadding="8dp"
-                android:hint="Tipo de Diabetes"
+                android:hint="@string/f_m_type_db"
                 android:padding="8dp" />
 
             <EditText
@@ -114,16 +115,18 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_vaccines_24"
                 android:drawablePadding="8dp"
-                android:hint="Terapia de insulina"
+                android:hint="@string/f_m_therapy_db"
                 android:padding="8dp" />
 
+
             <Button
-                android:id="@+id/signup_button"
+                android:id="@+id/signupButton"
                 android:layout_width="330dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/blueonedrop"
+                android:onClick="submitFM"
                 android:text="Registrarse"
                 android:textSize="18sp"
                 app:cornerRadius="30dp" />

@@ -5,12 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.example.one_drop_cruds.entities.DTORegister;
 import com.example.one_drop_cruds.entities.DTOReadAllRegisters;
+import com.example.one_drop_cruds.entities.DTOmedicalRecord;
 import com.example.one_drop_cruds.utils.PasswordEncoder;
 
 import java.util.ArrayList;
@@ -21,7 +23,6 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         super(context, name, factory, version);
         createTables();
     }
-
     public void createTables(){
         SQLiteDatabase db = this.getWritableDatabase();// abre la bd
         //CREACION DE TABLAS se ejecuta una vez
@@ -51,21 +52,22 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 " value REAL, \n"+
                 " notes TEXT\t\n"+
                 ")");
-        //FICHA MEDICAAAAA PENTENTEEEEE
-        /*
-        db.execSQL("CREATE TABLE weight (\n"+
-                " id_reg_weight INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
-                " date DATETIME NOT NULL, \n"+
-                " value REAL, \n"+
-                " notes TEXT\t\n"+
+
+        //FICHA MEDICA
+        db.execSQL("CREATE TABLE IF NOT EXISTS medical_record (\n"+
+                " id_medical_record INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
+                " name TEXT, \n"+
+                " lastName TEXT, \n"+
+                " age INTEGER, \n"+
+                " birth DATE, \n"+
+                " weight REAL, \n"+
+                " db_type TEXT, \n"+
+                " username TEXT, \n"+
+                " db_therapy TEXT\t\n"+
                 ")");
-
-         */
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //CREACION DE TABLAS se ejecuta una vez
         // REG GLUCEMIA
         db.execSQL("CREATE TABLE IF NOT EXISTS glycemia (\n"+
                 " id_reg_glycemia INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
@@ -92,17 +94,65 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 " value REAL, \n"+
                 " notes TEXT\t\n"+
                 ")");
-        //FICHA MEDICAAAAA PENTENTEEEEE
-        /*
-        db.execSQL("CREATE TABLE weight (\n"+
-                " id_reg_weight INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
-                " date DATETIME NOT NULL, \n"+
-                " value REAL, \n"+
-                " notes TEXT\t\n"+
+
+        //FICHA MEDICA
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS medical_record (\n"+
+                " id_medical_record INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
+                " name TEXT, \n"+
+                " lastName TEXT, \n"+
+                " age INTEGER, \n"+
+                " birth DATE, \n"+
+                " weight REAL, \n"+
+                " db_type TEXT, \n"+
+                " username TEXT, \n"+
+                " db_therapy TEXT\t\n"+
                 ")");
 
-         */
     }
+
+    public boolean createMedicalRecord(DTOmedicalRecord dtomedicalRecord){
+        SQLiteDatabase bd = this.getWritableDatabase();// abre la bd
+        ContentValues new_reg = new ContentValues(); // crea un objeto que luego sera un nuevo registro en la bd
+
+        new_reg.put("username", dtomedicalRecord.getUsername());
+        new_reg.put("name", dtomedicalRecord.getName());
+        new_reg.put("lastName", dtomedicalRecord.getLast_name());
+        new_reg.put("age", dtomedicalRecord.getAge());
+        new_reg.put("birth", dtomedicalRecord.getBirth());
+        new_reg.put("weight", dtomedicalRecord.getWeight());
+        new_reg.put("db_type", dtomedicalRecord.getDbType());
+        new_reg.put("db_therapy", dtomedicalRecord.getDbTherapy());
+
+        Long insertResult = bd.insert("medical_record", null, new_reg);// inserta en tabla
+
+        bd.close();// cierro conexion bd
+        return insertResult == -1? false : true; // devuelve el id si logra insertar, sino un -1
+    }
+
+
+    public DTOmedicalRecord getMedicalRecord(String username){
+        DTOmedicalRecord medicalRecord = new DTOmedicalRecord();
+        SQLiteDatabase bd = this.getWritableDatabase(); // abre la bd
+        Cursor bdResults = bd.rawQuery("SELECT * FROM medical_record WHERE username = '"+username +"'", null); // este obj ejecuta la consulta a bd
+
+        if (bdResults.moveToFirst()){
+            medicalRecord.setName(bdResults.getString(1));
+            medicalRecord.setLast_name(bdResults.getString(2));
+            medicalRecord.setAge(bdResults.getInt(3));
+            medicalRecord.setBirth(bdResults.getString(4));
+            medicalRecord.setWeight(bdResults.getDouble(5));
+            medicalRecord.setDbType(bdResults.getString(6));
+            medicalRecord.setUsername(bdResults.getString(7));
+            medicalRecord.setDbTherapy(bdResults.getString(8));
+        } else{
+            medicalRecord = null;
+        }
+        bd.close(); // cierro conexion bd
+        return  medicalRecord;
+    }
+
+
     public DTOReadAllRegisters getAllRegs(String tableName){
         DTOReadAllRegisters result = new DTOReadAllRegisters();
         ArrayList<Integer> reg_ids = new ArrayList<Integer>();

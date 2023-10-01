@@ -4,16 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 import com.example.one_drop_cruds.databinding.ActivityUserSignupBinding;
 import com.example.one_drop_cruds.utils.AdminSQLiteOpenHelper;
+import com.example.one_drop_cruds.utils.SharedPrefManager;
 
 public class UserSignupActivity extends AppCompatActivity {
-
+    SharedPrefManager sharedPrefManager;
     ActivityUserSignupBinding binding;
-    // DatabaseHelper databaseHelper;
     AdminSQLiteOpenHelper adminBD;
+    EditText signup_email, signup_password , signup_confirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,61 +25,49 @@ public class UserSignupActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         adminBD = new AdminSQLiteOpenHelper(this, "bd_one_drop", null, 1); // version es para las futuras modificaciones de la estructura de la bd
+        sharedPrefManager = new SharedPrefManager(getApplicationContext() , "oneDrop_shared_preferences");
 
-
-        binding.signupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = binding.signupEmail.getText().toString();
-                String password = binding.signupPassword.getText().toString();
-                String confirmPassword = binding.signupConfirm.getText().toString();
-
-                if(email.equals("")||password.equals("")||confirmPassword.equals(""))
-                    Toast.makeText(UserSignupActivity.this, "¡ Debes completar todos los campos !", Toast.LENGTH_SHORT).show();
-                else{
-                    if(password.equals(confirmPassword)){
-                        Boolean checkUserEmail = adminBD.checkEmail(email);
-
-                        if(!checkUserEmail){
-                            Boolean insert = adminBD.createUser(email, password);
-
-                            System.out.println("********************************************************************");
-                            System.out.println("REGISTRO DE USUARIO EXITOSO!");
-                            System.out.println("********************************************************************");
-
-                            Toast.makeText(UserSignupActivity.this, "¡Registro exitoso!", Toast.LENGTH_SHORT).show();
-                            if(insert){
-                                // Toast.makeText(UserSignupActivity.this, "¡Registro exitoso!", Toast.LENGTH_SHORT).show();
-
-
-                                // ACA DEBEMOS
-                                // AGREGAR USUARIO A SHARED PREFERNECES
-                                // REDIRIGIR A FORMULARIO DE AGREGAR DATOS MEDICOS? O A HOME...
-                                Intent intent = new Intent(getApplicationContext(), UserLoginActivity.class);
-                                startActivity(intent);
-                            }else{
-                                Toast.makeText(UserSignupActivity.this, "Error durante el registro!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        else{
-                            Toast.makeText(UserSignupActivity.this, "Ya estas registrado!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), UserLoginActivity.class);
-                            startActivity(intent);
-                        }
-                    }else{
-                        Toast.makeText(UserSignupActivity.this, "Las contraseñas no concuerdan!", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
-
-        binding.loginRedirectText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(UserSignupActivity.this, UserLoginActivity.class);
-                startActivity(intent);
-            }
-        });
+        signup_email = findViewById(R.id.signup_email);
+        signup_password = findViewById(R.id.signup_password);
+        signup_confirm = findViewById(R.id.signup_confirm);
 
     }
+    public void toLogin(View v){
+        Intent intent = new Intent(UserSignupActivity.this, UserLoginActivity.class);
+        startActivity(intent);
+    }
+    public void signupUser(View v){
+        String email = signup_email.getText().toString();
+        String password = signup_password.getText().toString();
+        String confirmPassword = signup_confirm.getText().toString();
+
+        if(email.equals("")||password.equals("")||confirmPassword.equals(""))
+            Toast.makeText(UserSignupActivity.this, "¡ Debes completar todos los campos !", Toast.LENGTH_SHORT).show();
+        else{
+            if(password.equals(confirmPassword)){
+                Boolean checkUserEmail = adminBD.checkEmail(email);
+                if(!checkUserEmail){
+                    Boolean insert = adminBD.createUser(email, password);
+                    if(insert){
+                        Toast.makeText(UserSignupActivity.this, "¡Registro exitoso!", Toast.LENGTH_SHORT).show();
+                        sharedPrefManager.setLoguedUser(email);
+                        Intent intent = new Intent(getApplicationContext(), UserMedicalData.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(UserSignupActivity.this, "Error durante el registro!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(UserSignupActivity.this, "Ya estas registrado!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), UserLoginActivity.class);
+                    startActivity(intent);
+                }
+            }else{
+                Toast.makeText(UserSignupActivity.this, "Las contraseñas no concuerdan!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+
 }

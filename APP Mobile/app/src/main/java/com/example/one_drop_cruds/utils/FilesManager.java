@@ -117,7 +117,8 @@ public class FilesManager {
             canvas.drawText(line, 10, y, description);
             y += 20;
         }else{
-            canvas.drawText("No hay registros de presion glucemia.", 25, y, description);
+            canvas.drawText("No hay registros de glucemia cargados" +
+                    ".", 25, y, description);
             y += 30;
         }
 

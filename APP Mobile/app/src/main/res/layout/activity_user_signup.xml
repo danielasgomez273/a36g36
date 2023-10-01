@@ -61,12 +61,13 @@
                 android:padding="8dp" />
 
             <Button
-                android:id="@+id/signup_button"
+                android:id="@+id/signupButton"
                 android:layout_width="330dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/blueonedrop"
+                android:onClick="signupUser"
                 android:text="Registrarse"
                 android:textSize="18sp"
                 app:cornerRadius="30dp" />
@@ -78,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
+                android:onClick="toLogin"
                 android:padding="8dp"
                 android:text="Ya sos usuario? Ingresá"
                 android:textColor="@color/design_default_color_primary_variant"

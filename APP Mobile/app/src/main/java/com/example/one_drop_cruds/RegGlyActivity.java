@@ -331,7 +331,8 @@ public class RegGlyActivity extends AppCompatActivity implements View.OnClickLis
         if(insertResult){
             add_value_gly.setText("");// limpio pantalla
             add_notes_gly.setText("");
-            add_date_gly.setText(""); this.refreshRegs();
+            add_date_gly.setText("");
+            this.refreshRegs();
             this.updateChartRegGly(); // sobreescribe chart
             adapterRegGly.notifyDataSetChanged(); // refresca pantalla del recycler
             rv1.smoothScrollToPosition(reg_gly_ids.size()-1); // mueve la vista al ultimo elemento agregado
