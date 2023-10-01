@@ -50,18 +50,6 @@ public class Home extends AppCompatActivity {
         this.askForPermissionsStorage();
 
     }
-        // Agrega el código para el botón "Volver a Inicio" que lleva a ContactoActivity
-        /*
-        Button backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ContactoActivity.class);
-                startActivity(intent);
-            }
-        });
-
-         */
 
     // METODOS DE NAVEGACION
     public void aRegistrarGlucemia(View v){
