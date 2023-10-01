@@ -3,6 +3,7 @@ package com.example.one_drop_cruds.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 import com.example.one_drop_cruds.UserLoginActivity;
 
@@ -15,6 +16,7 @@ public class UserSessionManager {
     }
     public void validateLoguedUser(){
         if(this.getLoguedUsername() == null){
+            Toast.makeText(this.context, "USER NO LOGUEADO!!!!", Toast.LENGTH_LONG).show();
             this.context.startActivity(new Intent(this.context, UserLoginActivity.class));
         }
     }

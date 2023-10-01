@@ -53,6 +53,7 @@ public class FilesManager {
     }
 
     private ArrayList<String> getRegisters(String tableName){
+        ArrayList<String> reg_List = new ArrayList<String>();
         DTOReadAllRegisters results = admin.getAllRegs(tableName);
 
         ArrayList<Integer> reg_ids = results.getReg_ids();
@@ -61,13 +62,14 @@ public class FilesManager {
         ArrayList<String> reg_notes = results.getReg_notes();
 
         String listTitle = "Registros "+tableName;
-        ArrayList<String> reg_List = new ArrayList<String>();
 
         reg_List.add(listTitle);
 
-        for (int i =0 ; i< reg_ids.size() ; i++){
-            String reg = "Nº "+ reg_ids.get(i) +  " >> Fecha: " + reg_dates.get(i) + ", Valor: " + reg_values.get(i) + ", Notas: "+ reg_notes.get(i) + "\n" ;
-            reg_List.add(reg);
+        if(reg_ids.size() >0) {
+            for (int i =0 ; i< reg_ids.size() ; i++){
+                String reg = "Nº "+ reg_ids.get(i) +  " >> Fecha: " + reg_dates.get(i) + ", Valor: " + reg_values.get(i) + ", Notas: "+ reg_notes.get(i) + "\n" ;
+                reg_List.add(reg);
+            }
         }
         return reg_List;
     }
@@ -129,34 +131,59 @@ public class FilesManager {
         ArrayList<String> glyResults = getRegisters(this.TABLE_GLY);
         int y = 200;
         // OBTENGO CADA ARRAY DE REGISTRO Y LO AGREGO AL CANVA
+
+        Log.i("TAG", "·······················································································································");
+        Log.i("TAG", "OBTENGO glyResults mayot a cero???");
+        Log.i("TAG", "·······················································································································");
+
         if (glyResults.size()>0){
+
+            Log.i("TAG", "·······················································································································");
+            Log.i("TAG", "OBTENGO glyResults siiii es mayor");
+            Log.i("TAG", "·······················································································································");
+
             for (int i = 0; i < glyResults.size(); i++) {
                 canvas.drawText(glyResults.get(i), 10, y, description);
                 y += 15;
             }
         }
+        Log.i("TAG", "·······················································································································");
+        Log.i("TAG", "OBTENGO glyResults");
+        Log.i("TAG", "·······················································································································");
 /*
         ArrayList<String> pressureResults = getRegisters(this.TABLE_PRESSURE);
         if(pressureResults.size()>0){
+            Log.i("TAG", "*************************************");
+            Log.i("TAG", "OBTENGO pressureResults > 1");
+
             for (int i = 0; i < pressureResults.size(); i++) {
                 canvas.drawText(pressureResults.get(i), 10, y, description);
                 y += 15;
             }
+
+
         }
+
+        Log.i("TAG", "·······················································································································");
+        Log.i("TAG", "OBTENGO pressureResults");
+        Log.i("TAG", "·······················································································································");
 
         ArrayList<String> weightResults = getRegisters(this.TABLE_WEIGHT);
         if(weightResults.size()>0){
+            Log.i("TAG", "*************************************");
+            Log.i("TAG", "OBTENGO pressureResults > 1");
+
             for (int i = 0; i < weightResults.size(); i++) {
                 canvas.drawText(weightResults.get(i), 10, y, description);
                 y += 15;
             }
+
         }
 
- */
         Log.i("TAG", "·······················································································································");
-        Log.i("TAG", "OBTENGO CADA ARRAY DE REGISTRO Y LO AGREGO AL CANVA");
+        Log.i("TAG", "OBTENGO weightResults");
         Log.i("TAG", "·······················································································································");
-
+*/
         pdfDocument.finishPage(page);
 
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), createUniqueFileName());

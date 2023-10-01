@@ -19,32 +19,74 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     PasswordEncoder passwordEncoder = new PasswordEncoder();
     public AdminSQLiteOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+        createTables();
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void createTables(){
+        SQLiteDatabase db = this.getWritableDatabase();// abre la bd
         //CREACION DE TABLAS se ejecuta una vez
         // REG GLUCEMIA
-        db.execSQL("CREATE TABLE glycemia (\n"+
+        db.execSQL("CREATE TABLE IF NOT EXISTS glycemia (\n"+
                 " id_reg_glycemia INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
                 " date DATETIME NOT NULL, \n"+
                 " value REAL, \n"+
                 " notes TEXT\t\n"+
                 ")");
         //USERS
-        db.execSQL("CREATE TABLE users (\n"+
+        db.execSQL("CREATE TABLE IF NOT EXISTS users (\n"+
                 " email TEXT PRIMARY KEY, \n"+
                 " password TEXT NOT NULL\t\n"+
                 ")");
         //PRESSURE
-        db.execSQL("CREATE TABLE pressure (\n"+
+        db.execSQL("CREATE TABLE IF NOT EXISTS pressure (\n"+
                 " id_reg_pressure INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
                 " date DATETIME NOT NULL, \n"+
                 " value REAL, \n"+
                 " notes TEXT\t\n"+
                 ")");
         //WEIGHT
+        db.execSQL("CREATE TABLE IF NOT EXISTS weight (\n"+
+                " id_reg_weight INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
+                " date DATETIME NOT NULL, \n"+
+                " value REAL, \n"+
+                " notes TEXT\t\n"+
+                ")");
+        //FICHA MEDICAAAAA PENTENTEEEEE
+        /*
         db.execSQL("CREATE TABLE weight (\n"+
+                " id_reg_weight INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
+                " date DATETIME NOT NULL, \n"+
+                " value REAL, \n"+
+                " notes TEXT\t\n"+
+                ")");
+
+         */
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        //CREACION DE TABLAS se ejecuta una vez
+        // REG GLUCEMIA
+        db.execSQL("CREATE TABLE IF NOT EXISTS glycemia (\n"+
+                " id_reg_glycemia INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
+                " date DATETIME NOT NULL, \n"+
+                " value REAL, \n"+
+                " notes TEXT\t\n"+
+                ")");
+        //USERS
+        db.execSQL("CREATE TABLE IF NOT EXISTS users (\n"+
+                " email TEXT PRIMARY KEY, \n"+
+                " password TEXT NOT NULL\t\n"+
+                ")");
+        //PRESSURE
+        db.execSQL("CREATE TABLE IF NOT EXISTS pressure (\n"+
+                " id_reg_pressure INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
+                " date DATETIME NOT NULL, \n"+
+                " value REAL, \n"+
+                " notes TEXT\t\n"+
+                ")");
+        //WEIGHT
+        db.execSQL("CREATE TABLE IF NOT EXISTS weight (\n"+
                 " id_reg_weight INTEGER PRIMARY KEY AUTOINCREMENT, \n"+
                 " date DATETIME NOT NULL, \n"+
                 " value REAL, \n"+
