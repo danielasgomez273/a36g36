@@ -121,16 +121,16 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 reg_notes.add(bdResults.getString(3));
             }
             while (bdResults.moveToNext());
+
+            result.setReg_ids(reg_ids);
+            result.setReg_values(reg_values);
+            result.setReg_dates(reg_dates);
+            result.setReg_notes(reg_notes);
+
         } else{
-            return null;
+            result = null;
         }
         bd.close(); // cierro conexion bd
-
-        result.setReg_ids(reg_ids);
-        result.setReg_values(reg_values);
-        result.setReg_dates(reg_dates);
-        result.setReg_notes(reg_notes);
-
         return result;
     }
     public boolean addReg(String tableName, DTORegister newReg){

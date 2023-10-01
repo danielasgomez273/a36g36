@@ -48,7 +48,7 @@ public class FilesManager {
        return userSessionManager.getLoguedUsername();
     }
     private String createUniqueFileName(){
-        String now = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        String now = new SimpleDateFormat("dd-MM-yyyy_HHmmss").format(new Date());
         return "Reporte ONE DROP - "+getLoguedUsername()+" - "+now+".pdf";
     }
 
@@ -56,16 +56,12 @@ public class FilesManager {
         ArrayList<String> reg_List = new ArrayList<String>();
         DTOReadAllRegisters results = admin.getAllRegs(tableName);
 
-        ArrayList<Integer> reg_ids = results.getReg_ids();
-        ArrayList<String> reg_dates = results.getReg_dates();
-        ArrayList<Double> reg_values = results.getReg_values();
-        ArrayList<String> reg_notes = results.getReg_notes();
+        if(results != null){
+            ArrayList<Integer> reg_ids = results.getReg_ids();
+            ArrayList<String> reg_dates = results.getReg_dates();
+            ArrayList<Double> reg_values = results.getReg_values();
+            ArrayList<String> reg_notes = results.getReg_notes();
 
-        String listTitle = "Registros "+tableName;
-
-        reg_List.add(listTitle);
-
-        if(reg_ids.size() >0) {
             for (int i =0 ; i< reg_ids.size() ; i++){
                 String reg = "Nº "+ reg_ids.get(i) +  " >> Fecha: " + reg_dates.get(i) + ", Valor: " + reg_values.get(i) + ", Notas: "+ reg_notes.get(i) + "\n" ;
                 reg_List.add(reg);
@@ -73,28 +69,15 @@ public class FilesManager {
         }
         return reg_List;
     }
-    private String getAllRegisters(){
-        String result = "Sin resultados \n";
-                /*
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n" +
-                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, \n" +
-                "when an unknown printer took a galley of type and scrambled it to make a type specimen book. \n" +
-                "It has survived not only five centuries, but also the leap into electronic typesetting, \n" +
-                "remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset\n" +
-                " sheets containing Lorem Ipsum passages, and more recently with desktop publishing software\n" +
-                " like Aldus PageMaker including versions of Lorem Ipsum.\n";
 
-                 */
-        return result;
-    }
-
-    public String exportPdfFileReport(Bitmap bitmap) {
+    public Uri exportPdfFileReport(Bitmap bitmap) {
         //Boolean exportSuccess = false;
         String docTitle = "Reportes generados con fecha: "+new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 
         PdfDocument pdfDocument = new PdfDocument();
         Paint paint = new Paint();
         TextPaint title = new TextPaint();
+        TextPaint subtitle = new TextPaint();
         TextPaint description = new TextPaint();
 
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(816, 1054, 1).create();
@@ -102,99 +85,85 @@ public class FilesManager {
 
         // DEBERIA VER LA FORMA DE OBTENER ESTOS DATOS DESDE ESTA CLASE Y NO ENVIANDOLOS POR PARAMETROOOOO
         // DEBERIA VER LA FORMA DE OBTENER ESTOS DATOS DESDE ESTA CLASE Y NO ENVIANDOLOS POR PARAMETROOOOO
-        // DEBERIA VER LA FORMA DE OBTENER ESTOS DATOS DESDE ESTA CLASE Y NO ENVIANDOLOS POR PARAMETROOOOO
-        // DEBERIA VER LA FORMA DE OBTENER ESTOS DATOS DESDE ESTA CLASE Y NO ENVIANDOLOS POR PARAMETROOOOO
-        // DEBERIA VER LA FORMA DE OBTENER ESTOS DATOS DESDE ESTA CLASE Y NO ENVIANDOLOS POR PARAMETROOOOO
-
         // Bitmap bitmap, bitmapEscala;
         // bitmap = BitmapFactory.decodeResource(AppCompactActivity.getResources(), R.drawable.logo);
-        Bitmap bitmapScale = Bitmap.createScaledBitmap(bitmap, 80, 80, false);
+        Bitmap bitmapScale = Bitmap.createScaledBitmap(bitmap, 145, 100, false);
         Canvas canvas = page.getCanvas();
-        canvas.drawBitmap(bitmapScale, 368, 20, paint);
+        canvas.drawBitmap(bitmapScale, 650, 30, paint);
 
 
+        // estilos de textos
         title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
         title.setTextSize(20);
         canvas.drawText(docTitle, 10, 150, title);
-
+        subtitle.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        subtitle.setTextSize(17);
         description.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         description.setTextSize(14);
 
-       // String[] arrayDescription = descriptionText.split("\n");
-        /*
-        for (int i = 0; i < arrayDescription.length; i++) {
-            canvas.drawText(arrayDescription[i], 10, y, description);
-            y += 15;
-        }
-         */
 
-        ArrayList<String> glyResults = getRegisters(this.TABLE_GLY);
         int y = 200;
+        String line = "-------------------------------------------------------------------------------------------------------------------------------------";
         // OBTENGO CADA ARRAY DE REGISTRO Y LO AGREGO AL CANVA
-
-        Log.i("TAG", "·······················································································································");
-        Log.i("TAG", "OBTENGO glyResults mayot a cero???");
-        Log.i("TAG", "·······················································································································");
-
+        ArrayList<String> glyResults = getRegisters(this.TABLE_GLY);
         if (glyResults.size()>0){
-
-            Log.i("TAG", "·······················································································································");
-            Log.i("TAG", "OBTENGO glyResults siiii es mayor");
-            Log.i("TAG", "·······················································································································");
-
+            canvas.drawText("Registros de Glucemia", 10, y, subtitle);
+            y += 25;
             for (int i = 0; i < glyResults.size(); i++) {
-                canvas.drawText(glyResults.get(i), 10, y, description);
-                y += 15;
+                canvas.drawText(glyResults.get(i), 25, y, description);
+                y += 20;
             }
+            y += 10;
+            canvas.drawText(line, 10, y, description);
+            y += 20;
+        }else{
+            canvas.drawText("No hay registros de presion glucemia.", 25, y, description);
+            y += 30;
         }
-        Log.i("TAG", "·······················································································································");
-        Log.i("TAG", "OBTENGO glyResults");
-        Log.i("TAG", "·······················································································································");
-/*
+
         ArrayList<String> pressureResults = getRegisters(this.TABLE_PRESSURE);
         if(pressureResults.size()>0){
-            Log.i("TAG", "*************************************");
-            Log.i("TAG", "OBTENGO pressureResults > 1");
-
+            canvas.drawText("Registros de Presion", 10, y, subtitle);
+            y += 25;
             for (int i = 0; i < pressureResults.size(); i++) {
-                canvas.drawText(pressureResults.get(i), 10, y, description);
-                y += 15;
+                canvas.drawText(pressureResults.get(i), 25, y, description);
+                y += 20;
             }
-
-
+            y += 10;
+            canvas.drawText(line, 10, y, description);
+            y += 20;
+        } else{
+            canvas.drawText("No hay registros de presion cargados.", 25, y, description);
+            y += 30;
         }
-
-        Log.i("TAG", "·······················································································································");
-        Log.i("TAG", "OBTENGO pressureResults");
-        Log.i("TAG", "·······················································································································");
 
         ArrayList<String> weightResults = getRegisters(this.TABLE_WEIGHT);
         if(weightResults.size()>0){
-            Log.i("TAG", "*************************************");
-            Log.i("TAG", "OBTENGO pressureResults > 1");
-
+            canvas.drawText("Registros de Peso", 10, y, subtitle);
+            y += 25;
             for (int i = 0; i < weightResults.size(); i++) {
-                canvas.drawText(weightResults.get(i), 10, y, description);
-                y += 15;
+                canvas.drawText(weightResults.get(i), 25, y, description);
+                y += 20;
             }
-
+            y += 10;
+            canvas.drawText(line, 10, y, description);
+            y += 20;
+        } else{
+            canvas.drawText("No hay registros de peso cargados.", 25, y, description);
+            y += 30;
         }
-
-        Log.i("TAG", "·······················································································································");
-        Log.i("TAG", "OBTENGO weightResults");
-        Log.i("TAG", "·······················································································································");
-*/
         pdfDocument.finishPage(page);
 
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), createUniqueFileName());
         try {
             pdfDocument.writeTo(new FileOutputStream(file));
-            return file.getPath();
+            pdfDocument.close();
+            return Uri.fromFile(file);
+            //return file.getPath();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        pdfDocument.close();
         return null;
     }
 

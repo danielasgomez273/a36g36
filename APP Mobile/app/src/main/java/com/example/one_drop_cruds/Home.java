@@ -3,32 +3,22 @@ package com.example.one_drop_cruds;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Typeface;
-import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.text.TextPaint;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -37,14 +27,8 @@ import android.widget.Toast;
 
 import com.example.one_drop_cruds.utils.FilesManager;
 import com.example.one_drop_cruds.utils.UserSessionManager;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Home extends AppCompatActivity {
     UserSessionManager userSessionManager;
@@ -65,25 +49,6 @@ public class Home extends AppCompatActivity {
         filesManager= new FilesManager(getApplicationContext(), this);
         this.askForPermissionsStorage();
 
-// Agrega el código para el botón "CONTACTANOS"
-        Button contactButton = findViewById(R.id.backButton);
-        contactButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, ContactoActivity.class);
-                startActivity(intent);
-            }
-        });
-        // Agrega el código para el botón "Mi Perfil"
-        Button perfilButton = findViewById(R.id.button3);
-        perfilButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Iniciar la actividad del perfil
-                Intent intent = new Intent(Home.this, ProfileActivity.class); // Reemplaza ProfileActivity con el nombre de tu actividad de perfil
-                startActivity(intent);
-            }
-        });
     }
         // Agrega el código para el botón "Volver a Inicio" que lleva a ContactoActivity
         /*
@@ -113,7 +78,14 @@ public class Home extends AppCompatActivity {
         Intent weight = new Intent(this, RegWeightActivity.class);
         startActivity(weight);
     }
-
+    public void toProfile(View v){
+        Intent pressure = new Intent(this, ProfileActivity.class);
+        startActivity(pressure);
+    }
+    public void toContact(View v){
+        Intent pressure = new Intent(this, ContactoActivity.class);
+        startActivity(pressure);
+    }
     public void toPressure(View v){
         Intent pressure = new Intent(this, RegPressureActivity.class);
         startActivity(pressure);
@@ -121,24 +93,66 @@ public class Home extends AppCompatActivity {
 
     public void btn_export_data(View v){
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.onedrop); // solo para enviar logo de oneDrop a pdf
-
-        String path = filesManager.exportPdfFileReport(bitmap);
-        if(path != null){
-            Toast.makeText(this, "Se creo el PDF correctamente", Toast.LENGTH_LONG).show();
-
-            /*
-            Intent shareIntent = new Intent();
-            shareIntent.setAction(Intent.ACTION_SEND);
-            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(path)));
-            shareIntent.setType("application/pdf");
-            shareIntent.setPackage("com.whatsapp");
-            startActivity(Intent.createChooser(shareIntent, "Compartir a través de"));
-
-             */
-
+       // String path = filesManager.exportPdfFileReport(bitmap);
+        Uri uri = filesManager.exportPdfFileReport(bitmap);
+        if(uri != null){
+            Toast.makeText(this, "Se creo el PDF correctamente", Toast.LENGTH_SHORT).show();
+            // shareFileWhatsApp(uri);
         } else {
             Toast.makeText(this, "Error en la creacion del PDF", Toast.LENGTH_LONG).show();
         }
+    }
+    public void shareFileWhatsApp(Uri uri) {
+       // File file = new File(Environment.getExternalStorageDirectory(), path);
+       // Uri uri = Uri.fromFile(file);
+
+        // comprobaciones de archivo
+        /*
+        File fileCheck = new File(uri.getPath());
+        if (!fileCheck.exists() || !fileCheck.canRead()) {
+            Log.e("TAG", "Archivo no encontrado o no accesible");
+            return;
+        }
+
+         */
+
+        // comprobacion whatsapp
+        /* INSTALAR WHAT EN EMULADOR
+        try {
+            PackageManager pm = getPackageManager();
+            pm.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e("TAG", "WhatsApp no está instalado");
+            Toast.makeText(this, "WhatsApp no está instalado.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+         */
+
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        // shareIntent.setType("*/*"); // para todos tipo de archivo
+        shareIntent.setType("application/pdf"); // para pdfs
+        shareIntent.setPackage("com.whatsapp");
+
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        Log.i("TAG", "************* COMPARTIENDO POR WHATSAPP => URI ****");
+        Log.i("TAG", "***"+uri.toString());
+        Log.i("TAG", "************* COMPARTIENDO POR WHATSAPP => URI ****");
+
+        try {
+            // startActivity(shareIntent);
+            startActivity(Intent.createChooser(shareIntent, "Compartir a través de"));
+        } catch (Exception ex) {
+            Log.e("TAG", "************* COMPARTIENDO POR WHATSAPP => Exception ****"+ex.getCause().toString()+"***");
+        }
+        /*
+        catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, "WhatsApp no está instalado.", Toast.LENGTH_SHORT).show();
+        }
+         */
     }
 
 
