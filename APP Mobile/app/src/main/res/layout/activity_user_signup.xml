@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/fondo"
+    android:background="@drawable/fondodos"
     tools:context=".UserSignupActivity">
 
     <LinearLayout
@@ -17,70 +17,73 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
             android:orientation="vertical"
-            android:layout_marginTop="350dp"
             android:padding="20dp">
 
 
             <EditText
+                android:id="@+id/signup_email"
                 android:layout_width="330dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:id="@+id/signup_email"
-                android:background="@drawable/lavender_border"
                 android:layout_marginTop="30dp"
-                android:padding="8dp"
-                android:hint="Email"
+                android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_email_24"
-                android:drawablePadding="8dp"/>
+                android:drawablePadding="8dp"
+                android:hint="Email"
+                android:padding="8dp" />
 
             <EditText
+                android:id="@+id/signup_password"
                 android:layout_width="330dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:id="@+id/signup_password"
-                android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
-                android:padding="8dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/baseline_lock_24"
+                android:drawablePadding="8dp"
                 android:hint="Contraseña"
                 android:inputType="textPassword"
-                android:drawableLeft="@drawable/baseline_lock_24"
-                android:drawablePadding="8dp"/>
+                android:padding="8dp" />
 
             <EditText
+                android:id="@+id/signup_confirm"
                 android:layout_width="330dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:id="@+id/signup_confirm"
-                android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
-                android:padding="8dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/baseline_password_24"
+                android:drawablePadding="8dp"
                 android:hint="Confirmar Contraseña"
                 android:inputType="textPassword"
-                android:drawableLeft="@drawable/baseline_password_24"
-                android:drawablePadding="8dp"/>
+                android:padding="8dp" />
 
             <Button
+                android:id="@+id/signupButton"
                 android:layout_width="330dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
-                android:text="Registrarse"
-                android:id="@+id/signup_button"
-                android:textSize="18sp"
                 android:layout_marginTop="30dp"
-                app:cornerRadius = "30dp"/>
+                android:backgroundTint="@color/blueonedrop"
+                android:onClick="signupUser"
+                android:text="Registrarse"
+                android:textSize="18sp"
+                app:cornerRadius="30dp" />
 
 
             <TextView
+                android:id="@+id/loginRedirectText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/loginRedirectText"
-                android:text="Ya sos usuario? Ingresá"
                 android:layout_gravity="center"
-                android:padding="8dp"
-                android:textSize="18sp"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/design_default_color_primary_variant"/>
+                android:onClick="toLogin"
+                android:padding="8dp"
+                android:text="Ya sos usuario? Ingresá"
+                android:textColor="@color/design_default_color_primary_variant"
+                android:textSize="18sp" />
 
         </LinearLayout>
     </LinearLayout>

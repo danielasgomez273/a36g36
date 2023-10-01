@@ -6,7 +6,6 @@
     android:orientation="vertical">
 
 
-
     <LinearLayout
         android:id="@+id/layout_edit_reg_weight"
         android:layout_width="362dp"
@@ -19,9 +18,9 @@
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_reg_weight_date"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:text="@string/add_reg_weight_date"
             android:textSize="20sp" />
 
         <EditText

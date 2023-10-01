@@ -5,6 +5,7 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondosinlogo"
     tools:context=".RegGlyActivity">
 
     <TextView
@@ -88,7 +89,7 @@
         android:layout_width="91dp"
         android:layout_height="52dp"
         android:layout_marginBottom="160dp"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/blueonedrop"
         android:onClick="toHome"
         android:text="home"
         app:layout_constraintBottom_toTopOf="@+id/layout_view_reg_weight"
