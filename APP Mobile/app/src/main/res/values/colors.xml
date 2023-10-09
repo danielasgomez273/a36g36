@@ -15,6 +15,13 @@
     <color name="red">#FFED0619</color>
     <color name="green">#09F4DE</color>
     <color name="pinkonedrop2">#F7429A</color>
-    <color name="greyonedrop">#D4D2D3</color>
+    <color name="greyonedrop">#fCfCfC</color>
+
+
+    <color name="celeste_fondo">#F2F9FF</color>
+    <color name="pink_fondo">#FFE3F1</color>
+
+
+
 
 </resources>
