@@ -153,7 +153,7 @@ En este [link](https://www.figma.com/file/0f2UlsaGdyzMe3toTD9nGk/MODELO-ENTIDAD-
 
 :small_orange_diamond: **Modelo Relacional**
 
-En este [link](https://www.figma.com/file/0f2UlsaGdyzMe3toTD9nGk/MODELO-ENTIDAD-RELACION-ONEDROP?type=design&node-id=0-1&mode=design&t=4ISQIXwkjT0deIF5-0) se puede acceder al Design file. 
+En este [link](https://www.figma.com/file/KkkPGvnYyXotXuSsNcpnHi/MODELO-RELACIONAL-ONEDROP?type=design&mode=design&t=zyMNqu7FQs8BO0nC-1) se puede acceder al Design file. 
 
 :small_orange_diamond: **Script de la BBDD**
 
