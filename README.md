@@ -8,7 +8,8 @@
 ### Materia: Módulo Programador Web  
 
 ### Tutor 2022: Mainero, Alejandro
-### Tutor 2023: Charletti, Carlos
+### Tutor 2023 (1º semestre): Charletti, Carlos
+### Tutor 2023 (2º semestre): Guillen, Viviana
 
 ### Proyecto "One Drop"
 
@@ -16,7 +17,8 @@
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
-:point_right: Grupo 30:
+:point_right: Grupo 36:
+ (*equipo actualizado a Octubre 2023*)
 
 :small_orange_diamond: Costa, David
 
@@ -30,25 +32,32 @@
 
 :small_orange_diamond: Iuorio, Eduardo J.
 
-:small_orange_diamond: Medina, Pablo E.
-
 :small_orange_diamond: Paredes, Jimena A.
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
-:point_right: ¿Qué es OneDrop?: 
+:pushpin: ¿Qué es OneDrop?: 
 
 Te lo contamos en éste [link](https://youtu.be/VmxHfew4IAQ) 
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
-:point_right: ¿Qué hicimos durante el 2022?: 
+:pushpin: ¿Qué hicimos durante el 2022?: 
 
 Podés ver el video presentacion de nuestro trabajo en el ciclo 2022 en éste [link](https://www.youtube.com/watch?v=otW-b15-OKY) 
 
+
+:point_right: Sitio online (2022): 
+
+Pueden ver el sitio funcional en éste [link](https://onedropapp-grupo30.netlify.app/) 
+
+:point_right: Grupo Pissis: 
+
+Pueden acceder al sitio de Pissis nuestro proyecto de Sistema de Gestón de Contenidos en éste [link](https://pissis.republicaweb.net/) 
+
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
-:point_right: ¿Qué hicimos durante el 2023?:
+:pushpin: ¿Qué hicimos durante el 2023?:
 
 Podés acceder al video de presentacion en éste [link](https://www.youtube.com/watch?v=M-bArdVaAYg&t=234s) 
 
@@ -60,7 +69,7 @@ Podés acceder al video de nuestra Sprint Review en éste [link](https://youtu.b
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
-:point_right: ¿Cómo trabajamos?: 
+:pushpin: ¿Cómo trabajamos?: 
 
 :arrow_right: Ciclo 2022:
 
@@ -81,16 +90,6 @@ Podés acceder al video de nuestra Sprint Review en éste [link](https://youtu.b
 - Sprint 3: Delhugo, Martin
 - Sprint 4: Herrera, Daniel
 
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-
-:point_right: Sitio online (2022): 
-
-Pueden ver el sitio funcional en éste [link](https://onedropapp-grupo30.netlify.app/) 
 
 
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-
-:point_right: Grupo Pissis: 
-
-Pueden acceder al sitio de Pissis nuestro proyecto de Sistema de Gestón de Contenidos en éste [link](https://pissis.republicaweb.net/) 
 
