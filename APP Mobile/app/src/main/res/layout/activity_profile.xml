@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/fondoperfil"
+    android:orientation="vertical"
+    android:background="@drawable/fondosinlogo"
     tools:context=".RegWeightActivity">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+
+            android:text="Ficha medica"
+            android:textAlignment="center"
+            android:textColor="@color/blueonedrop"
+            android:textSize="24sp" />
+
+
+    </LinearLayout>
+
     <ScrollView
-        android:layout_width="424dp"
-        android:layout_height="746dp"
-        android:background="@drawable/fondodos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
         android:orientation="vertical"
         tools:context=".UserSignupActivity"
         tools:layout_editor_absoluteX="0dp"
@@ -19,41 +42,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
-            <Button
-                android:id="@+id/btn_home_weight"
-                android:layout_width="91dp"
-                android:layout_height="52dp"
-                android:backgroundTint="@color/blueonedrop"
-                android:onClick="toHome"
-                android:text="home" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="150dp"
-                android:text="Ficha medica"
-                android:textAlignment="center"
-                android:textColor="@color/blueonedrop"
-                android:textSize="24sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="25dp"
-                android:orientation="vertical"
-                android:padding="60dp">
-
+            
 
                 <EditText
                     android:id="@+id/signup_name"
@@ -140,22 +132,44 @@
                     android:hint="@string/f_m_therapy_db"
                     android:padding="8dp" />
 
-                <Button
-                    android:id="@+id/edit_medical_data_button"
-                    android:layout_width="330dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/blueonedrop"
-                    android:text="Modificar datos"
-                    android:textSize="18sp"
-                    app:cornerRadius="30dp" />
 
 
-            </LinearLayout>
 
 
         </LinearLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="@color/blueonedrop">
+
+        <Button
+            android:id="@+id/btn_home_weight"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/blueonedrop"
+            android:onClick="toHome"
+            android:text="Volver"
+            android:textSize="18sp"
+            app:cornerRadius="30dp"/>
+
+
+        <Button
+            android:id="@+id/edit_medical_data_button"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/blueonedrop"
+            android:text="Modificar datos"
+            android:textSize="18sp"
+            app:cornerRadius="30dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
