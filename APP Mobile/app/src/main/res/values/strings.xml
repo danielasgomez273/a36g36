@@ -2,7 +2,7 @@
     <string name="app_name">one_drop_cruds</string>
 
 
-    <string name="title_crud_gly">Registros de glucemia</string>
+    <string name="title_crud_gly">Seccion de glucemia</string>
     <string name="add_reg_gly">Agregar nuevo registro de glucemia</string>
     <string name="add_reg_gly_value">Valor de glucemia</string>
     <string name="add_reg_gly_value_placeholder">0.78</string>
