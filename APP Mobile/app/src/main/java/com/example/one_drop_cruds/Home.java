@@ -58,7 +58,7 @@ public class Home extends AppCompatActivity {
     }
 
     public void aRegistrarAnalisis(View v){
-        Intent siguiente = new Intent(this, RegAnalysisActivity.class);
+        Intent siguiente = new Intent(this, RegistoAnalisis.class);
         startActivity(siguiente);
     }
 

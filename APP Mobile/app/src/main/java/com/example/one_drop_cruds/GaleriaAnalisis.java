@@ -15,33 +15,27 @@ import android.widget.TextView;
 
 import java.io.FileInputStream;
 
-public class Galeria_Analisis extends AppCompatActivity {
-
+public class GaleriaAnalisis extends AppCompatActivity {
     String []archivos;
     RecyclerView rv1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reg_analysis_gallery);
+        setContentView(R.layout.activity_galeria_analisis);
 
-        // declaraciones para galeria
         archivos=fileList();
         rv1=findViewById(R.id.rView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rv1.setLayoutManager(linearLayoutManager);
         rv1.setAdapter(new AdaptadorFotos());
+
     }
-
-    //  ------------- CODIGO PARA LA GALERIA -------------
-    //  ------------- CODIGO PARA LA GALERIA -------------
-
     private class AdaptadorFotos extends RecyclerView.Adapter<AdaptadorFotos.AdaptadorFotosHolder>{
 
         @NonNull
         @Override
         public AdaptadorFotosHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new AdaptadorFotosHolder(getLayoutInflater().inflate(R.layout.layout,parent,
-                    false));
+            return new AdaptadorFotosHolder(getLayoutInflater().inflate(R.layout.layout,parent, false));
 
         }
 
@@ -80,4 +74,5 @@ public class Galeria_Analisis extends AppCompatActivity {
         }//
 
     }
+
 }
