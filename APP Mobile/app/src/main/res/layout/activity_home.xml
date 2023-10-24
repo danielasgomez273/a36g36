@@ -8,60 +8,13 @@
     android:orientation="vertical"
     tools:context=".Home">
 
-    <!-- Menu "nav" -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="20dp"
-        android:orientation="horizontal"
-        android:background="@color/pinkonedrop3"
-        >
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/onedrop" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-
-            />
-
-
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:backgroundTint="@color/blueonedrop2"
-            android:layoutDirection="locale"
-            android:onClick="toProfile"
-            android:text="Mi Perfil"
-            android:layout_gravity="center"
-            />
-        <Button
-            android:id="@+id/button_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:backgroundTint="@color/btn_delete"
-            android:layoutDirection="locale"
-            android:onClick="logout"
-            android:text="Cerrar Sesión"
-            android:layout_gravity="center"
-            />
-
-    </LinearLayout>
 
     <!-- Contenedor principal de scroll -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="7"
         android:orientation="vertical"
         >
 
@@ -80,13 +33,24 @@
                 <TextView
                     android:id="@+id/textView_welcome"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:textSize="30dp"
 
-                    android:text="Bienvenido a OneDrop"
+                    android:text="Bienvenido a"
                     android:textAlignment="center"
                     android:gravity="center"
+                    android:layout_margin="10dp"
+
                     />
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginVertical="10dp"
+                    android:padding="10dp"
+                    app:srcCompat="@drawable/onedrop" />
+
 
                 <TextView
 
@@ -100,6 +64,7 @@ También guarda tus analisis clínicos y exporta los datos obtenidos hasta el mo
                     android:textAlignment="center"
                     android:textColor="@color/blueonedrop"
                     android:textSize="15dp" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -121,6 +86,7 @@ También guarda tus analisis clínicos y exporta los datos obtenidos hasta el mo
                         android:backgroundTint="@color/pinkonedrop2"
                         android:onClick="aRegistrarGlucemia"
                         android:text="Glucemia"
+                        android:textColor="@color/white"
                         />
                     </LinearLayout>
 
@@ -138,7 +104,8 @@ También guarda tus analisis clínicos y exporta los datos obtenidos hasta el mo
 
                         android:backgroundTint="@color/pinkonedrop2"
                         android:onClick="toWeight"
-                        android:text="Peso" />
+                        android:text="Peso"
+                        android:textColor="@color/white"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -155,12 +122,14 @@ También guarda tus analisis clínicos y exporta los datos obtenidos hasta el mo
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/blueonedrop2"
                         android:onClick="aRegistrarAnalisis"
-                        android:text="Analisis"/>
+                        android:text="Analisis"
+                        android:textColor="@color/white"/>
 
                     </LinearLayout>
 
 
                 </LinearLayout>
+
 
 
                 <LinearLayout
@@ -204,7 +173,8 @@ También guarda tus analisis clínicos y exporta los datos obtenidos hasta el mo
                         android:onClick="toPressure"
                         android:text="Presion"
                         android:backgroundTint="@color/pinkonedrop2"
-                        android:layout_margin="2dp"/>
+                        android:layout_margin="2dp"
+                        android:textColor="@color/white"/>
 
                     </LinearLayout>
 
@@ -234,9 +204,9 @@ También guarda tus analisis clínicos y exporta los datos obtenidos hasta el mo
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:background="@color/white"
-                        android:layout_marginHorizontal="20dp"/>
+                        android:layout_height="200dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:background="@color/white" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -265,6 +235,7 @@ También guarda tus analisis clínicos y exporta los datos obtenidos hasta el mo
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10dp"
+
                         android:text="CONTACTANOS"
                         android:textColor="@color/blueonedrop2"
                         android:textSize="20sp" />
@@ -275,11 +246,10 @@ También guarda tus analisis clínicos y exporta los datos obtenidos hasta el mo
                         android:orientation="horizontal">
 
                         <TextView
-
                             android:layout_width="0dp"
                             android:layout_weight="3"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
+                            android:layout_marginTop="10dp"
                             android:text="Si tenes algun problema con la aplicacion
 o dudas con alguna de las funcionalidades.
 No dudes en contactarnos"
@@ -307,6 +277,53 @@ No dudes en contactarnos"
 
             </LinearLayout>
         </ScrollView>
+    </LinearLayout>
+
+    <!-- Menu "nav" -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="15dp"
+        android:orientation="horizontal"
+        android:background="@color/blueonedrop3"
+        >
+
+
+
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/blueonedrop2"
+            android:layoutDirection="locale"
+            android:onClick="toProfile"
+            android:text="Mi Perfil"
+            android:layout_gravity="center"
+            app:cornerRadius="10dp"
+            android:textColor="@color/white"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+
+            />
+        <Button
+            android:id="@+id/button_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/blueonedrop"
+            android:layoutDirection="locale"
+            android:onClick="logout"
+            android:text="Cerrar Sesión"
+            android:layout_gravity="center"
+            app:cornerRadius="10dp"
+            android:textColor="@color/white"
+            />
+
     </LinearLayout>
 
 
