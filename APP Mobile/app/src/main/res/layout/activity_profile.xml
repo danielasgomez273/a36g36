@@ -89,7 +89,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|end"
                     android:background="?attr/selectableItemBackground"
-                    android:text="Seleccionar imagen" />
+                    android:text="Seleccionar imagen"
+                    android:textColor="@color/blackonedrop"/>
             </LinearLayout>
 
 
