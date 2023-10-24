@@ -105,7 +105,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 " birth DATE, \n"+
                 " weight REAL, \n"+
                 " db_type TEXT, \n"+
-                " username TEXT, \n"+
+                " username TEXT UNIQUE, \n"+
                 " db_therapy TEXT\t\n"+
                 ")");
 
@@ -152,6 +152,21 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         return  medicalRecord;
     }
 
+    public boolean updateMedicalRecord(DTOmedicalRecord dtomedicalRecord){
+        SQLiteDatabase bd = this.getWritableDatabase();
+        ContentValues editedMR = new ContentValues(); // crea un objeto que luego actualizara
+        editedMR.put("username", dtomedicalRecord.getUsername());// agrego datos al objeto registro
+        editedMR.put("name", dtomedicalRecord.getName());
+        editedMR.put("lastName", dtomedicalRecord.getLast_name());
+        editedMR.put("age", dtomedicalRecord.getAge());
+        editedMR.put("birth", dtomedicalRecord.getBirth());
+        editedMR.put("weight", dtomedicalRecord.getWeight());
+        editedMR.put("db_type", dtomedicalRecord.getDbType());
+        editedMR.put("db_therapy", dtomedicalRecord.getDbTherapy());
+
+        int editedRows = bd.update("medical_record", editedMR, "username = '"+dtomedicalRecord.getUsername()+"'", null);
+        return editedRows == 1? true : false;
+    }
 
     public DTOReadAllRegisters getAllRegs(String tableName){
         DTOReadAllRegisters result = new DTOReadAllRegisters();
