@@ -1,144 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondosinlogo"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".Home">
 
-
-    <Button
-        android:id="@+id/btnRGlucemia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:onClick="aRegistrarGlucemia"
-        android:text="Registrar Glucemia"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.641" />
-
-    <Button
-        android:id="@+id/btnRAnalisis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="aRegistrarAnalisis"
-        android:text="Registrar Analisis"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.619" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="43dp"
-        android:onClick="toWeight"
-        android:text="Registrar Peso"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="toPressure"
-        android:text="Registrar Presion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.865"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/btn_delete"
-        android:layoutDirection="locale"
-        android:onClick="toProfile"
-        android:text="Mi Perfil"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_export_data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/blueonedrop2"
-        android:onClick="btn_export_data"
-        android:text="EXPORTAR DATOS"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.897"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.145"
-        app:srcCompat="@drawable/onedrop" />
-
-    <TextView
-        android:id="@+id/textView_welcome"
-        android:layout_width="243dp"
-        android:layout_height="28dp"
-        android:layout_marginBottom="398dp"
-        android:text="Bienvenido Usuario"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118" />
-
+    <!-- Menu "nav" -->
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:onClick="toContact"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.908">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="20dp"
+        android:orientation="horizontal"
+        android:background="@color/pinkonedrop3"
+        >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/onedrop" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+
+            />
 
         <Button
-            android:id="@+id/backButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/baseline_help_outline_24" />
-
-        <TextView
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="CONTACTANOS"
-            android:textColor="@color/blueonedrop2"
-            android:textSize="14sp" />
+            android:layout_height="60dp"
+            android:backgroundTint="@color/blueonedrop2"
+            android:layoutDirection="locale"
+            android:onClick="toProfile"
+            android:text="Mi Perfil"
+            android:layout_gravity="center"
+
+            />
+
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Contenedor principal de scroll -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Contenedor de 3 botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_marginBottom="50dp">
+
+                <TextView
+                    android:id="@+id/textView_welcome"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="30dp"
+
+                    android:text="Bienvenido a OneDrop"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:gravity="center"
+                    android:text="Registra y consulta tus valores de glucemia, peso y presión.
+También guarda tus analisis clínicos y exporta los datos obtenidos hasta el momento en un archivo PDF
+"
+                    android:textAlignment="center"
+                    android:textColor="@color/blueonedrop"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/white">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="90dp"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/boton_home_section_pink">
+                    <Button
+                        android:id="@+id/btnRGlucemia"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/pinkonedrop2"
+                        android:onClick="aRegistrarGlucemia"
+                        android:text="Glucemia"
+                        />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="90dp"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/boton_home_section_pink">
+                    <Button
+                        android:id="@+id/btnRAnalisis"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+
+                        android:backgroundTint="@color/pinkonedrop2"
+                        android:onClick="toWeight"
+                        android:text="Peso" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="90dp"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/boton_home_section_blue">
+
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/blueonedrop2"
+                        android:onClick="aRegistrarAnalisis"
+                        android:text="Analisis"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="30dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/boton_home_section_white">
+
+                    <Button
+                        android:id="@+id/btn_export_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+
+                        android:onClick="btn_export_data"
+                        android:text="Exportar Datos"
+                        android:backgroundTint="@color/white"
+                        android:textColor="@color/blueonedrop"
+
+                        />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="90dp"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/boton_home_section_pink">
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:onClick="toPressure"
+                        android:text="Presion"
+                        android:backgroundTint="@color/pinkonedrop2"
+                        android:layout_margin="2dp"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!-- TIPS -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/celeste_fondo">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:textSize="20dp"
+                        android:layout_marginVertical="20dp"
+
+
+                        android:text="Tip OneDrop del dia"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        />
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="@color/white"
+                        android:layout_marginHorizontal="20dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_marginVertical="20dp"
+                        android:text="Prepare y coma alimentos saludables"
+                        android:gravity="center"/>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:onClick="toContact"
+                    android:orientation="vertical"
+                    android:layout_marginVertical="20dp"
+                    android:paddingHorizontal="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:text="CONTACTANOS"
+                        android:textColor="@color/blueonedrop2"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Si tenes algun problema con la aplicacion
+o dudas con alguna de las funcionalidades.
+No dudes en contactarnos"
+
+                            android:textAlignment="center"
+
+                            android:textSize="16sp" />
+
+                        <!--
+                        <Button
+
+
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/baseline_help_outline_24" />
+                    -->
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+</LinearLayout>
