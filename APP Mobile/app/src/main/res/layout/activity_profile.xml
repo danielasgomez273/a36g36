@@ -3,42 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/fondosinlogo"
+    android:background="@drawable/fondodos"
     tools:context=".RegWeightActivity">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:background="@color/white"
-        >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-
-            android:text="Ficha medica"
-            android:textAlignment="center"
-            android:textColor="@color/blueonedrop"
-            android:textSize="24sp" />
-
-
-    </LinearLayout>
 
     <ScrollView
-        android:layout_width="420dp"
-        android:layout_height="1030dp"
-        android:layout_weight="7"
-
-        android:background="@drawable/fondodos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
         android:orientation="vertical"
-        android:padding="70dp"
+        android:layout_marginTop="120dp"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:context=".UserSignupActivity"
         tools:layout_editor_absoluteX="-5dp">
@@ -191,19 +170,21 @@
                     android:id="@+id/btn_home_profile"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:backgroundTint="@color/blueonedrop"
                     android:onClick="toHome"
                     android:text="Volver"
+                    android:layout_margin="5dp"
                     android:textSize="18sp"
-                    app:cornerRadius="30dp" />
+                    app:cornerRadius="20dp" />
 
                 <Button
                     android:id="@+id/edit_medical_data_button"
                     android:layout_width="150dp"
+                    android:layout_weight="1"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="0dp"
+                    android:layout_margin="5dp"
                     android:backgroundTint="@color/blueonedrop"
                     android:onClick="updateMedicalRecord"
                     android:text="Modificar datos"
