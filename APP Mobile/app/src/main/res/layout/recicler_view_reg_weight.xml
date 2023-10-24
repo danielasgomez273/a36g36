@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:gravity="center">
 
     <LinearLayout
@@ -23,7 +24,8 @@
 
             <TextView
                 android:id="@+id/recycler_reg_weight_date"
-                android:layout_width="262dp"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:layout_height="50dp"
                 android:gravity="center"
                 android:text="Fecha"
@@ -33,7 +35,8 @@
 
             <TextView
                 android:id="@+id/recycler_reg_weight_value"
-                android:layout_width="122dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:paddingEnd="20dp"
@@ -62,22 +65,24 @@
 
             <Button
                 android:id="@+id/recycler_btn_edit_reg_weight"
-                android:layout_width="30dp"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:layout_height="40dp"
                 android:layout_gravity="clip_horizontal"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="1"
+
                 android:backgroundTint="@color/btn_edit"
                 android:text="Editar" />
 
             <Button
                 android:id="@+id/recycler_btn_delete_reg_weight"
-                android:layout_width="40dp"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="1"
+
                 android:backgroundTint="@color/btn_delete"
                 android:text="Borrar" />
 

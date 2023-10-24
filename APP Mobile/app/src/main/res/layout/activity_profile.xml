@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/fondoperfil"
+    android:orientation="vertical"
+    android:background="@drawable/fondosinlogo"
     tools:context=".RegWeightActivity">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+
+            android:text="Ficha medica"
+            android:textAlignment="center"
+            android:textColor="@color/blueonedrop"
+            android:textSize="24sp" />
+
+
+    </LinearLayout>
+
     <ScrollView
+<<<<<<< HEAD
         android:layout_width="420dp"
         android:layout_height="865dp"
         android:background="@drawable/fondodos"
+=======
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+>>>>>>> b2ed793d4738476f5403c257863a0577e724dd4b
         android:orientation="vertical"
         android:padding="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,20 +49,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btn_home_weight"
-                android:layout_width="91dp"
-                android:layout_height="52dp"
-                android:backgroundTint="@color/blueonedrop"
-                android:onClick="toHome"
-                android:text="home" />
-
-            <TextView
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+<<<<<<< HEAD
                 android:layout_marginTop="70dp"
                 android:text="Ficha medica"
                 android:textAlignment="center"
@@ -54,6 +76,26 @@
                 android:layout_marginTop="25dp"
                 android:orientation="vertical"
                 android:padding="0dp">
+=======
+                android:layout_marginTop="40dp"
+                android:background="@android:color/white"> <!-- Fondo blanco para el FrameLayout -->
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Foto de perfil"
+                    android:src="@drawable/photoperf" />
+                <Button
+                    android:id="@+id/selectImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="Seleccionar imagen" />
+            </FrameLayout>
+>>>>>>> b2ed793d4738476f5403c257863a0577e724dd4b
 
 
                 <EditText
@@ -141,6 +183,7 @@
                     android:hint="@string/f_m_therapy_db"
                     android:padding="8dp" />
 
+<<<<<<< HEAD
                 <Button
                     android:id="@+id/edit_medical_data_button"
                     android:layout_width="280dp"
@@ -151,12 +194,46 @@
                     android:text="Modificar datos"
                     android:textSize="18sp"
                     app:cornerRadius="30dp" />
+=======
+>>>>>>> b2ed793d4738476f5403c257863a0577e724dd4b
 
 
-            </LinearLayout>
 
 
         </LinearLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="@color/blueonedrop">
+
+        <Button
+            android:id="@+id/btn_home_weight"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/blueonedrop"
+            android:onClick="toHome"
+            android:text="Volver"
+            android:textSize="18sp"
+            app:cornerRadius="30dp"/>
+
+
+        <Button
+            android:id="@+id/edit_medical_data_button"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/blueonedrop"
+            android:text="Modificar datos"
+            android:textSize="18sp"
+            app:cornerRadius="30dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
