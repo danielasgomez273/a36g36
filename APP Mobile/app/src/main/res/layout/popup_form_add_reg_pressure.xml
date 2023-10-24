@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -13,6 +14,13 @@
         android:orientation="vertical"
         android:padding="10dp">
 
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="158dp"
+            android:layout_height="92dp"
+            app:srcCompat="@drawable/onedrop"
+            android:layout_gravity="right"/>
+
         <TextView
             android:id="@+id/textView7"
             android:layout_width="match_parent"
@@ -20,7 +28,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:text="@string/add_reg_weight_date"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColor="@color/blueonedrop"/>
 
         <EditText
             android:id="@+id/add_date_pressure"
@@ -40,7 +49,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:paddingTop="30dp"
-            android:text="@string/add_reg_weight_value" />
+            android:text="@string/add_reg_weight_value"
+            android:textColor="@color/blueonedrop"
+            android:textSize="20sp"/>
 
         <EditText
             android:id="@+id/add_value_pressure"
@@ -61,7 +72,8 @@
             android:layout_marginEnd="10dp"
             android:paddingTop="30dp"
             android:text="@string/add_reg_weight_notes"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColor="@color/blueonedrop"/>
 
         <EditText
             android:id="@+id/add_notes_pressure"
