@@ -44,8 +44,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/white"> <!-- Fondo blanco para el FrameLayout -->
 
-            
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Foto de perfil"
+                    android:src="@drawable/photoperf" />
+                <Button
+                    android:id="@+id/selectImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="Seleccionar imagen" />
+            </FrameLayout>
+
 
                 <EditText
                     android:id="@+id/signup_name"
