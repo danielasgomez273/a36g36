@@ -88,7 +88,7 @@ public class RegPressureActivity extends AppCompatActivity implements View.OnCli
         startActivity(home);
     }
     private void updateChartRegPressure(){
-        LineDataSet lineDataSet = new LineDataSet(createLineChartDataSet(), "Glucemia");
+        LineDataSet lineDataSet = new LineDataSet(createLineChartDataSet(), "Presion");
         ArrayList<ILineDataSet> iLineDataSets = new ArrayList<>();
         iLineDataSets.add(lineDataSet);
 
@@ -160,7 +160,7 @@ public class RegPressureActivity extends AppCompatActivity implements View.OnCli
     }
     public void openPopupBtnEdit(int id_reg){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Editar registro de glucemia");
+        builder.setMessage("Editar registro de presion");
         View popupEditReg = getLayoutInflater().inflate(R.layout.popup_form_edit_reg_pressure, null);
         builder.setView(popupEditReg); // ESTO ES PARA QUE PUEDA OBTENER LAS REFERENCIAS DESDE popupEditReg Y PODER OBTENER EL CONTROL DE LOS ELEMENTOS
         edit_value_pressure = popupEditReg.findViewById(R.id.edit_value_pressure);
@@ -199,7 +199,7 @@ public class RegPressureActivity extends AppCompatActivity implements View.OnCli
     }
     public void openPopupAddReg(View v){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Agregar registro de glucemia");
+        builder.setMessage("Agregar registro de presion");
         View popupAddReg = getLayoutInflater().inflate(R.layout.popup_form_add_reg_pressure, null);
         builder.setView(popupAddReg); // ESTO ES PARA QUE PUEDA OBTENER LAS REFERENCIAS DESDE popupAddReg Y PODER OBTENER EL CONTROL DE LOS ELEMENTOS
         add_value_pressure = popupAddReg.findViewById(R.id.add_value_pressure);
@@ -329,7 +329,7 @@ public class RegPressureActivity extends AppCompatActivity implements View.OnCli
             this.updateChartRegPressure(); // sobreescribe chart
             adapterRegPressure.notifyDataSetChanged(); // refresca pantalla del recycler
             rv1.smoothScrollToPosition(reg_pressure_ids.size()-1); // mueve la vista al ultimo elemento agregado
-            Toast.makeText(this,"Se agrego registro de glucemia", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Se agrego registro de presion", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(this,"Error agregando registro!", Toast.LENGTH_SHORT).show();
         }
