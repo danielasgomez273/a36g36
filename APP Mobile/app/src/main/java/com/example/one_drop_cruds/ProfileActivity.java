@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.one_drop_cruds.entities.DTOmedicalRecord;
 import com.example.one_drop_cruds.entities.User;
@@ -79,15 +80,31 @@ public class ProfileActivity extends AppCompatActivity {
         signup_db_type.setText(medicalRecord.getDbType().toString());
         signup_db_therapy.setText(medicalRecord.getDbTherapy().toString());
     }
+    public void updateMedicalRecord(View v){
+        String name = signup_name.getText().toString();
+        String last_name = signup_last_name.getText().toString();
+        Integer age = Integer.valueOf(signup_age.getText().toString());
+        String birth = signup_birth.getText().toString();
+        Double weight = Double.valueOf(signup_weight.getText().toString());
+        String db_type = signup_db_type.getText().toString();
+        String username = userSessionManager.getLoguedUsername();
+        String db_therapy = signup_db_therapy.getText().toString();
 
-
-    public void getTextsForm(){
-
+        if(name.equals("") || last_name.equals("")|| birth.equals("")|| age <= 0 || weight <= 0|| db_type.equals("") || db_therapy.equals("")){
+            Toast.makeText(this, "Todos los campos son obligatorios. Edad y peso deben ser mayor a 0", Toast.LENGTH_SHORT).show();
+        } else {
+            DTOmedicalRecord updateDtoMedical = new DTOmedicalRecord(username, name, last_name, age, birth, weight, db_type, db_therapy);
+            Boolean insertResult = admin.updateMedicalRecord(updateDtoMedical);
+            if (insertResult){
+                Toast.makeText(this, "Datos modificados exitosamente", Toast.LENGTH_SHORT).show();
+                Intent homeAct = new Intent(this, Home.class);
+                startActivity(homeAct);
+                // toHome(View v);
+            }else{
+                Toast.makeText(this, "Error actualizando datos ficha medica", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
-    public void updateFM(){
-        getTextsForm();
-    }
-
 
 
     public void toHome(View v){

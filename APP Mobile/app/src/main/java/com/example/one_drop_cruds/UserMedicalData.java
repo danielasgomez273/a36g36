@@ -40,8 +40,7 @@ public class UserMedicalData extends AppCompatActivity {
 
     }
 
-    public void submitFM(View v){
-
+    public void submitMedicalRecord(View v){
         String name = signup_name.getText().toString();
         String last_name = signup_last_name.getText().toString();
         String birth = signup_birth.getText().toString();
@@ -50,7 +49,6 @@ public class UserMedicalData extends AppCompatActivity {
         String db_type = signup_db_type.getText().toString();
         String db_therapy = signup_db_therapy.getText().toString();
         String username = userSessionManager.getLoguedUsername();
-
 
 
         if(name.equals("") || last_name.equals("")|| birth.equals("")|| age <= 0 || weight <= 0|| db_type.equals("") || db_therapy.equals("")){

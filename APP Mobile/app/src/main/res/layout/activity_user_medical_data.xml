@@ -126,7 +126,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/blueonedrop"
-                android:onClick="submitFM"
+                android:onClick="submitMedicalRecord"
                 android:text="Registrarse"
                 android:textSize="18sp"
                 app:cornerRadius="30dp" />
