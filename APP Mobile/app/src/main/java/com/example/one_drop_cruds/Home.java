@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,11 +35,16 @@ public class Home extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     TextView textView_welcome;
     FilesManager filesManager;
+    WebView webview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        webview = (WebView) findViewById(R.id.web_tip);
+        webview.loadUrl("https://davidcosta92.github.io/noticias_one_drop/");
+
 
         textView_welcome = findViewById(R.id.textView_welcome);
         sharedPrefManager = new SharedPrefManager(getApplicationContext(), "oneDrop_shared_preferences");

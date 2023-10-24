@@ -180,14 +180,16 @@
                 android:padding="8dp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btn_home_profile"
-                    android:layout_width="75dp"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:backgroundTint="@color/blueonedrop"
@@ -198,7 +200,7 @@
 
                 <Button
                     android:id="@+id/edit_medical_data_button"
-                    android:layout_width="125dp"
+                    android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="0dp"
