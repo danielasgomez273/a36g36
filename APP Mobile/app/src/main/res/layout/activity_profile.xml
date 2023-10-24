@@ -31,15 +31,12 @@
     </LinearLayout>
 
     <ScrollView
-<<<<<<< HEAD
         android:layout_width="420dp"
-        android:layout_height="865dp"
-        android:background="@drawable/fondodos"
-=======
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="1030dp"
         android:layout_weight="7"
->>>>>>> b2ed793d4738476f5403c257863a0577e724dd4b
+
+        android:background="@drawable/fondodos"
+
         android:orientation="vertical"
         android:padding="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,13 +46,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-<<<<<<< HEAD
+
                 android:layout_marginTop="70dp"
                 android:text="Ficha medica"
                 android:textAlignment="center"
@@ -75,10 +73,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="25dp"
                 android:orientation="vertical"
-                android:padding="0dp">
-=======
-                android:layout_marginTop="40dp"
-                android:background="@android:color/white"> <!-- Fondo blanco para el FrameLayout -->
+                android:padding="0dp"><!-- Fondo blanco para el FrameLayout -->
 
                 <ImageView
                     android:id="@+id/profile_image"
@@ -87,6 +82,7 @@
                     android:layout_gravity="center"
                     android:contentDescription="Foto de perfil"
                     android:src="@drawable/photoperf" />
+
                 <Button
                     android:id="@+id/selectImageButton"
                     android:layout_width="wrap_content"
@@ -94,110 +90,104 @@
                     android:layout_gravity="bottom|end"
                     android:background="?attr/selectableItemBackground"
                     android:text="Seleccionar imagen" />
-            </FrameLayout>
->>>>>>> b2ed793d4738476f5403c257863a0577e724dd4b
+            </LinearLayout>
 
 
-                <EditText
-                    android:id="@+id/signup_name"
-                    android:layout_width="280dp"
-                    android:layout_height="51dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/lavender_border"
-                    android:drawableLeft="@drawable/baseline_how_to_reg_24"
-                    android:drawablePadding="8dp"
-                    android:hint="@string/f_m_last_name"
-                    android:padding="0dp" />
+            <EditText
+                android:id="@+id/signup_name"
+                android:layout_width="280dp"
+                android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/baseline_how_to_reg_24"
+                android:drawablePadding="8dp"
+                android:hint="@string/f_m_last_name"
+                android:padding="0dp" />
 
-                <EditText
-                    android:id="@+id/signup_last_name"
-                    android:layout_width="280dp"
-                    android:layout_height="51dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/lavender_border"
-                    android:drawableLeft="@drawable/baseline_how_to_reg_24"
-                    android:drawablePadding="8dp"
-                    android:hint="@string/f_m_name"
-                    android:padding="8dp" />
+            <EditText
+                android:id="@+id/signup_last_name"
+                android:layout_width="280dp"
+                android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/baseline_how_to_reg_24"
+                android:drawablePadding="8dp"
+                android:hint="@string/f_m_name"
+                android:padding="8dp" />
 
-                <EditText
-                    android:id="@+id/signup_age"
-                    android:layout_width="280dp"
-                    android:layout_height="51dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/lavender_border"
-                    android:drawableLeft="@drawable/baseline_numbers_24"
-                    android:drawablePadding="8dp"
-                    android:hint="@string/f_m_age"
-                    android:padding="8dp" />
+            <EditText
+                android:id="@+id/signup_age"
+                android:layout_width="280dp"
+                android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/baseline_numbers_24"
+                android:drawablePadding="8dp"
+                android:hint="@string/f_m_age"
+                android:padding="8dp" />
 
-                <EditText
-                    android:id="@+id/signup_birth"
-                    android:layout_width="280dp"
-                    android:layout_height="51dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/lavender_border"
-                    android:drawableLeft="@drawable/baseline_cake_24"
-                    android:drawablePadding="8dp"
-                    android:hint="@string/f_m_birthday"
-                    android:padding="8dp" />
-
-
-                <EditText
-                    android:id="@+id/signup_weight"
-                    android:layout_width="280dp"
-                    android:layout_height="51dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/lavender_border"
-                    android:drawableLeft="@drawable/baseline_monitor_weight_24"
-                    android:drawablePadding="8dp"
-                    android:hint="@string/f_m_weight"
-                    android:padding="8dp" />
-
-                <EditText
-                    android:id="@+id/signup_db_type"
-                    android:layout_width="280dp"
-                    android:layout_height="51dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/lavender_border"
-                    android:drawableLeft="@drawable/baseline_health_and_safety_24"
-                    android:drawablePadding="8dp"
-                    android:hint="@string/f_m_type_db"
-                    android:padding="8dp" />
-
-                <EditText
-                    android:id="@+id/signup_db_therapy"
-                    android:layout_width="280dp"
-                    android:layout_height="51dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/lavender_border"
-                    android:drawableLeft="@drawable/baseline_vaccines_24"
-                    android:drawablePadding="8dp"
-                    android:hint="@string/f_m_therapy_db"
-                    android:padding="8dp" />
-
-<<<<<<< HEAD
-                <Button
-                    android:id="@+id/edit_medical_data_button"
-                    android:layout_width="280dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/blueonedrop"
-                    android:text="Modificar datos"
-                    android:textSize="18sp"
-                    app:cornerRadius="30dp" />
-=======
->>>>>>> b2ed793d4738476f5403c257863a0577e724dd4b
+            <EditText
+                android:id="@+id/signup_birth"
+                android:layout_width="280dp"
+                android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/baseline_cake_24"
+                android:drawablePadding="8dp"
+                android:hint="@string/f_m_birthday"
+                android:padding="8dp" />
 
 
+            <EditText
+                android:id="@+id/signup_weight"
+                android:layout_width="280dp"
+                android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/baseline_monitor_weight_24"
+                android:drawablePadding="8dp"
+                android:hint="@string/f_m_weight"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/signup_db_type"
+                android:layout_width="280dp"
+                android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/baseline_health_and_safety_24"
+                android:drawablePadding="8dp"
+                android:hint="@string/f_m_type_db"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/signup_db_therapy"
+                android:layout_width="280dp"
+                android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/baseline_vaccines_24"
+                android:drawablePadding="8dp"
+                android:hint="@string/f_m_therapy_db"
+                android:padding="8dp" />
+
+            <Button
+                android:id="@+id/edit_medical_data_button"
+                android:layout_width="280dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/blueonedrop"
+                android:text="Modificar datos"
+                android:textSize="18sp"
+                app:cornerRadius="30dp" />
 
 
         </LinearLayout>
@@ -223,7 +213,7 @@
 
 
         <Button
-            android:id="@+id/edit_medical_data_button"
+
             android:layout_width="0dp"
             android:layout_weight="3"
             android:layout_height="match_parent"

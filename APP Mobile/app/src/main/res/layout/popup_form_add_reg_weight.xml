@@ -9,13 +9,8 @@
 
     <LinearLayout
         android:id="@+id/layout_edit_reg_weight"
-<<<<<<< HEAD
-        android:layout_width="358dp"
         android:layout_height="534dp"
-=======
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
->>>>>>> b2ed793d4738476f5403c257863a0577e724dd4b
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
