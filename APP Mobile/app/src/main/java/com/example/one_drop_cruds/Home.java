@@ -26,12 +26,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.one_drop_cruds.utils.FilesManager;
-import com.example.one_drop_cruds.utils.UserSessionManager;
+import com.example.one_drop_cruds.utils.SharedPrefManager; // Importa la clase SharedPrefManager
 
 import java.io.File;
 
 public class Home extends AppCompatActivity {
-    UserSessionManager userSessionManager;
+    SharedPrefManager sharedPrefManager;
     TextView textView_welcome;
     FilesManager filesManager;
 
@@ -41,173 +41,162 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         textView_welcome = findViewById(R.id.textView_welcome);
-        userSessionManager = new UserSessionManager(getApplicationContext());
-        userSessionManager.validateLoguedUser(); // SI NO ESTA LOGUEADO, SE REDIRIGE A LOGIN
-        textView_welcome.setText("¡¡ Bienvenido, "+userSessionManager.getLoguedUsername()+" !!");
+        sharedPrefManager = new SharedPrefManager(getApplicationContext(), "oneDrop_shared_preferences");
+        String loggedUsername = sharedPrefManager.getLoguedUsername();
 
+        if (loggedUsername == null) {
+            // Si el usuario no ha iniciado sesión, redirige a la actividad de inicio de sesión
+            Intent loginIntent = new Intent(this, UserLoginActivity.class);
+            startActivity(loginIntent);
+            finish(); // Cierra la actividad actual
+        } else {
+            textView_welcome.setText("¡¡ Bienvenido, " + loggedUsername + " !!");
+        }
 
-        filesManager= new FilesManager(getApplicationContext(), this);
+        filesManager = new FilesManager(getApplicationContext(), this);
         this.askForPermissionsStorage();
 
+        // Agrega la funcionalidad para cerrar sesión
+        Button logoutButton = findViewById(R.id.button_logout);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Muestra un cuadro de diálogo de confirmación
+                new AlertDialog.Builder(Home.this)
+                        .setTitle("Cerrar Sesión")
+                        .setMessage("¿Estás seguro que deseas cerrar sesión?")
+                        .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Llama al método clearLoguedUser de SharedPrefManager para cerrar la sesión
+                                sharedPrefManager.clearLoguedUser();
+
+                                // Redirige al usuario a la actividad de inicio de sesión
+                                Intent loginIntent = new Intent(Home.this, UserLoginActivity.class);
+                                startActivity(loginIntent);
+                                finish(); // Cierra la actividad actual
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // No hacer nada, simplemente cierra el cuadro de diálogo
+                            }
+                        })
+                        .show();
+            }
+        });
     }
 
-    // METODOS DE NAVEGACION
-    public void aRegistrarGlucemia(View v){
+    public void aRegistrarGlucemia(View v) {
         Intent siguiente = new Intent(this, RegGlyActivity.class);
         startActivity(siguiente);
     }
 
-    public void aRegistrarAnalisis(View v){
+    public void aRegistrarAnalisis(View v) {
         Intent siguiente = new Intent(this, RegAnalysisActivity.class);
         startActivity(siguiente);
     }
 
-    public void toWeight(View v){
+    public void toWeight(View v) {
         Intent weight = new Intent(this, RegWeightActivity.class);
         startActivity(weight);
     }
-    public void toProfile(View v){
+
+    public void toProfile(View v) {
         Intent pressure = new Intent(this, ProfileActivity.class);
         startActivity(pressure);
     }
-    public void toContact(View v){
+
+    public void toContact(View v) {
         Intent pressure = new Intent(this, ContactoActivity.class);
         startActivity(pressure);
     }
-    public void toPressure(View v){
+
+    public void toPressure(View v) {
         Intent pressure = new Intent(this, RegPressureActivity.class);
         startActivity(pressure);
     }
 
-    public void btn_export_data(View v){
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.onedrop); // solo para enviar logo de oneDrop a pdf
-       // String path = filesManager.exportPdfFileReport(bitmap);
+    public void btn_export_data(View v) {
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.onedrop); // solo para enviar el logo de oneDrop a PDF
         Uri uri = filesManager.exportPdfFileReport(bitmap);
-        if(uri != null){
-            Toast.makeText(this, "Se creo el PDF correctamente", Toast.LENGTH_SHORT).show();
-            // shareFileWhatsApp(uri);
+        if (uri != null) {
+            Toast.makeText(this, "Se creó el PDF correctamente", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Error en la creacion del PDF", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Error en la creación del PDF", Toast.LENGTH_LONG).show();
         }
     }
+
     public void shareFileWhatsApp(Uri uri) {
-       // File file = new File(Environment.getExternalStorageDirectory(), path);
-       // Uri uri = Uri.fromFile(file);
-
-        // comprobaciones de archivo
-        /*
-        File fileCheck = new File(uri.getPath());
-        if (!fileCheck.exists() || !fileCheck.canRead()) {
-            Log.e("TAG", "Archivo no encontrado o no accesible");
-            return;
-        }
-
-         */
-
-        // comprobacion whatsapp
-        /* INSTALAR WHAT EN EMULADOR
-        try {
-            PackageManager pm = getPackageManager();
-            pm.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.e("TAG", "WhatsApp no está instalado");
-            Toast.makeText(this, "WhatsApp no está instalado.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-         */
-
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
-        // shareIntent.setType("*/*"); // para todos tipo de archivo
-        shareIntent.setType("application/pdf"); // para pdfs
+        shareIntent.setType("application/pdf"); // para PDFs
         shareIntent.setPackage("com.whatsapp");
-
         shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
         Log.i("TAG", "************* COMPARTIENDO POR WHATSAPP => URI ****");
-        Log.i("TAG", "***"+uri.toString());
+        Log.i("TAG", "***" + uri.toString());
         Log.i("TAG", "************* COMPARTIENDO POR WHATSAPP => URI ****");
 
         try {
-            // startActivity(shareIntent);
             startActivity(Intent.createChooser(shareIntent, "Compartir a través de"));
         } catch (Exception ex) {
-            Log.e("TAG", "************* COMPARTIENDO POR WHATSAPP => Exception ****"+ex.getCause().toString()+"***");
+            Log.e("TAG", "************* COMPARTIENDO POR WHATSAPP => Exception ****" + ex.getCause().toString() + "***");
         }
-        /*
-        catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(this, "WhatsApp no está instalado.", Toast.LENGTH_SHORT).show();
-        }
-         */
     }
 
-
-
-    /// PERMISOS FILES
-    //askForPermissionsStorage y onRequestPermissionsResult deben ir en cada pagina que al cargar soliciten permiso a usuarios para acceder archivos
     public void askForPermissionsStorage() {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-            // LA VERSION DE API ES MAYOR A 23, DEBEMOS PEDIR LOS PERMISOS EN TIEMPO DE EJECUCION
             Log.i("TAG", "API MAYOR A 23");
             if (ContextCompat.checkSelfPermission(Home.this, WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                     && ContextCompat.checkSelfPermission(Home.this, READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                // Return true si estan autorizados
                 Log.i("TAG", "PERMISOS AUTORIZADOS!!!!!");
-                //  this.createFile();
             } else {
                 Log.i("TAG", "Permisos estaban rechazados... se los pido nuevamente");
-                //pregunto si los permisos fueron rechazados anteriormente
                 if (ActivityCompat.shouldShowRequestPermissionRationale(Home.this, WRITE_EXTERNAL_STORAGE)
                         && ActivityCompat.shouldShowRequestPermissionRationale(Home.this, READ_EXTERNAL_STORAGE)) {
-                    Log.i("TAG", "El usuario previamente rechazo los permisos");
+                    Log.i("TAG", "El usuario previamente rechazó los permisos");
                 } else {
-                    Log.i("TAG", "lOS PERMIS NO ESTAN AUTORIZADOS PERO NO FUERON RECHAZADOS NUNCA..");
+                    Log.i("TAG", "LOS PERMISOS NO ESTÁN AUTORIZADOS PERO NO FUERON RECHAZADOS NUNCA..");
                 }
-                // voy a pedir permisos
                 Log.i("TAG", "-------------- VOY A PEDIR LOS PERMISOS -------------");
                 ActivityCompat.requestPermissions(Home.this, new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, 200);
                 Log.i("TAG", "-------------- VOY A PEDIR LOS PERMISOS -------------");
             }
         }
     }
+
     @SuppressLint("MissingSuperCall")
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode == 200){
-            if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED){
-                Log.i("TAG","Permis autoo (onRequestPermissionsResult)!!!!!");
-                Toast.makeText(Home.this,"Permis autoo (onRequestPermissionsResult)!", Toast.LENGTH_LONG).show();
-                // this.createFile();
-            } else{
-                Log.i("TAG","El usuario previamente rechazo los permisos (onRequestPermissionsResult)");
-                if(ActivityCompat.shouldShowRequestPermissionRationale(Home.this, WRITE_EXTERNAL_STORAGE)
-                && ActivityCompat.shouldShowRequestPermissionRationale(Home.this, READ_EXTERNAL_STORAGE)){
-                    // TRUE si el usuario nego los permisos, y coloco que no vuelva a ser mostrado el cartelito de solicitud
-                    new AlertDialog.Builder(this).setMessage("Vos tenes que aceptar permis para usar la ap")
-                            .setPositiveButton("Try again", new DialogInterface.OnClickListener() {
+        if (requestCode == 200) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                Log.i("TAG", "Permis autoo (onRequestPermissionsResult)!!!!!");
+                Toast.makeText(Home.this, "Permis autoo (onRequestPermissionsResult)!", Toast.LENGTH_LONG).show();
+            } else {
+                Log.i("TAG", "El usuario previamente rechazó los permisos (onRequestPermissionsResult)");
+                if (ActivityCompat.shouldShowRequestPermissionRationale(Home.this, WRITE_EXTERNAL_STORAGE)
+                        && ActivityCompat.shouldShowRequestPermissionRationale(Home.this, READ_EXTERNAL_STORAGE)) {
+                    new AlertDialog.Builder(this).setMessage("Debes aceptar permisos para usar la aplicación")
+                            .setPositiveButton("Intentar nuevamente", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    // voy a pedir permisos
-                                    Log.i("TAG","solicitando permisos nuevamente en dialog interface");
-                                    ActivityCompat.requestPermissions(Home.this, new String[]{WRITE_EXTERNAL_STORAGE , READ_EXTERNAL_STORAGE}, 200);
+                                    Log.i("TAG", "Solicitando permisos nuevamente en el cuadro de diálogo");
+                                    ActivityCompat.requestPermissions(Home.this, new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, 200);
                                 }
                             })
-                            .setNegativeButton("No gracias?", new DialogInterface.OnClickListener() {
+                            .setNegativeButton("No, gracias", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    // salir?
-                                    Log.i("TAG","Otra vez los permis siguen sin estar aceptados");
+                                    Log.i("TAG", "Los permisos siguen sin estar aceptados");
                                 }
                             }).show();
                 } else {
-                    Log.i("TAG","TENES QUE HABILITAR PERMISOS MANUALMENTE");
-                    Toast.makeText(Home.this,"TENES QUE HABILITAR PERMISOS MANUALMENTE", Toast.LENGTH_LONG).show();
+                    Log.i("TAG", "DEBES HABILITAR LOS PERMISOS MANUALMENTE");
+                    Toast.makeText(Home.this, "DEBES HABILITAR LOS PERMISOS MANUALMENTE", Toast.LENGTH_LONG).show();
                 }
             }
         }
-        super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-
 }
