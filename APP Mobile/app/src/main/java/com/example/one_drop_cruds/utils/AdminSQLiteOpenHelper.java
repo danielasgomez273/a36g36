@@ -19,6 +19,9 @@ import java.util.ArrayList;
 
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     PasswordEncoder passwordEncoder = new PasswordEncoder();
+
+    // Definir la constante COLUMN_IMAGE_URI
+    private static final String COLUMN_IMAGE_URI = "image_uri";
     public AdminSQLiteOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         createTables();
@@ -255,6 +258,19 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    // Método para actualizar la URI de la imagen en la base de datos
+    public boolean updateImageUri(String username, String imageUri) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_IMAGE_URI, imageUri);
+
+        int updatedRows = db.update("medical_record", values, "username = ?", new String[] { username });
+        db.close();
+
+        return updatedRows == 1;
+
+    }
     public Boolean checkEmailPassword(String email, String password){
         SQLiteDatabase bd = this.getWritableDatabase();
         Cursor regByEmail= bd.rawQuery("SELECT * FROM users WHERE email = ?", new String[]{email});// Busco el registro por EMAIL
@@ -265,6 +281,8 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         bd.close();
         return false;
     }
+
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         // cuando se va modificando la app
