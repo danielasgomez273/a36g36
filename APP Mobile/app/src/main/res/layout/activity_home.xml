@@ -25,7 +25,7 @@
             <!-- Contenedor de 3 botones -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="900dp"
                 android:orientation="vertical"
                 android:padding="5dp"
                 android:layout_marginBottom="50dp">
@@ -197,42 +197,6 @@ También guarda tus analisis clínicos y exporta los datos obtenidos hasta el mo
 
                 <!-- TIPS -->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/celeste_fondo">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:textSize="20dp"
-                        android:layout_marginVertical="20dp"
-
-
-                        android:text="Tip OneDrop del dia"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        />
-                    <!--
-                    <ImageView
-                        android:layout_width="match_parent"
-<<<<<<< HEAD
-                        android:layout_height="150dp"
-                        android:background="@color/white"
-                        android:layout_marginHorizontal="20dp"/>
-                    -->
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:layout_marginVertical="20dp"
-                        android:text="Prepare y coma alimentos saludables"
-                        android:gravity="center"/>
-
-
-                </LinearLayout>
 
                 <WebView
                     android:id="@+id/web_tip"
