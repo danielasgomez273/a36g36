@@ -86,8 +86,8 @@
             android:id="@+id/recyclerView_reg_weight"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:padding="10dp"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="40dp"
+            android:padding="10dp">
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
@@ -108,10 +108,8 @@
 
         <Button
             android:id="@+id/btn_home_weight"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="160dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/blueonedrop"
             android:onClick="toHome"
             android:text="home"

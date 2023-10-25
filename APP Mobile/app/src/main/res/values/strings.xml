@@ -2,40 +2,40 @@
     <string name="app_name">one_drop_cruds</string>
 
 
-    <string name="title_crud_gly">Seccion de glucemia</string>
-    <string name="add_reg_gly">Agregar nuevo registro de glucemia</string>
+    <string name="title_crud_gly">Registros de Glucemia</string>
+    <string name="add_reg_gly">Agregar nuevo Registro de Glucemia</string>
     <string name="add_reg_gly_value">Valor de glucemia</string>
     <string name="add_reg_gly_value_placeholder">0.78</string>
     <string name="add_reg_gly_date">Fecha</string>
     <string name="add_reg_gly_notes">Notas</string>
     <string name="add_reg_gly_notes_placeholder">Tome esta muestra 30 minutos despues de desayunar un cafe con leche..</string>
-    <string name="add_reg_gly_btn_add">¡Agregar nuevo registro!</string>
-    <string name="reg_gly">Registros de glucemia historicos</string>
-    <string name="del_reg_gly">Registros de glucemia</string>
-    <string name="edit_reg_gly">Registros de glucemia</string>
+    <string name="add_reg_gly_btn_add">¡Agregar Nuevo Registro!</string>
+    <string name="reg_gly">Registros de Glucemia Historicos</string>
+    <string name="del_reg_gly">Registros de Glucemia</string>
+    <string name="edit_reg_gly">Registros de Glucemia</string>
 
 
     <string name="recycler_reg_gly_edit">Edit</string>
     <string name="recycler_reg_gly_delete">Del</string>
 
 
-    <string name="title_crud_weight">Registros de masa corporal</string>
-    <string name="add_reg_weight">Agregar nuevo registro </string>
-    <string name="reg_gly_weight">Registros de peso historicos</string>
+    <string name="title_crud_weight">Registros de Masa Corporal</string>
+    <string name="add_reg_weight">Agregar Nuevo Registro </string>
+    <string name="reg_gly_weight">Registros de Peso Historicos</string>
 
     <string name="add_reg_weight_date">Fecha</string>
-    <string name="add_reg_weight_value">Valor de peso</string>
+    <string name="add_reg_weight_value">Valor de Peso</string>
     <string name="add_reg_weight_value_placeholder">70</string>
     <string name="add_reg_weight_notes">Notas</string>
     <string name="add_reg_weight_notes_placeholder">Tome esta muestra 30 minutos despues de desayunar un cafe con leche..</string>
 
 
-    <string name="title_crud_pressure">Registros de Presion arterial</string>
-    <string name="add_reg_pressure">Agregar nuevo registro </string>
-    <string name="reg_gly_pressure">Registros de presion historicos</string>
+    <string name="title_crud_pressure">Registros de Presion Arterial</string>
+    <string name="add_reg_pressure">Agregar Nuevo Registro </string>
+    <string name="reg_gly_pressure">Registros de Presion Historicos</string>
 
     <string name="add_reg_pressure_date">Fecha</string>
-    <string name="add_reg_pressure_value">Valor de presion arterial</string>
+    <string name="add_reg_pressure_value">Valor de Presion Arterial</string>
     <string name="add_reg_pressure_value_placeholder">70</string>
     <string name="add_reg_pressure_notes">Notas</string>
     <string name="add_reg_pressure_notes_placeholder">Tome esta muestra 30 minutos despues de desayunar un cafe con leche..</string>
