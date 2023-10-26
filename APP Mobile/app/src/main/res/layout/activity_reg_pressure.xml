@@ -50,6 +50,7 @@
         <TextView
             android:id="@+id/textView8"
             android:layout_width="0dp"
+            android:gravity="center"
             android:layout_weight="3"
             android:layout_height="match_parent"
             android:text="@string/reg_gly_pressure"
@@ -57,8 +58,9 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/float_btn_add_reg_pressure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="openPopupAddReg"
             app:backgroundTint="@color/green"
@@ -86,25 +88,18 @@
 </LinearLayout>
 </ScrollView>
 
-
-
-
-
-
-
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:background="@color/blueonedrop"
+    android:layout_weight="1">
     <Button
         android:id="@+id/btn_home_pressure"
-        android:layout_width="91dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="160dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:backgroundTint="@color/blueonedrop"
         android:onClick="toHome"
-        android:text="home"
-        app:layout_constraintBottom_toTopOf="@+id/layout_view_reg_pressure"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-</>
+        android:text="Volver"/>
+</LinearLayout>
+
+</LinearLayout>
