@@ -86,8 +86,7 @@
             android:gravity="start|top"
             android:hint="@string/add_reg_weight_notes_placeholder"
             android:inputType="textMultiLine"
-            android:paddingBottom="30dp"
-            android:textColor="@color/blueonedrop" />
+            android:paddingBottom="30dp" />
 
     </LinearLayout>
 
