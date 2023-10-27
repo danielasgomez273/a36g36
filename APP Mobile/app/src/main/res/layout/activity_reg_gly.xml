@@ -37,15 +37,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-        
-        
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/weightLineChart"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_margin="0dp"
- />
 
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/pressureLineChart"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="10dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
