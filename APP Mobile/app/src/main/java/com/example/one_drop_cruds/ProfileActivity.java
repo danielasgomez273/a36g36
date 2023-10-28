@@ -42,7 +42,6 @@ public class ProfileActivity extends AppCompatActivity {
         signup_db_type = findViewById(R.id.signup_db_type);
         signup_db_therapy = findViewById(R.id.signup_db_therapy);
         edit_medical_data_button = findViewById(R.id.edit_medical_data_button);
-        selectImageButton = findViewById(R.id.selectImageButton);
         profileImage = findViewById(R.id.profile_image);
 
         setTextsForm();
