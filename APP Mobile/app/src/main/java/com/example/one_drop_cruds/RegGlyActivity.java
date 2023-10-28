@@ -69,7 +69,7 @@ public class RegGlyActivity extends AppCompatActivity implements View.OnClickLis
         // btn float add
         float_btn_add_reg_gly = findViewById(R.id.float_btn_add_reg_weight);
 
-        lineChart = findViewById(R.id.weightLineChart);
+        lineChart = findViewById(R.id.glyLineChart);
         this.updateChartRegGly(); // sobreescribe chart
 
         // RECICLER VIEW
