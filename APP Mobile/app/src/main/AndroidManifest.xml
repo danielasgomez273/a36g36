@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permision.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.One_drop_cruds"
         tools:targetApi="31">
+        <activity
+            android:name=".GaleriaAnalisis"
+            android:exported="false" />
+        <activity
+            android:name=".RegistoAnalisis"
+            android:exported="false" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
@@ -31,9 +38,7 @@
         <activity
             android:name=".RegWeightActivity"
             android:exported="false" />
-        <activity
-            android:name=".RegAnalysisActivity"
-            android:exported="false" />
+
         <activity
             android:name=".Home"
             android:exported="false" />
@@ -45,6 +50,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
         <activity
             android:name=".UserSignupActivity"

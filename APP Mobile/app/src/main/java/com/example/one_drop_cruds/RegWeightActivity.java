@@ -105,19 +105,18 @@ public class RegWeightActivity extends AppCompatActivity implements View.OnClick
         weightLineChart.setData(lineData);
         weightLineChart.invalidate();
         // PERSONALIZACION
-        lineDataSet.setColor(Color.BLUE); // COLOR LINEA
-        lineDataSet.setCircleColor(Color.RED); // COLOR PUNTOS?
+        lineDataSet.setColor(R.color.pinkonedrop2); // COLOR LINEA
+        lineDataSet.setCircleColor(R.color.pinkonedrop); // COLOR PUNTOS?
         lineDataSet.setDrawCircles(true); // HABILITA QUE SE MUESTRE LOS PUNTOS
-        lineDataSet.setDrawCircleHole(true); // LOS PUNTOS LOS MUESTRA COMO ARANDELAS
-        lineDataSet.setLineWidth(5); // GROSOR LINEA
-        lineDataSet.setCircleRadius(10); // diametro ext de punto
-        lineDataSet.setCircleHoleRadius(5); // diam interno punto
-        lineDataSet.setValueTextSize(10); // tamaño texxto valot
+        // lineDataSet.setDrawCircleHole(true); // LOS PUNTOS LOS MUESTRA COMO ARANDELAS
+        lineDataSet.setLineWidth(4); // GROSOR LINEA
+        lineDataSet.setCircleRadius(5); // diametro ext de punto
+        lineDataSet.setCircleHoleRadius(1); // diam interno punto
+        lineDataSet.setValueTextSize(2); // tamaño texxto valot
         lineDataSet.setValueTextColor(Color.BLACK); // COLOR TEXTO
-
-        weightLineChart.setBackgroundColor(Color.LTGRAY); // COLOR FONDO OPCION
+        weightLineChart.setBackgroundColor(getResources().getColor(R.color.celeste_fondo)); // COLOR FONDO OPCION
         weightLineChart.setNoDataText("Aun no hay registros guardados.."); // TEXTO SI NO HAY INFO
-        weightLineChart.setNoDataTextColor(Color.RED); // TEXTO SI NO HAY INFO
+        weightLineChart.setNoDataTextColor(R.color.pinkonedrop); // TEXTO SI NO HAY INFO
         weightLineChart.setTouchEnabled(true); // permite tactil
         weightLineChart.setPinchZoom(true); // permite zoom tactil
     }

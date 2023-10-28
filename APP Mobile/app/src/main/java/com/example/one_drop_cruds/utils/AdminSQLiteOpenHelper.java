@@ -19,6 +19,9 @@ import java.util.ArrayList;
 
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     PasswordEncoder passwordEncoder = new PasswordEncoder();
+
+    // Definir la constante COLUMN_IMAGE_URI
+    private static final String COLUMN_IMAGE_URI = "image_uri";
     public AdminSQLiteOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         createTables();
@@ -105,7 +108,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 " birth DATE, \n"+
                 " weight REAL, \n"+
                 " db_type TEXT, \n"+
-                " username TEXT, \n"+
+                " username TEXT UNIQUE, \n"+
                 " db_therapy TEXT\t\n"+
                 ")");
 
@@ -152,6 +155,21 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         return  medicalRecord;
     }
 
+    public boolean updateMedicalRecord(DTOmedicalRecord dtomedicalRecord){
+        SQLiteDatabase bd = this.getWritableDatabase();
+        ContentValues editedMR = new ContentValues(); // crea un objeto que luego actualizara
+        editedMR.put("username", dtomedicalRecord.getUsername());// agrego datos al objeto registro
+        editedMR.put("name", dtomedicalRecord.getName());
+        editedMR.put("lastName", dtomedicalRecord.getLast_name());
+        editedMR.put("age", dtomedicalRecord.getAge());
+        editedMR.put("birth", dtomedicalRecord.getBirth());
+        editedMR.put("weight", dtomedicalRecord.getWeight());
+        editedMR.put("db_type", dtomedicalRecord.getDbType());
+        editedMR.put("db_therapy", dtomedicalRecord.getDbTherapy());
+
+        int editedRows = bd.update("medical_record", editedMR, "username = '"+dtomedicalRecord.getUsername()+"'", null);
+        return editedRows == 1? true : false;
+    }
 
     public DTOReadAllRegisters getAllRegs(String tableName){
         DTOReadAllRegisters result = new DTOReadAllRegisters();
@@ -240,6 +258,19 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    // Método para actualizar la URI de la imagen en la base de datos
+    public boolean updateImageUri(String username, String imageUri) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_IMAGE_URI, imageUri);
+
+        int updatedRows = db.update("medical_record", values, "username = ?", new String[] { username });
+        db.close();
+
+        return updatedRows == 1;
+
+    }
     public Boolean checkEmailPassword(String email, String password){
         SQLiteDatabase bd = this.getWritableDatabase();
         Cursor regByEmail= bd.rawQuery("SELECT * FROM users WHERE email = ?", new String[]{email});// Busco el registro por EMAIL
@@ -250,6 +281,8 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         bd.close();
         return false;
     }
+
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         // cuando se va modificando la app

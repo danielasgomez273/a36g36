@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -8,11 +9,18 @@
 
     <LinearLayout
         android:id="@+id/layout_edit_reg_weight"
-        android:layout_width="362dp"
-        android:layout_height="450dp"
+        android:layout_height="534dp"
+        android:layout_width="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="155dp"
+            android:layout_height="87dp"
+            android:layout_gravity="right"
+            app:srcCompat="@drawable/onedrop" />
 
         <TextView
             android:id="@+id/textView7"
@@ -21,6 +29,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:text="@string/add_reg_weight_date"
+            android:textColor="@color/blueonedrop"
             android:textSize="20sp" />
 
         <EditText
@@ -41,7 +50,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:paddingTop="30dp"
-            android:text="@string/add_reg_weight_value" />
+            android:text="@string/add_reg_weight_value"
+            android:textColor="@color/blueonedrop"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/add_value_weight"
@@ -62,6 +73,7 @@
             android:layout_marginEnd="10dp"
             android:paddingTop="30dp"
             android:text="@string/add_reg_weight_notes"
+            android:textColor="@color/blueonedrop"
             android:textSize="20sp" />
 
         <EditText

@@ -88,7 +88,7 @@ public class RegPressureActivity extends AppCompatActivity implements View.OnCli
         startActivity(home);
     }
     private void updateChartRegPressure(){
-        LineDataSet lineDataSet = new LineDataSet(createLineChartDataSet(), "Glucemia");
+        LineDataSet lineDataSet = new LineDataSet(createLineChartDataSet(), "Presion");
         ArrayList<ILineDataSet> iLineDataSets = new ArrayList<>();
         iLineDataSets.add(lineDataSet);
 
@@ -105,19 +105,18 @@ public class RegPressureActivity extends AppCompatActivity implements View.OnCli
         lineChart.setData(lineData);
         lineChart.invalidate();
         // PERSONALIZACION
-        lineDataSet.setColor(Color.BLUE); // COLOR LINEA
-        lineDataSet.setCircleColor(Color.RED); // COLOR PUNTOS?
+        lineDataSet.setColor(R.color.pinkonedrop2); // COLOR LINEA
+        lineDataSet.setCircleColor(R.color.pinkonedrop); // COLOR PUNTOS?
         lineDataSet.setDrawCircles(true); // HABILITA QUE SE MUESTRE LOS PUNTOS
-        lineDataSet.setDrawCircleHole(true); // LOS PUNTOS LOS MUESTRA COMO ARANDELAS
-        lineDataSet.setLineWidth(5); // GROSOR LINEA
-        lineDataSet.setCircleRadius(10); // diametro ext de punto
-        lineDataSet.setCircleHoleRadius(5); // diam interno punto
-        lineDataSet.setValueTextSize(10); // tamaño texxto valot
+        // lineDataSet.setDrawCircleHole(true); // LOS PUNTOS LOS MUESTRA COMO ARANDELAS
+        lineDataSet.setLineWidth(4); // GROSOR LINEA
+        lineDataSet.setCircleRadius(5); // diametro ext de punto
+        lineDataSet.setCircleHoleRadius(1); // diam interno punto
+        lineDataSet.setValueTextSize(2); // tamaño texxto valot
         lineDataSet.setValueTextColor(Color.BLACK); // COLOR TEXTO
-
-        lineChart.setBackgroundColor(Color.LTGRAY); // COLOR FONDO OPCION
+        lineChart.setBackgroundColor(getResources().getColor(R.color.celeste_fondo)); // COLOR FONDO OPCION
         lineChart.setNoDataText("Aun no hay registros guardados.."); // TEXTO SI NO HAY INFO
-        lineChart.setNoDataTextColor(Color.RED); // TEXTO SI NO HAY INFO
+        lineChart.setNoDataTextColor(R.color.pinkonedrop); // TEXTO SI NO HAY INFO
         lineChart.setTouchEnabled(true); // permite tactil
         lineChart.setPinchZoom(true); // permite zoom tactil
     }
@@ -161,7 +160,7 @@ public class RegPressureActivity extends AppCompatActivity implements View.OnCli
     }
     public void openPopupBtnEdit(int id_reg){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Editar registro de glucemia");
+        builder.setMessage("Editar registro de presion");
         View popupEditReg = getLayoutInflater().inflate(R.layout.popup_form_edit_reg_pressure, null);
         builder.setView(popupEditReg); // ESTO ES PARA QUE PUEDA OBTENER LAS REFERENCIAS DESDE popupEditReg Y PODER OBTENER EL CONTROL DE LOS ELEMENTOS
         edit_value_pressure = popupEditReg.findViewById(R.id.edit_value_pressure);
@@ -200,7 +199,7 @@ public class RegPressureActivity extends AppCompatActivity implements View.OnCli
     }
     public void openPopupAddReg(View v){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Agregar registro de glucemia");
+        builder.setMessage("Agregar registro de presion");
         View popupAddReg = getLayoutInflater().inflate(R.layout.popup_form_add_reg_pressure, null);
         builder.setView(popupAddReg); // ESTO ES PARA QUE PUEDA OBTENER LAS REFERENCIAS DESDE popupAddReg Y PODER OBTENER EL CONTROL DE LOS ELEMENTOS
         add_value_pressure = popupAddReg.findViewById(R.id.add_value_pressure);
@@ -330,7 +329,7 @@ public class RegPressureActivity extends AppCompatActivity implements View.OnCli
             this.updateChartRegPressure(); // sobreescribe chart
             adapterRegPressure.notifyDataSetChanged(); // refresca pantalla del recycler
             rv1.smoothScrollToPosition(reg_pressure_ids.size()-1); // mueve la vista al ultimo elemento agregado
-            Toast.makeText(this,"Se agrego registro de glucemia", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Se agrego registro de presion", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(this,"Error agregando registro!", Toast.LENGTH_SHORT).show();
         }
