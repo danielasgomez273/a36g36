@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -29,6 +30,10 @@ public class GaleriaAnalisis extends AppCompatActivity {
         rv1.setLayoutManager(linearLayoutManager);
         rv1.setAdapter(new AdaptadorFotos());
 
+    }
+    public void toHome(View v){
+        Intent home = new Intent(this, RegGlyActivity.class);
+        startActivity(home);
     }
     private class AdaptadorFotos extends RecyclerView.Adapter<AdaptadorFotos.AdaptadorFotosHolder>{
 
