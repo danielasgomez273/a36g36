@@ -62,14 +62,7 @@
                     android:contentDescription="Foto de perfil"
                     android:src="@drawable/photoperf" />
 
-                <Button
-                    android:id="@+id/selectImageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    android:background="?attr/selectableItemBackground"
-                    android:text="Seleccionar imagen"
-                    android:textColor="@color/blackonedrop"/>
+
             </LinearLayout>
 
 
@@ -168,28 +161,39 @@
 
                 <Button
                     android:id="@+id/btn_home_profile"
-                    android:layout_width="120dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/blueonedrop"
-                    android:onClick="toHome"
+                    android:backgroundTint="@color/blueonedrop2"
+                    android:layoutDirection="locale"
+                    android:onClick="toProfile"
                     android:text="Volver"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    app:cornerRadius="25dp" />
+                    android:textSize="13sp"
+                    android:padding="0dp"
+                    android:drawableTop="@drawable/baseline_arrow_back_ios_24"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="40dp"
+                    android:textColor="@color/white"
+                    android:drawablePadding="1dp"
+                    app:cornerRadius="10dp"/>
 
                 <Button
                     android:id="@+id/edit_medical_data_button"
-                    android:layout_width="170dp"
-                    android:layout_weight="1"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="@color/blueonedrop"
-                    android:onClick="updateMedicalRecord"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/blueonedrop2"
+                    android:layoutDirection="locale"
+                    android:onClick="toProfile"
                     android:text="Modificar datos"
-                    android:textSize="17sp"
-                    app:cornerRadius="25dp" />
+                    android:textSize="13sp"
+                    android:padding="0dp"
+                    android:drawableTop="@drawable/baseline_edit_note_24"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="40dp"
+                    android:drawablePadding="1dp"
+                    android:textColor="@color/white"
+                    app:cornerRadius="10dp"/>
             </LinearLayout>
 
 
