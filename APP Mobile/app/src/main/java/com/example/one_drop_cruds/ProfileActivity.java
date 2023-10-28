@@ -41,33 +41,17 @@ public class ProfileActivity extends AppCompatActivity {
         signup_weight = findViewById(R.id.signup_weight);
         signup_db_type = findViewById(R.id.signup_db_type);
         signup_db_therapy = findViewById(R.id.signup_db_therapy);
-        edit_medical_data_button = findViewById(R.id.edit_medical_data_button);
-        profileImage = findViewById(R.id.profile_image);
+
+
 
         setTextsForm();
 
-        selectImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openGallery();
-            }
-        });
+
     }
 
-    private void openGallery() {
-        Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, PICK_IMAGE);
-    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
-            selectedImageUri = data.getData();
-            profileImage.setImageURI(selectedImageUri);
-        }
-    }
+
 
     public void setTextsForm() {
         DTOmedicalRecord medicalRecord = admin.getMedicalRecord(userSessionManager.getLoguedUsername());
