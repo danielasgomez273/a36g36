@@ -17,8 +17,11 @@
 
 
     <color name="celeste_fondo">#F2F9FF</color>
-    <color name="pink_fondo">#FFE3F1</color>
+    <color name="pink_fondo">#F2DCE8</color>
+    <color name="nude_fondo">#F2E1D8</color>
 
+    <color name="accent_pink">#F2A2D6</color>
+    <color name="accent_blue">#0583F2</color>
 
     <color name="blueonedrop">#1A609F</color>
     <color name="pinkonedrop">#F7429A</color>
