@@ -25,24 +25,24 @@
             <TextView
                 android:id="@+id/recycler_reg_pressure_date"
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="50dp"
+                android:layout_weight="2"
+                android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:text="Fecha"
                 android:textAlignment="center"
-                android:fontFamily="sans-serif-condensed"
-                android:textSize="16sp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recycler_reg_pressure_value"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:paddingEnd="20dp"
-                android:text="0.78"
+                android:text="160/80"
                 android:textAlignment="center"
                 android:textSize="30sp" />
 
@@ -72,22 +72,25 @@
                 android:layout_height="50dp"
                 android:layout_gravity="clip_horizontal"
                 android:layout_marginStart="10dp"
-                android:fontFamily="sans-serif-condensed"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/blueonedrop"
-                android:text="Editar" />
+                android:fontFamily="sans-serif-condensed"
+                android:text="Editar"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/recycler_btn_delete_reg_pressure"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
-                android:fontFamily="sans-serif-condensed"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/btn_delete"
-                android:text="Borrar" />
+                android:backgroundTint="@color/accent_pink"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Borrar"
+                android:textSize="24dp" />
 
         </LinearLayout>
 

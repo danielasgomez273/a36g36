@@ -27,22 +27,23 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="2"
-                android:gravity="center"
                 android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
                 android:text="Fecha"
                 android:textAlignment="center"
-                android:textSize="16sp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recycler_reg_weight_value"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:paddingEnd="20dp"
-                android:text="0.78"
+                android:text="96"
                 android:textAlignment="center"
                 android:textSize="30sp" />
 
@@ -57,7 +58,7 @@
             android:paddingStart="10dp"
             android:paddingBottom="10dp"
             android:text="notas del registro..."
-            android:textSize="16sp" />
+            android:textSize="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,25 +70,29 @@
             <Button
                 android:id="@+id/recycler_btn_edit_reg_weight"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="50dp"
                 android:layout_gravity="clip_horizontal"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
-                android:fontFamily="sans-serif-condensed"
+                android:layout_weight="1"
                 android:backgroundTint="@color/blueonedrop"
-                android:text="Editar" />
+                android:fontFamily="sans-serif-condensed"
+                android:text="Editar"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/recycler_btn_delete_reg_weight"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/accent_pink"
                 android:fontFamily="sans-serif-condensed"
-                android:backgroundTint="@color/btn_delete"
-                android:text="Borrar" />
+                android:text="Borrar"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
