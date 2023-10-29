@@ -90,9 +90,10 @@
                 android:layout_marginTop="8dp"
                 android:onClick="toLogin"
                 android:padding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:text="Ya sos usuario? Ingresá"
                 android:textColor="@color/design_default_color_primary_variant"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

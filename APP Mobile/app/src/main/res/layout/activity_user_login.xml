@@ -30,6 +30,7 @@
                     android:layout_width="330dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
+                    android:textColor="@color/black"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/lavender_border"
                     android:drawableLeft="@drawable/baseline_email_24"
@@ -46,6 +47,7 @@
                     android:background="@drawable/lavender_border"
                     android:drawableLeft="@drawable/baseline_lock_24"
                     android:drawablePadding="8dp"
+                    android:textColor="@color/black"
                     android:hint="Contraseña"
                     android:inputType="textPassword"
                     android:padding="8dp" />
@@ -66,8 +68,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="16dp"
                     android:padding="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="No eres Usuario? Regístrate"
                     android:textColor="@color/design_default_color_primary_variant"
                     android:textSize="18sp" />
