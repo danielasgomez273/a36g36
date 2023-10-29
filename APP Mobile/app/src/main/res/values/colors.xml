@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#FFFFFF</color>
-    <color name="blackonedrop">#FF070707</color>
+    <color name="white">#FAFAFA</color>
+    <color name="blackonedrop">#404040</color>
     <color name="blueonedroposcuro">#001D4D</color>
     <color name="pink">#FF9108C3</color>
     <color name="yellow">#FFF6D162</color>

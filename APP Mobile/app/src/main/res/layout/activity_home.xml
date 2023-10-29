@@ -35,7 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="30dp"
-                    android:textColor="@color/blueonedrop"
+                    android:textColor="@color/blackonedrop"
                     android:text="Bienvenido a"
                     android:textAlignment="center"
                     android:gravity="center"
@@ -65,7 +65,7 @@
 También guarda tus analisis clínicos y exporta los datos obtenidos hasta el momento en un archivo PDF
 "
                         android:textAlignment="center"
-                        android:textColor="@color/blueonedrop"
+                        android:textColor="@color/blackonedrop"
                         android:textSize="15dp" />
 
 
