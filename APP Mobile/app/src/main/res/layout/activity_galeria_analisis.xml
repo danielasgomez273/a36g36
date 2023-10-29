@@ -41,6 +41,7 @@
             android:id="@+id/btn_home_weight"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="sans-serif-condensed"
             android:backgroundTint="@color/blueonedrop"
             android:onClick="toHome"
             android:text="Volver" />

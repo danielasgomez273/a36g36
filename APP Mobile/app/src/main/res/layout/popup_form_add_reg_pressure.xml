@@ -56,7 +56,7 @@
             android:layout_marginEnd="10dp"
             android:fontFamily="sans-serif-condensed"
             android:paddingTop="30dp"
-            android:text="@string/add_reg_weight_value"
+            android:text="@string/add_reg_pressure_value"
             android:textColor="@color/blueonedrop"
             android:textSize="24dp"
             android:textStyle="bold" />
@@ -80,7 +80,7 @@
             android:layout_marginEnd="10dp"
             android:fontFamily="sans-serif-condensed"
             android:paddingTop="30dp"
-            android:text="@string/add_reg_weight_notes"
+            android:text="@string/add_reg_pressure_notes"
             android:textColor="@color/blueonedrop"
             android:textSize="24dp"
             android:textStyle="bold" />

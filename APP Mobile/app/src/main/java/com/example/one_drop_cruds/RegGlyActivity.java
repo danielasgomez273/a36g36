@@ -67,13 +67,13 @@ public class RegGlyActivity extends AppCompatActivity implements View.OnClickLis
         this.refreshRegs(); // CARGAR ARRAYS CON DATA
 
         // btn float add
-        float_btn_add_reg_gly = findViewById(R.id.float_btn_add_reg_weight);
+        float_btn_add_reg_gly = findViewById(R.id.float_btn_add_reg_gly);
 
         lineChart = findViewById(R.id.glyLineChart);
         this.updateChartRegGly(); // sobreescribe chart
 
         // RECICLER VIEW
-        rv1 = findViewById(R.id.recyclerView_reg_weight);
+        rv1 = findViewById(R.id.recyclerView_reg_gly);
         LinearLayoutManager linearLayoutManager_reg_gly = new LinearLayoutManager(this);
         rv1.setLayoutManager(linearLayoutManager_reg_gly);
         adapterRegGly = new AdapterRegGly();

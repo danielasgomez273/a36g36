@@ -47,6 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/title_crud_gly"
                     android:textSize="24sp"
                     android:textColor="@color/white"/>
@@ -65,6 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:fontFamily="sans-serif-condensed"
                     android:layout_marginVertical="30dp"
                     android:layout_marginHorizontal="10dp"
                     android:text="@string/description_gly"
@@ -95,6 +97,7 @@
                 android:id="@+id/textView8"
                 android:layout_width="0dp"
                 android:layout_weight="3"
+                android:fontFamily="sans-serif-condensed"
                 android:layout_height="match_parent"
                 android:textColor="@color/white"
                 android:text="@string/new_crud_gly"
@@ -102,16 +105,18 @@
                 android:gravity="center"
                 />
 
+            <!-- BOTON FLOTANTE     -->
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/float_btn_add_reg_weight"
+                android:id="@+id/float_btn_add_reg_gly"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                app:backgroundTint="@color/white"
-                app:elevation="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:srcCompat="@android:drawable/ic_input_add"  />
+                android:onClick="openPopupAddReg"
+                app:background="@color/pinkonedrop2"
+                android:textAlignment="center"
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:gravity="center"/>
 
         </LinearLayout>
 
@@ -133,6 +138,7 @@
                 android:text="@string/history_pressure"
                 android:textSize="24sp"
                 android:gravity="center"
+                android:fontFamily="sans-serif-condensed"
                 android:textColor="@color/pinkonedrop2"
                 android:layout_marginBottom="20dp"/>
 
@@ -140,6 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:layout_marginHorizontal="15dp"
                 android:text="@string/description_pressure_2"
@@ -157,7 +164,7 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_reg_weight"
+            android:id="@+id/recyclerView_reg_gly"
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_margin="10dp"
@@ -187,6 +194,7 @@
             android:id="@+id/btn_home_pressure"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="sans-serif-condensed"
             android:backgroundTint="@color/blueonedrop"
             android:onClick="toHome"
             android:text="Volver"/>
