@@ -6,8 +6,8 @@
 
     <LinearLayout
         android:id="@+id/layout_edit_reg_weight"
-        android:layout_width="362dp"
-        android:layout_height="450dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">

@@ -25,8 +25,8 @@
             <TextView
                 android:id="@+id/recycler_reg_weight_date"
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="50dp"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="Fecha"
                 android:textAlignment="center"
@@ -66,20 +66,20 @@
             <Button
                 android:id="@+id/recycler_btn_edit_reg_weight"
                 android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
                 android:layout_gravity="clip_horizontal"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
 
-                android:backgroundTint="@color/btn_edit"
+                android:backgroundTint="@color/blueonedrop"
                 android:text="Editar" />
 
             <Button
                 android:id="@+id/recycler_btn_delete_reg_weight"
                 android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
 

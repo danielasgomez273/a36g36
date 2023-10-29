@@ -6,11 +6,15 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
 
     <LinearLayout
         android:id="@+id/layout_edit_reg_gly"
-        android:layout_width="362dp"
-        android:layout_height="524dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
@@ -89,5 +93,7 @@
             android:paddingBottom="30dp" />
 
     </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
