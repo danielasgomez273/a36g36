@@ -93,7 +93,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:text="Ya sos usuario? Ingresá"
                 android:textColor="@color/design_default_color_primary_variant"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
