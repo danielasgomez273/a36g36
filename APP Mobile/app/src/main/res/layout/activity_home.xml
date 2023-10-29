@@ -275,25 +275,40 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_weight="1"
-        android:padding="15dp"
-        android:orientation="horizontal"
-        android:background="@color/blueonedrop3"
+
+        android:orientation="vertical"
+        android:background="@color/white"
         >
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/pinkonedrop2">
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="20dp"
+            android:layout_margin="10dp"
+            android:background="@color/white">
 
         <Button
             android:id="@+id/button3"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/blueonedrop2"
+            android:backgroundTint="@color/pinkonedrop2"
             android:layoutDirection="locale"
             android:onClick="toProfile"
             android:text="Mi Perfil"
             android:textSize="13sp"
-            android:padding="0dp"
+            android:paddingVertical="0dp"
             android:drawableTop="@drawable/baseline_account_circle_24"
             android:layout_gravity="center"
             android:textColor="@color/white"
@@ -312,7 +327,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/blueonedrop"
+            android:backgroundTint="@color/pinkonedrop2"
             android:layoutDirection="locale"
             android:onClick="logout"
             android:text="Cerrar Sesión"
@@ -326,6 +341,7 @@
 
             />
 
+    </LinearLayout>
     </LinearLayout>
 
 
