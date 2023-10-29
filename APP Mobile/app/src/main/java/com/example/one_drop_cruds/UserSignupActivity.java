@@ -4,13 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.one_drop_cruds.databinding.ActivityUserSignupBinding;
 import com.example.one_drop_cruds.utils.AdminSQLiteOpenHelper;
 import com.example.one_drop_cruds.utils.SharedPrefManager;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserSignupActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
@@ -32,42 +34,51 @@ public class UserSignupActivity extends AppCompatActivity {
         signup_confirm = findViewById(R.id.signup_confirm);
 
     }
+
     public void toLogin(View v){
         Intent intent = new Intent(UserSignupActivity.this, UserLoginActivity.class);
         startActivity(intent);
     }
+
     public void signupUser(View v){
         String email = signup_email.getText().toString();
         String password = signup_password.getText().toString();
         String confirmPassword = signup_confirm.getText().toString();
 
-        if(email.equals("")||password.equals("")||confirmPassword.equals(""))
-            Toast.makeText(UserSignupActivity.this, "¡ Debes completar todos los campos !", Toast.LENGTH_SHORT).show();
-        else{
-            if(password.equals(confirmPassword)){
+        if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            Toast.makeText(UserSignupActivity.this, "¡Debes completar todos los campos!", Toast.LENGTH_SHORT).show();
+        } else if (!isEmailValid(email)) {
+            Toast.makeText(UserSignupActivity.this, "¡Ingresa un email válido!", Toast.LENGTH_SHORT).show();
+        } else if (password.length() < 8) {
+            Toast.makeText(UserSignupActivity.this, "¡La contraseña debe tener al menos 8 caracteres!", Toast.LENGTH_SHORT).show();
+        } else {
+            if (password.equals(confirmPassword)) {
                 Boolean checkUserEmail = adminBD.checkEmail(email);
-                if(!checkUserEmail){
+                if (!checkUserEmail) {
                     Boolean insert = adminBD.createUser(email, password);
-                    if(insert){
+                    if (insert) {
                         Toast.makeText(UserSignupActivity.this, "¡Registro exitoso!", Toast.LENGTH_SHORT).show();
                         sharedPrefManager.setLoguedUser(email);
                         Intent intent = new Intent(getApplicationContext(), UserMedicalData.class);
                         startActivity(intent);
-                    }else{
+                    } else {
                         Toast.makeText(UserSignupActivity.this, "Error durante el registro!", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else{
-                    Toast.makeText(UserSignupActivity.this, "Ya estas registrado!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(UserSignupActivity.this, "¡Ya estás registrado!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), UserLoginActivity.class);
                     startActivity(intent);
                 }
-            }else{
-                Toast.makeText(UserSignupActivity.this, "Las contraseñas no concuerdan!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(UserSignupActivity.this, "¡Las contraseñas no concuerdan!", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-
-
+    private boolean isEmailValid(String email) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
 }
