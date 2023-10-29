@@ -34,6 +34,15 @@
                 android:hint="Email"
                 android:padding="8dp" />
 
+            <TextView
+                android:id="@+id/error_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¡Ingresa un email válido!"
+                android:textColor="#FF0000"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
             <EditText
                 android:id="@+id/signup_password"
                 android:layout_width="330dp"
@@ -84,7 +93,6 @@
                 android:text="Ya sos usuario? Ingresá"
                 android:textColor="@color/design_default_color_primary_variant"
                 android:textSize="18sp" />
-
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
