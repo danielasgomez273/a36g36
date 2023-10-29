@@ -18,8 +18,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
             android:text="@string/add_reg_weight_date"
-            android:textSize="20sp" />
+            android:textColor="@color/blueonedrop"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edit_date_weight"
@@ -38,8 +41,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
             android:paddingTop="30dp"
-            android:text="@string/add_reg_weight_value" />
+            android:text="@string/add_reg_weight_value"
+            android:textColor="@color/blueonedrop"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edit_value_weight"
@@ -58,9 +65,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
             android:paddingTop="30dp"
             android:text="@string/add_reg_weight_notes"
-            android:textSize="20sp" />
+            android:textColor="@color/blueonedrop"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edit_notes_weight"

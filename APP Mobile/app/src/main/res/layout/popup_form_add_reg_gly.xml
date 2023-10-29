@@ -30,11 +30,13 @@
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/blueonedrop"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
             android:text="@string/add_reg_gly_date"
-            android:textSize="20sp" />
+            android:textColor="@color/blueonedrop"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/add_date_gly"
@@ -53,10 +55,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
             android:paddingTop="30dp"
             android:text="@string/add_reg_gly_value"
-            android:textSize="20sp"
-            android:textColor="@color/blueonedrop"/>
+            android:textColor="@color/blueonedrop"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/add_value_gly"
@@ -75,10 +79,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
             android:paddingTop="30dp"
             android:text="@string/add_reg_gly_notes"
-            android:textSize="20sp"
-            android:textColor="@color/blueonedrop"/>
+            android:textColor="@color/blueonedrop"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/add_notes_gly"

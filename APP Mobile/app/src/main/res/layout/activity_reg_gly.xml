@@ -16,13 +16,16 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/white">
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/title_crud_gly"
-        android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="@string/title_crud_gly"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -53,24 +56,13 @@
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:layout_height="match_parent"
-                android:text="@string/reg_gly"
-                android:textSize="18sp"
+                android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
-                />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/float_btn_add_reg_weight"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:clickable="true"
-                android:onClick="openPopupAddReg"
-                app:backgroundTint="@color/green"
-                app:elevation="10dp"
-
-                app:srcCompat="@android:drawable/ic_input_add" />
+                android:text="@string/reg_gly"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp" />
 
         </LinearLayout>
 
@@ -83,9 +75,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_reg_weight"
-            android:layout_width="374dp"
-            android:layout_height="272dp"
-            android:layout_marginTop="40dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="272dp"
+            tools:layout_conversion_absoluteWidth="374dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="439dp">
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
@@ -99,25 +94,46 @@
 
 
     <!-- Menu de footer -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/blueonedrop">
+        android:background="@color/nude_fondo">
 
         <Button
             android:id="@+id/btn_home_weight"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/blueonedrop"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/blueonedroposcuro"
+            android:fontFamily="sans-serif-condensed"
             android:onClick="toHome"
-            android:text="home"
-            />
+            android:text="Regresar"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/float_btn_add_reg_weight"
+            app:layout_constraintEnd_toStartOf="@+id/float_btn_add_reg_weight"
+            app:layout_constraintHorizontal_bias="0.074"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/float_btn_add_reg_weight"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/float_btn_add_reg_weight"
+            android:layout_width="75dp"
+            android:layout_height="74dp"
+            android:clickable="true"
+
+            android:onClick="openPopupAddReg"
+            app:backgroundTint="@color/pinkonedrop"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@android:drawable/ic_input_add"
+            tools:layout_editor_absoluteX="311dp" />
 
 
-
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
