@@ -14,20 +14,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7"
+        android:layout_weight="8"
         android:orientation="vertical"
         >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/scrollView2"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout4">
+            android:orientation="vertical">
+>
 
             <!-- Contenedor de 3 botones -->
-
-
+            
             <TextView
                 android:id="@+id/textView_welcome"
                 android:layout_width="wrap_content"
@@ -243,7 +241,7 @@
                     -->
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Menu "nav" -->
@@ -302,4 +300,4 @@
     </LinearLayout>
 
 
-</LinearLayout></LinearLayout>
+</LinearLayout>
