@@ -6,41 +6,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/fondosinlogo"
+
     tools:context=".RegWeightActivity">
 
-    <!--  Contenedor del "nav" -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white">
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/title_crud_weight"
-        android:textSize="24sp" />
 
-    </LinearLayout>
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7">
+        android:layout_weight="8">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+            <!-- ======================== -->
+            <!--  Contenedor explicativo -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="70dp"
+                android:background="@color/pinkonedrop2"
+                >
+
+                <!-- Titulo -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/pinkonedrop">
+                    <TextView
+
+                        android:id="@+id/textView2"
+                        android:layout_marginVertical="30dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/title_crud_weight"
+                        android:textSize="24sp"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+                <!-- Descripcion -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginVertical="30dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:text="@string/description_weight"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- ======================== -->
+
+
+
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/weightLineChart"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_margin="10dp"/>
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="20dp"/>
 
 
 
@@ -50,10 +93,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+            <!-- Nuevo Registro -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@color/pinkonedrop2"
+            android:padding="10dp">
 
 
         <TextView
@@ -61,8 +107,9 @@
             android:layout_width="0dp"
             android:layout_weight="3"
             android:layout_height="match_parent"
-            android:text="@string/reg_gly_weight"
-            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="@string/new_crud_weight"
+            android:textSize="22sp"
             android:gravity="center"
             />
 
@@ -74,18 +121,51 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="openPopupAddReg"
-            app:backgroundTint="@color/green"
+            app:background="@color/pinkonedrop2"
+            android:textAlignment="center"
 
             app:srcCompat="@android:drawable/ic_input_add"
             android:gravity="center"/>
         </LinearLayout>
 
+        <!-- Nuevo Registro -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingVertical="40dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/history_weight"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:textColor="@color/pinkonedrop2"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:text="@string/description_weight_2"
+                android:textColor="@color/blackonedrop"/>
+
+        </LinearLayout>
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_reg_weight"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_marginTop="40dp"
+            android:layout_height="450dp"
+            android:layout_margin="10dp"
+            android:paddingVertical="50dp"
             android:padding="10dp">
 
         </androidx.recyclerview.widget.RecyclerView>
@@ -111,7 +191,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/blueonedrop"
             android:onClick="toHome"
-            android:text="home"
+            android:text="Home"
             />
 
 
