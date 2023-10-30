@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/white"
     android:orientation="vertical">
 
 
@@ -44,6 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
+                android:textColor="@color/blackonedrop"
+                android:textStyle="bold"
                 android:ems="10"
                 android:hint="(Opcional)"
                 android:inputType="datetime"
@@ -67,6 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:textColor="@color/blackonedrop"
                 android:layout_marginEnd="10dp"
                 android:ems="10"
                 android:hint="@string/add_reg_weight_value_placeholder"
@@ -92,6 +96,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
+                android:textColor="@color/blackonedrop"
+                android:textStyle="bold"
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="@string/add_reg_weight_notes_placeholder"

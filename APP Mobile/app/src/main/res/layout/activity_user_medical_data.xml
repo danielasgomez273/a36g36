@@ -174,7 +174,7 @@
                         android:backgroundTint="@color/blueonedrop"
                         android:onClick="submitMedicalRecord"
                         android:text="Registrarse"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
                         app:cornerRadius="30dp" />
 
 
