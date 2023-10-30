@@ -105,8 +105,8 @@ Trabajamos en el desarrollo de la version mobile de OneDrop
 :small_orange_diamond: Scrum masters 
 
 - Sprint 0: Gómez, Daniela
-- Sprint 1: 
-- Sprint 2: 
+- Sprint 1: Costa, David 
+- Sprint 2: Covaro, Maximiliano
 
 :point_right: Metodologías ágiles 
 
@@ -163,5 +163,13 @@ Se puede acceder a una copia desde la carpeta BBDD del repositorio grupal.
 :point_right: Carpeta de DRIVE Grupal
 
 En este [link](https://drive.google.com/drive/folders/1ANUXfuIqwwncvyIFUOdxqh51cRdqTU3o?usp=sharing) socializamos nuestra carpeta grupal de Google Drive, en donde se encuentra un copia de la documentación solicitada en cada Sprint. 
+
+:point_right: Testing
+
+Siguiendo éste [link](https://github.com/danielasgomez273/a36g36/wiki/Testing#casos-de-prueba) se encuentra lo trabajado en la materia Testing.
+
+:point_right: Video de Presentación - Sprint Review + Demo 
+
+En este [link](https://drive.google.com/file/d/1zHpVKz-INssS23pHw3I7Bp3FK7eQQL75/view?usp=sharing) se puede acceder al video solicitado en el Sprint 2, correspondiente al cierre del trabajo durante el 2º semestre del ciclo lectivo 2023. 
 
 
