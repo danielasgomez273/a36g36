@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <ScrollView
@@ -44,6 +45,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:ems="10"
+            android:textColor="@color/blackonedrop"
+            android:textStyle="bold"
             android:hint="(Opcional)"
             android:inputType="datetime"
             android:paddingBottom="30dp" />
@@ -68,7 +71,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:ems="10"
-            android:hint="@string/add_reg_weight_value_placeholder"
+            android:textColor="@color/blackonedrop"
+            android:textStyle="bold"
+            android:hint="@string/add_reg_pressure_value_placeholder"
             android:inputType="numberDecimal"
             android:paddingBottom="30dp" />
 
@@ -93,6 +98,8 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:gravity="start|top"
+            android:textColor="@color/blackonedrop"
+            android:textStyle="bold"
             android:hint="@string/add_reg_weight_notes_placeholder"
             android:inputType="textMultiLine"
             android:paddingBottom="30dp" />

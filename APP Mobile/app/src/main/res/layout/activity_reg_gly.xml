@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".RegGlyActivity">
@@ -96,6 +97,7 @@
             android:padding="10dp">
 
 
+            <!-- BOTON FLOTANTE     -->
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="0dp"
@@ -108,7 +110,6 @@
                 android:textSize="24dp"
                 android:textStyle="bold" />
 
-            <!-- BOTON FLOTANTE     -->
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/float_btn_add_reg_gly"
                 android:layout_width="0dp"
@@ -192,7 +193,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/blueonedrop"
+        android:background="@color/blueonedroposcuro"
         android:layout_weight="1">
 
         <Button

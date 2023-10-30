@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:gravity="center|top">
 
     <LinearLayout
@@ -31,6 +32,7 @@
                 android:text="Fecha"
                 android:textAlignment="center"
                 android:textSize="18dp"
+                android:textColor="@color/blackonedrop"
                 android:textStyle="bold" />
 
             <TextView
@@ -42,6 +44,8 @@
                 android:gravity="center"
                 android:paddingEnd="20dp"
                 android:text="78"
+                android:textColor="@color/blackonedrop"
+                android:textStyle="bold"
                 android:textAlignment="center"
                 android:textSize="30sp" />
 
@@ -55,6 +59,8 @@
             android:gravity="center"
             android:paddingStart="10dp"
             android:paddingBottom="10dp"
+            android:textColor="@color/blackonedrop"
+            android:textStyle="bold"
             android:text="notas del registro..."
             android:textSize="16dp" />
 
@@ -74,7 +80,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/blueonedrop"
-
+                android:textColor="@color/white"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Editar"
                 android:textSize="24dp"
@@ -87,9 +93,11 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/accent_pink"
+                android:backgroundTint="@color/pinkonedrop2"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Borrar"
+                android:textColor="@color/white"
+
                 android:textSize="24dp"
                 android:textStyle="bold" />
 
