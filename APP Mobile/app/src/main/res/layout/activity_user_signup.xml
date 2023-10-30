@@ -31,8 +31,21 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_email_24"
                 android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:hint="Email"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/error_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¡Ingresa un email válido!"
+                android:textColor="#FF0000"
+                android:layout_gravity="center"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/signup_password"
@@ -43,9 +56,13 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:hint="Contraseña"
                 android:inputType="textPassword"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/signup_confirm"
@@ -56,9 +73,13 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_password_24"
                 android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:hint="Confirmar Contraseña"
                 android:inputType="textPassword"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/signupButton"
@@ -67,9 +88,11 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/blueonedrop"
+                android:fontFamily="sans-serif-condensed"
                 android:onClick="signupUser"
-                android:text="Registrarse"
-                android:textSize="18sp"
+                android:text="Crear cuenta"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 app:cornerRadius="30dp" />
 
 
@@ -79,12 +102,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:onClick="toLogin"
                 android:padding="8dp"
-                android:text="Ya sos usuario? Ingresá"
-                android:textColor="@color/design_default_color_primary_variant"
-                android:textSize="18sp" />
-
+                android:text="¿Ya tenés cuenta? Ingresá"
+                android:textColor="@color/accent_blue"
+                android:textSize="20dp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

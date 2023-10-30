@@ -34,8 +34,12 @@
                     android:background="@drawable/lavender_border"
                     android:drawableLeft="@drawable/baseline_email_24"
                     android:drawablePadding="6dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:hint="Email"
-                    android:padding="6dp" />
+                    android:padding="6dp"
+                    android:textColor="@color/blackonedrop"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/login_password"
@@ -46,9 +50,13 @@
                     android:background="@drawable/lavender_border"
                     android:drawableLeft="@drawable/baseline_lock_24"
                     android:drawablePadding="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:hint="Contraseña"
                     android:inputType="textPassword"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:textColor="@color/blackonedrop"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/login_button"
@@ -56,9 +64,11 @@
                     android:layout_height="70dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
-                    android:backgroundTint="#F7429A"
-                    android:text="Login"
+                    android:backgroundTint="@color/pinkonedrop"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Ingresar"
                     android:textSize="18sp"
+                    android:textStyle="bold"
                     app:cornerRadius="30dp" />
 
                 <TextView
@@ -66,11 +76,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:padding="8dp"
-                    android:text="No eres Usuario? Regístrate"
-                    android:textColor="@color/design_default_color_primary_variant"
-                    android:textSize="18sp" />
+                    android:text="¿Todavía no tenés cuenta? Registrate"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </LinearLayout>

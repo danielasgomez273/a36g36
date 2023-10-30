@@ -2,8 +2,17 @@
     <string name="app_name">one_drop_cruds</string>
 
 
-    <string name="title_crud_gly">Registros de Glucemia</string>
-    <string name="add_reg_gly">Agregar nuevo Registro de Glucemia</string>
+    // Strings de registro de Peso
+    <string name="title_crud_gly">Glucemia</string>
+
+    <string name="new_crud_gly">Nuevo Registro</string>
+    <string name="description_gly">Seguí tus registros de glucemia en el gráfico a continuación</string>
+
+    <string name="history_gly">Historial de registros</string>
+    <string name="description_gly_2">Accedé a todos los registros que hiciste. Recordá que podes modificarlos o eliminarlos en el caso de que sea necesario.</string>
+
+
+    <string name="add_reg_gly">Agregar nuevo registro</string>
     <string name="add_reg_gly_value">Valor de glucemia</string>
     <string name="add_reg_gly_value_placeholder">0.78</string>
     <string name="add_reg_gly_date">Fecha</string>
@@ -18,10 +27,16 @@
     <string name="recycler_reg_gly_edit">Edit</string>
     <string name="recycler_reg_gly_delete">Del</string>
 
-
-    <string name="title_crud_weight">Registros de Masa Corporal</string>
+    // Strings de registro de Peso
+    <string name="title_crud_weight">Masa Corporal</string>
     <string name="add_reg_weight">Agregar Nuevo Registro </string>
-    <string name="reg_gly_weight">Registros de Peso Historicos</string>
+    <string name="reg_gly_weight">Registros de peso historicos</string>
+
+    <string name="new_crud_weight">Nuevo Registro</string>
+    <string name="description_weight">Seguí tus registros de masa corporal en el gráfico a continuación</string>
+
+    <string name="history_weight">Historial de registros</string>
+    <string name="description_weight_2">Accedé a todos los registros que hiciste. Recordá que podes modificarlos o eliminarlos en el caso de que sea necesario.</string>
 
     <string name="add_reg_weight_date">Fecha</string>
     <string name="add_reg_weight_value">Valor de Peso</string>
@@ -30,9 +45,19 @@
     <string name="add_reg_weight_notes_placeholder">Tome esta muestra 30 minutos despues de desayunar un cafe con leche..</string>
 
 
-    <string name="title_crud_pressure">Registros de Presion Arterial</string>
+
+    // Strings de registro de Presion
+    <string name="title_crud_pressure">Presion Arterial</string>
     <string name="add_reg_pressure">Agregar Nuevo Registro </string>
     <string name="reg_gly_pressure">Registros de Presion Historicos</string>
+
+
+    <string name="new_crud_pressure">Nuevo Registro</string>
+    <string name="description_pressure">Seguí tus registros de presión en el gráfico a continuación</string>
+
+    <string name="history_pressure">Historial de registros</string>
+    <string name="description_pressure_2">Accedé a todos los registros que hiciste. Recordá que podes modificarlos o eliminarlos en el caso de que sea necesario.</string>
+
 
     <string name="add_reg_pressure_date">Fecha</string>
     <string name="add_reg_pressure_value">Valor de Presion Arterial</string>
@@ -55,6 +80,12 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
+
+
+
+
+
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

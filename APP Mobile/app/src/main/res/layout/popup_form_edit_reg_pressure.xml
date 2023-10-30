@@ -6,8 +6,8 @@
 
     <LinearLayout
         android:id="@+id/layout_edit_reg_pressure"
-        android:layout_width="362dp"
-        android:layout_height="450dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
@@ -18,8 +18,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
             android:text="@string/add_reg_pressure_date"
-            android:textSize="20sp" />
+            android:textColor="@color/blueonedrop"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edit_date_pressure"
@@ -38,8 +41,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
             android:paddingTop="30dp"
-            android:text="@string/add_reg_pressure_value" />
+            android:text="@string/add_reg_pressure_value"
+            android:textColor="@color/blueonedrop"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edit_value_pressure"
@@ -58,9 +65,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
             android:paddingTop="30dp"
             android:text="@string/add_reg_weight_notes"
-            android:textSize="20sp" />
+            android:textColor="@color/blueonedrop"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edit_notes_pressure"
