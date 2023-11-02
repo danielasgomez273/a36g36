@@ -74,8 +74,12 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_how_to_reg_24"
                 android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:hint="@string/f_m_last_name"
-                android:padding="0dp" />
+                android:padding="0dp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/signup_last_name"
@@ -86,8 +90,12 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_how_to_reg_24"
                 android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:hint="@string/f_m_name"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/signup_age"
@@ -98,8 +106,12 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_numbers_24"
                 android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:hint="@string/f_m_age"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/signup_birth"
@@ -110,8 +122,12 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_cake_24"
                 android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:hint="@string/f_m_birthday"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
 
             <EditText
@@ -123,8 +139,12 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_monitor_weight_24"
                 android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:hint="@string/f_m_weight"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/signup_db_type"
@@ -135,8 +155,12 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_health_and_safety_24"
                 android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:hint="@string/f_m_type_db"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/signup_db_therapy"
@@ -147,8 +171,12 @@
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_vaccines_24"
                 android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed"
                 android:hint="@string/f_m_therapy_db"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/blackonedrop"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -161,38 +189,44 @@
                 <Button
                     android:id="@+id/btn_home_profile"
                     android:layout_width="0dp"
-                    android:layout_weight="4"
                     android:layout_height="match_parent"
-                    android:backgroundTint="@color/blueonedrop2"
-                    android:layoutDirection="locale"
-                    android:onClick="toProfile"
-                    android:text="Volver"
-                    android:textSize="13sp"
-                    android:padding="0dp"
-                    android:drawableTop="@drawable/baseline_arrow_back_ios_24"
                     android:layout_gravity="center"
                     android:layout_marginEnd="40dp"
-                    android:textColor="@color/white"
+                    android:layout_weight="4"
+                    android:backgroundTint="@color/blueonedroposcuro"
+                    android:drawableTop="@drawable/baseline_arrow_back_ios_24"
                     android:drawablePadding="1dp"
-                    app:cornerRadius="10dp"/>
+                    android:drawableTint="@color/celeste_fondo"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layoutDirection="locale"
+                    android:onClick="toHome"
+                    android:padding="0dp"
+                    android:text="Volver"
+                    android:textColor="@color/celeste_fondo"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/edit_medical_data_button"
                     android:layout_width="0dp"
-                    android:layout_weight="4"
                     android:layout_height="match_parent"
-                    android:backgroundTint="@color/blueonedrop2"
-                    android:layoutDirection="locale"
-                    android:onClick="toProfile"
-                    android:text="Modificar datos"
-                    android:textSize="13sp"
-                    android:padding="0dp"
-                    android:drawableTop="@drawable/baseline_edit_note_24"
                     android:layout_gravity="center"
                     android:layout_marginStart="40dp"
+                    android:layout_weight="4"
+                    android:backgroundTint="@color/blueonedroposcuro"
+                    android:drawableTop="@drawable/baseline_edit_note_24"
                     android:drawablePadding="1dp"
-                    android:textColor="@color/white"
-                    app:cornerRadius="10dp"/>
+                    android:drawableTint="@color/celeste_fondo"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layoutDirection="locale"
+                    android:onClick="updateMedicalRecord"
+                    android:padding="0dp"
+                    android:text="Modificar datos"
+                    android:textColor="@color/celeste_fondo"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:cornerRadius="10dp" />
             </LinearLayout>
 
 

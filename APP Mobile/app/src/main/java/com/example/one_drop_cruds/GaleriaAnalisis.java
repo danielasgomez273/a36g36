@@ -32,7 +32,7 @@ public class GaleriaAnalisis extends AppCompatActivity {
 
     }
     public void toHome(View v){
-        Intent home = new Intent(this, RegGlyActivity.class);
+        Intent home = new Intent(this, RegistoAnalisis.class);
         startActivity(home);
     }
     private class AdaptadorFotos extends RecyclerView.Adapter<AdaptadorFotos.AdaptadorFotosHolder>{

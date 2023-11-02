@@ -1,0 +1,9 @@
+{
+    "id": 1,
+    "fecha_completa_factura": "2023-05-30T11:59:00-03:00",
+    "concepto_factura": "pagoosss",
+    "valor_factura": "20000.00",
+    "medio_pago_factura": "EFECTIVO",
+    "estado_pago": "pago aceptado?",
+    "carrito": 1
+}

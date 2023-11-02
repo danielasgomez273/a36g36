@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:gravity="center|top">
 
     <LinearLayout
@@ -26,20 +27,25 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="2"
+                android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:text="Fecha"
                 android:textAlignment="center"
-                android:textSize="16sp"
+                android:textSize="18dp"
+                android:textColor="@color/blackonedrop"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recycler_reg_gly_value"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:paddingEnd="20dp"
-                android:text="0.78"
+                android:text="78"
+                android:textColor="@color/blackonedrop"
+                android:textStyle="bold"
                 android:textAlignment="center"
                 android:textSize="30sp" />
 
@@ -49,11 +55,14 @@
             android:id="@+id/recycler_reg_gly_note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:paddingStart="10dp"
             android:paddingBottom="10dp"
+            android:textColor="@color/blackonedrop"
+            android:textStyle="bold"
             android:text="notas del registro..."
-            android:textSize="16sp" />
+            android:textSize="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,14 +74,17 @@
             <Button
                 android:id="@+id/recycler_btn_edit_reg_gly"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="50dp"
                 android:layout_gravity="clip_horizontal"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
-
+                android:layout_weight="1"
                 android:backgroundTint="@color/blueonedrop"
-                android:text="Editar"  />
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Editar"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/recycler_btn_delete_reg_gly"
@@ -81,8 +93,13 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/btn_delete"
-                android:text="Borrar" />
+                android:backgroundTint="@color/pinkonedrop2"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Borrar"
+                android:textColor="@color/white"
+
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

@@ -1,0 +1,130 @@
+/*  VALIDACIONES */
+/*  Nuevo Formulario  */
+/*  Colores de bordes  */
+/*
+color de fondo    
+*/
+
+:root{
+  --var-borde-normal: #1177ff;
+  --var-color-bg:#f6f6f6;
+  --var-color-error:#f66868;
+  --var-color-exito:#00bf11;
+}
+.formularioC{
+  
+  background-color:var(--var-color-bg);
+}
+
+.form-grupo{
+  height: 8rem !important;
+}
+
+
+.form-grupo-input{
+  position: relative;
+  
+  
+}
+
+.form-input{
+  width: 100%;
+  border:solid 2px transparent;
+  border-radius: .3rem;
+  height:3rem;
+  line-height: 3rem;
+  
+  
+}
+
+.form-input:focus{
+
+  width: 100%;
+  outline:none !important;
+  border:solid 2px var(--var-borde-normal) !important;
+  height:3rem;
+  
+}
+
+.botonFC{
+  padding-left: 4rem;
+  padding-right: 4rem;
+  background-color: var(--var-borde-normal) !important;
+  color: white;
+  
+}
+/*  ERROR EN INPUTS  */
+.form-input-error{
+  font-size:14px;
+  margin-bottom:0;
+  display: none;
+  
+}
+
+.form-input-error-activo{
+  display: block;
+}
+/*  MENSAJE ERROR  */
+.form-mensaje{
+  background-color: var(--var-color-error);
+  border-radius: .3rem;
+  opacity:0;
+}
+
+form-mensaje-activo{
+  opacity:1;
+}
+
+/* MENSAJE ENVIADO */
+.form-mensaje-enviado{
+  color:var(--var-color-exito);
+  font-size:14px;
+  display:none;
+  
+  
+}
+.form-mensaje-enviado-activo{
+  display:block;
+  
+}
+
+
+/*  VALIDACION FORMULARIO  */
+.form-grupo-correcto .form-validacion-estado{
+  color:var(--var-color-exito) !important;
+  opacity: 1;
+  
+}
+
+.form-grupo-incorrecto .form-validacion-estado{
+  color:var(--var-color-error) !important;
+  opacity: 1;
+  
+}
+
+.form-grupo-incorrecto .form-input{
+  border: 2px solid var(--var-color-error);
+  
+}
+
+
+.form-grupo-incorrecto .form-label{
+  color:var(--var-color-error);  
+}
+
+/* POSICION DE ICONOS FONTAWESOME */
+.form-validacion-estado{
+  position: absolute;
+  right:10px;
+  bottom:15px;
+  font-size:1.2rem;
+  opacity:0;
+  
+}
+.degradado3{
+  
+background-image:linear-gradient(360deg, #f9fdff,#edf5fc);
+}
+.color-mapa{
+backgraound-color:#edf5fc;
+}

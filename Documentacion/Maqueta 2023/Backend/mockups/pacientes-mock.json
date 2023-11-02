@@ -1,0 +1,23 @@
+
+[
+    {
+        "id": 1,
+        "nombre_paciente": "edgardo",
+        "apellido_paciente": "costa",
+        "email_paciente": "",
+        "contraseña_paciente": "123",
+        "telefono_paciente": "+5492644647572",
+        "fecha_nacimiento": "2023-05-09",
+        "sexo_paciente": "masculino"
+    },    
+    {
+        "id": 1,
+        "nombre_paciente": "edgardo",
+        "apellido_paciente": "costa",
+        "email_paciente": "",
+        "contraseña_paciente": "123",
+        "telefono_paciente": "+5492644647572",
+        "fecha_nacimiento": "2023-05-09",
+        "sexo_paciente": "masculino"
+    }
+]

@@ -34,14 +34,14 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="374dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Ingresa tus Datos"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="¡Ya casi! Completá tus datos para poder empezar a disfrutar de OneDrop"
                     android:textAlignment="center"
-                    android:textSize="24sp"
-                    android:textColor="@android:color/black"
-                    />
+                    android:textColor="@color/blackonedrop"
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -49,7 +49,6 @@
                     android:layout_marginTop="25dp"
                     android:orientation="vertical"
                     android:padding="20dp">
-
 
 
                     <EditText
@@ -61,8 +60,12 @@
                         android:background="@drawable/lavender_border"
                         android:drawableLeft="@drawable/baseline_how_to_reg_24"
                         android:drawablePadding="8dp"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint="@string/f_m_last_name"
-                        android:padding="8dp" />
+                        android:padding="8dp"
+                        android:textColor="@color/blackonedrop"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/signup_last_name"
@@ -73,8 +76,12 @@
                         android:background="@drawable/lavender_border"
                         android:drawableLeft="@drawable/baseline_how_to_reg_24"
                         android:drawablePadding="8dp"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint="@string/f_m_name"
-                        android:padding="8dp" />
+                        android:padding="8dp"
+                        android:textColor="@color/blackonedrop"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/signup_age"
@@ -85,8 +92,12 @@
                         android:background="@drawable/lavender_border"
                         android:drawableLeft="@drawable/baseline_numbers_24"
                         android:drawablePadding="8dp"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint="@string/f_m_age"
-                        android:padding="8dp" />
+                        android:padding="8dp"
+                        android:textColor="@color/blackonedrop"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/signup_birthdate"
@@ -97,8 +108,12 @@
                         android:background="@drawable/lavender_border"
                         android:drawableLeft="@drawable/baseline_cake_24"
                         android:drawablePadding="8dp"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint="@string/f_m_birthday"
-                        android:padding="8dp" />
+                        android:padding="8dp"
+                        android:textColor="@color/blackonedrop"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
 
                     <EditText
@@ -110,8 +125,12 @@
                         android:background="@drawable/lavender_border"
                         android:drawableLeft="@drawable/baseline_monitor_weight_24"
                         android:drawablePadding="8dp"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint="@string/f_m_weight"
-                        android:padding="8dp" />
+                        android:padding="8dp"
+                        android:textColor="@color/blackonedrop"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/signup_diabetes_type"
@@ -122,8 +141,12 @@
                         android:background="@drawable/lavender_border"
                         android:drawableLeft="@drawable/baseline_health_and_safety_24"
                         android:drawablePadding="8dp"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint="@string/f_m_type_db"
-                        android:padding="8dp" />
+                        android:padding="8dp"
+                        android:textColor="@color/blackonedrop"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/signup_diabetes_therapy"
@@ -134,8 +157,12 @@
                         android:background="@drawable/lavender_border"
                         android:drawableLeft="@drawable/baseline_vaccines_24"
                         android:drawablePadding="8dp"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint="@string/f_m_therapy_db"
-                        android:padding="8dp" />
+                        android:padding="8dp"
+                        android:textColor="@color/blackonedrop"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
 
                     <Button
@@ -147,7 +174,7 @@
                         android:backgroundTint="@color/blueonedrop"
                         android:onClick="submitMedicalRecord"
                         android:text="Registrarse"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
                         app:cornerRadius="30dp" />
 
 

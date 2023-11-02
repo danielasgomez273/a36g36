@@ -1,0 +1,21 @@
+
+[
+    {
+        "id": 1,
+        "nombre_servicio": "adv",
+        "descripcion_servicio": "svc x",
+        "sede_servicio": "dvac s",
+        "precio_servicio": "3515.00",
+        "comentarios_servicio": "dac",
+        "prestador": 1
+    },
+    {
+        "id": 2,
+        "nombre_servicio": "sdvc",
+        "descripcion_servicio": "sfcv",
+        "sede_servicio": "ssdvc",
+        "precio_servicio": "3.00",
+        "comentarios_servicio": "svd c",
+        "prestador": 1
+    }
+]
