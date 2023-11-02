@@ -32,7 +32,6 @@ public class UserLoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = binding.loginEmail.getText().toString();
                 String password = binding.loginPassword.getText().toString();
-
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(UserLoginActivity.this, "¡Debes completar todos los campos!", Toast.LENGTH_SHORT).show();
                 } else if (!isEmailValid(email)) {
@@ -41,7 +40,6 @@ public class UserLoginActivity extends AppCompatActivity {
                     Toast.makeText(UserLoginActivity.this, "¡Contraseña incorrecta!", Toast.LENGTH_SHORT).show();
                 } else {
                     Boolean checkCredentials = adminBD.checkEmailPassword(email, password);
-
                     if (checkCredentials) {
                         sharedPrefManager.setLoguedUser(email);
                         Toast.makeText(UserLoginActivity.this, "Login exitoso!", Toast.LENGTH_SHORT).show();
@@ -53,7 +51,6 @@ public class UserLoginActivity extends AppCompatActivity {
                 }
             }
         });
-
         binding.signupRedirectText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +59,6 @@ public class UserLoginActivity extends AppCompatActivity {
             }
         });
     }
-
     private boolean isEmailValid(String email) {
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         Pattern pattern = Pattern.compile(emailPattern);

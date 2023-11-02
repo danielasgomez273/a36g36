@@ -48,8 +48,6 @@ public class RegistoAnalisis extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap bitmap1=(Bitmap)extras.get("data");
             iv1.setImageBitmap(bitmap1);
-
-
             // ahora para grabar la imagen en la memoria interna hacemos
             try{
                 // la foto va a tener como nombre la fecha y hora

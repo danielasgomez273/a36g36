@@ -56,7 +56,7 @@ public class Home extends AppCompatActivity {
             startActivity(loginIntent);
             finish(); // Cierra la actividad actual
         } else {
-            textView_welcome.setText("Bienvenido, " + loggedUsername + " a");
+            textView_welcome.setText("Bienvenido, " + loggedUsername + " !");
         }
 
         filesManager = new FilesManager(getApplicationContext(), this);
